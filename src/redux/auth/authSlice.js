@@ -8,22 +8,11 @@ import {
 import { toast } from 'react-toastify';
 
 export const authSlice = createSlice({
-<<<<<<< Updated upstream
   name: 'auth',
   initialState: {
     user: {
       email: '',
       name: '',
-=======
-    name: 'auth',
-    initialState: {
-        user: {
-            email: '',
-            name: '',
-        },
-        token:'',
-        isLogged: true,
->>>>>>> Stashed changes
     },
     token: '',
     isLogged: true,

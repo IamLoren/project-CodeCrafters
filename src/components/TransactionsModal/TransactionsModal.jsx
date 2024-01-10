@@ -18,7 +18,10 @@ import { Select } from 'antd';
 import Button from '../Button/Button.jsx';
 import AccentButton from 'components/AccentButton/AccentButton.jsx';
 import { DatePicker, Space } from 'antd';
-import type { DatePickerProps } from 'antd';
+const onChange = (date, dateString) => {
+  console.log(date, dateString);
+};
+
 
 const modalRootElement = document.getElementById('modal'); //portal modal
 // console.log(modalRootElement);
@@ -31,10 +34,6 @@ const TransactionsModal = () => {
       modalRootElement.removeChild(element);
     };
   }); //portal modal
-
-  const onChange: DatePickerProps['onChange'] = (date, dateString) => {
-    console.log(date, dateString);
-  };
 
   return createPortal(
     <TransactionsModalWindow>
@@ -50,7 +49,6 @@ const TransactionsModal = () => {
         </button>
 
         <ModalBody>
-          {/* <label>Type:</label> */}
           {/* <TransactionType>
         <option disabled>Select a category</option>
           <option value="income">Income</option>
@@ -100,9 +98,10 @@ const TransactionsModal = () => {
             <TransactionAmount type="number" placeholder="0.00" required />
 
             {/* <TransactionDate type="date" required /> */}
-            <Space direction="vertical">
-              <DatePicker placeholder="Select date" onChange={onChange} />
-            </Space>
+            <Space direction="vertical" placeholder='Select date'>
+    <DatePicker onChange={onChange} />
+  </Space>
+            
           </TransactionModalSelect>
 
           <br />
