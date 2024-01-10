@@ -1,5 +1,5 @@
 import React from 'react';
-import MainLayout from 'components/MainLayout/MainLayout';
+import MainLayout from '../components/MainLayout/MainLayout';
 
 const Main = () => {
   return <MainLayout />;
