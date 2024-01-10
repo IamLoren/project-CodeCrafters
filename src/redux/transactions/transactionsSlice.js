@@ -5,7 +5,10 @@ import { fetchContactsThunk } from "./operations";
 export const transactionsSlice = createSlice({
     name: 'transactionsSlice',
     initialState: {
-      modalIsOpen: false,
+      categories: [],
+      transactionslist: [],
+      balance: 0,
+      modalIsOpen: true,
     },
     reducers: {
         
