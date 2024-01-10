@@ -35,6 +35,7 @@ export const CurrencyTbody = styled.tbody`
     color: #fbfbfb;
     font-family: Poppins;
     font-size: 16px;
+    /* font-size: 16px; */
     font-style: normal;
     font-weight: 400;
     line-height: normal;
