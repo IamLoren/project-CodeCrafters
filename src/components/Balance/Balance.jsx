@@ -1,9 +1,15 @@
-import React from 'react'
+import React from 'react';
+import { BalanceCurrent, BalanceTitle, BalanceWrapper } from './BalanceStyled';
 
 const Balance = () => {
   return (
-    <div>Balance</div>
-  )
-}
+    <>
+      <BalanceWrapper>
+        <BalanceTitle>Your balance</BalanceTitle>
+        <BalanceCurrent> &#8372; 24 000.00</BalanceCurrent>
+      </BalanceWrapper>
+    </>
+  );
+};
 
-export default Balance
+export default Balance;

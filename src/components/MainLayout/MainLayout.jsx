@@ -6,6 +6,7 @@ import Logo from 'components/Logo/Logo.jsx';
 import Currency from './Currency/Currency.jsx';
 import styled from 'styled-components';
 import Balance from 'components/Balance/Balance.jsx';
+import { SideLeft } from './MainLayoutStyled.jsx';
 
 const MainLayout = () => {
   return (
@@ -22,15 +23,15 @@ const MainLayout = () => {
       </Header>
       <main>
         <StyledContainer>
-          <div>
+          <SideLeft>
             <nav>
-            <NavLink to="/">Home</NavLink>
-            <NavLink to="/statistics">Statistics</NavLink>
-            <NavLink to="/currency">Currency</NavLink>
-          </nav>
-          <Balance />
-          <Currency />
-          </div>  
+              <NavLink to="/">Home</NavLink>
+              <NavLink to="/statistics">Statistics</NavLink>
+              <NavLink to="/currency">Currency</NavLink>
+            </nav>
+            <Balance />
+            <Currency />
+          </SideLeft>
           <Outlet />
         </StyledContainer>
       </main>
@@ -41,7 +42,6 @@ const MainLayout = () => {
 export default MainLayout;
 
 const StyledContainer = styled.div`
-
-display: flex;
-gap: 50px;
-`
+  display: flex;
+  gap: 50px;
+`;
