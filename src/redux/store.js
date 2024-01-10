@@ -1,6 +1,7 @@
 import { combineReducers, configureStore } from "@reduxjs/toolkit";
 import {transactionsReducer} from './transactions/transactionsSlice.js';
 import { authReducer } from "./auth/authSlice.js";
+import { currencyReducer } from "./currency/currencySlice.js";
 import {
     persistStore,
     persistReducer,
@@ -17,20 +18,21 @@ import {
     key: 'auth',
     version: 1,
     storage,
-    whitelist: ['token']
+    whitelist: ['token', 'currentDate']
   }
 
- const persistedReducer = persistReducer(persistConfig, authReducer)
- 
-  const rootReducer = combineReducers({
+
+const rootReducer = combineReducers({
     transactionsSlice: transactionsReducer,
-    authSlice: persistedReducer,
+    authSlice: authReducer,
+    currencySlice: currencyReducer
 })
 
 
-
+ const persistedReducer = persistReducer(persistConfig, rootReducer)
+ 
 export const store = configureStore({
-    reducer: rootReducer,
+    reducer: persistedReducer,
     middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({
       serializableCheck: {
