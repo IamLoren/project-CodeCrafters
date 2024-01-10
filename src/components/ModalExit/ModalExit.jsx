@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import { CloseButton, ModalButton, ModalButtonClose, ModalContent, ModalWrapper } from './ModalExit.styled'
+import { ModalButton, ModalButtonClose, ModalContent, ModalWrapper } from './ModalExit.styled'
 
 
 const ModalExit = ({ handleCloseModal }) => {
@@ -25,7 +25,7 @@ const ModalExit = ({ handleCloseModal }) => {
       <ModalContent >
         <h3>Money Guard</h3>
         <p>Are you sure you want to log out?</p>
-        <button >Logout</button>
+        <ModalButton>Logout</ModalButton>
         <ModalButtonClose onClick={handleCloseModal}>cancel</ModalButtonClose>
       </ModalContent>
     </ModalWrapper>
