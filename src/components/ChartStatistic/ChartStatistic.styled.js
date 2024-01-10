@@ -7,6 +7,11 @@ position: relative;
 p{
   position: absolute;
   top: 120px;
-  left: 100px;
+  left: 96px;
+  /* font-family: Poppins; */
+font-size: 18px;
+font-style: normal;
+font-weight: 600;
+line-height: normal;
 }
 `
