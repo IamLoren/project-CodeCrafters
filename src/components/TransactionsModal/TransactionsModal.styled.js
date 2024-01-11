@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { Select } from 'antd';
 import BgModalTransaction from '../../img/Bg-trans-modal-desc.webp';
 
-export const TransactionsModalWindow = styled.div`
+export const StyledTransactionsModalBackdrop = styled.div`
   position: fixed;
   top: 0;
   right: 0;
@@ -18,7 +18,7 @@ export const TransactionsModalWindow = styled.div`
   width: 100%;
 `;
 
-export const ModalTransactionWrapper = styled.div`
+export const StyledModalTransaction = styled.div`
   position: relative;
   border-radius: 8px;
   box-shadow: 0px 4px 60px 0px var(--modal-shadow);
@@ -49,7 +49,7 @@ export const ModalTransactionWrapper = styled.div`
     cursor: pointer;
   }
 `;
-export const ModalToggleOptions = styled.div`
+export const StyledModalToggle = styled.div`
   display: flex;
   gap: 20px;
 
@@ -64,7 +64,7 @@ export const ModalToggleOptions = styled.div`
     color:#FF868D;
   } */
 `;
-export const ModalCloseBtn = styled.button`
+export const StyledModalCloseBtn = styled.button`
   position: absolute;
   right: 20px;
   top: 20px;
@@ -73,7 +73,7 @@ export const ModalCloseBtn = styled.button`
   outline: transparent;
   color: var(--white);
 `;
-export const ModalBody = styled.div`
+export const StyledModalBody = styled.div`
   /* gap: 40px; */
   border-radius: 0 0 5px 5px;
   display: flex;
@@ -85,7 +85,7 @@ input::-webkit-inner-spin-button {
   margin: 0;
 }
 `;
-export const TransactionModalSelect = styled.div`
+export const StyledTransactionModalSelect = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
@@ -103,7 +103,7 @@ export const StyledSelect = styled(Select)`
   border-bottom: 1px solid var(--modal-input-underline);
   //
 `;
-export const TransactionAmount = styled.input`
+export const StyledTransactionAmount = styled.input`
   /* -webkit-appearance: none; */
   /* -moz-appearance: textfield; */
   width: 181px;
@@ -117,7 +117,7 @@ export const TransactionAmount = styled.input`
   border-bottom: 1px solid var(--modal-input-underline);
 `;
 
-export const TransactionComment = styled.textarea`
+export const StyledTransactionComment = styled.textarea`
   width: 394px;
   height: 35px;
   margin-bottom: 40px;
@@ -132,7 +132,7 @@ export const TransactionComment = styled.textarea`
     margin-bottom: 8px;
   }
 `;
-export const TransactionButtonsWrapper = styled.div`
+export const StyledTransactionButtonsWrapper = styled.div`
   display: flex;
   flex-direction: column;
   gap: 20px;
