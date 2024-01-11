@@ -1,9 +1,45 @@
-import React from 'react'
+import React from 'react';
+import {
+  InputBox,
+  StyledBtn,
+  StyledForm,
+  StyledInput,
+  StyledNavLink,
+  StyledSection,
+} from './LoginForm.styled';
 
 const LoginForm = () => {
   return (
-    <div>LoginForm</div>
-  )
-}
+    <StyledSection>
+      <StyledForm>
+        <h1>Money Guard</h1>
+        <InputBox>
+          <div>
+            <StyledInput
+              type="text"
+              name="email"
+              id="email_reg"
+              placeholder="E-mail"
+              required
+            />
+          </div>
+          <div>
+            <StyledInput
+              type="text"
+              name="password"
+              id="password_reg"
+              placeholder="Password"
+              required
+            />
+          </div>
+        </InputBox>
+        <StyledBtn type="submit">Log in</StyledBtn>
+        <>
+          <StyledNavLink to="/register">Register</StyledNavLink>
+        </>
+      </StyledForm>
+    </StyledSection>
+  );
+};
 
-export default LoginForm
+export default LoginForm;
