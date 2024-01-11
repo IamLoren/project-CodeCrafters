@@ -1,9 +1,24 @@
-import React from 'react'
+import React from 'react';
+import {
+  Dropdown,
+  DropdownContent,
+  DropdownMonth,
+  StatisticsTitle,
+} from './StatisticsStyled';
 
 const Statistics = () => {
   return (
-    <div>Statistics</div>
-  )
-}
+    <>
+      <StatisticsTitle>Statistics</StatisticsTitle>
 
-export default Statistics
+      <DropdownMonth>
+        January
+        <DropdownContent>
+          <>February</>
+        </DropdownContent>
+      </DropdownMonth>
+    </>
+  );
+};
+
+export default Statistics;
