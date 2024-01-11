@@ -1,9 +1,12 @@
-import React from 'react'
+import React from 'react';
+import { Switch } from 'antd';
+
+const onChange = checked => {
+  console.log(`switch to ${checked}`);
+};
 
 const Toggle = () => {
-  return (
-    <div>Toggle</div>
-  )
-}
+  return <Switch defaultChecked onChange={onChange} />;
+};
 
-export default Toggle
+export default Toggle;

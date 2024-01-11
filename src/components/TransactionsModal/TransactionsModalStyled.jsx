@@ -17,6 +17,7 @@ export const TransactionsModalWindow = styled.div`
 `;
 
 export const ModalWrapper = styled.div`
+position: relative;
   border-radius: 8px;
   box-shadow: 0px 4px 60px 0px rgba(0, 0, 0, 0.25);
   backdrop-filter: blur(50px);
@@ -38,6 +39,7 @@ export const ModalWrapper = styled.div`
     font-weight: 400;
   }
   button {
+    
     float: right;
     padding: 6px 10px;
     background-color: #ccc;

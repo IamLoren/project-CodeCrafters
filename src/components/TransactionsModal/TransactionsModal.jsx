@@ -18,6 +18,8 @@ import { Select } from 'antd';
 import Button from '../Button/Button.jsx';
 import AccentButton from 'components/AccentButton/AccentButton.jsx';
 import { DatePicker, Space } from 'antd';
+import { AiOutlineClose } from 'react-icons/ai';
+
 const onChange = (date, dateString) => {
   console.log(date, dateString);
 };
@@ -44,7 +46,7 @@ const TransactionsModal = () => {
             document.querySelector('TransactionsModal').style.display = 'none';
           }}
         >
-          Close
+          <AiOutlineClose size='16'/>
         </button>
 
         <ModalBody>
