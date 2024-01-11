@@ -7,7 +7,6 @@ import { modalIsOpen } from '../../redux/selectors.js';
 import { AiOutlinePlus } from 'react-icons/ai';
 import { StyledHomeModalOpenBtn } from './HomeStyled.jsx';
 
-
 const Home = () => {
   const isModalOpen = useSelector(modalIsOpen);
   const dispatch = useDispatch();
@@ -15,9 +14,7 @@ const Home = () => {
   return (
     <>
       <TransactionsList />
-      {isModalOpen && (
-      <TransactionsModal />
-      )}
+      {isModalOpen && <TransactionsModal />}
       <StyledHomeModalOpenBtn
         onClick={() => {
           dispatch(changeModalIsOpen(true));
@@ -25,7 +22,6 @@ const Home = () => {
       >
         <AiOutlinePlus size="24" />
       </StyledHomeModalOpenBtn>
-      
     </>
   );
 };

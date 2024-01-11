@@ -2,7 +2,7 @@ import React, { useEffect, useMemo } from 'react';
 import { createPortal } from 'react-dom';
 import {
   TransactionsModalWindow,
-  ModalWrapper,
+  ModalTransactionWrapper,
   ModalBody,
   TransactionAmount,
   TransactionComment,
@@ -13,7 +13,7 @@ import {
   StyledSelect,
 } from './TransactionsModalStyled.jsx';
 import Toggle from 'components/Toggle/Toggle';
-// import { Select } from 'antd';
+import { Select } from 'antd';
 import Button from '../Button/Button.jsx';
 import AccentButton from 'components/AccentButton/AccentButton.jsx';
 import { DatePicker, Space } from 'antd';
@@ -42,10 +42,29 @@ const TransactionsModal = () => {
 
   const dispatch = useDispatch();
 
+  // close backdrop & esc
+
+  const clickBackdrop = e => {
+    if (e.target === e.currentTarget) {
+      dispatch(changeModalIsOpen(false));
+    }
+  };
+  useEffect(() => {
+    const handleKeyDown = e => {
+      if (e.key === 'Escape') {
+        dispatch(changeModalIsOpen(false));
+      }
+    };
+    document.addEventListener('keydown', handleKeyDown);
+
+    return () => document.removeEventListener('keydown', handleKeyDown);
+  }, [dispatch]);
+  //
+
   return createPortal(
     isModalOpen && (
-      <TransactionsModalWindow open={isModalOpen}>
-        <ModalWrapper>
+      <TransactionsModalWindow open={isModalOpen} onClick={clickBackdrop}>
+        <ModalTransactionWrapper>
           <h2>Add transaction</h2>
           <ModalToggleOptions>
             <p>Income</p>
@@ -119,7 +138,7 @@ const TransactionsModal = () => {
               <AccentButton title="Cancel" />
             </TransactionButtonsWrapper>
           </ModalBody>
-        </ModalWrapper>
+        </ModalTransactionWrapper>
       </TransactionsModalWindow>
     ),
     element
