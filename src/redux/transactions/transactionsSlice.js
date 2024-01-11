@@ -7,7 +7,7 @@ export const transactionsSlice = createSlice({
     initialState: {
       categories: [],
       transactionslist: [],
-      balance: 0,
+      balance: 0, //записує
       modalIsOpen: true,
     },
     reducers: {
