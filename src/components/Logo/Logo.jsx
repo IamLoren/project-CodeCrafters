@@ -1,8 +1,11 @@
 import React from 'react'
 
+
 const Logo = () => {
   return (
-    <div>Logo</div>
+    <div><a href="/" >
+      <span class="boutique-logo">Money Guard</span>
+    </a></div>
   )
 }
 
