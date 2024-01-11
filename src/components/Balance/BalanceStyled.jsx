@@ -23,3 +23,7 @@ export const BalanceCurrent = styled.p`
   font-size: 30px;
   font-weight: 700;
 `;
+
+export const MoneySymbol = styled.span`
+  font-weight: 400;
+`;
