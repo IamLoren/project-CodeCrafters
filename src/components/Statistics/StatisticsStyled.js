@@ -11,7 +11,15 @@ export const StatisticsTitle = styled.h2`
   weight: 280px;
   height: 900px;
 `;
-export const DropdownMonth = styled.button`
+export const StatisticsWrap = styled.div`
+  display: flex;
+  gap: 32px;
+  width: 395px;
+  height: 50px;
+
+  margin-bottom: 20px;
+`;
+export const Dropdown = styled.select`
   width: 182px;
   height: 50px;
   flex-shrink: 0;
@@ -22,16 +30,14 @@ export const DropdownMonth = styled.button`
   color: var(--white, #fbfbfb);
   font-family: Poppins;
   font-size: 16px;
-  font-style: normal;
   font-weight: 400;
-  line-height: normal;
 `;
-export const Dropdown = styled.div`
-  position: relative;
-  display: inline-block;
-`;
+// export const Dropdown = styled.div`
+//   position: relative;
+//   display: inline-block;
+// `;
 
-export const DropdownContent = styled.div`
+export const DropdownContent = styled.option`
   display: none;
   position: absolute;
   width: 182px;
@@ -60,11 +66,5 @@ export const DropdownContent = styled.div`
   line-height: normal;
   &:hover: {
     color: #ff868d;
-  }
-  &:a {
-    color: black;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
   }
 `;
