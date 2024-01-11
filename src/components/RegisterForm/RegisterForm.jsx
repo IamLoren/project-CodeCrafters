@@ -6,6 +6,9 @@ import {
   StyledNavLink,
   StyledSection,
 } from 'components/LoginForm/LoginForm.styled';
+import { IoMdLock } from 'react-icons/io';
+import { MdEmail } from 'react-icons/md';
+import { FaUser } from 'react-icons/fa6';
 
 const RegisterForm = () => {
   return (
@@ -14,6 +17,7 @@ const RegisterForm = () => {
         <h1>Money Guard</h1>
         <InputBox>
           <div>
+            <FaUser className="icon" />
             <StyledInput
               type="text"
               name="name"
@@ -23,6 +27,7 @@ const RegisterForm = () => {
             />
           </div>
           <div>
+            <MdEmail className="icon" />
             <StyledInput
               type="text"
               name="email"
@@ -32,6 +37,7 @@ const RegisterForm = () => {
             />
           </div>
           <div>
+            <IoMdLock className="icon" />
             <StyledInput
               type="text"
               name="password"
@@ -41,6 +47,7 @@ const RegisterForm = () => {
             />
           </div>
           <div>
+            <IoMdLock className="icon" />
             <StyledInput
               type="text"
               name="c_password"
