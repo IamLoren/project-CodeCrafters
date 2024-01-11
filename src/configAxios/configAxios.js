@@ -11,3 +11,10 @@ export const setToken = token => {
 export const clearToken = () => {
   api.defaults.headers.common.Authorization = ``;
 };
+
+// export const axiosOptions = {
+//   params: {
+//     month: 1,
+//     year: 2024,
+//   },
+// };

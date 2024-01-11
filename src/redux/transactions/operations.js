@@ -1,7 +1,7 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { api } from '../../configAxios/configAxios';
 
-// запит на отримання усіх транзакцій юзера - приклад відповіді:
+// Запит на отримання усіх транзакцій юзера - приклад відповіді:
 // [
 //     {
 //         "id": "c38e8f42-81dc-41d7-89d9-af189a07f10c",
@@ -14,7 +14,6 @@ import { api } from '../../configAxios/configAxios';
 //         "userId": "64d05270-b811-47bc-b860-4f41585cb1ae"
 //     }
 // ]
-
 export const fetchAllTransactionsThunk = createAsyncThunk(
   'fetchAll',
   async (_, thunkApi) => {
@@ -28,7 +27,7 @@ export const fetchAllTransactionsThunk = createAsyncThunk(
   }
 );
 
-//Використовуємо для отримання списку категорій (далі частово) -
+//Використовуємо для отримання списку категорій (для прикладу в масиві лише 2 об'єкта різних типів) -
 // [
 //     {
 //         "id": "c9d9e447-1b83-4238-8712-edc77b18b739",
@@ -41,8 +40,8 @@ export const fetchAllTransactionsThunk = createAsyncThunk(
 //     "type": "INCOME"
 // }
 // ]
-export const fetchTransactionsСategoriesThunk = createAsyncThunk(
-  'fetchAll',
+export const fetchTransactionsCategoriesThunk = createAsyncThunk(
+  'fetchTransactionsCategories',
   async (_, thunkApi) => {
     try {
       const { data } = await api.get('/api/transaction-categories');
@@ -65,7 +64,7 @@ export const deleteTransactionThunk = createAsyncThunk(
   }
 );
 
-// для додавання транзакції потрібен об'єкт такого виду -
+// Для додавання транзакції потрібен об'єкт такого виду -
 // {
 //   "transactionDate": "2024-01-10",
 //   "type": "INCOME",
@@ -74,7 +73,7 @@ export const deleteTransactionThunk = createAsyncThunk(
 //   "amount": 15000
 // }
 
-// В результаті отримуємо таку дату
+// В результаті отримуємо таку дату -
 // {
 //     "transactionDate": "2024-01-10",
 //     "type": "INCOME",
@@ -116,12 +115,46 @@ export const addTransactionThunk = createAsyncThunk(
 //     "categoryId": "063f1132-ba5d-42b4-951d-44011ca46262",
 //     "userId": "64d05270-b811-47bc-b860-4f41585cb1ae"
 // }
-
 export const editTransactionThunk = createAsyncThunk(
-  'addTransaction',
+  'editTransaction',
   async (id, transaction, thunkApi) => {
     try {
       const { data } = await api.patch(`/api/transactions/${id}`, transaction);
+      return data;
+    } catch (error) {
+      return thunkApi.rejectWithValue(error.message);
+    }
+  }
+);
+
+// Передаємо в params об'єкт з 2 параметрами: month і year -
+// params: {
+//     month: 1, (number)
+//     year: 2024, (number)
+//   }
+// Отримуємо підсумок транзакцій за період -
+// {
+//     "categoriesSummary": [
+//         {
+//             "name": "Income",
+//             "type": "INCOME",
+//             "total": 65000
+//         }
+//     ],
+//     "incomeSummary": 65000,
+//     "expenseSummary": 0,
+//     "periodTotal": 65000,
+//     "year": 2024,
+//     "month": 1
+// }
+export const fetchTransactionSummaryThunk = createAsyncThunk(
+  'fetchTransactionSummary',
+  async (params, thunkApi) => {
+    const options = {
+      params,
+    };
+    try {
+      const { data } = await api.get('/api/transactions-summary', options);
       return data;
     } catch (error) {
       return thunkApi.rejectWithValue(error.message);
