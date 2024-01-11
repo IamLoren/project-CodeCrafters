@@ -6,8 +6,8 @@ export const StyledForm = styled.form`
   justify-content: center;
   align-items: center;
 
-  max-width: 533px;
-  max-height: 624px;
+  width: 533px;
+  min-height: 624px;
   padding: 40px 62px;
 
   border-radius: 8px;
@@ -18,10 +18,6 @@ export const StyledForm = styled.form`
   h1 {
     color: rgba(251, 251, 251, 1);
     font-size: 26.963px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-    margin: 0;
   }
 `;
 
@@ -31,7 +27,6 @@ export const InputBox = styled.div`
   display: flex;
   flex-direction: column;
   row-gap: 40px;
-  padding-left: 54px;
 
   .icon {
     fill: rgba(255, 255, 255, 0.4);

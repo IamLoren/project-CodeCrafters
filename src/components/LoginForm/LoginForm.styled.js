@@ -6,8 +6,8 @@ export const StyledSection = styled.section`
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background: url(<path-to-image>),
-    lightgray -359px -0.362px / 208.13% 111.212% no-repeat;
+  /* background: url(<path-to-image>),
+    lightgray -359px -0.362px / 208.13% 111.212% no-repeat; */
 `;
 
 export const StyledForm = styled.form`
@@ -28,10 +28,6 @@ export const StyledForm = styled.form`
   h1 {
     color: rgba(251, 251, 251, 1);
     font-size: 26.963px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-    margin: 0;
   }
 `;
 
@@ -58,16 +54,11 @@ export const StyledInput = styled.input`
   background: transparent;
   border: none;
   border-bottom: 1px solid rgba(255, 255, 255, 0.4);
-  color: rgba(255, 255, 255, 0.6);
-  font-size: 18px;
+  color: var(--text-forms);
   padding-left: 54px;
 
   &::placeholder {
-    color: rgba(255, 255, 255, 0.6);
-    font-size: 18px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
+    color: var(--text-forms);
   }
 
   &:focus,
@@ -78,24 +69,21 @@ export const StyledInput = styled.input`
 
 export const StyledBtn = styled.button`
   width: 300px;
-  height: 50px;
+  min-height: 50px;
   border: none;
   outline: transparent;
-  cursor: pointer;
 
-  color: white;
+  color: var(--white);
   text-transform: uppercase;
   text-align: center;
-  font-size: 18px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: normal;
-  letter-spacing: 1.8px;
+  letter-spacing: 0.11em;
 
   border-radius: 20px;
-  background: var(
-    --button-gradient,
-    linear-gradient(97deg, #ffc727 -16.42%, #9e40ba 97.04%, #7000ff 150.71%)
+  background: linear-gradient(
+    97deg,
+    #ffc727 -16.42%,
+    #9e40ba 97.04%,
+    #7000ff 150.71%
   );
   box-shadow: 1px 9px 15px 0px rgba(0, 0, 0, 0.2);
 `;
@@ -108,17 +96,13 @@ export const StyledNavLink = styled(NavLink)`
   cursor: pointer;
   margin-top: 20px;
 
-  color: rgba(98, 63, 139, 1);
+  color: var(--text-button);
   text-transform: uppercase;
-  text-decoration: none;
   text-align: center;
-  font-size: 18px;
-  font-weight: 400;
-  line-height: normal;
-  letter-spacing: 1.8px;
+  letter-spacing: 0.11em;
 
   border-radius: 20px;
-  border: 1px solid #4a56e2;
+  border: 1px solid var(--household);
   background: #fcfcfc;
   box-shadow: 1px 9px 15px 0px rgba(0, 0, 0, 0.2);
 `;

@@ -15,7 +15,7 @@ export const authSlice = createSlice({
       name: '',
     },
     token: '',
-    isLogged: true,
+    isLogged: false,
   },
   reducers: {},
   extraReducers: builder => {
