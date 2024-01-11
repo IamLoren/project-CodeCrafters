@@ -3,7 +3,7 @@ import {
     TransactionTable,
     TransactionTbody,
     TransactionThead,
-  } from '../../TransactionTable/TransactionsList /TransactionsListStyled';
+  } from '../../TransactionTable/TransactionsList/TransactionsListStyled';
   
 import TransactionItem from './../TransactionsItem/TransactionItem'
 
