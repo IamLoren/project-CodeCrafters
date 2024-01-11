@@ -13,10 +13,10 @@ import {
   StyledSelect,
 } from './TransactionsModal.styled.js';
 import Toggle from 'components/Toggle/Toggle';
-// import { Select } from 'antd';
+import { Select } from 'antd';
 import Button from '../Button/Button.jsx';
 import AccentButton from 'components/AccentButton/AccentButton.jsx';
-import { DatePicker, Space } from 'antd';
+import { ConfigProvider, DatePicker, Space } from 'antd';
 import { AiOutlineClose } from 'react-icons/ai';
 import { modalIsOpen } from '../../redux/selectors.js';
 import { useDispatch, useSelector } from 'react-redux';
@@ -84,7 +84,17 @@ const TransactionsModal = () => {
           </StyledModalCloseBtn>
 
           <StyledModalBody>
-            <StyledSelect
+          <ConfigProvider
+  theme={{
+    components: {
+      Select: {
+        selectorBg:'#906090',
+        optionSelectedColor:'#906090'
+      },
+    },
+  }}
+>
+<Select
               showSearch
               style={{ width: 394 }}
               placeholder="Select a category"
@@ -124,6 +134,8 @@ const TransactionsModal = () => {
                 },
               ]}
             />
+</ConfigProvider>
+            
             <StyledTransactionModalSelect>
               <StyledTransactionAmount
                 type="number"
