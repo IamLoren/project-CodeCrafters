@@ -16,8 +16,17 @@ export const StatisticsWrap = styled.div`
   gap: 32px;
   width: 395px;
   height: 50px;
-
   margin-bottom: 20px;
+`;
+export const StatisticsInfoWrap = styled.div`
+  display: flex;
+  direction: column;
+`;
+export const DropsWrap = styled.div`
+display; flex;
+gap: 32px;
+width: 395px;
+height: 50px;
 `;
 export const Dropdown = styled.select`
   width: 182px;
@@ -33,13 +42,9 @@ export const Dropdown = styled.select`
   font-weight: 400;
 `;
 
-//   position: relative;
-//   display: inline-block;
-// `;
-
 export const DropdownContent = styled.option`
-  display: none;
-  position: absolute;
+  display: flex;
+  /* position: absolute; */
   width: 182px;
   height: 157px;
   border-radius: 8px;
@@ -56,14 +61,13 @@ export const DropdownContent = styled.option`
 
   box-shadow: 0px 4px 60px 0px rgba(0, 0, 0, 0.25);
   backdrop-filter: blur(50px);
-  flex-shrink: 0;
-  z-index: 1;
+  /* flex-shrink: 0;
+  z-index: 1; */
   color: var(--white, #fbfbfb);
   font-family: Poppins;
   font-size: 16px;
-  font-style: normal;
   font-weight: 400;
-  line-height: normal;
+  padding: 4px auto 4px auto 20px
   &:hover: {
     color: #ff868d;
   }
