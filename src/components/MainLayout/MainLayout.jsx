@@ -1,5 +1,7 @@
 import React from 'react';
 import { Outlet } from 'react-router-dom';
+import { IoMdHome } from 'react-icons/io';
+import { MdTimeline } from 'react-icons/md';
 import Container from '../Container/Container.jsx';
 
 import Header from 'components/Header/Header.jsx';
@@ -16,8 +18,18 @@ const MainLayout = () => {
         <StyledContainer>
           <SideLeft>
             <nav>
-              <StyledNavLink to="/"> Home</StyledNavLink>
-              <StyledNavLink to="/statistics">Statistics</StyledNavLink>
+              <StyledNavLink to="/">
+                <div>
+                  <IoMdHome size="15" />
+                </div>
+                Home
+              </StyledNavLink>
+              <StyledNavLink to="/statistics">
+                <div>
+                  <MdTimeline size="15" />
+                </div>
+                Statistics
+              </StyledNavLink>
               <StyledNavLink to="/currency">Currency</StyledNavLink>
             </nav>
             <Balance />
