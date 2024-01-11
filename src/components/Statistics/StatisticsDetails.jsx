@@ -1,5 +1,5 @@
 import React from 'react';
-import { Head, StatisticHead, Info, WrapCategories } from './StatisticsStyled';
+import { Head, StatisticHead, WrapCategories } from './StatisticsStyled';
 
 const StatisticsDetails = () => {
   const data = [
