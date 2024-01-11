@@ -63,7 +63,10 @@ const TransactionsModal = () => {
 
   return createPortal(
     isModalOpen && (
-      <StyledTransactionsModalBackdrop open={isModalOpen} onClick={clickBackdrop}>
+      <StyledTransactionsModalBackdrop
+        open={isModalOpen}
+        onClick={clickBackdrop}
+      >
         <StyledModalTransaction>
           <h2>Add transaction</h2>
           <StyledModalToggle>
@@ -73,7 +76,6 @@ const TransactionsModal = () => {
           </StyledModalToggle>
 
           <StyledModalCloseBtn
-
             onClick={() => {
               dispatch(changeModalIsOpen(false));
             }}
@@ -123,7 +125,11 @@ const TransactionsModal = () => {
               ]}
             />
             <StyledTransactionModalSelect>
-              <StyledTransactionAmount type="number" placeholder="0.00" required />
+              <StyledTransactionAmount
+                type="number"
+                placeholder="0.00"
+                required
+              />
 
               {/* <TransactionDate type="date" required /> */}
               <Space direction="vertical" placeholder="Select date">
