@@ -2,7 +2,7 @@ import React from 'react';
 import { Outlet } from 'react-router-dom';
 import { IoMdHome } from 'react-icons/io';
 import { MdTimeline } from 'react-icons/md';
-import Container from '../Container/Container.jsx';
+// import Container from '../Container/Container.jsx';
 import Header from 'components/Header/Header.jsx';
 import Currency from './Currency/Currency.jsx';
 import styled from 'styled-components';
