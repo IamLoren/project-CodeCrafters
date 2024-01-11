@@ -31,4 +31,14 @@ export const InputBox = styled.div`
   display: flex;
   flex-direction: column;
   row-gap: 40px;
+  padding-left: 54px;
+
+  .icon {
+    fill: rgba(255, 255, 255, 0.4);
+    font-size: 24px;
+
+    position: absolute;
+    transform: translateY(70%);
+    margin-left: 10px;
+  }
 `;

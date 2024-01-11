@@ -41,6 +41,15 @@ export const InputBox = styled.div`
   display: flex;
   flex-direction: column;
   row-gap: 40px;
+
+  .icon {
+    fill: rgba(255, 255, 255, 0.4);
+    font-size: 24px;
+
+    position: absolute;
+    transform: translateY(70%);
+    margin-left: 10px;
+  }
 `;
 
 export const StyledInput = styled.input`
@@ -49,6 +58,9 @@ export const StyledInput = styled.input`
   background: transparent;
   border: none;
   border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 18px;
+  padding-left: 54px;
 
   &::placeholder {
     color: rgba(255, 255, 255, 0.6);
