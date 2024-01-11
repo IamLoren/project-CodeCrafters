@@ -2,8 +2,6 @@ import Container from 'components/Container/Container';
 import Logo from 'components/Logo/Logo';
 import ModalExit from 'components/ModalExit/ModalExit';
 import React, { useEffect, useState } from 'react';
-import { NavLink } from 'react-router-dom';
-import styled from 'styled-components';
 import { StyledHeader } from './Header.styled';
 
 
