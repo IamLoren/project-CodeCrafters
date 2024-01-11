@@ -1,4 +1,4 @@
-import { CancelTransactionButton } from 'components/TransactionsModal/TransactionsModalStyled'
+import { CancelTransactionButton } from 'components/TransactionsModal/TransactionsModal.styled'
 import React from 'react'
 
 const AccentButton = ({title}) => {

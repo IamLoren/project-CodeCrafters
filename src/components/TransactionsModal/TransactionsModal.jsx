@@ -11,7 +11,7 @@ import {
   ModalCloseBtn,
   ModalToggleOptions,
   StyledSelect,
-} from './TransactionsModalStyled.jsx';
+} from './TransactionsModal.styled.js';
 import Toggle from 'components/Toggle/Toggle';
 import { Select } from 'antd';
 import Button from '../Button/Button.jsx';
