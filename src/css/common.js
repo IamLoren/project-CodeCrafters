@@ -1,4 +1,5 @@
 import { createGlobalStyle } from 'styled-components';
+import bg from '../img/Home-bg-desc.webp'
 export const Global = createGlobalStyle`
 
 h1,
@@ -34,10 +35,10 @@ body{
   font-size: 18px;
   height: 100vh;
   color: #000;
-  background: linear-gradient(
-    to left top, 
-    #6d54eb, 
-    #652392);
+  background-image: url(${bg});
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 `;
 
