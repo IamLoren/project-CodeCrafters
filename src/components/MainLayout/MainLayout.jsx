@@ -1,6 +1,6 @@
 import React from 'react';
 import { Outlet } from 'react-router-dom';
-import Container from '../Container/Container.jsx';
+// import Container from '../Container/Container.jsx';
 
 import Header from 'components/Header/Header.jsx';
 import Currency from './Currency/Currency.jsx';
