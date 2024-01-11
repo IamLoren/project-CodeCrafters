@@ -1,8 +1,13 @@
+import ChartStatistic from 'components/ChartStatistic/ChartStatistic'
 import React from 'react'
 
 const Statistics = () => {
   return (
-    <div>Statistics</div>
+    <>
+      <ChartStatistic />
+      <div>Statistics</div>
+    </>
+
   )
 }
 
