@@ -4,7 +4,6 @@ import ModalExit from 'components/ModalExit/ModalExit';
 import React, { useEffect, useState } from 'react';
 import { StyledHeader } from './Header.styled';
 
-
 export const Header = ({ children }) => {
 
   const [isOpenModal, setIsOpenModal] = useState(false);
@@ -21,7 +20,7 @@ export const Header = ({ children }) => {
   }
 
   return (<>
-    <Container>
+   <Container>
       <StyledHeader>
         <Logo />
         <div>
@@ -29,7 +28,7 @@ export const Header = ({ children }) => {
           <button onClick={handleShowModal}>Exit</button>
         </div>
       </StyledHeader>
-    </Container>
+     </Container>
     {isOpenModal ? <ModalExit handleCloseModal={handleCloseModal} /> : null}
   </>
   )
