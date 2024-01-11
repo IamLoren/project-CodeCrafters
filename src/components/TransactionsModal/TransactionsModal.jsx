@@ -1,23 +1,27 @@
 import React, { useEffect, useMemo } from 'react';
 import { createPortal } from 'react-dom';
 import {
-  TransactionsModalWindow,
-  ModalWrapper,
-  ModalBody,
-  // TransactionType,
-  TransactionAmount,
-  // TransactionDate,
-  TransactionComment,
-  // AddTransactionButton,
-  // CancelTransactionButton,
-  TransactionModalSelect,
-  TransactionButtonsWrapper,
-} from './TransactionsModalStyled.jsx';
+  StyledTransactionsModalBackdrop,
+  StyledModalTransaction,
+  StyledModalBody,
+  StyledTransactionAmount,
+  StyledTransactionComment,
+  StyledTransactionModalSelect,
+  StyledTransactionButtonsWrapper,
+  StyledModalCloseBtn,
+  StyledModalToggle,
+  StyledSelect,
+} from './TransactionsModal.styled.js';
 import Toggle from 'components/Toggle/Toggle';
-import { Select } from 'antd';
+// import { Select } from 'antd';
 import Button from '../Button/Button.jsx';
 import AccentButton from 'components/AccentButton/AccentButton.jsx';
 import { DatePicker, Space } from 'antd';
+import { AiOutlineClose } from 'react-icons/ai';
+import { modalIsOpen } from '../../redux/selectors.js';
+import { useDispatch, useSelector } from 'react-redux';
+import { changeModalIsOpen } from '../../redux/transactions/transactionsSlice.js';
+
 const onChange = (date, dateString) => {
   console.log(date, dateString);
 };
@@ -34,96 +38,116 @@ const TransactionsModal = () => {
     };
   }); //portal modal
 
+  const isModalOpen = useSelector(modalIsOpen);
+
+  const dispatch = useDispatch();
+
+  // close backdrop & esc
+
+  const clickBackdrop = e => {
+    if (e.target === e.currentTarget) {
+      dispatch(changeModalIsOpen(false));
+    }
+  };
+  useEffect(() => {
+    const handleKeyDown = e => {
+      if (e.key === 'Escape') {
+        dispatch(changeModalIsOpen(false));
+      }
+    };
+    document.addEventListener('keydown', handleKeyDown);
+
+    return () => document.removeEventListener('keydown', handleKeyDown);
+  }, [dispatch]);
+  //
+
   return createPortal(
-    <TransactionsModalWindow>
-      <ModalWrapper>
-        <h2>Add Transaction</h2>
-        <Toggle />
-        <button
-          onClick={() => {
-            document.querySelector('TransactionsModal').style.display = 'none';
-          }}
-        >
-          Close
-        </button>
+    isModalOpen && (
+      <StyledTransactionsModalBackdrop
+        open={isModalOpen}
+        onClick={clickBackdrop}
+      >
+        <StyledModalTransaction>
+          <h2>Add transaction</h2>
+          <StyledModalToggle>
+            <p>Income</p>
+            <Toggle />
+            <p>Expense</p>
+          </StyledModalToggle>
 
-        <ModalBody>
-          {/* <TransactionType>
-        <option disabled>Select a category</option>
-          <option value="income">Income</option>
-          <option value="expense">Expense</option>
-        </TransactionType> */}
-          <Select
-            showSearch
-            style={{ width: 394 }}
-            placeholder="Select a category"
-            optionFilterProp="children"
-            filterOption={(input, option) =>
-              (option?.label ?? '').includes(input)
-            }
-            filterSort={(optionA, optionB) =>
-              (optionA?.label ?? '')
-                .toLowerCase()
-                .localeCompare((optionB?.label ?? '').toLowerCase())
-            }
-            options={[
-              {
-                value: '1',
-                label: 'Main expenses',
-              },
-              {
-                value: '2',
-                label: 'Products',
-              },
-              {
-                value: '3',
-                label: 'Car',
-              },
-              {
-                value: '4',
-                label: 'Self care',
-              },
-              {
-                value: '5',
-                label: 'Child care',
-              },
-              {
-                value: '6',
-                label: 'Household products',
-              },
-            ]}
-          />
-          <TransactionModalSelect>
-            <TransactionAmount type="number" placeholder="0.00" required />
+          <StyledModalCloseBtn
+            onClick={() => {
+              dispatch(changeModalIsOpen(false));
+            }}
+          >
+            <AiOutlineClose size="24" />
+          </StyledModalCloseBtn>
 
-            {/* <TransactionDate type="date" required /> */}
-            <Space direction="vertical" placeholder="Select date">
-              <DatePicker onChange={onChange} />
-            </Space>
-          </TransactionModalSelect>
+          <StyledModalBody>
+            <StyledSelect
+              showSearch
+              style={{ width: 394 }}
+              placeholder="Select a category"
+              optionFilterProp="children"
+              filterOption={(input, option) =>
+                (option?.label ?? '').includes(input)
+              }
+              filterSort={(optionA, optionB) =>
+                (optionA?.label ?? '')
+                  .toLowerCase()
+                  .localeCompare((optionB?.label ?? '').toLowerCase())
+              }
+              options={[
+                {
+                  value: '1',
+                  label: 'Main expenses',
+                },
+                {
+                  value: '2',
+                  label: 'Products',
+                },
+                {
+                  value: '3',
+                  label: 'Car',
+                },
+                {
+                  value: '4',
+                  label: 'Self care',
+                },
+                {
+                  value: '5',
+                  label: 'Child care',
+                },
+                {
+                  value: '6',
+                  label: 'Household products',
+                },
+              ]}
+            />
+            <StyledTransactionModalSelect>
+              <StyledTransactionAmount
+                type="number"
+                placeholder="0.00"
+                required
+              />
 
-          <br />
-          <TransactionComment placeholder="Comment"></TransactionComment>
-          <br />
-          <TransactionButtonsWrapper>
-            {/* <AddTransactionButton
-          onClick={() => {
-          }}
-        >
-          Add
-        </AddTransactionButton> */}
-            <Button title="Add" />
-            {/* <CancelTransactionButton
-          onClick={() => {
-          }}
-        >
-          Cancel
-        </CancelTransactionButton> */}
-            <AccentButton title="Cancel" />
-          </TransactionButtonsWrapper>
-        </ModalBody>
-      </ModalWrapper>
-    </TransactionsModalWindow>,
+              {/* <TransactionDate type="date" required /> */}
+              <Space direction="vertical" placeholder="Select date">
+                <DatePicker onChange={onChange} />
+              </Space>
+            </StyledTransactionModalSelect>
+
+            <br />
+            <StyledTransactionComment placeholder="Comment"></StyledTransactionComment>
+            <br />
+            <StyledTransactionButtonsWrapper>
+              <Button title="Add" />
+              <AccentButton title="Cancel" />
+            </StyledTransactionButtonsWrapper>
+          </StyledModalBody>
+        </StyledModalTransaction>
+      </StyledTransactionsModalBackdrop>
+    ),
     element
   );
 };

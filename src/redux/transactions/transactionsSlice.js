@@ -8,9 +8,13 @@ export const transactionsSlice = createSlice({
     categories: [],
     transactionslist: [],
     balance: 0, // записати з поля data.balanceAfter останнього обєкта із [transactionslist]
-    modalIsOpen: true,
+    modalIsOpen: false,
   },
-  reducers: {},
+  reducers: {
+    changeModalIsOpen: (state, { payload }) => {
+      state.modalIsOpen = payload;
+    },
+  },
   extraReducers: builder => {
     builder.addCase(
       fetchAllTransactionsThunk.fulfilled,
@@ -23,3 +27,4 @@ export const transactionsSlice = createSlice({
 });
 
 export const transactionsReducer = transactionsSlice.reducer;
+export const { changeModalIsOpen } = transactionsSlice.actions;

@@ -1,13 +1,31 @@
 :root {
   --white: #fbfbfb;
-  --icon-violet: #734AEF;
+  --icon-violet: #734aef;
 
-  --button-gradient: linear-gradient(167deg,#ffc727 0%,#9e40ba 61.46%,#7000ff 90.54%);
+  --button-gradient: linear-gradient(
+    167deg,
+    #ffc727 0%,
+    #9e40ba 61.46%,
+    #7000ff 90.54%
+  );
   --text-button: #623f8b;
-  --text-forms: rgba(255, 255, 255, 0.60);
+  --text-forms: rgba(255, 255, 255, 0.6);
 
   --income-color: #ffb627;
   --expenses-color: #ff868d;
+
+  --modal-backdrop: rgba(34, 13, 91, 0.23);
+  --modal-shadow: rgba(0, 0, 0, 0.25);
+  --modal-background: rgba(255, 255, 255, 0.1);
+  --modal-input-underline: rgba(255, 255, 255, 0.4);
+  --modal-button-shadow: rgba(0, 0, 0, 0.2);
+  --modal-accent-white: #fff;
+  --modal-button-gradient: linear-gradient(
+    97deg,
+    #ffc727 -16.42%,
+    #9e40ba 97.04%,
+    #7000ff 150.71%
+  );
 
   /* кольори груп транзакцій для статистики */
   --main-expenses: #fed057;
@@ -19,4 +37,5 @@
   --education: #81e1ff;
   --leisure: #24cca7;
   --other-expenses: #00ad84;
+  
 }
