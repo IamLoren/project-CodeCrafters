@@ -22,7 +22,6 @@ const onChange = (date, dateString) => {
   console.log(date, dateString);
 };
 
-
 const modalRootElement = document.getElementById('modal'); //portal modal
 // console.log(modalRootElement);
 const TransactionsModal = () => {
@@ -98,10 +97,9 @@ const TransactionsModal = () => {
             <TransactionAmount type="number" placeholder="0.00" required />
 
             {/* <TransactionDate type="date" required /> */}
-            <Space direction="vertical" placeholder='Select date'>
-    <DatePicker onChange={onChange} />
-  </Space>
-            
+            <Space direction="vertical" placeholder="Select date">
+              <DatePicker onChange={onChange} />
+            </Space>
           </TransactionModalSelect>
 
           <br />
