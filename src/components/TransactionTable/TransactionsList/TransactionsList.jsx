@@ -3,9 +3,9 @@ import {
     TransactionTable,
     TransactionTbody,
     TransactionThead,
-  } from '../../TransactionTable/TransactionsList/TransactionsListStyled';
+  } from './TransactionsListStyled';
   
-import TransactionItem from './../TransactionsItem/TransactionItem'
+import TransactionItem from '../TransactionsItem/TransactionItem'
 
 
 const TransactionsList = () => {
