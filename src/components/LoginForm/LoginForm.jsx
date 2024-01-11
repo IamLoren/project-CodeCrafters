@@ -7,6 +7,8 @@ import {
   StyledNavLink,
   StyledSection,
 } from './LoginForm.styled';
+import { MdEmail } from 'react-icons/md';
+import { IoMdLock } from 'react-icons/io';
 
 const LoginForm = () => {
   return (
@@ -15,6 +17,7 @@ const LoginForm = () => {
         <h1>Money Guard</h1>
         <InputBox>
           <div>
+            <MdEmail className="icon" />
             <StyledInput
               type="text"
               name="email"
@@ -24,6 +27,7 @@ const LoginForm = () => {
             />
           </div>
           <div>
+            <IoMdLock className="icon" />
             <StyledInput
               type="text"
               name="password"

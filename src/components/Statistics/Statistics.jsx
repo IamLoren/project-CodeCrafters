@@ -1,29 +1,26 @@
 import React from 'react';
 import {
-  Dropdown,
-  DropdownContent,
+  StatisticsInfoWrap,
   StatisticsTitle,
-  StatisticsWrap,
+  StatisticsChart,
+  Wrap,
 } from './StatisticsStyled';
+import ChartStatistic from '../ChartStatistic/ChartStatistic';
+import StatisticsDetails from './StatisticsDetails';
+import StatisticsDate from './StatisticsDate';
 
 const Statistics = () => {
   return (
-    <>
-      <StatisticsTitle>Statistics</StatisticsTitle>
-      <StatisticsWrap>
-        <Dropdown id="month" name="month" defaultValue="January">
-          <DropdownContent value="January">January</DropdownContent>
-          <DropdownContent value="February">February</DropdownContent>
-          <DropdownContent value="March">March</DropdownContent>
-        </Dropdown>
-        <Dropdown id="year" name="year" defaultValue="2023">
-          <DropdownContent value="2021">2021</DropdownContent>
-          <DropdownContent value="2022">2022</DropdownContent>
-          <DropdownContent value="2023">2023</DropdownContent>
-        </Dropdown>
-      </StatisticsWrap>
-    </>
+    <Wrap>
+      <StatisticsChart>
+        <StatisticsTitle>Statistics</StatisticsTitle>
+        <ChartStatistic />
+      </StatisticsChart>
+      <StatisticsInfoWrap>
+        <StatisticsDate />
+        <StatisticsDetails />
+      </StatisticsInfoWrap>
+    </Wrap>
   );
 };
-
 export default Statistics;
