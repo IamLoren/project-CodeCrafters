@@ -20,7 +20,7 @@ import { DatePicker, Space } from 'antd';
 import { AiOutlineClose } from 'react-icons/ai';
 import { modalIsOpen } from '../../redux/selectors.js';
 import { useDispatch, useSelector } from 'react-redux';
-import {changeModalIsOpen} from '../../redux/transactions/transactionsSlice.js';
+import { changeModalIsOpen } from '../../redux/transactions/transactionsSlice.js';
 
 const onChange = (date, dateString) => {
   console.log(date, dateString);
@@ -42,7 +42,6 @@ const TransactionsModal = () => {
 
   const dispatch = useDispatch();
 
-
   return createPortal(
     isModalOpen && (
       <TransactionsModalWindow open={isModalOpen}>
@@ -54,7 +53,11 @@ const TransactionsModal = () => {
             <p>Expense</p>
           </ModalToggleOptions>
 
-          <ModalCloseBtn onClick={() => {dispatch(changeModalIsOpen(false))}}>
+          <ModalCloseBtn
+            onClick={() => {
+              dispatch(changeModalIsOpen(false));
+            }}
+          >
             <AiOutlineClose size="24" />
           </ModalCloseBtn>
 

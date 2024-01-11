@@ -8,7 +8,7 @@ export const transactionsSlice = createSlice({
     categories: [],
     transactionslist: [],
     balance: 0, // записати з поля data.balanceAfter останнього обєкта із [transactionslist]
-    modalIsOpen: true,
+    modalIsOpen: false,
   },
   reducers: {
     changeModalIsOpen: (state, { payload }) => {
