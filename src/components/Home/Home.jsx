@@ -7,7 +7,7 @@ const Home = () => {
     <>
     <div>Home</div>
     <TransactionsList/>
-   <TransactionsModal/> 
+{/*    <TransactionsModal/>  */}
     </>
     
   )
