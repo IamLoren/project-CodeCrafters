@@ -6,7 +6,6 @@ import { StyledHeader } from './Header.styled';
 import { selectUserName } from '../../redux/selectors';
 import { useSelector } from 'react-redux';
 
-
 export const Header = ({ children }) => {
 
   const [isOpenModal, setIsOpenModal] = useState(false);
@@ -24,7 +23,7 @@ export const Header = ({ children }) => {
   }
 
   return (<>
-    <Container>
+   <Container>
       <StyledHeader>
         <Logo />
         < >

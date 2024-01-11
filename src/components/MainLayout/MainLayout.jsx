@@ -2,12 +2,11 @@ import React from 'react';
 import { Outlet } from 'react-router-dom';
 import { IoMdHome } from 'react-icons/io';
 import { MdTimeline } from 'react-icons/md';
-// import Container from '../Container/Container.jsx';
 import Header from 'components/Header/Header.jsx';
 import Currency from './Currency/Currency.jsx';
-import styled from 'styled-components';
 import Balance from 'components/Balance/Balance.jsx';
 import { SideLeft, StyledNavLink } from './MainLayoutStyled.jsx';
+import { StyledContainer } from 'components/Container/Container.styled.js';
 
 const MainLayout = () => {
   return (
@@ -15,7 +14,8 @@ const MainLayout = () => {
       <Header />
       <main>
         <StyledContainer>
-          <SideLeft>
+          <div className='flex-container'>
+            <SideLeft>
             <nav>
               <StyledNavLink to="/">
                 <div>
@@ -35,6 +35,8 @@ const MainLayout = () => {
             <Currency />
           </SideLeft>
           <Outlet />
+          </div>
+          
         </StyledContainer>
       </main>
     </>
@@ -43,7 +45,3 @@ const MainLayout = () => {
 
 export default MainLayout;
 
-const StyledContainer = styled.div`
-  display: flex;
-  gap: 50px;
-`;
