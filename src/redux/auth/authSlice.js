@@ -1,6 +1,11 @@
-import { createSlice } from "@reduxjs/toolkit";
-import { loginThunk, logoutThunk, refreshThunk, registerThunk } from "./operations";
-import { toast } from "react-toastify";
+import { createSlice } from '@reduxjs/toolkit';
+import {
+  loginThunk,
+  logoutThunk,
+  refreshThunk,
+  registerThunk,
+} from './operations';
+import { toast } from 'react-toastify';
 
 export const authSlice = createSlice({
     name: 'auth',
@@ -45,4 +50,4 @@ export const authSlice = createSlice({
     }
 })
 
-export const authReducer = authSlice.reducer
+export const authReducer = authSlice.reducer;

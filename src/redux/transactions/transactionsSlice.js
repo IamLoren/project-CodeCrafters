@@ -1,22 +1,25 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice } from '@reduxjs/toolkit';
 // import { toast } from "react-toastify";
-import { fetchContactsThunk } from "./operations";
+import { fetchAllTransactionsThunk } from './operations';
 
 export const transactionsSlice = createSlice({
-    name: 'transactionsSlice',
-    initialState: {
-      modalIsOpen: false,
-    },
-    reducers: {
-        
-    },
-    extraReducers: builder => {
-        builder.addCase(fetchContactsThunk.fulfilled, (state, {payload}) => {
-            state.contacts.items = payload;
-            state.contacts.isLoading = false;
-          })
-    }
-})
+  name: 'transactionsSlice',
+  initialState: {
+    categories: [],
+    transactionslist: [],
+    balance: 0, // записати з поля data.balanceAfter останнього обєкта із [transactionslist]
+    modalIsOpen: true,
+  },
+  reducers: {},
+  extraReducers: builder => {
+    builder.addCase(
+      fetchAllTransactionsThunk.fulfilled,
+      (state, { payload }) => {
+        state.contacts.items = payload;
+        state.contacts.isLoading = false;
+      }
+    );
+  },
+});
 
-export const transactionsReducer = transactionsSlice.reducer
-
+export const transactionsReducer = transactionsSlice.reducer;
