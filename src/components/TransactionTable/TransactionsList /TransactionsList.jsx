@@ -9,7 +9,7 @@ import TransactionItem from './../TransactionsItem/TransactionItem'
 
 
 const TransactionsList = () => {
-  const [transactions, setTransactions] = useState([
+  const [transactions /*, setTransactions*/] = useState([
     {
       date: "04.01.24",
       type: "-",
