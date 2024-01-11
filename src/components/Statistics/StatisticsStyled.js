@@ -68,3 +68,9 @@ export const DropdownContent = styled.option`
     color: #ff868d;
   }
 `;
+
+export const Wrap = styled.div`
+  display: flex;
+  width: 395px;
+  height: 607px;
+`;

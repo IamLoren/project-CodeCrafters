@@ -1,9 +1,9 @@
 import React from 'react';
 import {
   Dropdown,
-  StatisticsWrap,
   DropdownContent,
   StatisticsTitle,
+  StatisticsWrap,
 } from './StatisticsStyled';
 
 const Statistics = () => {
