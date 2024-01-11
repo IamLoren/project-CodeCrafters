@@ -1,5 +1,5 @@
 import React from 'react';
-import { Wrap } from './StatisticsStyled';
+import { Head, StatisticHead, Info, WrapCategories } from './StatisticsStyled';
 
 const StatisticsDetails = () => {
   const data = [
@@ -14,11 +14,11 @@ const StatisticsDetails = () => {
     { i: 9, category: 'Other expenses', sum: 610.0, color: '#00AD84' },
   ];
   return (
-    <Wrap>
-      <div>
-        <p>Category</p>
-        <p>Sum</p>
-      </div>
+    <WrapCategories>
+      <StatisticHead>
+        <Head>Category</Head>
+        <Head>Sum</Head>
+      </StatisticHead>
       <ul>
         {data.map(item => (
           <li key={item.i}>
@@ -27,10 +27,10 @@ const StatisticsDetails = () => {
             <p>{item.sum.toFixed(2)}</p>
           </li>
         ))}
+        <li>Expenses:</li> <span>22549.24</span>
+        <li>Income:</li> <span>27350.00</span>
       </ul>
-      <p>Expenses:</p> <span>22549.24</span>
-      <p>Income:</p> <span>27350.00</span>
-    </Wrap>
+    </WrapCategories>
   );
 };
 

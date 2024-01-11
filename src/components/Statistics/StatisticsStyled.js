@@ -1,32 +1,22 @@
 import styled from 'styled-components';
 
-export const StatisticsTitle = styled.h2`
-  color: #fbfbfb;
-  text-align: center;
-  font-family: Poppins;
+export const StatisticsTitle = styled.h3`
+  color: var(--white);
+  font-family: 'Poppins Regular';
   font-size: 30px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: normal;
-  weight: 280px;
-  height: 900px;
 `;
-export const StatisticsWrap = styled.div`
+export const StatisticsChart = styled.div`
   display: flex;
-  gap: 32px;
-  width: 395px;
-  height: 50px;
-  margin-bottom: 20px;
+  flex-direction: column;
+  gap: 20px;
 `;
 export const StatisticsInfoWrap = styled.div`
   display: flex;
-  direction: column;
+  flex-direction: column;
 `;
 export const DropsWrap = styled.div`
-display; flex;
-gap: 32px;
-width: 395px;
-height: 50px;
+  display: flex;
+  gap: 32px;
 `;
 export const Dropdown = styled.select`
   width: 182px;
@@ -36,15 +26,15 @@ export const Dropdown = styled.select`
   border: 1px solid var(--white-60, rgba(255, 255, 255, 0.6));
   background: rgba(74, 86, 226, 0.1);
   cursor: pointer;
+  padding-left: 20px;
+  padding-right: 20px;
   color: var(--white, #fbfbfb);
-  font-family: Poppins;
+  font-family: 'Poppins Regular';
   font-size: 16px;
-  font-weight: 400;
 `;
 
 export const DropdownContent = styled.option`
   display: flex;
-  /* position: absolute; */
   width: 182px;
   height: 157px;
   border-radius: 8px;
@@ -61,20 +51,44 @@ export const DropdownContent = styled.option`
 
   box-shadow: 0px 4px 60px 0px rgba(0, 0, 0, 0.25);
   backdrop-filter: blur(50px);
-  /* flex-shrink: 0;
-  z-index: 1; */
   color: var(--white, #fbfbfb);
-  font-family: Poppins;
+  font-family: 'Poppins Regular';
   font-size: 16px;
-  font-weight: 400;
-  padding: 4px auto 4px auto 20px
+  padding: 4px auto 4px 20px;
   &:hover: {
     color: #ff868d;
   }
 `;
 
 export const Wrap = styled.div`
+  width: 800px;
+  display: flex;
+  flex-direction: row;
+  gap: 32px;
+  padding: 32px 16px 46px 69px;
+`;
+
+export const WrapCategories = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
+
+export const StatisticHead = styled.div`
   display: flex;
   width: 395px;
-  height: 607px;
+  height: 56px;
+  border-radius: 8px;
+  background: rgba(82, 59, 126, 0.6);
+  font-family: 'Poppins SemiBold';
+  justify-content: space-between;
+  padding: 16px;
+
+  box-shadow: 0px 4px 60px 0px rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(50px);
+`;
+export const Head = styled.p`
+  color: var(--white);
+`;
+export const Info = styled.p`
+  display: block;
 `;
