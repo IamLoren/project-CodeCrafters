@@ -34,7 +34,10 @@ body{
   font-size: 18px;
   height: 100vh;
   color: #000;
-  background: linear-gradient(to left top, #6D54EB, #652392);
+  background: linear-gradient(
+    to left top, 
+    #6d54eb, 
+    #652392);
 }
 `;
 
