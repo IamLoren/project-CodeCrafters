@@ -1,0 +1,23 @@
+:root {
+  --white: #fbfbfb;
+  --icon-violet: #734AEF;
+
+  --button-gradient: linear-gradient(167deg,#ffc727 0%,#9e40ba 61.46%,#7000ff 90.54%);
+  --text-button: #623f8b;
+  --text-forms: rgba(255, 255, 255, 0.60);
+
+  --income-color: #ffb627;
+  --expenses-color: #ff868d;
+
+  /* кольори груп транзакцій для статистики */
+  --main-expenses: #fed057;
+  --products: #ffd8d0;
+  --car: #fd9498;
+  --self-care: #c5baff;
+  --child-care: #6e78e8;
+  --household: #4a56e2;
+  --education: #81e1ff;
+  --leisure: #24cca7;
+  --other-expenses: #00ad84;
+  
+}
