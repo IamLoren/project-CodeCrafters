@@ -6,6 +6,10 @@ export const BalanceWrapper = styled.div`
   width: 480px;
   padding: 8px 0 11px 56px;
   margin-bottom: 42px;
+  
+  @media only screen and (max-width: 768px) {
+    max-width: 100%; 
+  }
 `;
 
 export const BalanceTitle = styled.h2`
