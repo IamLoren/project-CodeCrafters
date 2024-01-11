@@ -1,13 +1,18 @@
 {
   "files": {
-    "main.css": "/project-CodeCrafters/static/css/main.7fe2c6f2.css",
-    "main.js": "/project-CodeCrafters/static/js/main.ccc0f88f.js",
+    "main.css": "/project-CodeCrafters/static/css/main.99c04d13.css",
+    "main.js": "/project-CodeCrafters/static/js/main.0aafd4f7.js",
+    "static/media/Circe-Regular.ttf": "/project-CodeCrafters/static/media/Circe-Regular.f80cf2f1a50fc5107f4c.ttf",
+    "static/media/Circe-Bold.ttf": "/project-CodeCrafters/static/media/Circe-Bold.d9332714c66b14bb30e5.ttf",
+    "static/media/Poppins-Regular.ttf": "/project-CodeCrafters/static/media/Poppins-Regular.35d26b781dc5fda684cc.ttf",
+    "static/media/Poppins-SemiBold.ttf": "/project-CodeCrafters/static/media/Poppins-SemiBold.ac8d04b620e54be9b0f0.ttf",
+    "static/media/Poppins-Bold.ttf": "/project-CodeCrafters/static/media/Poppins-Bold.cdb29a5d7ccf57ff05a3.ttf",
     "index.html": "/project-CodeCrafters/index.html",
-    "main.7fe2c6f2.css.map": "/project-CodeCrafters/static/css/main.7fe2c6f2.css.map",
-    "main.ccc0f88f.js.map": "/project-CodeCrafters/static/js/main.ccc0f88f.js.map"
+    "main.99c04d13.css.map": "/project-CodeCrafters/static/css/main.99c04d13.css.map",
+    "main.0aafd4f7.js.map": "/project-CodeCrafters/static/js/main.0aafd4f7.js.map"
   },
   "entrypoints": [
-    "static/css/main.7fe2c6f2.css",
-    "static/js/main.ccc0f88f.js"
+    "static/css/main.99c04d13.css",
+    "static/js/main.0aafd4f7.js"
   ]
 }
