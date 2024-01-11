@@ -12,6 +12,7 @@ export const SideLeft = styled.div`
     flex-direction: column;
     gap: 12px;
     margin-bottom: 28px;
+    margin-left: 20px;
   }
 `;
 
@@ -21,6 +22,20 @@ export const StyledNavLink = styled(NavLink)`
   font-style: normal;
   font-weight: 400;
   line-height: normal;
+
+  display: flex;
+  align-items: center;
+  gap: 20px;
+
+  div {
+    background-color: #734aef;
+    border-radius: 2px;
+    height: 18px;
+    width: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 
   &.active {
     font-weight: 700;
