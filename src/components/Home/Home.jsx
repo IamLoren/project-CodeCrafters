@@ -5,7 +5,7 @@ import { changeModalIsOpen } from '../../redux/transactions/transactionsSlice.js
 import { useDispatch, useSelector } from 'react-redux';
 import { modalIsOpen } from '../../redux/selectors.js';
 import { AiOutlinePlus } from 'react-icons/ai';
-import { StyledHomeModalOpenBtn } from './HomeStyled.jsx';
+import { StyledHomeModalOpenBtn } from './Home.styled.js';
 
 const Home = () => {
   const isModalOpen = useSelector(modalIsOpen);
