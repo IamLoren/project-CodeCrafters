@@ -1,17 +1,17 @@
 import React, { useEffect, useMemo } from 'react';
 import { createPortal } from 'react-dom';
 import {
-  TransactionsModalWindow,
-  ModalWrapper,
-  ModalBody,
-  TransactionAmount,
-  TransactionComment,
-  TransactionModalSelect,
-  TransactionButtonsWrapper,
-  ModalCloseBtn,
-  ModalToggleOptions,
+  StyledTransactionsModalBackdrop,
+  StyledModalTransaction,
+  StyledModalBody,
+  StyledTransactionAmount,
+  StyledTransactionComment,
+  StyledTransactionModalSelect,
+  StyledTransactionButtonsWrapper,
+  StyledModalCloseBtn,
+  StyledModalToggle,
   StyledSelect,
-} from './TransactionsModalStyled.jsx';
+} from './TransactionsModal.styled.js';
 import Toggle from 'components/Toggle/Toggle';
 // import { Select } from 'antd';
 import Button from '../Button/Button.jsx';
@@ -42,26 +42,46 @@ const TransactionsModal = () => {
 
   const dispatch = useDispatch();
 
+  // close backdrop & esc
+
+  const clickBackdrop = e => {
+    if (e.target === e.currentTarget) {
+      dispatch(changeModalIsOpen(false));
+    }
+  };
+  useEffect(() => {
+    const handleKeyDown = e => {
+      if (e.key === 'Escape') {
+        dispatch(changeModalIsOpen(false));
+      }
+    };
+    document.addEventListener('keydown', handleKeyDown);
+
+    return () => document.removeEventListener('keydown', handleKeyDown);
+  }, [dispatch]);
+  //
+
   return createPortal(
     isModalOpen && (
-      <TransactionsModalWindow open={isModalOpen}>
-        <ModalWrapper>
+      <StyledTransactionsModalBackdrop open={isModalOpen} onClick={clickBackdrop}>
+        <StyledModalTransaction>
           <h2>Add transaction</h2>
-          <ModalToggleOptions>
+          <StyledModalToggle>
             <p>Income</p>
             <Toggle />
             <p>Expense</p>
-          </ModalToggleOptions>
+          </StyledModalToggle>
 
-          <ModalCloseBtn
+          <StyledModalCloseBtn
+
             onClick={() => {
               dispatch(changeModalIsOpen(false));
             }}
           >
             <AiOutlineClose size="24" />
-          </ModalCloseBtn>
+          </StyledModalCloseBtn>
 
-          <ModalBody>
+          <StyledModalBody>
             <StyledSelect
               showSearch
               style={{ width: 394 }}
@@ -102,25 +122,25 @@ const TransactionsModal = () => {
                 },
               ]}
             />
-            <TransactionModalSelect>
-              <TransactionAmount type="number" placeholder="0.00" required />
+            <StyledTransactionModalSelect>
+              <StyledTransactionAmount type="number" placeholder="0.00" required />
 
               {/* <TransactionDate type="date" required /> */}
               <Space direction="vertical" placeholder="Select date">
                 <DatePicker onChange={onChange} />
               </Space>
-            </TransactionModalSelect>
+            </StyledTransactionModalSelect>
 
             <br />
-            <TransactionComment placeholder="Comment"></TransactionComment>
+            <StyledTransactionComment placeholder="Comment"></StyledTransactionComment>
             <br />
-            <TransactionButtonsWrapper>
+            <StyledTransactionButtonsWrapper>
               <Button title="Add" />
               <AccentButton title="Cancel" />
-            </TransactionButtonsWrapper>
-          </ModalBody>
-        </ModalWrapper>
-      </TransactionsModalWindow>
+            </StyledTransactionButtonsWrapper>
+          </StyledModalBody>
+        </StyledModalTransaction>
+      </StyledTransactionsModalBackdrop>
     ),
     element
   );
