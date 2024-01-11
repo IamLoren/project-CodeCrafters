@@ -11,6 +11,7 @@ import Statistics from './Statistics/Statistics.jsx';
 export const App = () => {
   return (
     <Routes>
+    
     <Route path='/' element={<PrivateRoute><MainLayout /></PrivateRoute>}>
     <Route index element={<Home />} />
     <Route path='statistics' element={<Statistics />} />

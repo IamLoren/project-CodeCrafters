@@ -22,11 +22,10 @@ export const StyledNavLink = styled(NavLink)`
   font-style: normal;
   font-weight: 400;
   line-height: normal;
-
   display: flex;
   align-items: center;
   gap: 20px;
-
+  
   div {
     background-color: #734aef;
     border-radius: 2px;
