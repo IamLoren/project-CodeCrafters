@@ -3,7 +3,9 @@ import {
   CurrencyTable,
   CurrencyTbody,
   CurrencyThead,
-  // CurrencyWrapper,
+  GraphBox,
+  HigherRate,
+  LowerRate,
 } from './CurrencyStyled';
 
 const Currency = () => {
@@ -31,25 +33,10 @@ const Currency = () => {
         </CurrencyTbody>
       </CurrencyTable>
 
-      {/* <CurrencyWrapper>
-        <ul>
-          <li>Currency</li>
-          <li>Purchase</li>
-          <li>Sale</li>
-        </ul>
-
-        <ul>
-          <li>USD</li>
-          <li>27.55</li>
-          <li>27.65</li>
-        </ul>
-
-        <ul>
-          <li>EUR</li>
-          <li>30.00</li>
-          <li>30.10</li>
-        </ul>
-      </CurrencyWrapper> */}
+      <GraphBox>
+        <LowerRate>27.55</LowerRate>
+        <HigherRate>30.00</HigherRate>
+      </GraphBox>
     </>
   );
 };
