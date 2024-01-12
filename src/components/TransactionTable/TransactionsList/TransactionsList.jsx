@@ -8,7 +8,7 @@ import {
   } from './TransactionsListStyled';
   
 import TransactionItem from '../TransactionsItem/TransactionItem'
-import { fetchAllTransactionsThunk } from '../../../redux/transactions/operations'; 
+import { fetchAllTransactionsThunk, fetchTransactionsCategoriesThunk } from '../../../redux/transactions/operations'; 
 import {selectTransactionsList} from '../../../redux/selectors'
 
 
@@ -57,6 +57,7 @@ const TransactionsList = () => {
 
   useEffect(() => {
     dispatch(fetchAllTransactionsThunk());
+    dispatch(fetchTransactionsCategoriesThunk());
   }, [dispatch]);
   
   return (

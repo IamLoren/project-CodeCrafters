@@ -2,9 +2,9 @@ import React from 'react';
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
 import { Doughnut } from 'react-chartjs-2';
 import { DoughnutContainerStyled } from './ChartStatistic.styled';
-import { useDispatch, useSelector } from 'react-redux';
-import { fetchAllTransactionsThunk } from '../../redux/transactions/operations';
-import { selectBalance, selectTransactionsList } from '../../redux/selectors';
+import { useSelector } from 'react-redux';
+// import { fetchAllTransactionsThunk } from '../../redux/transactions/operations';
+import { selectTransactionsList } from '../../redux/selectors';
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 
@@ -44,10 +44,10 @@ const ChartStatistic = () => {
 
   const transactionsList = useSelector(selectTransactionsList)
   const data = dataTr.datasets[0].data
-  transactionsList.map(transaction => {
-    data.push(transaction.amount)
-    dataTr.datasets[0].label = transaction.categoryId
-  })
+  // transactionsList.map(transaction => {
+  //   data.push(transaction.amount)
+  //   dataTr.datasets[0].label = transaction.categoryId
+  // })
   console.log(data)
 
   console.log(transactionsList)

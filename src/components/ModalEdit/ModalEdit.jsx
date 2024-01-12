@@ -13,7 +13,7 @@ import AccentButton from '../../components/AccentButton/AccentButton.jsx';
 import Toggle from 'components/Toggle/Toggle.jsx';
 
 const onChange = (date, dateString) => {
-  console.log(date, dateString);
+  // console.log(date, dateString);
 };
 
 const ModalEdit = () => {
