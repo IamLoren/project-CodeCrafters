@@ -73,10 +73,16 @@ const TransactionsList = () => {
         </tr>
       </TransactionThead>
       <TransactionTbody>
-        {transactions.map((transaction) => (
-          <TransactionItem key={transaction.id} transaction={transaction} />
-        ))}
-      </TransactionTbody>
+          {transactions.length === 0 ? (
+            <tr>
+              <td colSpan="6">Ви ще не маєте власних транзакцій</td>
+            </tr>
+          ) : (
+            transactions.map((transaction) => (
+              <TransactionItem key={transaction.id} transaction={transaction} />
+            ))
+          )}
+        </TransactionTbody>
     </TransactionTable>
     </Container>
   );
