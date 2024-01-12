@@ -1,7 +1,11 @@
 import { createSlice } from '@reduxjs/toolkit';
 // import { toast } from "react-toastify";
 import { fetchAllTransactionsThunk } from './operations';
+
 import { fetchTransactionSummaryThunk } from './operations';
+
+import { deleteTransactionThunk } from './operations';
+
 
 export const transactionsSlice = createSlice({
   name: 'transactionsSlice',
@@ -22,6 +26,7 @@ export const transactionsSlice = createSlice({
     builder.addCase(
       fetchAllTransactionsThunk.fulfilled,
       (state, { payload }) => {
+
         state.transactionslist = payload;
         state.isLoading = false;
       }
@@ -31,9 +36,23 @@ export const transactionsSlice = createSlice({
       (state, { payload }) => {
         // state.transactionslist = payload;
         // state.isLoading = false;
+
       }
-    );
-  },
+    )
+    .addCase(deleteTransactionThunk.pending, (state) => {
+      state.isLoading = true;
+    })
+    .addCase(deleteTransactionThunk.fulfilled, (state, { payload }) => {
+      state.isLoading = false;
+      const index = state.transactionsList.findIndex((item) => item.id === payload);
+      if (index !== -1) {
+        state.transactionsList.splice(index, 1);
+      }
+    })
+    .addCase(deleteTransactionThunk.rejected, (state) => {
+      state.isLoading = false;
+    });
+},
 });
 
 export const transactionsReducer = transactionsSlice.reducer;

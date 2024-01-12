@@ -6,12 +6,12 @@ height: 288px;
 position: relative;
 p{
   position: absolute;
-  top: 120px;
+  top: 132px;
   left: 96px;
-  /* font-family: Poppins; */
+  font-family: "Poppins SemiBold";
 font-size: 18px;
 font-style: normal;
-font-weight: 600;
 line-height: normal;
+color: var(--white);
 }
 `

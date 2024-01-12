@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const StyledHomeModalOpenBtn = styled.button`
-  position: absolute;
+  position: fixed;
   width: 44px;
   height: 44px;
   right: 40px;

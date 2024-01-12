@@ -2,6 +2,8 @@ import React from 'react';
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
 import { Doughnut } from 'react-chartjs-2';
 import { DoughnutContainerStyled } from './ChartStatistic.styled';
+import { useDispatch } from 'react-redux';
+import { fetchAllTransactionsThunk } from '../../redux/transactions/operations';
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 
@@ -39,6 +41,8 @@ export const data = {
 };
 
 const ChartStatistic = () => {
+  const dispatch = useDispatch()
+  console.log(dispatch(fetchAllTransactionsThunk))
   return (
     <DoughnutContainerStyled>
       <Doughnut data={data} />
