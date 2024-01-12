@@ -6,13 +6,15 @@ export const ModalWrapper = styled.div`
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	background-color: rgba(0, 0, 0, 0.5);
+		background: rgba(34, 13, 91, 0.23);
+backdrop-filter: blur(3.5px);
+z-index: 100;
 	`
 
 export const ModalContent = styled.div`
 	position: relative;
 	/* background: var(--Form-color, rgba(255, 255, 255, 0.10)); */
-	background-color: rgba(255, 255, 255, 0.10);
+	background: rgba(255, 255, 255, 0.10);
 	overflow: hidden;
 	max-width: 1000px;
 	border-radius: 8px;
@@ -28,22 +30,16 @@ export const ModalContent = styled.div`
 box-shadow: 0px 4px 60px 0px rgba(0, 0, 0, 0.25);
 backdrop-filter: blur(50px);
 
-h3{
-	color: #FBFBFB;
-/* font-family: Poppins; */
-font-size: 26.963px;
-font-style: normal;
-font-weight: 400;
-line-height: normal;
+img{
+	width: 182px;
+	height: 76px;
 margin-top: 95px;
 margin-bottom: 0;
 }
 p{
 	color: #FFF;
-/* font-family: Poppins; */
+font-family:"Poppins Regular";
 font-size: 18px;
-font-style: normal;
-font-weight: 400;
 line-height: normal;
 margin:52px auto;
 }
@@ -65,11 +61,11 @@ letter-spacing: 1.8px;
 text-transform: uppercase;
 cursor: pointer;
 color: #FFF;
-background: var(--button-gradient, linear-gradient(97deg, #FFC727 -16.42%, #9E40BA 97.04%, #7000FF 150.71%));
+background: var(--button-gradient);
 `
 export const ModalButtonClose = styled(ModalButton)`
 background: #FCFCFC;
-color: #623F8B;
+color: var(--text-button);
 margin-bottom: 60px;
 margin-top: 20px;
 `
