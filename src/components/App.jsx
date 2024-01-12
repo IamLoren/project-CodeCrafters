@@ -7,7 +7,6 @@ import LoginForm from 'pages/LoginPage.jsx';
 import Home from './Home/Home.jsx';
 import Statistics from './Statistics/Statistics.jsx';
 import CurrencyPage from 'pages/CurrencyPage.jsx';
-import MediaQuery from 'react-responsive';
 
 export const App = () => {
   return (
@@ -24,17 +23,11 @@ export const App = () => {
         <Route path="statistics" element={<Statistics />} />
       </Route>
       <Route
-        path="currency"
+        path="/currency"
         element={
-          (
-            <MediaQuery maxWidth={425}>
-              <CurrencyPage />
-            </MediaQuery>
-          ) || (
-            <MediaQuery minWidth={426}>
-              <Navigate to="/" />
-            </MediaQuery>
-          )
+          <PrivateRoute>
+            <CurrencyPage />
+          </PrivateRoute>
         }
       />
       <Route
