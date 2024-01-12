@@ -19,7 +19,7 @@ const Currency = () => {
   const [currency, setCurrency] = useState([]);
   const dispatch = useDispatch();
   const todayCurrency = useSelector(currencySelector);
-  // const loading = useSelector(loadingCurrencySelector);
+  const loading = useSelector(loadingCurrencySelector);
 
   const lastUpdateTime = () => {
     const newTime = Date.now();
