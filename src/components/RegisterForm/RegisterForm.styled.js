@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import registerbg from '../../img/Register-bg-desc@retina.webp';
+import formBg from '../../img/RegisterForm-bg@retina.webp';
 
 export const StyledSection = styled.section`
   display: flex;
@@ -23,8 +24,11 @@ export const StyledForm = styled.form`
   padding: 40px 62px;
 
   border-radius: 8px;
-  background: rgba(255, 255, 255, 0.1);
-  box-shadow: 0px 4px 60px 0px rgba(0, 0, 0, 0.25);
+  background: var(--modal-background);
+  background-image: url(${formBg});
+  background-position: center;
+  background-repeat: no-repeat;
+  box-shadow: 0px 4px 60px 0px var(--modal-shadow);
   /* backdrop-filter: blur(50px); */
 `;
 
@@ -36,7 +40,7 @@ export const InputBox = styled.div`
   row-gap: 40px;
 
   .icon {
-    fill: rgba(255, 255, 255, 0.4);
+    fill: var(--modal-input-underline);
     font-size: 24px;
 
     position: absolute;

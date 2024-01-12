@@ -1,14 +1,14 @@
 import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
-import loginbg from '../../img/Login-bg-desc@retina.webp';
-import formbg from '../../img/LoginForm-bg-desc@retina.webp';
+import loginBg from '../../img/Login-bg-desc@retina.webp';
+import formBg from '../../img/LoginForm-bg-desc@retina.webp';
 
 export const StyledSection = styled.section`
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background-image: url(${loginbg});
+  background-image: url(${loginBg});
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -25,12 +25,12 @@ export const StyledForm = styled.form`
   padding: 80px 62px;
 
   border-radius: 8px;
-  /* background: url(${formbg}); */
-  background: rgba(255, 255, 255, 0.1);
+  /* backdrop-filter: blur(50px); */
+  background: var(--modal-background);
+  background-image: url(${formBg});
   background-position: center;
   background-repeat: no-repeat;
-  box-shadow: 0px 4px 60px 0px rgba(0, 0, 0, 0.25);
-  /* backdrop-filter: blur(50px); */
+  box-shadow: 0px 4px 60px 0px var(--modal-shadow);
 `;
 
 export const InputBox = styled.div`
@@ -41,7 +41,7 @@ export const InputBox = styled.div`
   row-gap: 40px;
 
   .icon {
-    fill: rgba(255, 255, 255, 0.4);
+    fill: var(--modal-input-underline);
     font-size: 24px;
 
     position: absolute;
@@ -55,7 +55,7 @@ export const StyledInput = styled.input`
   height: 60px;
   background: transparent;
   border: none;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+  border-bottom: 1px solid var(--modal-input-underline);
   color: var(--text-forms);
   padding-left: 54px;
 
@@ -81,13 +81,8 @@ export const StyledBtn = styled.button`
   letter-spacing: 0.11em;
 
   border-radius: 20px;
-  background: linear-gradient(
-    97deg,
-    #ffc727 -16.42%,
-    #9e40ba 97.04%,
-    #7000ff 150.71%
-  );
-  box-shadow: 1px 9px 15px 0px rgba(0, 0, 0, 0.2);
+  background: var(--modal-button-gradient);
+  box-shadow: 1px 9px 15px 0px var(--modal-button-shadow);
 `;
 
 export const StyledNavLink = styled(NavLink)`
@@ -106,7 +101,7 @@ export const StyledNavLink = styled(NavLink)`
   border-radius: 20px;
   border: 1px solid var(--household);
   background: #fcfcfc;
-  box-shadow: 1px 9px 15px 0px rgba(0, 0, 0, 0.2);
+  box-shadow: 1px 9px 15px 0px var(--modal-button-shadow);
 `;
 
 export const ErrMessage = styled.p`
