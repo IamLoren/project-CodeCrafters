@@ -19,8 +19,11 @@ import { loginThunk } from '../../redux/auth/operations';
 import { toast } from 'react-toastify';
 
 const basicSchema = yup.object().shape({
-  email: yup.string().email('Please enter a valid email!').required('Required'),
-  password: yup.string().min(6).max(12).required('Required'),
+  email: yup
+    .string()
+    .email('Please enter a valid email!')
+    .required('Email is required'),
+  password: yup.string().min(6).max(12).required('Password is required'),
 });
 
 const LoginForm = () => {
