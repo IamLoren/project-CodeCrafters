@@ -18,17 +18,19 @@ import { registerThunk } from '../../redux/auth/operations';
 import { toast } from 'react-toastify';
 
 const basicSchema = yup.object().shape({
-  name: yup.string().required('Required'),
-  email: yup.string().email('Please enter a valid email!').required('Required'),
+  username: yup.string().required('Name is required!'),
+  email: yup
+    .string()
+    .email('Please enter a valid email!')
+    .required('Email is required!'),
   password: yup
     .string()
-    .min(6, 'Password must be at least 6 characters')
-    .max(12, 'Password must be at most 12 characters')
-    .required('Required'),
+    .min(6, 'Password must be at least 6 characters!')
+    .required('Password is required!'),
   confirmPassword: yup
     .string()
     .oneOf([yup.ref('password'), null], 'Passwords must match!')
-    .required('Required'),
+    .required('The field is required!'),
 });
 
 const RegisterForm = () => {
@@ -68,7 +70,7 @@ const RegisterForm = () => {
               name="username"
               placeholder="Name"
             />
-            <ErrMessage>{errors.name?.message}</ErrMessage>
+            <ErrMessage>{errors.username?.message}</ErrMessage>
           </div>
           <div>
             <MdEmail className="icon" />
