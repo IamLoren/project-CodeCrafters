@@ -35,10 +35,10 @@ const ModalAdd = () => {
     console.log(typeToggle)
     const transaction = {
       transactionDate: `${date}`,
-      type: `${typeToggle === 'true' ? 'INCOME' : 'EXPENSE'}`,
-      categoryId: `${id}`,
+      type: `${typeToggle ? 'INCOME' : 'EXPENSE'}`,
+      categoryId: `${typeToggle ? "063f1132-ba5d-42b4-951d-44011ca46262" : id}`,
       comment: `${comment}`,
-      amount: `${typeToggle === 'true' ? amountValue : -amountValue}`
+      amount: `${typeToggle ? amountValue : -amountValue}`
     };
     console.log(transaction);
     dispatch(addTransactionThunk(transaction));
