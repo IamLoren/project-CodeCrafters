@@ -36,7 +36,7 @@ const Currency = () => {
     } else {
       setCurrency(todayCurrency);
     }
-  }, [dispatch, , todayCurrency]);
+  }, [dispatch, todayCurrency]);
 
   // dispatch(currencyThunk());
   // setCurrency(todayCurrency);
