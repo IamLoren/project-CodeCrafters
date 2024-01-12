@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { toast } from 'react-toastify';
-import { addTransactionThunk, fetchAllTransactionsThunk } from './operations';
+import { addTransactionThunk, fetchAllTransactionsThunk, fetchTransactionsCategoriesThunk } from './operations';
 
 import { fetchTransactionSummaryThunk } from './operations';
 
@@ -14,6 +14,7 @@ export const transactionsSlice = createSlice({
       modalEditForm: false,
       modalAddForm: false,
       toggleState: true,
+      select: '',
     },
     categories: [],
     transactionslist: [],
@@ -37,6 +38,9 @@ export const transactionsSlice = createSlice({
     },
     changeToggleState: (state, { payload }) => {
       state.modal.toggleState = payload;
+    },
+    changeSelectOption: (state, { payload }) => {
+      state.modal.select = payload;
     },
   },
   extraReducers: builder => {
@@ -72,6 +76,9 @@ export const transactionsSlice = createSlice({
       .addCase(addTransactionThunk.fulfilled, (state, { payload }) => {
         state.transactionslist.push(payload);
         toast.success('Your transaction was added succesfully!');
+      })
+      .addCase(fetchTransactionsCategoriesThunk.fulfilled, (state, { payload }) => {
+        state.categories = payload;
       });
   },
 });
@@ -82,4 +89,5 @@ export const {
   changeModalEditForm,
   changeModalClose,
   changeToggleState,
+  changeSelectOption,
 } = transactionsSlice.actions;
