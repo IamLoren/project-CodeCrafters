@@ -2,7 +2,7 @@ import React from 'react';
 import { IoMdHome } from 'react-icons/io';
 import { MdTimeline } from 'react-icons/md';
 import Header from 'components/Header/Header.jsx';
-import styled from 'styled-components';
+
 import Balance from 'components/Balance/Balance.jsx';
 
 import MediaQuery from 'react-responsive';
@@ -12,6 +12,7 @@ import {
   SideLeft,
   StyledNavLink,
 } from 'components/MainLayout/MainLayoutStyled';
+import Container from 'components/Container/Container';
 
 const HomePage = () => {
   return (
@@ -19,7 +20,7 @@ const HomePage = () => {
       <Header />
 
       <main>
-        <StyledContainer>
+        <Container>
           <SideLeft>
             <nav>
               <StyledNavLink to="/">
@@ -45,15 +46,10 @@ const HomePage = () => {
             </MediaQuery>
           </SideLeft>
           <TransactionsList />
-        </StyledContainer>
+        </Container>
       </main>
     </>
   );
 };
 
 export default HomePage;
-
-const StyledContainer = styled.div`
-  display: flex;
-  gap: 50px;
-`;

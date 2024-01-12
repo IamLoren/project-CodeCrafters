@@ -1,4 +1,4 @@
-import { Routes, Route, Navigate } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 import PrivateRoute from '../routesConfig/PrivateRoute.jsx';
 import PublicRoute from '../routesConfig/PublicRoute';
 import RegisterForm from 'pages/RegisterPage.jsx';
@@ -6,21 +6,14 @@ import LoginForm from 'pages/LoginPage.jsx';
 import HomePage from 'pages/HomePage.jsx';
 import StatisticsPage from 'pages/StatisticsPage.jsx';
 import CurrencyPage from 'pages/CurrencyPage.jsx';
+import MediaQuery from 'react-responsive';
+import NotFound from 'pages/NotFound.jsx';
 
 export const App = () => {
   return (
     <Routes>
-      {/* <Route index element={<HomePage />} /> */}
       <Route
         path="/"
-        element={
-          <PrivateRoute>
-            <HomePage />
-          </PrivateRoute>
-        }
-      />
-      <Route
-        path="/home"
         element={
           <PrivateRoute>
             <HomePage />
@@ -41,7 +34,12 @@ export const App = () => {
         path="/currency"
         element={
           <PrivateRoute>
-            <CurrencyPage />
+            <MediaQuery maxWidth={425}>
+              <CurrencyPage />
+            </MediaQuery>
+            <MediaQuery minWidth={426}>
+              <NotFound />
+            </MediaQuery>
           </PrivateRoute>
         }
       />
@@ -62,7 +60,7 @@ export const App = () => {
           </PublicRoute>
         }
       />
-      <Route path="*" element={<Navigate to="/" />} />
+      <Route path="*" element={<NotFound />} />
     </Routes>
   );
 };

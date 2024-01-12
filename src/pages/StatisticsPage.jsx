@@ -1,7 +1,6 @@
 import React from 'react';
 import Header from 'components/Header/Header';
 import MediaQuery from 'react-responsive';
-import styled from 'styled-components';
 import { IoMdHome } from 'react-icons/io';
 import { MdTimeline } from 'react-icons/md';
 import Balance from 'components/Balance/Balance';
@@ -11,6 +10,7 @@ import {
   StyledNavLink,
 } from 'components/MainLayout/MainLayoutStyled';
 import Currency from 'components/MainLayout/Currency/Currency';
+import Container from 'components/Container/Container';
 
 const StatisticsPage = () => {
   return (
@@ -18,7 +18,7 @@ const StatisticsPage = () => {
       <Header />
 
       <main>
-        <StyledContainer>
+        <Container>
           <SideLeft>
             <nav>
               <StyledNavLink to="/">
@@ -45,14 +45,9 @@ const StatisticsPage = () => {
             </MediaQuery>
           </SideLeft>
           <Statistics />
-        </StyledContainer>
+        </Container>
       </main>
     </>
   );
 };
 export default StatisticsPage;
-
-const StyledContainer = styled.div`
-  display: flex;
-  gap: 50px;
-`;
