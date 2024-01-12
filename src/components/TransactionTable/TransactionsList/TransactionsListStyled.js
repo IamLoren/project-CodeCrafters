@@ -25,7 +25,10 @@ export const TransactionTable = styled.table`
 export const TransactionThead = styled.thead`
   background: rgba(82, 59, 126, 0.6);
   font-size: 12px;
-  font-weight: 400;
+  color: var(--expenses-color);
+  font-family: 'Poppins Regular';
+  font-size: 12px;
+  font-weight: 600;
   margin-bottom: 18px;
   display: table-header-group;
   border-collapse: collapse;
@@ -52,15 +55,15 @@ export const TransactionTbody = styled.tbody`
     border-bottom: 0.5px solid #e0e0e0;
   }
   td {
-    color: #b3b3b3;
     border: 0;
     border: none;
-    font-family: "Poppins Regular";
-    padding: 12px; /* Adjusted padding for data cells */
-    font-size: 14px; /* Adjusted font size for data cells */
+    padding: 12px;
+    color: var(--white);
+    font-family: 'Poppins Regular';
+    font-size: 16px;
     font-style: normal;
     font-weight: 400;
-    line-height: 1.2; /* Reduced line-height */
+    line-height: normal;
     opacity: 1;
   }
 `;
