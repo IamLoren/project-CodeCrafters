@@ -20,7 +20,7 @@ const ModalAdd = () => {
   const [date, setDate] = useState('');
   const onChange = (date, dateString) => {
     setDate(dateString);
-    console.log(date);
+    // console.log(date);
   };
 
   const dispatch = useDispatch();
