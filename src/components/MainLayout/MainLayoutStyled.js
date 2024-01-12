@@ -2,10 +2,10 @@ import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 
 export const SideLeft = styled.div`
-  border-right: 1px solid rgba(255, 255, 255, 0.6);
-  filter: drop-shadow(1px 4px 1px rgba(0, 0, 0, 0.25));
+  border-right: 1px solid var(--text-forms);
+  filter: drop-shadow(1px 4px 1px var(--modal-shadow));
   padding-top: 40px;
-  height: calc(100vh - 80px);
+  height: calc(100vh - 50px);
 
   nav {
     display: flex;
@@ -17,7 +17,8 @@ export const SideLeft = styled.div`
 `;
 
 export const StyledNavLink = styled(NavLink)`
-  color: #fbfbfb;
+  color: var(--white);
+  font-family: 'Poppins Regular';
   font-size: 18px;
   font-style: normal;
   font-weight: 400;
@@ -25,9 +26,9 @@ export const StyledNavLink = styled(NavLink)`
   display: flex;
   align-items: center;
   gap: 20px;
-  
+
   div {
-    background-color: #734aef;
+    background-color: var(--icon-violet);
     border-radius: 2px;
     height: 18px;
     width: 18px;
