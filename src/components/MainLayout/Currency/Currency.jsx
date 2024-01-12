@@ -38,10 +38,6 @@ const Currency = () => {
     }
   }, [dispatch, todayCurrency]);
 
-  // dispatch(currencyThunk());
-  // setCurrency(todayCurrency);
-  // }, [dispatch, todayCurrency]);
-
   return (
     <>
       <CurrencyTable>

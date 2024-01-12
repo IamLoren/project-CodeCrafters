@@ -2,18 +2,17 @@ import React from 'react';
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
 import { Doughnut } from 'react-chartjs-2';
 import { DoughnutContainerStyled } from './ChartStatistic.styled';
-import { useDispatch, useSelector } from 'react-redux';
-import { fetchAllTransactionsThunk } from '../../redux/transactions/operations';
-import { selectBalance } from '../../redux/selectors';
+import { useSelector } from 'react-redux';
+// import { fetchAllTransactionsThunk } from '../../redux/transactions/operations';
+import { selectTransactionsList } from '../../redux/selectors';
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 
-export const data = {
-  // labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+export const dataTr = {
   datasets: [
     {
-      label: '# of Votes',
-      data: [30, 22, 7, 3, 12, 3, 13, 6, 4],
+      label: '',
+      data: [],
       backgroundColor: [
         'rgba(254, 208, 87, 1)',//yellow  
         'rgba(255, 216, 208, 1)',//pouder
@@ -42,13 +41,20 @@ export const data = {
 };
 
 const ChartStatistic = () => {
-  const balance = useSelector(selectBalance)
-  const dispatch = useDispatch()
-  console.log(dispatch(fetchAllTransactionsThunk))
+
+  const transactionsList = useSelector(selectTransactionsList)
+  const data = dataTr.datasets[0].data
+  // transactionsList.map(transaction => {
+  //   data.push(transaction.amount)
+  //   dataTr.datasets[0].label = transaction.categoryId
+  // })
+  console.log(data)
+
+  console.log(transactionsList)
   return (
     <DoughnutContainerStyled>
-      <Doughnut data={data} />
-      <p>₴ {balance}</p>
+      <Doughnut data={dataTr} />
+      <p>₴ difference</p>
     </DoughnutContainerStyled>
 
   )

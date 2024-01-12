@@ -8,7 +8,7 @@ import {
   } from './TransactionsListStyled';
   
 import TransactionItem from '../TransactionsItem/TransactionItem'
-import { fetchAllTransactionsThunk } from '../../../redux/transactions/operations'; 
+import { fetchAllTransactionsThunk, fetchTransactionsCategoriesThunk } from '../../../redux/transactions/operations'; 
 import {selectTransactionsList} from '../../../redux/selectors'
 
 
@@ -57,6 +57,7 @@ const TransactionsList = () => {
 
   useEffect(() => {
     dispatch(fetchAllTransactionsThunk());
+    dispatch(fetchTransactionsCategoriesThunk());
   }, [dispatch]);
   
   return (
@@ -73,10 +74,16 @@ const TransactionsList = () => {
         </tr>
       </TransactionThead>
       <TransactionTbody>
-        {transactions.map((transaction) => (
-          <TransactionItem key={transaction.id} transaction={transaction} />
-        ))}
-      </TransactionTbody>
+          {transactions.length === 0 ? (
+            <tr>
+              <td colSpan="6">Ви ще не маєте власних транзакцій</td>
+            </tr>
+          ) : (
+            transactions.map((transaction) => (
+              <TransactionItem key={transaction.id} transaction={transaction} />
+            ))
+          )}
+        </TransactionTbody>
     </TransactionTable>
     </Container>
   );
