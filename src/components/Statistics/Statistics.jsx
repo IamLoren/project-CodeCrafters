@@ -6,8 +6,8 @@ import {
   Wrap,
 } from './StatisticsStyled';
 import ChartStatistic from '../ChartStatistic/ChartStatistic';
-import StatisticsDetails from './StatisticsDetails';
-import StatisticsDate from './StatisticsDate';
+import StatisticsTable from './StatisticsTable';
+import StatisticsDashboard from './StatisticsDashboard';
 
 const Statistics = () => {
   return (
@@ -17,8 +17,8 @@ const Statistics = () => {
         <ChartStatistic />
       </StatisticsChart>
       <StatisticsInfoWrap>
-        <StatisticsDate />
-        <StatisticsDetails />
+        <StatisticsDashboard />
+        <StatisticsTable />
       </StatisticsInfoWrap>
     </Wrap>
   );
