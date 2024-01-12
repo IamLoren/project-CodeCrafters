@@ -1,6 +1,7 @@
 import React from 'react';
 import { InputBox, StyledForm } from './RegisterForm.styled';
 import {
+  ErrMessage,
   StyledBtn,
   StyledInput,
   StyledNavLink,
@@ -9,52 +10,95 @@ import {
 import { IoMdLock } from 'react-icons/io';
 import { MdEmail } from 'react-icons/md';
 import { FaUser } from 'react-icons/fa6';
+import * as yup from 'yup';
+import { yupResolver } from '@hookform/resolvers/yup';
+import { useForm } from 'react-hook-form';
+import { useDispatch } from 'react-redux';
+import { registerThunk } from '../../redux/auth/operations';
+import { toast } from 'react-toastify';
+
+const basicSchema = yup.object().shape({
+  username: yup.string().required('Required'),
+  email: yup.string().email('Please enter a valid email!').required('Required'),
+  password: yup
+    .string()
+    .min(6, 'Password must be at least 6 characters')
+    .max(12, 'Password must be at most 12 characters')
+    .required('Required'),
+  confirmPassword: yup
+    .string()
+    .oneOf([yup.ref('password'), null], 'Passwords must match!')
+    .required('Required'),
+});
 
 const RegisterForm = () => {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+    reset,
+  } = useForm({
+    resolver: yupResolver(basicSchema),
+  });
+  const dispatch = useDispatch();
+
+  const submit = ({ username, email, password }) => {
+    const user = {
+      username,
+      email,
+      password,
+    };
+    dispatch(registerThunk(user))
+      .unwrap()
+      .then(res => toast.success(`Welcome ${res.user.username}!`))
+      .catch(err => toast.error(err));
+    reset();
+  };
+
   return (
     <StyledSection>
-      <StyledForm>
+      <StyledForm onSubmit={handleSubmit(submit)}>
         <h1>Money Guard</h1>
         <InputBox>
           <div>
             <FaUser className="icon" />
             <StyledInput
+              {...register('username')}
               type="text"
-              name="name"
-              id="name_reg"
+              name="username"
               placeholder="Name"
-              required
             />
+            <ErrMessage>{errors.name?.message}</ErrMessage>
           </div>
           <div>
             <MdEmail className="icon" />
             <StyledInput
+              {...register('email')}
               type="text"
               name="email"
-              id="email_reg"
               placeholder="E-mail"
-              required
             />
+            <ErrMessage>{errors.email?.message}</ErrMessage>
           </div>
           <div>
             <IoMdLock className="icon" />
             <StyledInput
+              {...register('password')}
               type="text"
               name="password"
-              id="password_reg"
               placeholder="Password"
-              required
             />
+            <ErrMessage>{errors.password?.message}</ErrMessage>
           </div>
           <div>
             <IoMdLock className="icon" />
             <StyledInput
+              {...register('confirmPassword')}
               type="text"
-              name="c_password"
-              id="c_password_reg"
+              name="confirmPassword"
               placeholder="Confirm password"
-              required
             />
+            <ErrMessage>{errors.confirmPassword?.message}</ErrMessage>
           </div>
         </InputBox>
         <StyledBtn type="submit">Register</StyledBtn>
