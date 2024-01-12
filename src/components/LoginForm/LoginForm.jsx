@@ -10,6 +10,7 @@ import {
 } from './LoginForm.styled';
 import { MdEmail } from 'react-icons/md';
 import { IoMdLock } from 'react-icons/io';
+import logo from '../../img/Main-logo.webp';
 import * as yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useForm } from 'react-hook-form';
@@ -44,7 +45,7 @@ const LoginForm = () => {
   return (
     <StyledSection>
       <StyledForm onSubmit={handleSubmit(submit)}>
-        <h1>Money Guard</h1>
+        <img src={logo} alt="logo" loading="lazy" />
         <InputBox>
           <div>
             <MdEmail className="icon" />

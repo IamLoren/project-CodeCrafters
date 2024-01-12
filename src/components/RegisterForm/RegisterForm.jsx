@@ -1,15 +1,15 @@
 import React from 'react';
-import { InputBox, StyledForm } from './RegisterForm.styled';
+import { InputBox, StyledForm, StyledSection } from './RegisterForm.styled';
 import {
   ErrMessage,
   StyledBtn,
   StyledInput,
   StyledNavLink,
-  StyledSection,
 } from 'components/LoginForm/LoginForm.styled';
 import { IoMdLock } from 'react-icons/io';
 import { MdEmail } from 'react-icons/md';
 import { FaUser } from 'react-icons/fa6';
+import logo from '../../img/Main-logo.webp';
 import * as yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useForm } from 'react-hook-form';
@@ -18,7 +18,7 @@ import { registerThunk } from '../../redux/auth/operations';
 import { toast } from 'react-toastify';
 
 const basicSchema = yup.object().shape({
-  username: yup.string().required('Required'),
+  name: yup.string().required('Required'),
   email: yup.string().email('Please enter a valid email!').required('Required'),
   password: yup
     .string()
@@ -58,7 +58,7 @@ const RegisterForm = () => {
   return (
     <StyledSection>
       <StyledForm onSubmit={handleSubmit(submit)}>
-        <h1>Money Guard</h1>
+        <img src={logo} alt="logo" loading="lazy" />
         <InputBox>
           <div>
             <FaUser className="icon" />

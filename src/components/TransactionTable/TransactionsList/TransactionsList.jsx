@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, {  useEffect } from "react";
+import { useDispatch, useSelector } from 'react-redux';
 import {
     Container,
     TransactionTable,
@@ -7,47 +8,57 @@ import {
   } from './TransactionsListStyled';
   
 import TransactionItem from '../TransactionsItem/TransactionItem'
+import { fetchAllTransactionsThunk } from '../../../redux/transactions/operations'; 
+import {selectTransactionsList} from '../../../redux/selectors'
+
 
 
 const TransactionsList = () => {
-  const [transactions /*, setTransactions*/] = useState([
-    {
-      date: "04.01.24",
-      type: "-",
-      category: "Other",
-      comment: "Gift for your wife",
-      amount: 300.00,
-    },
-    {
-      date: "05.01.23",
-      type: "+",
-      category: "Income",
-      comment: "January bonus",
-      amount: 8000.00,
-    },
-    {
-      date: "07.01.23",
-      type: "-",
-      category: "Car",
-      comment: "Oil",
-      amount: 1000.00,
-    },
-    {
-      date: "07.01.23",
-      type: "-",
-      category: "Products",
-      comment: "Vegetables for the week",
-      amount: 280.00,
-    },
-    {
-      date: "07.01.23",
-      type: "+",
-      category: "Income",
-      comment: "Gift",
-      amount: 1000.00,
-    },
-  ]);
+  // const [transactions /*, setTransactions*/] = useState/[
+  //   {
+  //     date: "04.01.24",
+  //     type: "-",
+  //     category: "Other",
+  //     comment: "Gift for your wife",
+  //     amount: 300.00,
+  //   },
+  //   {
+  //     date: "05.01.23",
+  //     type: "+",
+  //     category: "Income",
+  //     comment: "January bonus",
+  //     amount: 8000.00,
+  //   },
+  //   {
+  //     date: "07.01.23",
+  //     type: "-",
+  //     category: "Car",
+  //     comment: "Oil",
+  //     amount: 1000.00,
+  //   },
+  //   {
+  //     date: "07.01.23",
+  //     type: "-",
+  //     category: "Products",
+  //     comment: "Vegetables for the week",
+  //     amount: 280.00,
+  //   },
+  //   {
+  //     date: "07.01.23",
+  //     type: "+",
+  //     category: "Income",
+  //     comment: "Gift",
+  //     amount: 1000.00,
+  //   },
+  // ]);
 
+  const dispatch = useDispatch();
+  const transactions = useSelector(selectTransactionsList); 
+
+  useEffect(() => {
+    dispatch(fetchAllTransactionsThunk());
+  }, [dispatch]);
+  
   return (
     <Container>
     <TransactionTable class="table table-bordered table-striped">
@@ -63,7 +74,7 @@ const TransactionsList = () => {
       </TransactionThead>
       <TransactionTbody>
         {transactions.map((transaction) => (
-          <TransactionItem transaction={transaction} />
+          <TransactionItem key={transaction.id} transaction={transaction} />
         ))}
       </TransactionTbody>
     </TransactionTable>
