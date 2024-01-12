@@ -34,7 +34,6 @@ export const StyledModalTransaction = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  /* justify-content: center; */
 
   h2 {
     color: var(--white);
@@ -80,10 +79,10 @@ export const StyledModalBody = styled.div`
   flex-direction: column;
   align-items: center;
   input::-webkit-outer-spin-button,
-input::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
-}
+  input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
 `;
 export const StyledTransactionModalSelect = styled.div`
   display: flex;
@@ -101,7 +100,6 @@ export const StyledSelect = styled(Select)`
   background-color: transparent;
   border: none;
   border-bottom: 1px solid var(--modal-input-underline);
-  //
 `;
 export const StyledTransactionAmount = styled.input`
   /* -webkit-appearance: none; */

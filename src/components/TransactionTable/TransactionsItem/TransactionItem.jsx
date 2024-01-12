@@ -1,12 +1,11 @@
-import React from "react";
+import React from 'react';
 import { LuPencil } from 'react-icons/lu';
-import { useDispatch } from "react-redux";
-import { changeModalIsOpen } from "../../../redux/transactions/transactionsSlice";
+import { useDispatch } from 'react-redux';
+import { changeModalIsOpen } from '../../../redux/transactions/transactionsSlice';
 
 const TransactionItem = ({ transaction }) => {
   const dispatch = useDispatch();
-  const handleDelete = () => {
-  };
+  const handleDelete = () => {};
 
   return (
     <tr>
@@ -16,13 +15,12 @@ const TransactionItem = ({ transaction }) => {
       <td>{transaction.comment}</td>
       <td>{transaction.amount}</td>
       <td>
-      
-          <LuPencil 
-            onClick={() => {
-              dispatch(changeModalIsOpen(true));
-            }}
-          />
-        
+        <LuPencil
+          onClick={() => {
+            dispatch(changeModalIsOpen(true));
+          }}
+        />
+
         <button type="button" class="btn btn-danger" onClick={handleDelete}>
           Видалити
         </button>

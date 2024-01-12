@@ -13,7 +13,7 @@ import {
   StyledSelect,
 } from './TransactionsModal.styled.js';
 import Toggle from 'components/Toggle/Toggle';
-import { Select } from 'antd';
+// import { Select } from 'antd';
 import Button from '../Button/Button.jsx';
 import AccentButton from 'components/AccentButton/AccentButton.jsx';
 import { ConfigProvider, DatePicker, Space } from 'antd';
@@ -59,7 +59,6 @@ const TransactionsModal = () => {
 
     return () => document.removeEventListener('keydown', handleKeyDown);
   }, [dispatch]);
-  //
 
   return createPortal(
     isModalOpen && (
@@ -84,58 +83,61 @@ const TransactionsModal = () => {
           </StyledModalCloseBtn>
 
           <StyledModalBody>
-          <ConfigProvider
-  theme={{
-    components: {
-      Select: {
-        selectorBg:'#906090',
-        optionSelectedColor:'#906090'
-      },
-    },
-  }}
->
-<Select
-              showSearch
-              style={{ width: 394 }}
-              placeholder="Select a category"
-              optionFilterProp="children"
-              filterOption={(input, option) =>
-                (option?.label ?? '').includes(input)
-              }
-              filterSort={(optionA, optionB) =>
-                (optionA?.label ?? '')
-                  .toLowerCase()
-                  .localeCompare((optionB?.label ?? '').toLowerCase())
-              }
-              options={[
-                {
-                  value: '1',
-                  label: 'Main expenses',
+            <ConfigProvider
+              theme={{
+                components: {
+                  Select: {
+                    selectorBg: 'transparent',
+                    // multipleItemBorderColorDisabled:'transparent',
+                    // multipleItemBorderColor:'transparent',
+                    // multipleItemColorDisabled: '#906090',
+                    optionSelectedColor: '#906090',
+                  },
                 },
-                {
-                  value: '2',
-                  label: 'Products',
-                },
-                {
-                  value: '3',
-                  label: 'Car',
-                },
-                {
-                  value: '4',
-                  label: 'Self care',
-                },
-                {
-                  value: '5',
-                  label: 'Child care',
-                },
-                {
-                  value: '6',
-                  label: 'Household products',
-                },
-              ]}
-            />
-</ConfigProvider>
-            
+              }}
+            >
+              <StyledSelect
+                showSearch
+                style={{ width: 394 }}
+                placeholder="Select a category"
+                optionFilterProp="children"
+                filterOption={(input, option) =>
+                  (option?.label ?? '').includes(input)
+                }
+                filterSort={(optionA, optionB) =>
+                  (optionA?.label ?? '')
+                    .toLowerCase()
+                    .localeCompare((optionB?.label ?? '').toLowerCase())
+                }
+                options={[
+                  {
+                    value: '1',
+                    label: 'Main expenses',
+                  },
+                  {
+                    value: '2',
+                    label: 'Products',
+                  },
+                  {
+                    value: '3',
+                    label: 'Car',
+                  },
+                  {
+                    value: '4',
+                    label: 'Self care',
+                  },
+                  {
+                    value: '5',
+                    label: 'Child care',
+                  },
+                  {
+                    value: '6',
+                    label: 'Household products',
+                  },
+                ]}
+              />
+            </ConfigProvider>
+
             <StyledTransactionModalSelect>
               <StyledTransactionAmount
                 type="number"
@@ -144,9 +146,31 @@ const TransactionsModal = () => {
               />
 
               {/* <TransactionDate type="date" required /> */}
-              <Space direction="vertical" placeholder="Select date">
-                <DatePicker onChange={onChange} />
-              </Space>
+              <ConfigProvider
+                theme={{
+                  components: {
+                    DatePicker: {
+                      activeBg: 'transparent',
+                      activeBorderColor: '#906090',
+                      hoverBorderColor: '#906090',
+                      hoverBg: 'transparent',
+                      cellHoverBg: '#906090',
+                      // tests
+                      cellHoverWithRangeBg: 'orange',
+                      cellBgDisabled: 'red',
+                      addonBg: 'green',
+                      cellActiveWithRangeBg: 'yellow',
+                      
+                      
+                      
+                    },
+                  },
+                }}
+              >
+                <Space direction="vertical" placeholder="Select date">
+                  <DatePicker onChange={onChange} />
+                </Space>
+              </ConfigProvider>
             </StyledTransactionModalSelect>
 
             <br />
