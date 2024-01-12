@@ -19,14 +19,16 @@ export const transactionsSlice = createSlice({
     },
   },
   extraReducers: builder => {
-    builder.addCase(
-      fetchAllTransactionsThunk.fulfilled,
-      (state, { payload }) => {
-        state.contacts.items = payload;
-        state.balance = payload.length > 0 ? payload[payload.length - 1].balanceAfter : 0;
-        state.contacts.isLoading = false;
-      }
-    )
+    builder
+      .addCase(fetchAllTransactionsThunk.fulfilled, (state, { payload }) => {
+        state.transactionsList = payload;
+        state.balance =
+          payload.length > 0 ? payload[payload.length - 1].balanceAfter : 0;
+        state.isLoading = false;
+      })
+      .addCase(fetchAllTransactionsThunk.pending, (state) => {
+        state.isLoading = true;
+      })
     .addCase(deleteTransactionThunk.pending, (state) => {
       state.isLoading = true;
     })
