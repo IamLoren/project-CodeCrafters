@@ -8,8 +8,23 @@ import {
   CategoryName,
   SpanIncome,
 } from './StatisticsStyled';
+import { useSelector } from 'react-redux';
+import { categories, selectTransactionsList } from '../../redux/selectors.js';
 
 const StatisticsTable = () => {
+  // const categories = [
+  //   'Main expenses',
+  //   'Products',
+  //   'Car',
+  //   'Self care',
+  //   'Child care',
+  //   'Household products',
+  //   'Education',
+  //   'Leisure',
+  //   'Other expenses',
+  //   'Entertainment',
+  // ];
+
   const data = [
     { i: 1, category: 'Main expenses', sum: 8700.0, color: '#FED057' },
     { i: 2, category: 'Products', sum: 3800.74, color: '#FFD8D0' },
@@ -21,6 +36,19 @@ const StatisticsTable = () => {
     { i: 8, category: 'Leisure', sum: 1230.0, color: '#24CCA7' },
     { i: 9, category: 'Other expenses', sum: 610.0, color: '#00AD84' },
   ];
+
+  const transactionsList = useSelector(selectTransactionsList);
+  const expenseArr = transactionsList?.filter(item => item.type === 'EXPENSE');
+
+  const categoriesList = useSelector(categories);
+
+  console.log(
+    'transactionsList, expenseArr, categoriesList',
+    transactionsList,
+    expenseArr,
+    categoriesList
+  );
+
   return (
     <WrapCategories>
       <StatisticHead>
