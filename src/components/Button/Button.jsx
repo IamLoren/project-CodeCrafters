@@ -1,4 +1,4 @@
-import { AddTransactionButton } from 'components/TransactionsModal/TransactionsModalStyled'
+import { AddTransactionButton } from 'components/TransactionsModal/TransactionsModal.styled'
 import React from 'react'
 
 const Button = ({title}) => {

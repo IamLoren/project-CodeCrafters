@@ -1,7 +1,7 @@
 import React from 'react';
 import { DropsWrap, Dropdown, DropdownContent } from './StatisticsStyled';
 
-const StatisticsDate = () => {
+const StatisticsDashboard = () => {
   return (
     <DropsWrap>
       <Dropdown id="month" name="month" defaultValue="March">
@@ -17,4 +17,4 @@ const StatisticsDate = () => {
     </DropsWrap>
   );
 };
-export default StatisticsDate;
+export default StatisticsDashboard;

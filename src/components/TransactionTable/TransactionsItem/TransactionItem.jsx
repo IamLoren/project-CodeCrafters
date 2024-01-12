@@ -1,23 +1,16 @@
-import React from "react";
-import { LuPencil } from 'react-icons/lu';
+
 import {StyledDeleteButton} from '../TransactionsItem/TransactionItemStyled';
-import { useDispatch } from 'react-redux'; 
 import { deleteTransactionThunk } from '../../../../src/redux/transactions/operations';
+import React from 'react';
+import { LuPencil } from 'react-icons/lu';
+import { useDispatch } from 'react-redux';
+import { changeModalIsOpen } from '../../../redux/transactions/transactionsSlice';
 
-const TransactionItem = ({ transaction, onDeleteTransaction }) => {
-//   const [isEdit, setIsEdit] = useState(false);
-
-//   const handleEdit = () => {
-//     setIsEdit(true);
-//   };
-  
-const dispatch = useDispatch(); 
-  
-const handleDelete = () => {
+const TransactionItem = ({ transaction }) => {
+  const dispatch = useDispatch();
+  const handleDelete = () => {
     dispatch(deleteTransactionThunk(transaction.id));
   };
-
-
 
   return (
     <tr>
@@ -27,10 +20,12 @@ const handleDelete = () => {
       <td>{transaction.comment}</td>
       <td>{transaction.amount}</td>
       <td>
-          <LuPencil 
-            // onClick={handleEdit}
-            className="edit-icon"
-          />
+
+     <LuPencil
+          onClick={() => {
+            dispatch(changeModalIsOpen(true));
+          }}
+        />
        <StyledDeleteButton 
        onClick={handleDelete}
        >
