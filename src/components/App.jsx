@@ -6,10 +6,13 @@ import RegisterForm from 'pages/RegisterPage.jsx';
 import LoginForm from 'pages/LoginPage.jsx';
 import Home from './Home/Home.jsx';
 import Statistics from './Statistics/Statistics.jsx';
+// import Loader from './Loader/Loader.jsx';
 
 
 export const App = () => {
   return (
+    <>
+    {/* <Loader /> */}
     <Routes>
     
     <Route path='/' element={<PrivateRoute><MainLayout /></PrivateRoute>}>
@@ -22,5 +25,6 @@ export const App = () => {
     <Route path='/login' element={<PublicRoute><LoginForm /></PublicRoute>}/>
     <Route path="*" element={<Navigate to="/" />} /> 
   </Routes>
+  </>
   );
 };
