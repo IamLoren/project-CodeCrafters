@@ -1,8 +1,10 @@
 import { createSlice } from '@reduxjs/toolkit';
 // import { toast } from "react-toastify";
 import { fetchAllTransactionsThunk } from './operations';
-import { deleteTransactionThunk } from './operations';
 
+import { fetchTransactionSummaryThunk } from './operations';
+
+import { deleteTransactionThunk } from './operations';
 
 
 export const transactionsSlice = createSlice({
@@ -12,6 +14,8 @@ export const transactionsSlice = createSlice({
     transactionslist: [],
     balance: 0, // записати з поля data.balanceAfter останнього обєкта із [transactionslist]
     modalIsOpen: false,
+    isLoading: false,
+    transactionSummary: []
   },
   reducers: {
     changeModalIsOpen: (state, { payload }) => {
@@ -29,6 +33,14 @@ export const transactionsSlice = createSlice({
       .addCase(fetchAllTransactionsThunk.pending, (state) => {
         state.isLoading = true;
       })
+    .addCase(
+      fetchTransactionSummaryThunk.fulfilled,
+      (state, { payload }) => {
+        // state.transactionslist = payload;
+        // state.isLoading = false;
+
+      }
+    )
     .addCase(deleteTransactionThunk.pending, (state) => {
       state.isLoading = true;
     })

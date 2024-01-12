@@ -2,7 +2,7 @@ import Container from 'components/Container/Container';
 import Logo from 'components/Logo/Logo';
 import ModalExit from 'components/ModalExit/ModalExit';
 import React, { useEffect, useState } from 'react';
-import { StyledHeader, StyledInnerHeader } from './Header.styled';
+import { StyledExitButton, StyledHeader, StyledInnerHeader } from './Header.styled';
 import { selectUserName } from '../../redux/selectors';
 import { useSelector } from 'react-redux';
 import { IoExitOutline } from 'react-icons/io5';
@@ -30,7 +30,10 @@ export const Header = ({ children }) => {
           <Logo />
           <div >
             {userName && <span>{userName}</span>}
-            <button onClick={handleShowModal}> | <IoExitOutline /> Exit</button>
+            <StyledExitButton>
+              <IoExitOutline size="18" />
+              <button onClick={handleShowModal}> Exit</button>
+            </StyledExitButton>
           </div>
         </StyledInnerHeader>
       </Container>
@@ -43,4 +46,7 @@ export const Header = ({ children }) => {
 }
 
 export default Header;
+// Alis
+// alis.n@email.com
+// 111111111111
 
