@@ -1,7 +1,15 @@
 import React from 'react';
-import { Head, StatisticHead, WrapCategories } from './StatisticsStyled';
+import {
+  Text,
+  StatisticHead,
+  WrapCategories,
+  CategoriesList,
+  CategoriesItem,
+  CategoryName,
+  SpanIncome,
+} from './StatisticsStyled';
 
-const StatisticsDetails = () => {
+const StatisticsTable = () => {
   const data = [
     { i: 1, category: 'Main expenses', sum: 8700.0, color: '#FED057' },
     { i: 2, category: 'Products', sum: 3800.74, color: '#FFD8D0' },
@@ -16,22 +24,28 @@ const StatisticsDetails = () => {
   return (
     <WrapCategories>
       <StatisticHead>
-        <Head>Category</Head>
-        <Head>Sum</Head>
+        <Text>Category</Text>
+        <Text>Sum</Text>
       </StatisticHead>
-      <ul>
+      <CategoriesList>
         {data.map(item => (
-          <li key={item.i}>
-            <p>{item.category}</p>
-            <p color={item.color}></p>
-            <p>{item.sum.toFixed(2)}</p>
-          </li>
+          <CategoriesItem key={item.i}>
+            <CategoryName>{item.category}</CategoryName>
+            <div color={item.color}></div>
+            <CategoryName>{item.sum.toFixed(2)}</CategoryName>
+          </CategoriesItem>
         ))}
-        <li>Expenses:</li> <span>22549.24</span>
-        <li>Income:</li> <span>27350.00</span>
-      </ul>
+        <CategoriesItem>
+          <CategoryName>Expenses:</CategoryName>
+          <span>22549.24</span>
+        </CategoriesItem>
+        <CategoriesItem>
+          <CategoryName>Income:</CategoryName>
+          <SpanIncome>27350.00</SpanIncome>
+        </CategoriesItem>
+      </CategoriesList>
     </WrapCategories>
   );
 };
 
-export default StatisticsDetails;
+export default StatisticsTable;
