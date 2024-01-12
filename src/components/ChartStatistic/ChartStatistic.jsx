@@ -44,10 +44,10 @@ const ChartStatistic = () => {
 
   const transactionsList = useSelector(selectTransactionsList)
   const data = dataTr.datasets[0].data
-  transactionsList.map(transaction => {
-    data.push(transaction.amount)
-    dataTr.datasets[0].label = transaction.categoryId
-  })
+  // transactionsList.map(transaction => {
+  //   data.push(transaction.amount)
+  //   dataTr.datasets[0].label = transaction.categoryId
+  // })
   console.log(data)
 
   console.log(transactionsList)
