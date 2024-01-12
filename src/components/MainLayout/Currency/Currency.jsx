@@ -13,13 +13,13 @@ import {
   loadingCurrencySelector,
 } from '../../../redux/selectors.js';
 import { currencyThunk } from '../../../redux/currency/operations.js';
-import Loader from 'components/Loader/Loader';
+// import Loader from 'components/Loader/Loader';
 
 const Currency = () => {
   const [currency, setCurrency] = useState([]);
   const dispatch = useDispatch();
   const todayCurrency = useSelector(currencySelector);
-  const loading = useSelector(loadingCurrencySelector);
+  // const loading = useSelector(loadingCurrencySelector);
 
   const lastUpdateTime = () => {
     const newTime = Date.now();
