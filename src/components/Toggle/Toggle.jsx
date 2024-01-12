@@ -1,12 +1,16 @@
 import React from 'react';
 import { Switch } from 'antd';
-
-const onChange = checked => {
-  console.log(`switch to ${checked}`);
-};
+import { changeToggleState } from '../../redux/transactions/transactionsSlice.js';
+import { useDispatch } from 'react-redux';
 
 const Toggle = () => {
-  return <Switch defaultChecked onChange={onChange} />;
+  const dispatch = useDispatch();
+
+  const onChange = checked => {
+    dispatch(changeToggleState(checked));
+  };
+
+  return <Switch defaultChecked onChange={onChange} name="type" />;
 };
 
 export default Toggle;

@@ -1,10 +1,9 @@
-
-import {StyledDeleteButton} from '../TransactionsItem/TransactionItemStyled';
+import { StyledDeleteButton } from '../TransactionsItem/TransactionItemStyled';
 import { deleteTransactionThunk } from '../../../../src/redux/transactions/operations';
 import React from 'react';
 import { LuPencil } from 'react-icons/lu';
 import { useDispatch } from 'react-redux';
-import { changeModalIsOpen } from '../../../redux/transactions/transactionsSlice';
+import { changeModalEditForm } from '../../../redux/transactions/transactionsSlice';
 
 const TransactionItem = ({ transaction }) => {
   const dispatch = useDispatch();
@@ -20,17 +19,12 @@ const TransactionItem = ({ transaction }) => {
       <td>{transaction.comment}</td>
       <td>{transaction.amount}</td>
       <td>
-
-     <LuPencil
+        <LuPencil
           onClick={() => {
-            dispatch(changeModalIsOpen(true));
+            dispatch(changeModalEditForm(true));
           }}
         />
-       <StyledDeleteButton 
-       onClick={handleDelete}
-       >
-        Delete
-        </StyledDeleteButton>
+        <StyledDeleteButton onClick={handleDelete}>Delete</StyledDeleteButton>
       </td>
     </tr>
   );
