@@ -3,6 +3,7 @@ import { ModalButton, ModalButtonClose, ModalContent, ModalWrapper } from './Mod
 import { useDispatch } from 'react-redux'
 import { logoutThunk } from '../../redux/auth/operations'
 import { useNavigate } from 'react-router'
+import mainLogo from '../../img/Main-logo.webp'
 
 
 const ModalExit = ({ handleCloseModal }) => {
@@ -29,7 +30,12 @@ const ModalExit = ({ handleCloseModal }) => {
   return (
     <ModalWrapper onClick={clickOutside}>
       <ModalContent >
-        <h3>Money Guard</h3>
+        <img
+          src={mainLogo}
+          alt='Main-logo'
+          width='115'
+          height='48'
+          loading='lazy' />
         <p>Are you sure you want to log out?</p>
         <ModalButton onClick={logout}>Logout</ModalButton>
         <ModalButtonClose onClick={handleCloseModal}>cancel</ModalButtonClose>
