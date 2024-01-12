@@ -2,9 +2,9 @@ import React from 'react';
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
 import { Doughnut } from 'react-chartjs-2';
 import { DoughnutContainerStyled } from './ChartStatistic.styled';
-import { useDispatch, useSelector } from 'react-redux';
-import { fetchAllTransactionsThunk } from '../../redux/transactions/operations';
-import { selectBalance, selectTransactionsList } from '../../redux/selectors';
+import { useSelector } from 'react-redux';
+// import { fetchAllTransactionsThunk } from '../../redux/transactions/operations';
+import { selectTransactionsList } from '../../redux/selectors';
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 
