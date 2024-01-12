@@ -1,4 +1,16 @@
 import styled from 'styled-components';
+import registerbg from '../../img/Register-bg-desc@retina.webp';
+
+export const StyledSection = styled.section`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-image: url(${registerbg});
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+`;
 
 export const StyledForm = styled.form`
   display: flex;

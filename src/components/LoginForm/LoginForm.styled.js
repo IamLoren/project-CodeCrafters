@@ -1,15 +1,17 @@
 import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
-import loginbg from '../../img/Login-bg-desc.webp';
+import loginbg from '../../img/Login-bg-desc@retina.webp';
+import formbg from '../../img/LoginForm-bg-desc@retina.webp';
 
 export const StyledSection = styled.section`
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
-  /* background-image: url(${loginbg}); */
-  /* background-image: url('../../img/Login-bg-desc.webp'),
-    lightgray -359px -0.362px / 208.13% 111.212% no-repeat; */
+  background-image: url(${loginbg});
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 `;
 
 export const StyledForm = styled.form`
@@ -19,11 +21,14 @@ export const StyledForm = styled.form`
   align-items: center;
 
   max-width: 533px;
-  max-height: 570px;
+  min-height: 570px;
   padding: 80px 62px;
 
   border-radius: 8px;
+  /* background: url(${formbg}); */
   background: rgba(255, 255, 255, 0.1);
+  background-position: center;
+  background-repeat: no-repeat;
   box-shadow: 0px 4px 60px 0px rgba(0, 0, 0, 0.25);
   /* backdrop-filter: blur(50px); */
 `;

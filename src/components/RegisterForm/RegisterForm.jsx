@@ -1,11 +1,10 @@
 import React from 'react';
-import { InputBox, StyledForm } from './RegisterForm.styled';
+import { InputBox, StyledForm, StyledSection } from './RegisterForm.styled';
 import {
   ErrMessage,
   StyledBtn,
   StyledInput,
   StyledNavLink,
-  StyledSection,
 } from 'components/LoginForm/LoginForm.styled';
 import { IoMdLock } from 'react-icons/io';
 import { MdEmail } from 'react-icons/md';
@@ -19,7 +18,7 @@ import { registerThunk } from '../../redux/auth/operations';
 import { toast } from 'react-toastify';
 
 const basicSchema = yup.object().shape({
-  username: yup.string().required('Required'),
+  name: yup.string().required('Required'),
   email: yup.string().email('Please enter a valid email!').required('Required'),
   password: yup
     .string()
