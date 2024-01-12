@@ -28,7 +28,7 @@ export const StyledNavLink = styled(NavLink)`
   gap: 20px;
 
   div {
-    background-color: var(--icon-violet);
+    background-color: var(--modal-input-underline);
     border-radius: 2px;
     height: 18px;
     width: 18px;
@@ -37,7 +37,19 @@ export const StyledNavLink = styled(NavLink)`
     justify-content: center;
   }
 
+  div svg {
+    fill: var(--icon-color-link);
+  }
+
   &.active {
     font-weight: 700;
+  }
+
+  &.active div {
+    background: var(--icon-violet);
+  }
+
+  &.active div svg {
+    fill: var(--white);
   }
 `;
