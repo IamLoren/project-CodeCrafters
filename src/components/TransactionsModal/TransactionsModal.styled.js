@@ -72,7 +72,7 @@ export const StyledModalCloseBtn = styled.button`
   outline: transparent;
   color: var(--white);
 `;
-export const StyledModalBody = styled.div`
+export const StyledModalBody = styled.form`
   /* gap: 40px; */
   border-radius: 0 0 5px 5px;
   display: flex;
@@ -91,16 +91,16 @@ export const StyledTransactionModalSelect = styled.div`
   gap: 32px;
   margin-bottom: 40px;
 `;
-export const StyledSelect = styled(Select)`
-  color: var(--text-forms);
-  margin-bottom: 40px;
-  font-family: 'Poppins Regular';
-  font-size: 18px;
-  font-weight: 400;
-  background-color: transparent;
-  border: none;
-  border-bottom: 1px solid var(--modal-input-underline);
-`;
+// export const StyledSelect = styled(Select)`
+//   color: var(--text-forms);
+//   margin-bottom: 40px;
+//   font-family: 'Poppins Regular';
+//   font-size: 18px;
+//   font-weight: 400;
+//   background-color: transparent;
+//   border: none;
+//   border-bottom: 1px solid var(--modal-input-underline);
+// `;
 export const StyledTransactionAmount = styled.input`
   /* -webkit-appearance: none; */
   /* -moz-appearance: textfield; */

@@ -3,33 +3,19 @@ import { createPortal } from 'react-dom';
 import {
   StyledTransactionsModalBackdrop,
   StyledModalTransaction,
-  StyledModalBody,
-  StyledTransactionAmount,
-  StyledTransactionComment,
-  StyledTransactionModalSelect,
-  StyledTransactionButtonsWrapper,
   StyledModalCloseBtn,
-  StyledModalToggle,
-  StyledSelect,
 } from './TransactionsModal.styled.js';
-import Toggle from 'components/Toggle/Toggle';
-// import { Select } from 'antd';
-import Button from '../Button/Button.jsx';
-import AccentButton from 'components/AccentButton/AccentButton.jsx';
-import { ConfigProvider, DatePicker, Space } from 'antd';
 import { AiOutlineClose } from 'react-icons/ai';
-import { modalIsOpen } from '../../redux/selectors.js';
+import { modalIsAdd, modalIsEdit, modalIsOpen } from '../../redux/selectors.js';
 import { useDispatch, useSelector } from 'react-redux';
-import { changeModalIsOpen } from '../../redux/transactions/transactionsSlice.js';
-
-const onChange = (date, dateString) => {
-  console.log(date, dateString);
-};
+import { changeModalClose } from '../../redux/transactions/transactionsSlice.js';
+import ModalEdit from 'components/ModalEdit/ModalEdit.jsx';
+import ModalAdd from 'components/ModalAdd/ModalAdd.jsx';
 
 const modalRootElement = document.getElementById('modal'); //portal modal
-// console.log(modalRootElement);
+
 const TransactionsModal = () => {
-  const element = useMemo(() => document.createElement('div'), []); //portal modal
+  const element = useMemo(() => document.createElement('div'), []);
   useEffect(() => {
     modalRootElement.appendChild(element);
 
@@ -39,20 +25,20 @@ const TransactionsModal = () => {
   }); //portal modal
 
   const isModalOpen = useSelector(modalIsOpen);
+  const isModalEdit = useSelector(modalIsEdit);
+  const isModalAdd = useSelector(modalIsAdd);
 
   const dispatch = useDispatch();
 
-  // close backdrop & esc
-
   const clickBackdrop = e => {
     if (e.target === e.currentTarget) {
-      dispatch(changeModalIsOpen(false));
+      dispatch(changeModalClose(false));
     }
   };
   useEffect(() => {
     const handleKeyDown = e => {
       if (e.key === 'Escape') {
-        dispatch(changeModalIsOpen(false));
+        dispatch(changeModalClose(false));
       }
     };
     document.addEventListener('keydown', handleKeyDown);
@@ -66,121 +52,22 @@ const TransactionsModal = () => {
         open={isModalOpen}
         onClick={clickBackdrop}
       >
+        {/* header */}
         <StyledModalTransaction>
           <h2>Add transaction</h2>
-          <StyledModalToggle>
-            <p>Income</p>
-            <Toggle />
-            <p>Expense</p>
-          </StyledModalToggle>
+          {/* toggle */}
 
+          {/* button close */}
           <StyledModalCloseBtn
             onClick={() => {
-              dispatch(changeModalIsOpen(false));
+              dispatch(changeModalClose(false));
             }}
           >
             <AiOutlineClose size="24" />
           </StyledModalCloseBtn>
-
-          <StyledModalBody>
-            <ConfigProvider
-              theme={{
-                components: {
-                  Select: {
-                    selectorBg: 'transparent',
-                    // multipleItemBorderColorDisabled:'transparent',
-                    // multipleItemBorderColor:'transparent',
-                    // multipleItemColorDisabled: '#906090',
-                    optionSelectedColor: '#906090',
-                  },
-                },
-              }}
-            >
-              <StyledSelect
-                showSearch
-                style={{ width: 394 }}
-                placeholder="Select a category"
-                optionFilterProp="children"
-                filterOption={(input, option) =>
-                  (option?.label ?? '').includes(input)
-                }
-                filterSort={(optionA, optionB) =>
-                  (optionA?.label ?? '')
-                    .toLowerCase()
-                    .localeCompare((optionB?.label ?? '').toLowerCase())
-                }
-                options={[
-                  {
-                    value: '1',
-                    label: 'Main expenses',
-                  },
-                  {
-                    value: '2',
-                    label: 'Products',
-                  },
-                  {
-                    value: '3',
-                    label: 'Car',
-                  },
-                  {
-                    value: '4',
-                    label: 'Self care',
-                  },
-                  {
-                    value: '5',
-                    label: 'Child care',
-                  },
-                  {
-                    value: '6',
-                    label: 'Household products',
-                  },
-                ]}
-              />
-            </ConfigProvider>
-
-            <StyledTransactionModalSelect>
-              <StyledTransactionAmount
-                type="number"
-                placeholder="0.00"
-                required
-              />
-
-              {/* <TransactionDate type="date" required /> */}
-              <ConfigProvider
-                theme={{
-                  components: {
-                    DatePicker: {
-                      activeBg: 'transparent',
-                      activeBorderColor: '#906090',
-                      hoverBorderColor: '#906090',
-                      hoverBg: 'transparent',
-                      cellHoverBg: '#906090',
-                      // tests
-                      cellHoverWithRangeBg: 'orange',
-                      cellBgDisabled: 'red',
-                      addonBg: 'green',
-                      cellActiveWithRangeBg: 'yellow',
-                      
-                      
-                      
-                    },
-                  },
-                }}
-              >
-                <Space direction="vertical" placeholder="Select date">
-                  <DatePicker onChange={onChange} />
-                </Space>
-              </ConfigProvider>
-            </StyledTransactionModalSelect>
-
-            <br />
-            <StyledTransactionComment placeholder="Comment"></StyledTransactionComment>
-            <br />
-            <StyledTransactionButtonsWrapper>
-              <Button title="Add" />
-              <AccentButton title="Cancel" />
-            </StyledTransactionButtonsWrapper>
-          </StyledModalBody>
+          {/* render form */}
+          {isModalEdit && <ModalEdit />}
+          {isModalAdd && <ModalAdd />}
         </StyledModalTransaction>
       </StyledTransactionsModalBackdrop>
     ),

@@ -1,16 +1,8 @@
-import { AddTransactionButton } from 'components/TransactionsModal/TransactionsModal.styled'
-import React from 'react'
+import { AddTransactionButton } from 'components/TransactionsModal/TransactionsModal.styled';
+import React from 'react';
 
-const Button = ({title}) => {
-  return (
-    <AddTransactionButton
-          onClick={() => {
-            /* handle adding transaction */
-          }}
-        >
-          {title}
-        </AddTransactionButton>
-  )
-}
+const Button = ({ title }) => {
+  return <AddTransactionButton type="submit">{title}</AddTransactionButton>;
+};
 
-export default Button
+export default Button;
