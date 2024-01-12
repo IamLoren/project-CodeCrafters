@@ -6,7 +6,7 @@ export const StyledSection = styled.section`
   justify-content: center;
   align-items: center;
   height: 100vh;
-  /* background: url(<path-to-image>),
+  /* background-image: url('../../img/Login-bg-desc.webp'),
     lightgray -359px -0.362px / 208.13% 111.212% no-repeat; */
 `;
 
@@ -105,4 +105,9 @@ export const StyledNavLink = styled(NavLink)`
   border: 1px solid var(--household);
   background: #fcfcfc;
   box-shadow: 1px 9px 15px 0px rgba(0, 0, 0, 0.2);
+`;
+
+export const ErrMessage = styled.p`
+  color: var(--text-forms);
+  padding-top: 4px;
 `;
