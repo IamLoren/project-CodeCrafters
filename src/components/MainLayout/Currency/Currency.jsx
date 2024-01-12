@@ -3,9 +3,9 @@ import {
   CurrencyTable,
   CurrencyTbody,
   CurrencyThead,
-  GraphBox,
   HigherRate,
   LowerRate,
+  StyledGraphBox,
 } from './CurrencyStyled';
 import { useDispatch, useSelector } from 'react-redux';
 import { currencySelector } from '../../../redux/selectors.js';
@@ -45,25 +45,25 @@ const Currency = () => {
         </CurrencyTbody>
       </CurrencyTable>
 
-      <GraphBox>
-        {currency.map(item => {
+      <StyledGraphBox>
+        {currency?.map(item => {
           if (item.currencyCodeA === 840) {
             return (
-              <>
-                <LowerRate key={crypto.randomUUID()}>{item.rateBuy}</LowerRate>
-              </>
-            );
-          } else if (item.currencyCodeA === 978) {
-            return (
-              <>
-                <HigherRate key={crypto.randomUUID()}>
-                  {item.rateBuy}
-                </HigherRate>
-              </>
+              <LowerRate key={crypto.randomUUID()}>{item.rateBuy}</LowerRate>
             );
           }
+          return [];
         })}
-      </GraphBox>
+
+        {currency?.map(item => {
+          if (item.currencyCodeA === 978) {
+            return (
+              <HigherRate key={crypto.randomUUID()}>{item.rateBuy}</HigherRate>
+            );
+          }
+          return [];
+        })}
+      </StyledGraphBox>
     </>
   );
 };
