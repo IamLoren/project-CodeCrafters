@@ -13,7 +13,7 @@ import AccentButton from '../../components/AccentButton/AccentButton.jsx';
 import CustomSelect from 'components/CustomSelect/CustomSelect.jsx';
 import Toggle from 'components/Toggle/Toggle.jsx';
 import { useDispatch, useSelector } from 'react-redux';
-import { toggleState } from '../../redux/selectors.js';
+import { IDfromSelect, toggleState } from '../../redux/selectors.js';
 import { addTransactionThunk } from '../../redux/transactions/operations.js';
 
 const ModalAdd = () => {
@@ -26,19 +26,19 @@ const ModalAdd = () => {
   const dispatch = useDispatch();
 
   const typeToggle = useSelector(toggleState);
-
+  const id = useSelector(IDfromSelect);
   const createTransaction = event => {
     event.preventDefault();
     const formData = new FormData(event.target);
     const amountValue = formData.get('amount');
     const comment = formData.get('comment');
-
+    console.log(typeToggle)
     const transaction = {
       transactionDate: `${date}`,
-      type: `${typeToggle ? 'INCOME' : 'EXPENSE'}`,
-      categoryId: '063f1132-ba5d-42b4-951d-44011ca46262',
+      type: `${typeToggle === 'true' ? 'INCOME' : 'EXPENSE'}`,
+      categoryId: `${id}`,
       comment: `${comment}`,
-      amount: `${amountValue}`,
+      amount: `${typeToggle === 'true' ? amountValue : -amountValue}`
     };
     console.log(transaction);
     dispatch(addTransactionThunk(transaction));
