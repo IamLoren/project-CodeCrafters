@@ -2,8 +2,9 @@ import React from 'react';
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
 import { Doughnut } from 'react-chartjs-2';
 import { DoughnutContainerStyled } from './ChartStatistic.styled';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { fetchAllTransactionsThunk } from '../../redux/transactions/operations';
+import { selectBalance } from '../../redux/selectors';
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 
@@ -41,12 +42,13 @@ export const data = {
 };
 
 const ChartStatistic = () => {
+  const balance = useSelector(selectBalance)
   const dispatch = useDispatch()
   console.log(dispatch(fetchAllTransactionsThunk))
   return (
     <DoughnutContainerStyled>
       <Doughnut data={data} />
-      <p>₴ 24 000.00</p>
+      <p>₴ {balance}</p>
     </DoughnutContainerStyled>
 
   )
