@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import {
+    Container,
     TransactionTable,
     TransactionTbody,
     TransactionThead,
@@ -48,6 +49,7 @@ const TransactionsList = () => {
   ]);
 
   return (
+    <Container>
     <TransactionTable class="table table-bordered table-striped">
       <TransactionThead>
         <tr>
@@ -65,6 +67,7 @@ const TransactionsList = () => {
         ))}
       </TransactionTbody>
     </TransactionTable>
+    </Container>
   );
 };
   

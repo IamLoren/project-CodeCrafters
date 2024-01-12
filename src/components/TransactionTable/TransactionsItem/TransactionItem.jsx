@@ -1,15 +1,23 @@
-import React, { useState } from "react";
-import { EditOutlined } from '@ant-design/icons';
+import React from "react";
+import { LuPencil } from 'react-icons/lu';
+import {StyledDeleteButton} from '../TransactionsItem/TransactionItemStyled';
+import { useDispatch } from 'react-redux'; 
+import { deleteTransactionThunk } from '../../../../src/redux/transactions/operations';
 
-const TransactionItem = ({ transaction }) => {
-  const [isEdit, setIsEdit] = useState(false);
+const TransactionItem = ({ transaction, onDeleteTransaction }) => {
+//   const [isEdit, setIsEdit] = useState(false);
 
-  const handleEdit = () => {
-    setIsEdit(true);
+//   const handleEdit = () => {
+//     setIsEdit(true);
+//   };
+  
+const dispatch = useDispatch(); 
+  
+const handleDelete = () => {
+    dispatch(deleteTransactionThunk(transaction.id));
   };
 
-  const handleDelete = () => {
-  };
+
 
   return (
     <tr>
@@ -19,19 +27,15 @@ const TransactionItem = ({ transaction }) => {
       <td>{transaction.comment}</td>
       <td>{transaction.amount}</td>
       <td>
-      {isEdit ? (
-          <EditOutlined
+          <LuPencil 
+            // onClick={handleEdit}
             className="edit-icon"
           />
-        ) : (
-          <EditOutlined
-            onClick={handleEdit}
-            className="edit-icon"
-          />
-        )}
-        <button type="button" class="btn btn-danger" onClick={handleDelete}>
-          Видалити
-        </button>
+       <StyledDeleteButton 
+       onClick={handleDelete}
+       >
+        Delete
+        </StyledDeleteButton>
       </td>
     </tr>
   );
