@@ -16,10 +16,31 @@ const Currency = () => {
   const dispatch = useDispatch();
   const todayCurrency = useSelector(currencySelector);
 
+  const lastUpdateTime = () => {
+    const newTime = Date.now();
+    localStorage.setItem('updateLastTime', newTime);
+  };
+
   useEffect(() => {
-    dispatch(currencyThunk());
-    setCurrency(todayCurrency);
-  }, [dispatch, todayCurrency]);
+    const updateLastTime = localStorage.getItem('updateLastTime');
+
+    const timeHourPassed = () => {
+      const HOUR_IN_MS = 60 * 60 * 1000; // 60 seconds * 60 minutes * 1000 milliseconds = 3,600,000 milliseconds
+      return Date.now() - Number(updateLastTime) >= HOUR_IN_MS;
+    };
+
+    if (timeHourPassed() || !updateLastTime) {
+      dispatch(currencyThunk());
+      setCurrency(todayCurrency);
+      lastUpdateTime();
+    } else {
+      setCurrency(todayCurrency);
+    }
+  }, [dispatch, , todayCurrency]);
+
+  // dispatch(currencyThunk());
+  // setCurrency(todayCurrency);
+  // }, [dispatch, todayCurrency]);
 
   return (
     <>
