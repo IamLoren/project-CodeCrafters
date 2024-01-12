@@ -55,17 +55,19 @@ export const DropdownContent = styled.option`
   font-family: 'Poppins Regular';
   font-size: 16px;
   padding: 4px auto 4px 20px;
-  &:hover: {
+  &:hover {
     color: #ff868d;
   }
 `;
 
 export const Wrap = styled.div`
-  width: 800px;
+  /* width: 800px; */
+  width: 100%;
   display: flex;
   flex-direction: row;
   gap: 32px;
   padding: 32px 16px 46px 69px;
+  justify-content: space-between;
 `;
 
 export const WrapCategories = styled.div`
