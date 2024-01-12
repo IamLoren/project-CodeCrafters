@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/project-CodeCrafters/static/css/main.0f4f9d4e.css",
-    "main.js": "/project-CodeCrafters/static/js/main.6758ca6e.js",
+    "main.js": "/project-CodeCrafters/static/js/main.aced9f7f.js",
     "static/media/Circe-Regular.ttf": "/project-CodeCrafters/static/media/Circe-Regular.f80cf2f1a50fc5107f4c.ttf",
     "static/media/Circe-Bold.ttf": "/project-CodeCrafters/static/media/Circe-Bold.d9332714c66b14bb30e5.ttf",
     "static/media/Poppins-Regular.ttf": "/project-CodeCrafters/static/media/Poppins-Regular.35d26b781dc5fda684cc.ttf",
@@ -13,10 +13,10 @@
     "static/media/Main-logo.webp": "/project-CodeCrafters/static/media/Main-logo.abbc004ed39ffa9cd29f.webp",
     "index.html": "/project-CodeCrafters/index.html",
     "main.0f4f9d4e.css.map": "/project-CodeCrafters/static/css/main.0f4f9d4e.css.map",
-    "main.6758ca6e.js.map": "/project-CodeCrafters/static/js/main.6758ca6e.js.map"
+    "main.aced9f7f.js.map": "/project-CodeCrafters/static/js/main.aced9f7f.js.map"
   },
   "entrypoints": [
     "static/css/main.0f4f9d4e.css",
-    "static/js/main.6758ca6e.js"
+    "static/js/main.aced9f7f.js"
   ]
 }
