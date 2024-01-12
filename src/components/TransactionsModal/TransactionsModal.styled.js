@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { Select } from 'antd';
+// import { Select } from 'antd';
 import BgModalTransaction from '../../img/Bg-trans-modal-desc.webp';
 
 export const StyledTransactionsModalBackdrop = styled.div`
