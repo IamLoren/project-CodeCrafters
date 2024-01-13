@@ -58,6 +58,7 @@ const MainLayout = () => {
             {/* {location.pathname === '/' && <Home />}
             {location.pathname === '/statistics' && <Statistics />} */}
             <Outlet />
+
           </div>
         </StyledContainer>
       </main>
