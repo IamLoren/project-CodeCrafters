@@ -118,7 +118,19 @@ export const SpanIncome = styled.span`
   font-size: 14px;
 `;
 export const CategoryName = styled.p`
+  display: block;
   font-size: 14px;
   color: var(--white);
   display: block;
+`;
+export const NameColor = styled.div`
+  display: flex;
+  justify-content: start;
+`;
+export const IndicateColor = styled.p`
+  width: 20px;
+  height: 20px;
+  border: 1px;
+  margin-right: 16px;
+  background-color: ${props => props.color};
 `;
