@@ -5,7 +5,6 @@ import MainLayout from './MainLayout/MainLayout.jsx';
 import RegisterForm from 'pages/RegisterPage.jsx';
 import LoginForm from 'pages/LoginPage.jsx';
 import Home from './Home/Home.jsx';
-import Statistics from './Statistics/Statistics.jsx';
 // import Loader from './Loader/Loader.jsx';
 import CurrencyPage from 'pages/CurrencyPage.jsx';
 import MediaQuery from 'react-responsive';
@@ -19,8 +18,8 @@ export const App = () => {
     <Routes>
     
     <Route path='/' element={<PrivateRoute><MainLayout /></PrivateRoute>}>
-    <Route index element={<Home />} />
-    <Route path='statistics' element={<Statistics />} />
+    {/* <Route index element={<Home />} />
+    <Route path='statistics' element={<Statistics />} /> */}
     <Route path='home' element={<Home />} />
 
     </Route>
