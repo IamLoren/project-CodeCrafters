@@ -49,6 +49,7 @@ const MainLayout = () => {
               {isDesktop && <Currency />}
             </SideLeft>
             <Outlet />
+
           </div>
         </StyledContainer>
       </main>

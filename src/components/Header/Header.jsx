@@ -25,18 +25,14 @@ export const Header = ({ children }) => {
 
   return (<>
     <StyledHeader>
-      <Container>
-        <StyledInnerHeader>
-          <Logo />
-          <div >
-            {userName && <span>{userName}</span>}
-            <StyledExitButton>
-              <IoExitOutline size="18" />
-              <button onClick={handleShowModal}> Exit</button>
-            </StyledExitButton>
-          </div>
-        </StyledInnerHeader>
-      </Container>
+      <Logo />
+      <div >
+        {userName && <span>{userName}</span>}
+        <StyledExitButton onClick={handleShowModal}>
+          <IoExitOutline size="23" />
+          <button>Exit</button>
+        </StyledExitButton>
+      </div>
     </StyledHeader>
 
     {isOpenModal ? <ModalExit handleCloseModal={handleCloseModal} /> : null
