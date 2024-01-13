@@ -94,16 +94,12 @@ const StatisticsTable = () => {
   // const incomeArr = data?.filter(item => item.type === 'INCOME');
   const categoriesList = useSelector(categories);
 
-  console.log(
-    'transactionsList',
-    transactionsList,
-    'expenseArr',
-    expenseArr,
-    'incomeArr',
-    incomeArr,
-    'categoriesList',
-    categoriesList
-  );
+  console.log('transactionsList:', transactionsList);
+  console.log('expenseArr:', expenseArr);
+
+  console.log('incomeArr:', incomeArr);
+  console.log('categoriesList:', categoriesList);
+  console.log('Date:', expenseArr[0].transactionDate);
 
   const totalExpense = expenseArr.reduce((total, el) => {
     return total + Number(el.amount);
@@ -114,8 +110,6 @@ const StatisticsTable = () => {
     return (total += Number(el.amount));
   }, 0);
   const income = incomeTotal.toFixed(2);
-
-  // Math.abs("-1"); // 1
 
   return (
     <WrapCategories>
