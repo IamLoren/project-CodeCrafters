@@ -1,8 +1,14 @@
-import React, {  useEffect } from "react";
+import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import TransactionItem from '../TransactionsItem/TransactionItem';
 import { fetchAllTransactionsThunk, fetchTransactionsCategoriesThunk } from '../../../redux/transactions/operations';
 import { selectTransactionsList } from '../../../redux/selectors';
+import {
+  TransactionContainer,
+  SquareContainer,
+  HeaderList,
+  HeaderItem,
+} from './TransactionMobileStyled';
 
 const TransactionMobile = () => {
   const dispatch = useDispatch();
@@ -14,23 +20,25 @@ const TransactionMobile = () => {
 
   const transactions = useSelector(selectTransactionsList);
 
-
   return (
-   <>
-          {transactions.length === 0 ? (
-            <p>You don't have any transactions of your own yet</p>
-          ) : (
-            transactions?.map((transaction) => (
-              <TransactionItem key={transaction.id}>
-                <div>{transaction.date}</div>
-                <div>{transaction.type}</div>
-                <div>{transaction.category}</div>
-                <div>{transaction.comment}</div>
-                <div>{transaction.sum}</div>
-              </TransactionItem>
-            ))
-          )}
-       </> 
+    <TransactionContainer>
+      {transactions.length === 0 ? (
+        <p>You don't have any transactions of your own yet</p>
+      ) : (
+        transactions?.map((transaction) => (
+          <SquareContainer key={transaction.id}>
+            <HeaderList>
+              <HeaderItem>Date:</HeaderItem>
+              <HeaderItem>Type:</HeaderItem>
+              <HeaderItem>Category:</HeaderItem>
+              <HeaderItem>Comment:</HeaderItem>
+              <HeaderItem>Sum:</HeaderItem>
+            </HeaderList>
+            <TransactionItem  transaction={transaction} />
+          </SquareContainer>
+        ))
+      )}
+    </TransactionContainer>
   );
 };
 
