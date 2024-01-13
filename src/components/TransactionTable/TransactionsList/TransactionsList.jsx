@@ -53,13 +53,12 @@ const TransactionsList = () => {
   // ]);
 
   const dispatch = useDispatch();
-  const transactions = useSelector(selectTransactionsList); 
 
   useEffect(() => {
     dispatch(fetchAllTransactionsThunk());
     dispatch(fetchTransactionsCategoriesThunk());
   }, [dispatch]);
-  
+  const transactions = useSelector(selectTransactionsList); 
   return (
     <Container>
     <TransactionTable class="table table-bordered table-striped">
@@ -79,7 +78,7 @@ const TransactionsList = () => {
               <td colSpan="6">Ви ще не маєте власних транзакцій</td>
             </tr>
           ) : (
-            transactions.map((transaction) => (
+            transactions?.map((transaction) => (
               <TransactionItem key={transaction.id} transaction={transaction} />
             ))
           )}
