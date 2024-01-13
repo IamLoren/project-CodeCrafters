@@ -1,6 +1,10 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { toast } from 'react-toastify';
-import { addTransactionThunk, fetchAllTransactionsThunk, fetchTransactionsCategoriesThunk } from './operations';
+import {
+  addTransactionThunk,
+  fetchAllTransactionsThunk,
+  fetchTransactionsCategoriesThunk,
+} from './operations';
 
 import { fetchTransactionSummaryThunk } from './operations';
 
@@ -10,9 +14,9 @@ export const transactionsSlice = createSlice({
   name: 'transactionsSlice',
   initialState: {
     modal: {
-      modalIsOpen: false,
-      modalEditForm: false,
-      modalAddForm: false,
+      modalIsOpen: false, //
+      modalEditForm: false, //
+      modalAddForm: false, //to false
       toggleState: true,
       select: '',
     },
@@ -45,12 +49,12 @@ export const transactionsSlice = createSlice({
   },
   extraReducers: builder => {
     builder
-    .addCase(fetchAllTransactionsThunk.fulfilled, (state, { payload }) => {
-      state.transactionslist = payload;
-      state.balance =
-        payload.length > 0 ? payload[payload.length - 1].balanceAfter : 0;
-      state.isLoading = false;
-    })
+      .addCase(fetchAllTransactionsThunk.fulfilled, (state, { payload }) => {
+        state.transactionslist = payload;
+        state.balance =
+          payload.length > 0 ? payload[payload.length - 1].balanceAfter : 0;
+        state.isLoading = false;
+      })
       .addCase(fetchAllTransactionsThunk.pending, state => {
         state.isLoading = true;
       })
@@ -58,9 +62,9 @@ export const transactionsSlice = createSlice({
         state.transactionslist = payload;
         state.isLoading = false;
       })
-       //deleteTransactionThunk
+      //deleteTransactionThunk
 
-       .addCase(deleteTransactionThunk.fulfilled, (state, { payload }) => {
+      .addCase(deleteTransactionThunk.fulfilled, (state, { payload }) => {
         state.transactionslist = state.transactionslist.filter(
           transaction => transaction.id !== payload
         );
@@ -74,9 +78,12 @@ export const transactionsSlice = createSlice({
         state.transactionslist.push(payload);
         toast.success('Your transaction was added succesfully!');
       })
-      .addCase(fetchTransactionsCategoriesThunk.fulfilled, (state, { payload }) => {
-        state.categories = payload;
-      });
+      .addCase(
+        fetchTransactionsCategoriesThunk.fulfilled,
+        (state, { payload }) => {
+          state.categories = payload;
+        }
+      );
   },
 });
 
