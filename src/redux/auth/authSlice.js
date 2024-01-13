@@ -19,6 +19,7 @@ export const authSlice = createSlice({
     isLoading: false,
     isRefresh: false,
     isError: null,
+    balance: 0,
   },
   reducers: {},
   extraReducers: builder => {
@@ -53,13 +54,11 @@ export const authSlice = createSlice({
         console.log('payload', { payload });
         state.user.name = payload.name;
         state.user.email = payload.email;
+        state.balance = payload.balance;
         state.isLogged = true;
       })
       .addCase(refreshThunk.pending, state => {
         state.isRefresh = true;
-      })
-      .addCase(refreshThunk.rejected, state => {
-        state.isRefresh = false;
       })
       .addMatcher(
         isAnyOf(loginThunk.pending, logoutThunk.pending, registerThunk.pending),
@@ -67,7 +66,11 @@ export const authSlice = createSlice({
           state.isLoading = true;
           state.isError = null;
         }
-      );
+      )
+      .addCase(refreshThunk.rejected, (state, { payload }) => {
+        toast.error('You need to logIn!');
+        state.isLogged = false;
+      });
   },
 });
 
