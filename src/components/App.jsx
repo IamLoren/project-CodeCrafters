@@ -7,6 +7,9 @@ import LoginForm from 'pages/LoginPage.jsx';
 import Home from './Home/Home.jsx';
 import Statistics from './Statistics/Statistics.jsx';
 // import Loader from './Loader/Loader.jsx';
+import CurrencyPage from 'pages/CurrencyPage.jsx';
+import MediaQuery from 'react-responsive';
+import NotFound from 'pages/NotFound.jsx';
 
 
 export const App = () => {
@@ -24,6 +27,19 @@ export const App = () => {
     <Route path='/register' element={<PublicRoute><RegisterForm /></PublicRoute>}/>
     <Route path='/login' element={<PublicRoute><LoginForm /></PublicRoute>}/>
     <Route path="*" element={<Navigate to="/" />} /> 
+    <Route
+        path="/currency"
+        element={
+          <PrivateRoute>
+            <MediaQuery maxWidth={425}>
+              <CurrencyPage />
+            </MediaQuery>
+            <MediaQuery minWidth={426}>
+              <NotFound />
+            </MediaQuery>
+          </PrivateRoute>
+        }
+      />
   </Routes>
   </>
   );

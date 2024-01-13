@@ -40,7 +40,6 @@ const ModalAdd = () => {
       comment: `${comment}`,
       amount: `${typeToggle ? amountValue : -amountValue}`
     };
-    console.log(transaction);
     dispatch(addTransactionThunk(transaction));
   };
 
