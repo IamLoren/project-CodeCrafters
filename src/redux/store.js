@@ -39,11 +39,6 @@ const rootReducer = combineReducers({
     transactionsPersistConfig,
     transactionsReducer
   ),
-  authSlice: authReducer,
-  transactionsSlice: persistReducer(
-    transactionsPersistConfig,
-    transactionsReducer
-  ),
   authSlice: persistReducer(authPersistConfig, authReducer),
   currencySlice: persistReducer(currencyPersistConfig, currencyReducer),
 });
