@@ -55,7 +55,6 @@ const TransactionsModal = () => {
         {/* header */}
         <StyledModalTransaction>
           <h2>Add transaction</h2>
-          {/* toggle */}
 
           {/* button close */}
           <StyledModalCloseBtn

@@ -8,16 +8,16 @@ import { categories } from '../../../redux/selectors';
 
 const TransactionItem = ({ transaction }) => {
   const dispatch = useDispatch();
-  // console.log(transaction);
   const delateTransaction = id => dispatch(deleteTransactionThunk(id));
   const categoriesTransaction = useSelector(categories);
-  // console.log(categoriesTransaction);
-  const categoryName = categoriesTransaction?.find(category => category.id === transaction.categoryId);
+  const categoryName = categoriesTransaction?.find(
+    category => category.id === transaction.categoryId
+  );
   return (
     <tr>
       <td>{transaction.transactionDate}</td>
       <td>{transaction.type}</td>
-      <td>{categoryName.name}</td>
+      <td>{categoryName?.name}</td>
       <td>{transaction.comment}</td>
       <td>{transaction.amount}</td>
       <td>
@@ -26,7 +26,9 @@ const TransactionItem = ({ transaction }) => {
             dispatch(changeModalEditForm(true));
           }}
         />
-          <StyledDeleteButton onClick={() => delateTransaction(transaction.id)}>Delete</StyledDeleteButton>
+        <StyledDeleteButton onClick={() => delateTransaction(transaction.id)}>
+          Delete
+        </StyledDeleteButton>
       </td>
     </tr>
   );
