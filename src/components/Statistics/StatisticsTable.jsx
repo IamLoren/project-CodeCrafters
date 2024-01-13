@@ -88,28 +88,30 @@ const StatisticsTable = () => {
   ];
 
   const transactionsList = useSelector(selectTransactionsList);
-  // const expenseArr = transactionsList?.filter(item => item.type === 'EXPENSE');
-  // const incomeArr = transactionsList?.filter(item => item.type === 'INCOME');
-  const expenseArr = data?.filter(item => item.type === 'EXPENSE');
-  const incomeArr = data?.filter(item => item.type === 'INCOME');
+  const expenseArr = transactionsList?.filter(item => item.type === 'EXPENSE');
+  const incomeArr = transactionsList?.filter(item => item.type === 'INCOME');
+  // const expenseArr = data?.filter(item => item.type === 'EXPENSE');
+  // const incomeArr = data?.filter(item => item.type === 'INCOME');
   const categoriesList = useSelector(categories);
 
   console.log(
-    'transactionsList, expenseArr, categoriesList',
+    'transactionsList',
     transactionsList,
+    'expenseArr',
     expenseArr,
+    'incomeArr',
     incomeArr,
+    'categoriesList',
     categoriesList
   );
 
   const totalExpense = expenseArr.reduce((total, el) => {
-    return total + Number(el.sum);
+    return total + Number(el.amount);
   }, 0);
-
   const expense = totalExpense.toFixed(2);
 
   const incomeTotal = incomeArr.reduce((total, el) => {
-    return (total += Number(el.sum));
+    return (total += Number(el.amount));
   }, 0);
   const income = incomeTotal.toFixed(2);
 
@@ -138,7 +140,7 @@ const StatisticsTable = () => {
         </CategoriesItem>
         <CategoriesItem>
           <CategoryName>Income:</CategoryName>
-          <SpanIncome>-{income}</SpanIncome>
+          <SpanIncome>{income}</SpanIncome>
         </CategoriesItem>
       </CategoriesList>
     </WrapCategories>
