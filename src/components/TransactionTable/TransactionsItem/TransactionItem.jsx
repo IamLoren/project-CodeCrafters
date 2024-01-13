@@ -26,7 +26,7 @@ const TransactionItem = ({ transaction }) => {
             dispatch(changeModalEditForm(true));
           }}
         />
-        <StyledDeleteButton onClick={() => delateTransaction(transaction.id)}>
+        <StyledDeleteButton onClick={() => delateTransaction(transaction?.id)}>
           Delete
         </StyledDeleteButton>
       </td>
