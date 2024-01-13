@@ -10,7 +10,7 @@ import {
 import React from 'react';
 import Button from '../Button/Button.jsx';
 import AccentButton from '../../components/AccentButton/AccentButton.jsx';
-import Toggle from 'components/Toggle/Toggle.jsx';
+// import Toggle from 'components/Toggle/Toggle.jsx';
 
 const onChange = (date, dateString) => {
   // console.log(date, dateString);
