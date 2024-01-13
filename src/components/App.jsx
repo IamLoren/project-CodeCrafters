@@ -12,6 +12,7 @@ import NotFound from 'pages/NotFound.jsx';
 import { useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 import { refreshThunk } from '../redux/auth/operations.js';
+import Statistics from './Statistics/Statistics.jsx';
 
 export const App = () => {
   const dispatch = useDispatch();
@@ -32,8 +33,8 @@ export const App = () => {
             </PrivateRoute>
           }
         >
-          {/* <Route index element={<Home />} />
-    <Route path='statistics' element={<Statistics />} /> */}
+          <Route index element={<Home />} />
+          <Route path="statistics" element={<Statistics />} />
           <Route path="home" element={<Home />} />
         </Route>
         <Route

@@ -1,5 +1,5 @@
 import React from 'react';
-import { useLocation } from 'react-router-dom';
+import { Outlet, useLocation } from 'react-router-dom';
 import { IoMdHome } from 'react-icons/io';
 import { MdTimeline } from 'react-icons/md';
 import Header from 'components/Header/Header.jsx';
@@ -38,7 +38,8 @@ const MainLayout = () => {
                   <StyledNavLink to="/currency">
                     <div>
                       <FaDollarSign size="15" />
-                    </div> <MediaQuery minWidth={425}> Currency </MediaQuery>
+                    </div>{' '}
+                    <MediaQuery minWidth={425}> Currency </MediaQuery>
                   </StyledNavLink>
                 </MediaQuery>
               </nav>
@@ -53,11 +54,10 @@ const MainLayout = () => {
                 <Currency />
               </MediaQuery>
             </SideLeft>
-     
-                {location.pathname === '/' && <Home />}
-            {location.pathname === '/statistics' && <Statistics />}
-   
-          
+
+            {/* {location.pathname === '/' && <Home />}
+            {location.pathname === '/statistics' && <Statistics />} */}
+            <Outlet />
           </div>
         </StyledContainer>
       </main>
