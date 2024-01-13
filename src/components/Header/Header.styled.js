@@ -7,7 +7,6 @@ display:flex;
 flex-direction: row;
 justify-content: space-between;
 align-items: center;
-max-width: 1440px;
 margin: 0 auto;
 @media (max-width: 1279px) {
     padding: 16px 32px;
