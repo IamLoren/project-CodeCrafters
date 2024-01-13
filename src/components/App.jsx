@@ -5,8 +5,7 @@ import MainLayout from './MainLayout/MainLayout.jsx';
 import RegisterForm from 'pages/RegisterPage.jsx';
 import LoginForm from 'pages/LoginPage.jsx';
 import Home from './Home/Home.jsx';
-import Statistics from './Statistics/Statistics.jsx';
-// import Loader from './Loader/Loader.jsx';
+import Loader from './Loader/Loader.jsx';
 import CurrencyPage from 'pages/CurrencyPage.jsx';
 import MediaQuery from 'react-responsive';
 import NotFound from 'pages/NotFound.jsx';
@@ -15,7 +14,7 @@ import NotFound from 'pages/NotFound.jsx';
 export const App = () => {
   return (
     <>
-    {/* <Loader /> */}
+    <Loader />
     <Routes>
     
     <Route path='/' element={<PrivateRoute><MainLayout /></PrivateRoute>}>
