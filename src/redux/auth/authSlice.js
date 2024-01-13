@@ -49,6 +49,10 @@ export const authSlice = createSlice({
         };
         state.token = '';
         state.isLogged = false;
+        state.isLoading = false;
+      })
+      .addCase(loginThunk.pending, state => {
+        state.isLoading = true;
       })
       .addCase(refreshThunk.fulfilled, (state, { payload }) => {
         console.log('payload', { payload });
