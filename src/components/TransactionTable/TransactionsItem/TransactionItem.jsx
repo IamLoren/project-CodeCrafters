@@ -9,9 +9,7 @@ import { categories } from '../../../redux/selectors';
 const TransactionItem = ({ transaction }) => {
   const dispatch = useDispatch();
   // console.log(transaction);
-  const handleDelete = () => {
-    dispatch(deleteTransactionThunk(transaction.id));
-  };
+  const delateTransaction = id => dispatch(deleteTransactionThunk(id));
   const categoriesTransaction = useSelector(categories);
   // console.log(categoriesTransaction);
   const categoryName = categoriesTransaction?.find(category => category.id === transaction.categoryId);
@@ -28,7 +26,7 @@ const TransactionItem = ({ transaction }) => {
             dispatch(changeModalEditForm(true));
           }}
         />
-        <StyledDeleteButton onClick={handleDelete}>Delete</StyledDeleteButton>
+          <StyledDeleteButton onClick={() => delateTransaction(transaction.id)}>Delete</StyledDeleteButton>
       </td>
     </tr>
   );

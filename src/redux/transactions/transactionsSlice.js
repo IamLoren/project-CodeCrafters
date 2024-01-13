@@ -58,21 +58,18 @@ export const transactionsSlice = createSlice({
         state.transactionslist = payload;
         state.isLoading = false;
       })
-      .addCase(deleteTransactionThunk.pending, state => {
-        state.isLoading = true;
-      })
-      .addCase(deleteTransactionThunk.fulfilled, (state, { payload }) => {
-        state.isLoading = false;
-        const index = state.transactionsList.findIndex(
-          item => item.id === payload
+       //deleteTransactionThunk
+
+       .addCase(deleteTransactionThunk.fulfilled, (state, { payload }) => {
+        state.transactionslist = state.transactionslist.filter(
+          transaction => transaction.id !== payload
         );
-        if (index !== -1) {
-          state.transactionsList.splice(index, 1);
-        }
+        toast.success('Transaction deleted successfully!');
       })
-      .addCase(deleteTransactionThunk.rejected, state => {
-        state.isLoading = false;
+      .addCase(deleteTransactionThunk.rejected, (state, action) => {
+        toast.error(`Failed to delete transaction: ${action.payload}`);
       })
+      //
       .addCase(addTransactionThunk.fulfilled, (state, { payload }) => {
         state.transactionslist.push(payload);
         toast.success('Your transaction was added succesfully!');

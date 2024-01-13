@@ -14,43 +14,6 @@ import {selectTransactionsList} from '../../../redux/selectors'
 
 
 const TransactionsList = () => {
-  // const [transactions /*, setTransactions*/] = useState/[
-  //   {
-  //     date: "04.01.24",
-  //     type: "-",
-  //     category: "Other",
-  //     comment: "Gift for your wife",
-  //     amount: 300.00,
-  //   },
-  //   {
-  //     date: "05.01.23",
-  //     type: "+",
-  //     category: "Income",
-  //     comment: "January bonus",
-  //     amount: 8000.00,
-  //   },
-  //   {
-  //     date: "07.01.23",
-  //     type: "-",
-  //     category: "Car",
-  //     comment: "Oil",
-  //     amount: 1000.00,
-  //   },
-  //   {
-  //     date: "07.01.23",
-  //     type: "-",
-  //     category: "Products",
-  //     comment: "Vegetables for the week",
-  //     amount: 280.00,
-  //   },
-  //   {
-  //     date: "07.01.23",
-  //     type: "+",
-  //     category: "Income",
-  //     comment: "Gift",
-  //     amount: 1000.00,
-  //   },
-  // ]);
 
   const dispatch = useDispatch();
 
@@ -58,7 +21,9 @@ const TransactionsList = () => {
     dispatch(fetchAllTransactionsThunk());
     dispatch(fetchTransactionsCategoriesThunk());
   }, [dispatch]);
+
   const transactions = useSelector(selectTransactionsList); 
+
   return (
     <Container>
     <TransactionTable class="table table-bordered table-striped">
@@ -75,7 +40,7 @@ const TransactionsList = () => {
       <TransactionTbody>
           {transactions.length === 0 ? (
             <tr>
-              <td colSpan="6">Ви ще не маєте власних транзакцій</td>
+              <td colSpan="6">You don't have any transactions of your own yet</td>
             </tr>
           ) : (
             transactions?.map((transaction) => (
