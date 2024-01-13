@@ -33,7 +33,7 @@ body{
   font-family: 'Poppins Regular';
   font-weight: 400;
   font-size: 18px;
-  height: 100vh;
+  ${'' /* height: 100vh; */}
   color: #000;
   background-image: url(${bg});
   background-position: center;

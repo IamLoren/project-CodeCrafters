@@ -17,7 +17,7 @@ const MainLayout = () => {
   return (
     <>
       <Header />
-      <main>
+      {/* <main>
         <StyledContainer>
           <div className="flex-container">
             <SideLeft>
@@ -60,7 +60,7 @@ const MainLayout = () => {
           
           </div>
         </StyledContainer>
-      </main>
+      </main> */}
     </>
   );
 };
