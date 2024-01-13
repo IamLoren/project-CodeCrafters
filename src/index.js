@@ -11,7 +11,7 @@ import { ToastContainer} from 'react-toastify';
 import { PersistGate } from 'redux-persist/integration/react';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <BrowserRouter /*basename='/project-CodeCrafters'*/>
+  <BrowserRouter basename='/project-CodeCrafters'>
     <Provider store={store}>
      <PersistGate loading={null} persistor={persistor}>
        <App /> 

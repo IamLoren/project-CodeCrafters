@@ -47,4 +47,9 @@ export const InputBox = styled.div`
     transform: translateY(70%);
     margin-left: 10px;
   }
+
+  /* .strengthBar {
+    outline: red;
+    margin-top: 20px;
+  } */
 `;

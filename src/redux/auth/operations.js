@@ -35,6 +35,7 @@ export const logoutThunk = createAsyncThunk(
   async (_, thunkApi) => {
     try {
       await api.delete('/api/auth/sign-out');
+      localStorage.removeItem("auth");
       clearToken();
     } catch (error) {
       toast.error(error.message);
@@ -46,11 +47,12 @@ export const logoutThunk = createAsyncThunk(
 export const refreshThunk = createAsyncThunk(
   'auth/refresh',
   async (_, thunkApi) => {
-    const savedToken = thunkApi.getState().auth.token;
+    const savedToken = thunkApi.getState().authSlice.token;
+    console.log(savedToken);
     if (savedToken) {
       setToken(savedToken);
     } else {
-      return thunkApi.rejectWithValue('Token is not exist');
+      return thunkApi.rejectWithValue("Token doesn't exist");
     }
 
     try {

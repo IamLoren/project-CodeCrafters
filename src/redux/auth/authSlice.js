@@ -16,6 +16,7 @@ export const authSlice = createSlice({
     },
     token: '',
     isLogged: false,
+    balance: 0,
   },
   reducers: {},
   extraReducers: builder => {
@@ -46,7 +47,12 @@ export const authSlice = createSlice({
         console.log('payload', { payload });
         state.user.name = payload.name;
         state.user.email = payload.email;
+        state.balance = payload.balance;
         state.isLogged = true;
+      })
+      .addCase(refreshThunk.rejected, (state, { payload }) => {
+        toast.error('You need to logIn!');
+        state.isLogged = false;
       });
   },
 });
