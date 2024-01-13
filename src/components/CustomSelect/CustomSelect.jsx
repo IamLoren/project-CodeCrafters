@@ -9,12 +9,11 @@ import { selectStyle } from './CustomSelect.style.js';
 
 const CustomSelect = () => {
   const [selectedOption, setSelectedOption] = useState(null);
-
   const categoriesTransaction = useSelector(categories);
   const dispatch = useDispatch();
   // dispatch(changeSelectOption(value))
-  const getSelectValue = selectedOption => {
-    setSelectedOption(selectedOption);
+  const getSelectValue = selectedOpt => {
+    setSelectedOption(selectedOpt);
     dispatch(changeSelectOption(selectedOption.value));
   };
   const arrOfOptions = categoriesTransaction.map(category => {
