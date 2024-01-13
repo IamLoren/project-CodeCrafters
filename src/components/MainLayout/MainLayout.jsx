@@ -17,7 +17,7 @@ const MainLayout = () => {
   return (
     <>
       <Header />
-      {/* <main>
+      <main>
         <StyledContainer>
           <div className="flex-container">
             <SideLeft>
@@ -53,14 +53,14 @@ const MainLayout = () => {
                 <Currency />
               </MediaQuery>
             </SideLeft>
-     
-                {location.pathname === '/' && <TransactionsList />}
+
+            {location.pathname === '/' && <TransactionsList />}
             {location.pathname === '/statistics' && <Statistics />}
-   
-          
+
+
           </div>
         </StyledContainer>
-      </main> */}
+      </main>
     </>
   );
 };
