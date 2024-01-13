@@ -2,6 +2,7 @@ import { combineReducers, configureStore } from '@reduxjs/toolkit';
 import { transactionsReducer } from './transactions/transactionsSlice.js';
 import { authReducer } from './auth/authSlice.js';
 import { currencyReducer } from './currency/currencySlice.js';
+
 import {
   persistStore,
   persistReducer,
@@ -27,8 +28,14 @@ const currencyPersistConfig = {
   whitelist: ['data'],
 };
 
+const transactionsPersistConfig = {
+  key: 'transactionsLS',
+  storage,
+  whitelist: ['modal', 'categories', 'transactionslist', 'balance'],
+};
+
 const rootReducer = combineReducers({
-  transactionsSlice: transactionsReducer,
+  transactionsSlice: persistReducer(transactionsPersistConfig, transactionsReducer),
   authSlice: authReducer,
   currencySlice: persistReducer(currencyPersistConfig, currencyReducer),
 });

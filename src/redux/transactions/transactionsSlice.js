@@ -64,10 +64,10 @@ export const transactionsSlice = createSlice({
         state.transactionslist = state.transactionslist.filter(
           transaction => transaction.id !== payload
         );
-        toast.success('Транзакцію успішно видалено!');
+        toast.success('Transaction deleted successfully!');
       })
       .addCase(deleteTransactionThunk.rejected, (state, action) => {
-        toast.error(`Не вдалося видалити транзакцію: ${action.payload}`);
+        toast.error(`Failed to delete transaction: ${action.payload}`);
       })
       //
       .addCase(addTransactionThunk.fulfilled, (state, { payload }) => {
