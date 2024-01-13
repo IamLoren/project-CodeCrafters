@@ -6,14 +6,21 @@ import { useDispatch, useSelector } from 'react-redux';
 import { modalIsOpen } from '../../redux/selectors.js';
 import { AiOutlinePlus } from 'react-icons/ai';
 import { StyledHomeModalOpenBtn } from './Home.styled.js';
+import  TransactionMobile  from 'components/TransactionTable/TransactionMobile/TransactionMobile.jsx';
 
 const Home = () => {
+
   const isModalOpen = useSelector(modalIsOpen);
   const dispatch = useDispatch();
+ const isMobile = window.innerWidth <= 768;
 
   return (
     <>
-      <TransactionsList />
+       {isMobile ? (
+                <TransactionMobile />
+            ) : (
+                <TransactionsList />
+            )}
       {isModalOpen && <TransactionsModal />}
       <StyledHomeModalOpenBtn
         onClick={() => {
