@@ -2,47 +2,48 @@ import React from 'react';
 import Header from 'components/Header/Header';
 import { IoMdHome } from 'react-icons/io';
 import { MdTimeline } from 'react-icons/md';
-import Currency from 'components/MainLayout/Currency/Currency';
+import Currency from '../components/MainLayout/Currency/Currency.jsx';
 import { StyledNavLink } from 'components/MainLayout/MainLayoutStyled';
 import Container from 'components/Container/Container';
-import MediaQuery from 'react-responsive';
+import { useMediaQuery } from 'react-responsive';
 import { FaDollarSign } from 'react-icons/fa';
 import MainLayout from 'components/MainLayout/MainLayout';
 
 const CurrencyPage = () => {
+  const isMobile = useMediaQuery({ maxWidth: 767 });
+  const isDesktop = useMediaQuery({ minWidth: 768 });
   return (
     <>
-      <MediaQuery minWidth={426}>
-        <MainLayout />
-      </MediaQuery>
-      <MediaQuery maxWidth={425}>
-        <Header />
-        <main>
-          <Container>
-            <nav>
-              <StyledNavLink to="/">
-                <div>
-                  <IoMdHome size="15" />
-                </div>
-              </StyledNavLink>
-              <StyledNavLink to="/statistics">
-                <div>
-                  <MdTimeline size="15" />
-                </div>
-              </StyledNavLink>
-              <MediaQuery maxWidth={425}>
+      {isDesktop && <MainLayout />}
+      {isMobile && (
+        <>
+          <Header />
+          <main>
+            <Container>
+              <nav>
+                <StyledNavLink to="/">
+                  <div>
+                    <IoMdHome size="15" />
+                  </div>
+                </StyledNavLink>
+                <StyledNavLink to="/statistics">
+                  <div>
+                    <MdTimeline size="15" />
+                  </div>
+                </StyledNavLink>
+
                 <StyledNavLink to="/currency">
                   <div>
                     <FaDollarSign size="15" />
                   </div>
                 </StyledNavLink>
-              </MediaQuery>
-            </nav>
+              </nav>
 
-            <Currency />
-          </Container>
-        </main>
-      </MediaQuery>
+              <Currency />
+            </Container>
+          </main>
+        </>
+      )}
     </>
   );
 };

@@ -1,8 +1,8 @@
-import Container from 'components/Container/Container';
+// import Container from 'components/Container/Container';
 import Logo from 'components/Logo/Logo';
 import ModalExit from 'components/ModalExit/ModalExit';
 import React, { useEffect, useState } from 'react';
-import { StyledExitButton, StyledHeader, StyledInnerHeader } from './Header.styled';
+import { StyledExitButton, StyledHeader } from './Header.styled';
 import { selectUserName } from '../../redux/selectors';
 import { useSelector } from 'react-redux';
 import { IoExitOutline } from 'react-icons/io5';
