@@ -50,7 +50,7 @@ export const refreshThunk = createAsyncThunk(
     if (savedToken) {
       setToken(savedToken);
     } else {
-      return thunkApi.rejectWithValue('Token is not exist');
+      return thunkApi.rejectWithValue("Token doesn't exist");
     }
 
     try {
