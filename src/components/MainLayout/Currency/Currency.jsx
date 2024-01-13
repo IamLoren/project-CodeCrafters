@@ -8,13 +8,18 @@ import {
   StyledGraphBox,
 } from './CurrencyStyled';
 import { useDispatch, useSelector } from 'react-redux';
-import { currencySelector } from '../../../redux/selectors.js';
+import {
+  currencySelector,
+  // loadingCurrencySelector,
+} from '../../../redux/selectors.js';
 import { currencyThunk } from '../../../redux/currency/operations.js';
+// import Loader from 'components/Loader/Loader';
 
 const Currency = () => {
   const [currency, setCurrency] = useState([]);
   const dispatch = useDispatch();
   const todayCurrency = useSelector(currencySelector);
+  // const loading = useSelector(loadingCurrencySelector);
 
   const lastUpdateTime = () => {
     const newTime = Date.now();
@@ -40,6 +45,7 @@ const Currency = () => {
 
   return (
     <>
+      {/* {loading && <Loader />} */}
       <CurrencyTable>
         <CurrencyThead>
           <tr>

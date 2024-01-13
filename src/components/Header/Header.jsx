@@ -46,7 +46,3 @@ export const Header = ({ children }) => {
 }
 
 export default Header;
-// Alis
-// alis.n@email.com
-// 111111111111
-

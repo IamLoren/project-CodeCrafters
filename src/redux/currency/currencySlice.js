@@ -8,7 +8,6 @@ const initialState = {
   data: [],
   isLoading: false,
   error: null,
-  // currentTime: new Data(),
   LSTime: '',
 };
 
