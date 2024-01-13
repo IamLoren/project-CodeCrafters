@@ -14,16 +14,19 @@ import React, { useState } from 'react';
 import Button from '../Button/Button.jsx';
 import AccentButton from '../../components/AccentButton/AccentButton.jsx';
 import CustomSelect from 'components/CustomSelect/CustomSelect.jsx';
-// import Toggle from 'components/Toggle/Toggle.jsx';
 import { useDispatch, useSelector } from 'react-redux';
 import { IDfromSelect } from '../../redux/selectors.js';
 import { addTransactionThunk } from '../../redux/transactions/operations.js';
-import { changeToggleState } from '../../redux/transactions/transactionsSlice.js';
+import {
+  changeModalClose,
+  changeToggleState,
+} from '../../redux/transactions/transactionsSlice.js';
 import {
   LabelToggle,
   SpanToggle,
   ToggleSwitch,
 } from 'components/Toggle/Toggle.styled.js';
+import { StyledDatePicker } from './ModalAdd.styled.js';
 
 const ModalAdd = () => {
   const [isDisabled, setIsDisabled] = useState(true);
@@ -31,7 +34,6 @@ const ModalAdd = () => {
 
   const onChangeToggle = () => {
     setIsDisabled(!isDisabled);
-    // dispatch(changeToggleState(!checked));
     setIsChecked(!isChecked);
     dispatch(changeToggleState(isChecked));
   };
@@ -59,6 +61,7 @@ const ModalAdd = () => {
       amount: `${!isChecked ? amountValue : -amountValue}`,
     };
     dispatch(addTransactionThunk(transaction));
+    dispatch(changeModalClose(false));
   };
 
   return (
@@ -97,36 +100,39 @@ const ModalAdd = () => {
         />
 
         {/* <TransactionDate type="date" required /> */}
-        <ConfigProvider
-          theme={{
-            components: {
-              DatePicker: {
-                activeBg: 'transparent',
-                activeBorderColor: '#906090',
-                hoverBorderColor: '#906090',
-                hoverBg: 'transparent',
-                cellHoverBg: '#906090',
-                // tests
-                // cellHoverWithRangeBg: 'orange',
-                // cellBgDisabled: 'red',
-                // addonBg: 'green',
-                // cellActiveWithRangeBg: 'yellow',
+       
+          <ConfigProvider
+            theme={{
+              components: {
+                DatePicker: {
+                  activeBg: 'transparent',
+                  activeBorderColor: '#906090',
+                  hoverBorderColor: '#906090',
+                  hoverBg: 'transparent',
+                  cellHoverBg: '#906090',
+                  // tests
+                  // cellHoverWithRangeBg: 'orange',
+                  // cellBgDisabled: 'red',
+                  // addonBg: 'green',
+                  // cellActiveWithRangeBg: 'yellow',
+                },
               },
-            },
-          }}
-        >
-          <Space direction="vertical" placeholder="Select date">
-            <DatePicker onChange={onChange} />
-          </Space>
-        </ConfigProvider>
+            }}
+          >
+            <Space direction="vertical" placeholder="Select date">
+            <StyledDatePicker>
+              <DatePicker onChange={onChange} />
+              </StyledDatePicker>
+            </Space>
+          </ConfigProvider>
+        
       </StyledTransactionModalSelect>
 
-      <br />
       <StyledTransactionComment
         name="comment"
         placeholder="Comment"
       ></StyledTransactionComment>
-      <br />
+
       <StyledTransactionButtonsWrapper>
         <Button title="Add" />
         <AccentButton title="Cancel" />

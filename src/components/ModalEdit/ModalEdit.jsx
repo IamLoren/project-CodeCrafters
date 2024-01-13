@@ -21,7 +21,7 @@ const ModalEdit = () => {
     <StyledModalBody>
       <StyledModalToggle>
         <p>Income</p>
-        <Toggle />
+        {/* <Toggle /> */}
         <p>Expense</p>
       </StyledModalToggle>
       <StyledTransactionModalSelect>

@@ -12,18 +12,7 @@ import { changeModalClose } from '../../redux/transactions/transactionsSlice.js'
 import ModalEdit from 'components/ModalEdit/ModalEdit.jsx';
 import ModalAdd from 'components/ModalAdd/ModalAdd.jsx';
 
-const modalRootElement = document.getElementById('modal'); //portal modal
-
 const TransactionsModal = () => {
-  const element = useMemo(() => document.createElement('div'), []);
-  useEffect(() => {
-    modalRootElement.appendChild(element);
-
-    return () => {
-      modalRootElement.removeChild(element);
-    };
-  }); //portal modal
-
   const isModalOpen = useSelector(modalIsOpen);
   const isModalEdit = useSelector(modalIsEdit);
   const isModalAdd = useSelector(modalIsAdd);
@@ -46,7 +35,7 @@ const TransactionsModal = () => {
     return () => document.removeEventListener('keydown', handleKeyDown);
   }, [dispatch]);
 
-  return createPortal(
+  return (
     isModalOpen && (
       <StyledTransactionsModalBackdrop
         open={isModalOpen}
@@ -69,8 +58,7 @@ const TransactionsModal = () => {
           {isModalAdd && <ModalAdd />}
         </StyledModalTransaction>
       </StyledTransactionsModalBackdrop>
-    ),
-    element
+    )
   );
 };
 

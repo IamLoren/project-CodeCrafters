@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-// import { Select } from 'antd';
 import BgModalTransaction from '../../img/Bg-trans-modal-desc.webp';
 
 export const StyledTransactionsModalBackdrop = styled.div`
@@ -53,7 +52,6 @@ export const StyledModalToggle = styled.div`
   gap: 20px;
   align-items: center;
 
-  margin-bottom: 40px;
   p {
     font-family: 'Poppins Regular';
     font-size: 16px;
@@ -82,7 +80,7 @@ export const StyledModalCloseBtn = styled.button`
   color: var(--white);
 `;
 export const StyledModalBody = styled.form`
-  /* gap: 40px; */
+  gap: 40px;
   border-radius: 0 0 5px 5px;
   display: flex;
   flex-direction: column;
@@ -98,45 +96,37 @@ export const StyledTransactionModalSelect = styled.div`
   align-items: center;
   justify-content: center;
   gap: 32px;
-  margin-bottom: 40px;
 `;
-// export const StyledSelect = styled(Select)`
-//   color: var(--text-forms);
-//   margin-bottom: 40px;
-//   font-family: 'Poppins Regular';
-//   font-size: 18px;
-//   font-weight: 400;
-//   background-color: transparent;
-//   border: none;
-//   border-bottom: 1px solid var(--modal-input-underline);
-// `;
 export const StyledTransactionAmount = styled.input`
   /* -webkit-appearance: none; */
   /* -moz-appearance: textfield; */
   width: 181px;
-  color: var(--text-forms);
   text-align: center;
-  font-family: 'Poppins Regular';
-  font-size: 18px;
-  font-weight: 700;
   background-color: transparent;
+  outline: transparent;
   border: none;
   border-bottom: 1px solid var(--modal-input-underline);
+  padding-bottom: 8px;
+  &::placeholder {
+    color: var(--text-forms);
+    font-family: 'Poppins Bold';
+    font-size: 18px;
+  }
 `;
 
 export const StyledTransactionComment = styled.textarea`
   width: 394px;
   height: 35px;
-  margin-bottom: 40px;
-  color: var(--text-forms);
-  font-size: 18px;
-  font-weight: 400;
   background-color: transparent;
   border: none;
   border-bottom: 1px solid var(--modal-input-underline);
+  outline: transparent;
   /* resize: vertical; */
   &::placeholder {
     margin-bottom: 8px;
+    color: var(--text-forms);
+    font-size: 18px;
+    font-family: 'Poppins Regular';
   }
 `;
 export const StyledTransactionButtonsWrapper = styled.div`
@@ -158,9 +148,9 @@ export const AddTransactionButton = styled.button`
   letter-spacing: 1.8px;
   text-transform: uppercase;
   cursor: pointer;
-  //test hover. will change
+  transition: all 0.8s ease;
   &:hover {
-    background-color: #0069d9;
+    transform: scale(1.05);
   }
 `;
 export const CancelTransactionButton = styled.button`
@@ -177,14 +167,14 @@ export const CancelTransactionButton = styled.button`
   letter-spacing: 1.8px;
   text-transform: uppercase;
   cursor: pointer;
-  //test hover. will change
+  transition: all 0.8s ease;
   &:hover {
-    background-color: #0069d9;
+    transform: scale(1.05);
   }
 `;
 
-export const StyledModalArrowDown = styled.div`
-  svg {
-    fill: red;
-  }
-`;
+// export const StyledModalArrowDown = styled.div`
+//   svg {
+//     fill: red;
+//   }
+// `;
