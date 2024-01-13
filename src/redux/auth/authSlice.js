@@ -47,6 +47,10 @@ export const authSlice = createSlice({
         state.user.name = payload.name;
         state.user.email = payload.email;
         state.isLogged = true;
+      })
+      .addCase(refreshThunk.rejected, (state, { payload }) => {
+        toast.error('You need to logIn again!');
+        state.isLogged = false;
       });
   },
 });
