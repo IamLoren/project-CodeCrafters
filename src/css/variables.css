@@ -17,23 +17,32 @@
 
   --income-color: #ffb627;
   --expenses-color: #ff868d;
-  --disabled-toggle: #E0E0E0;
+  --disabled-toggle: #e0e0e0;
 
   --balance-bg: rgba(82, 59, 126, 0.6);
 
   --head-currency: rgba(255, 255, 255, 0.2);
 
+  --modal-toggle-shadow: rgba(255, 199, 39, 0.5);
   --modal-backdrop: rgba(34, 13, 91, 0.23);
   --modal-shadow: rgba(0, 0, 0, 0.25);
   --modal-background: rgba(255, 255, 255, 0.1);
   --modal-input-underline: rgba(255, 255, 255, 0.4);
   --modal-button-shadow: rgba(0, 0, 0, 0.2);
   --modal-accent-white: #fff;
+  --modal-dropdown-activebg: rgba(255, 255, 255, 0.1);
   --modal-button-gradient: linear-gradient(
     97deg,
     #ffc727 -16.42%,
     #9e40ba 97.04%,
     #7000ff 150.71%
+  );
+  --modal-dropdown-gradient: linear-gradient(
+    0deg,
+    rgba(83, 61, 186, 0.7) 0%,
+    rgba(80, 48, 154, 0.7) 43.14%,
+    rgba(106, 70, 165, 0.52) 73.27%,
+    rgba(133, 93, 175, 0.13) 120.03%
   );
 
   /* кольори груп транзакцій для статистики */
