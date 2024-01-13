@@ -23,33 +23,34 @@ const MainLayout = () => {
         <StyledContainer>
           <div className="flex-container">
             <SideLeft>
-              <nav>
-                <StyledNavLink to="/">
-                  <div>
-                    <IoMdHome size="15" />
-                  </div>
-                  {isDesktop && <span className="link-text">Home</span>}
-                </StyledNavLink>
-                <StyledNavLink to="/statistics">
-                  <div>
-                    <MdTimeline size="15" />
-                  </div>
-                  {isDesktop && <span className="link-text">Statistics</span>}
-                </StyledNavLink>
-                {isMobile && (
-                  <StyledNavLink to="/currency">
+              <div>
+                <nav>
+                  <StyledNavLink to="/">
                     <div>
-                      <FaDollarSign size="15" />
+                      <IoMdHome size="15" />
                     </div>
+                    {isDesktop && <span className="link-text">Home</span>}
                   </StyledNavLink>
-                )}
-              </nav>
-              {isDesktop && <Balance />}
+                  <StyledNavLink to="/statistics">
+                    <div>
+                      <MdTimeline size="15" />
+                    </div>
+                    {isDesktop && <span className="link-text">Statistics</span>}
+                  </StyledNavLink>
+                  {isMobile && (
+                    <StyledNavLink to="/currency">
+                      <div>
+                        <FaDollarSign size="15" />
+                      </div>
+                    </StyledNavLink>
+                  )}
+                </nav>
+                {isDesktop && <Balance />}
+              </div>
               {isMobile && location.pathname === '/' && <Balance />}
               {isDesktop && <Currency />}
             </SideLeft>
             <Outlet />
-
           </div>
         </StyledContainer>
       </main>

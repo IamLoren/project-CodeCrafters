@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 import logOutBg from '../../img/LogOut-modal-bg.webp'
+import logOutBgMobile from '../../img/LogOut-modal-bg-mobile.webp'
 
 export const ModalWrapper = styled.div`
 	position: fixed;
@@ -7,9 +8,14 @@ export const ModalWrapper = styled.div`
 	display: flex;
 	justify-content: center;
 	align-items: center;
-		background: rgba(34, 13, 91, 0.23);
-backdrop-filter: blur(3.5px);
-z-index: 100;
+	background: rgba(34, 13, 91, 0.23);
+	backdrop-filter: blur(3.5px);
+	z-index: 100;
+	@media (max-width: 767px){
+	backdrop-filter: none;
+	align-items: flex-start;
+	margin-top: 72px;
+}
 	`
 
 export const ModalContent = styled.div`
@@ -22,18 +28,17 @@ export const ModalContent = styled.div`
 	max-width: 1000px;
 	border-radius: 8px;
 	width: 533px;
-	/* height: 447px; */
 	flex-shrink: 0;
 	display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-
-/* form effects */
-box-shadow: 0px 4px 60px 0px rgba(0, 0, 0, 0.25);
+	box-shadow: 0px 4px 60px 0px rgba(0, 0, 0, 0.25);
 @media (max-width: 767px) {
     height: 100vh;
 		justify-content: center;
+		background-image: url(${logOutBgMobile});
+		max-height: 690px;
   }
 
 img{
@@ -64,7 +69,6 @@ border:none;
 border-radius: 20px;
 box-shadow: 1px 9px 15px 0px rgba(0, 0, 0, 0.20);
 text-align: center;
-/* font-family: Poppins; */
 font-size: 18px;
 font-style: normal;
 font-weight: 400;
