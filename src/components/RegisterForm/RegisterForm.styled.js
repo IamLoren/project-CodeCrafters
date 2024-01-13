@@ -72,8 +72,8 @@ export const InputBox = styled.div`
     margin-left: 10px;
   }
 
-  /* .strengthBar {
+  .strengthBar {
     outline: red;
     margin-top: 20px;
-  } */
+  }
 `;
