@@ -1,6 +1,7 @@
 import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
-import loginBg from '../../img/Login-bg-desc@retina.webp';
+import loginBg from '../../img/Login-bg-desc.webp';
+import loginBgRetina from '../../img/Login-bg-desc@retina.webp';
 import formBg from '../../img/LoginForm-bg-desc@retina.webp';
 
 export const StyledSection = styled.section`
@@ -12,6 +13,10 @@ export const StyledSection = styled.section`
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+
+  @media only screen and (min-resolution: 192dpi) {
+    background-image: url((${loginBgRetina}));
+  }
 `;
 
 export const StyledForm = styled.form`

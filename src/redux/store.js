@@ -35,7 +35,10 @@ const transactionsPersistConfig = {
 };
 
 const rootReducer = combineReducers({
-  transactionsSlice: persistReducer(transactionsPersistConfig, transactionsReducer),
+  transactionsSlice: persistReducer(
+    transactionsPersistConfig,
+    transactionsReducer
+  ),
   authSlice: persistReducer(authPersistConfig, authReducer),
   currencySlice: persistReducer(currencyPersistConfig, currencyReducer),
 });
