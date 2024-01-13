@@ -9,8 +9,8 @@ import { SideLeft, StyledNavLink } from './MainLayoutStyled.js';
 import { StyledContainer } from 'components/Container/Container.styled.js';
 import { FaDollarSign } from 'react-icons/fa';
 import MediaQuery from 'react-responsive';
-import Statistics from 'components/Statistics/Statistics.jsx';
-import Home from 'components/Home/Home.jsx';
+// import Statistics from 'components/Statistics/Statistics.jsx';
+// import Home from 'components/Home/Home.jsx';
 
 const MainLayout = () => {
   const location = useLocation();
