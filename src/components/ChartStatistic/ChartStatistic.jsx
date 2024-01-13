@@ -4,7 +4,7 @@ import { Doughnut } from 'react-chartjs-2';
 import { BalanceStyled, DoughnutContainerStyled, NotifStyled } from './ChartStatistic.styled';
 import { useSelector } from 'react-redux';
 // import { fetchAllTransactionsThunk } from '../../redux/transactions/operations';
-import { selectBalance, selectTransactionsList } from '../../redux/selectors';
+import { selectBalance } from '../../redux/selectors';
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 
