@@ -16,7 +16,7 @@ import AccentButton from '../../components/AccentButton/AccentButton.jsx';
 import CustomSelect from 'components/CustomSelect/CustomSelect.jsx';
 // import Toggle from 'components/Toggle/Toggle.jsx';
 import { useDispatch, useSelector } from 'react-redux';
-import { IDfromSelect, toggleState } from '../../redux/selectors.js';
+import { IDfromSelect } from '../../redux/selectors.js';
 import { addTransactionThunk } from '../../redux/transactions/operations.js';
 import { changeToggleState } from '../../redux/transactions/transactionsSlice.js';
 import {

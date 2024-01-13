@@ -11,15 +11,15 @@ const TransactionItem = ({ transaction }) => {
   const delateTransaction = id => dispatch(deleteTransactionThunk(id));
   const categoriesTransaction = useSelector(categories);
   const categoryName = categoriesTransaction?.find(
-    category => category.id === transaction.categoryId
+    category => category.id === transaction?.categoryId
   );
   return (
     <tr>
-      <td>{transaction.transactionDate}</td>
-      <td>{transaction.type}</td>
+      <td>{transaction?.transactionDate}</td>
+      <td>{transaction?.type}</td>
       <td>{categoryName?.name}</td>
-      <td>{transaction.comment}</td>
-      <td>{transaction.amount}</td>
+      <td>{transaction?.comment}</td>
+      <td>{transaction?.amount}</td>
       <td>
         <LuPencil
           onClick={() => {
