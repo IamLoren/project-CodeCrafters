@@ -1,5 +1,5 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { api, clearToken, setToken } from '../../configAxios/configAxios';
+import { api, setToken } from '../../configAxios/configAxios';
 import { toast } from 'react-toastify';
 
 export const registerThunk = createAsyncThunk(
