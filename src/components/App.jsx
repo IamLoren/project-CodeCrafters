@@ -7,7 +7,7 @@ import LoginForm from 'pages/LoginPage.jsx';
 import Home from './Home/Home.jsx';
 // import Loader from './Loader/Loader.jsx';
 import CurrencyPage from 'pages/CurrencyPage.jsx';
-import MediaQuery from 'react-responsive';
+import { useMediaQuery } from 'react-responsive';
 import NotFound from 'pages/NotFound.jsx';
 import { useDispatch } from 'react-redux';
 import { useEffect } from 'react';
@@ -15,6 +15,8 @@ import { refreshThunk } from '../redux/auth/operations.js';
 import Statistics from './Statistics/Statistics.jsx';
 
 export const App = () => {
+  const isMobile = useMediaQuery({ maxWidth: 767 });
+  const isDesktop = useMediaQuery({ minWidth: 768 }); 
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -58,12 +60,8 @@ export const App = () => {
           path="/currency"
           element={
             <PrivateRoute>
-              <MediaQuery maxWidth={425}>
-                <CurrencyPage />
-              </MediaQuery>
-              <MediaQuery minWidth={426}>
-                <NotFound />
-              </MediaQuery>
+          {isMobile && <CurrencyPage />}
+           {isDesktop && <NotFound />}     
             </PrivateRoute>
           }
         />
