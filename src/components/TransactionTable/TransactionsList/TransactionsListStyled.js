@@ -67,3 +67,36 @@ export const TransactionTbody = styled.tbody`
     opacity: 1;
   }
 `;
+
+export const WrapperList = styled.div`
+width: 704px;
+padding: 10px;
+height: 320px;
+background: transparent;
+
+@media screen and (min-width: 480px) {
+  padding: 20px;
+  width: 715px;
+  backdrop-filter: blur(56px);
+}
+
+overflow-y: scroll;
+overflow-x: hidden; 
+scroll-behavior: smooth;
+
+&::-webkit-scrollbar {
+  width: 10px;
+}
+
+&::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.5);
+  border-radius: 10px;
+}
+&::-webkit-scrollbar-thumb {
+  background: rgb(0, 0, 0);
+  border-radius: 10px;
+}
+&.scrollable {
+  overflow-y: scroll;
+}
+`;
