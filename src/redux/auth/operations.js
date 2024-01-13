@@ -35,7 +35,7 @@ export const logoutThunk = createAsyncThunk(
   async (_, thunkApi) => {
     try {
       await api.delete('/api/auth/sign-out');
-      clearToken();
+      localStorage.removeItem("auth");
     } catch (error) {
       toast.error(error.message);
       return thunkApi.rejectWithValue(error.message);
