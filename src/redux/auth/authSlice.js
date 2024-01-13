@@ -60,17 +60,17 @@ export const authSlice = createSlice({
       .addCase(refreshThunk.pending, state => {
         state.isRefresh = true;
       })
+      .addCase(refreshThunk.rejected, (state, { payload }) => {
+        toast.error('You need to logIn!');
+        state.isLogged = false;
+      })
       .addMatcher(
         isAnyOf(loginThunk.pending, logoutThunk.pending, registerThunk.pending),
         state => {
           state.isLoading = true;
           state.isError = null;
         }
-      )
-      .addCase(refreshThunk.rejected, (state, { payload }) => {
-        toast.error('You need to logIn!');
-        state.isLogged = false;
-      });
+      );
   },
 });
 

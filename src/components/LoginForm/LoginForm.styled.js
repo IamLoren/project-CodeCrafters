@@ -4,6 +4,7 @@ import loginBg from '../../img/Login-bg-desc.webp';
 import loginBgRetina from '../../img/Login-bg-desc@retina.webp';
 import formBg from '../../img/LoginForm-bg-desc@retina.webp';
 import mobileBg from '../../img/mobile-page-bg.png';
+import tabletBg from '../../img/tablet-login.png';
 
 export const StyledSection = styled.section`
   display: flex;
@@ -22,7 +23,11 @@ export const StyledSection = styled.section`
     background-image: url((${loginBgRetina}));
   }
 
-  @media only screen and (max-width: 768px) {
+  @media only screen and (min-width: 768px) {
+    background-image: url(${tabletBg});
+  }
+
+  @media only screen and (max-width: 767px) {
     background-image: url(${mobileBg});
   }
 `;
@@ -37,11 +42,11 @@ export const StyledForm = styled.form`
   min-height: 570px;
   padding: 80px 62px;
   border-radius: 8px;
-  background-position: center;
-  background-repeat: no-repeat;
 
   @media only screen and (min-width: 768px) {
     background: var(--modal-background);
+    background-position: center;
+    background-repeat: no-repeat;
     box-shadow: 0px 4px 60px 0px var(--modal-shadow);
     background-image: url(${formBg});
     /* backdrop-filter: blur(50px); */
