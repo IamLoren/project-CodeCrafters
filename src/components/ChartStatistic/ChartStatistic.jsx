@@ -4,7 +4,7 @@ import { Doughnut } from 'react-chartjs-2';
 import { BalanceStyled, DoughnutContainerStyled, NotifStyled } from './ChartStatistic.styled';
 import { useSelector } from 'react-redux';
 // import { fetchAllTransactionsThunk } from '../../redux/transactions/operations';
-import { selectBalance } from '../../redux/selectors';
+import { selectBalance, selectTransactionsList } from '../../redux/selectors';
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 
@@ -41,102 +41,102 @@ export const dataTr = {
 };
 
 //this const is temp -> delete after real data
-const transactionsList = [
-  {
-    "id": "tempid",
-    "transactionDate": "temp date",
-    "type": "INCOME",
-    "categoryId": "Salary",
-    "userId": "temp user",
-    "comment": "temp comment",
-    "amount": 170000,
-    "balanceAfter": 490900
-  },
-  {
-    "id": "tempid",
-    "transactionDate": "temp date",
-    "type": "EXPENCE",
-    "categoryId": "Car",
-    "userId": "temp user",
-    "comment": "temp comment",
-    "amount": 6000,
-    "balanceAfter": 490900
-  },
-  {
-    "id": "tempid",
-    "transactionDate": "temp date",
-    "type": "EXPENCE",
-    "categoryId": "Household products",
-    "userId": "temp user",
-    "comment": "temp comment",
-    "amount": 2000,
-    "balanceAfter": 490900
-  },
-  {
-    "id": "tempid",
-    "transactionDate": "temp date",
-    "type": "EXPENCE",
-    "categoryId": "Education",
-    "userId": "temp user",
-    "comment": "temp comment",
-    "amount": 18000,
-    "balanceAfter": 490900
-  },
-  {
-    "id": "tempid",
-    "transactionDate": "temp date",
-    "type": "EXPENCE",
-    "categoryId": "Child care",
-    "userId": "temp user",
-    "comment": "temp comment",
-    "amount": 15000,
-    "balanceAfter": 490900
-  },
-  {
-    "id": "tempid",
-    "transactionDate": "temp date",
-    "type": "EXPENCE",
-    "categoryId": "Car",
-    "userId": "temp user",
-    "comment": "temp comment",
-    "amount": 6000,
-    "balanceAfter": 490900
-  },
-  {
-    "id": "tempid",
-    "transactionDate": "temp date",
-    "type": "EXPENCE",
-    "categoryId": "Education",
-    "userId": "temp user",
-    "comment": "temp comment",
-    "amount": 18000,
-    "balanceAfter": 490900
-  },
-  {
-    "id": "tempid",
-    "transactionDate": "temp date",
-    "type": "EXPENCE",
-    "categoryId": "Child care",
-    "userId": "temp user",
-    "comment": "temp comment",
-    "amount": 15000,
-    "balanceAfter": 490900
-  },
-  {
-    "id": "tempid",
-    "transactionDate": "temp date",
-    "type": "EXPENCE",
-    "categoryId": "Car",
-    "userId": "temp user",
-    "comment": "temp comment",
-    "amount": 6000,
-    "balanceAfter": 490900
-  },
-]
+// const transactionsList = [
+//   {
+//     "id": "tempid",
+//     "transactionDate": "temp date",
+//     "type": "INCOME",
+//     "categoryId": "Salary",
+//     "userId": "temp user",
+//     "comment": "temp comment",
+//     "amount": 170000,
+//     "balanceAfter": 490900
+//   },
+//   {
+//     "id": "tempid",
+//     "transactionDate": "temp date",
+//     "type": "EXPENCE",
+//     "categoryId": "Car",
+//     "userId": "temp user",
+//     "comment": "temp comment",
+//     "amount": 6000,
+//     "balanceAfter": 490900
+//   },
+//   {
+//     "id": "tempid",
+//     "transactionDate": "temp date",
+//     "type": "EXPENCE",
+//     "categoryId": "Household products",
+//     "userId": "temp user",
+//     "comment": "temp comment",
+//     "amount": 2000,
+//     "balanceAfter": 490900
+//   },
+//   {
+//     "id": "tempid",
+//     "transactionDate": "temp date",
+//     "type": "EXPENCE",
+//     "categoryId": "Education",
+//     "userId": "temp user",
+//     "comment": "temp comment",
+//     "amount": 18000,
+//     "balanceAfter": 490900
+//   },
+//   {
+//     "id": "tempid",
+//     "transactionDate": "temp date",
+//     "type": "EXPENCE",
+//     "categoryId": "Child care",
+//     "userId": "temp user",
+//     "comment": "temp comment",
+//     "amount": 15000,
+//     "balanceAfter": 490900
+//   },
+//   {
+//     "id": "tempid",
+//     "transactionDate": "temp date",
+//     "type": "EXPENCE",
+//     "categoryId": "Car",
+//     "userId": "temp user",
+//     "comment": "temp comment",
+//     "amount": 6000,
+//     "balanceAfter": 490900
+//   },
+//   {
+//     "id": "tempid",
+//     "transactionDate": "temp date",
+//     "type": "EXPENCE",
+//     "categoryId": "Education",
+//     "userId": "temp user",
+//     "comment": "temp comment",
+//     "amount": 18000,
+//     "balanceAfter": 490900
+//   },
+//   {
+//     "id": "tempid",
+//     "transactionDate": "temp date",
+//     "type": "EXPENCE",
+//     "categoryId": "Child care",
+//     "userId": "temp user",
+//     "comment": "temp comment",
+//     "amount": 15000,
+//     "balanceAfter": 490900
+//   },
+//   {
+//     "id": "tempid",
+//     "transactionDate": "temp date",
+//     "type": "EXPENCE",
+//     "categoryId": "Car",
+//     "userId": "temp user",
+//     "comment": "temp comment",
+//     "amount": 6000,
+//     "balanceAfter": 490900
+//   },
+// ]
 
 const ChartStatistic = () => {
   const balance = useSelector(selectBalance)
-  // const transactionsList = useSelector(selectTransactionsList)
+  const transactionsList = useSelector(selectTransactionsList)
   let income = 0;
   let expence = 0;
   const data = dataTr.datasets[0].data
