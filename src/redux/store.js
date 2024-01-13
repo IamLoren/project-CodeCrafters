@@ -15,7 +15,7 @@ import {
 } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 
-const persistConfig = {
+const authPersistConfig = {
   key: 'auth',
   version: 1,
   storage,
@@ -40,10 +40,22 @@ const rootReducer = combineReducers({
     transactionsReducer
   ),
   authSlice: authReducer,
+  transactionsSlice: persistReducer(
+    transactionsPersistConfig,
+    transactionsReducer
+  ),
+  authSlice: persistReducer(authPersistConfig, authReducer),
   currencySlice: persistReducer(currencyPersistConfig, currencyReducer),
 });
 
-const persistedReducer = persistReducer(persistConfig, rootReducer);
+const persistedReducer = persistReducer(
+  {
+    key: 'root',
+    version: 1,
+    storage,
+  },
+  rootReducer
+);
 
 export const store = configureStore({
   reducer: persistedReducer,
