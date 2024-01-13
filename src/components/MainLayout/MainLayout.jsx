@@ -8,12 +8,14 @@ import Balance from 'components/Balance/Balance.jsx';
 import { SideLeft, StyledNavLink } from './MainLayoutStyled.js';
 import { StyledContainer } from 'components/Container/Container.styled.js';
 import { FaDollarSign } from 'react-icons/fa';
-import MediaQuery from 'react-responsive';
+import { useMediaQuery } from 'react-responsive';
 // import Statistics from 'components/Statistics/Statistics.jsx';
 // import Home from 'components/Home/Home.jsx';
 
 const MainLayout = () => {
   const location = useLocation();
+  const isMobile = useMediaQuery({ maxWidth: 767 });
+  const isDesktop = useMediaQuery({ minWidth: 768 });
   return (
     <>
       <Header />
@@ -26,37 +28,26 @@ const MainLayout = () => {
                   <div>
                     <IoMdHome size="15" />
                   </div>
-                  <MediaQuery minWidth={425}> Home </MediaQuery>
+                  {isDesktop && <span className="link-text">Home</span>}
                 </StyledNavLink>
                 <StyledNavLink to="/statistics">
                   <div>
                     <MdTimeline size="15" />
                   </div>
-                  <MediaQuery minWidth={425}> Statistics </MediaQuery>
+                  {isDesktop && <span className="link-text">Statistics</span>}
                 </StyledNavLink>
-                <MediaQuery maxWidth={425}>
+                {isMobile && (
                   <StyledNavLink to="/currency">
                     <div>
                       <FaDollarSign size="15" />
-                    </div>{' '}
-                    <MediaQuery minWidth={425}> Currency </MediaQuery>
+                    </div>
                   </StyledNavLink>
-                </MediaQuery>
+                )}
               </nav>
-              <MediaQuery minWidth={426}>
-                <Balance />
-              </MediaQuery>
-              <MediaQuery maxWidth={425}>
-                {location.pathname === '/' && <Balance />}
-              </MediaQuery>
-
-              <MediaQuery minWidth={426}>
-                <Currency />
-              </MediaQuery>
+              {isDesktop && <Balance />}
+              {isMobile && location.pathname === '/' && <Balance />}
+              {isDesktop && <Currency />}
             </SideLeft>
-
-            {/* {location.pathname === '/' && <Home />}
-            {location.pathname === '/statistics' && <Statistics />} */}
             <Outlet />
           </div>
         </StyledContainer>
