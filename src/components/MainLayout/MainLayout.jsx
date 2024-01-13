@@ -9,8 +9,8 @@ import { SideLeft, StyledNavLink } from './MainLayoutStyled.js';
 import { StyledContainer } from 'components/Container/Container.styled.js';
 import { FaDollarSign } from 'react-icons/fa';
 import MediaQuery from 'react-responsive';
-import TransactionsList from 'components/TransactionTable/TransactionsList/TransactionsList.jsx';
 import Statistics from 'components/Statistics/Statistics.jsx';
+import Home from 'components/Home/Home.jsx';
 
 const MainLayout = () => {
   const location = useLocation();
@@ -26,19 +26,19 @@ const MainLayout = () => {
                   <div>
                     <IoMdHome size="15" />
                   </div>
-                  Home
+                  <MediaQuery minWidth={425}> Home </MediaQuery>
                 </StyledNavLink>
                 <StyledNavLink to="/statistics">
                   <div>
                     <MdTimeline size="15" />
                   </div>
-                Statistics
+                  <MediaQuery minWidth={425}> Statistics </MediaQuery>
                 </StyledNavLink>
                 <MediaQuery maxWidth={425}>
                   <StyledNavLink to="/currency">
                     <div>
                       <FaDollarSign size="15" />
-                    </div>Currency
+                    </div> <MediaQuery minWidth={425}> Currency </MediaQuery>
                   </StyledNavLink>
                 </MediaQuery>
               </nav>
@@ -54,7 +54,7 @@ const MainLayout = () => {
               </MediaQuery>
             </SideLeft>
      
-                {location.pathname === '/' && <TransactionsList />}
+                {location.pathname === '/' && <Home />}
             {location.pathname === '/statistics' && <Statistics />}
    
           
