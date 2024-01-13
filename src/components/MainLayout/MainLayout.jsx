@@ -26,19 +26,19 @@ const MainLayout = () => {
                   <div>
                     <IoMdHome size="15" />
                   </div>
-                  Home
+                  <MediaQuery minWidth={425}> Home </MediaQuery>
                 </StyledNavLink>
                 <StyledNavLink to="/statistics">
                   <div>
                     <MdTimeline size="15" />
                   </div>
-                Statistics
+                  <MediaQuery minWidth={425}> Statistics </MediaQuery>
                 </StyledNavLink>
                 <MediaQuery maxWidth={425}>
                   <StyledNavLink to="/currency">
                     <div>
                       <FaDollarSign size="15" />
-                    </div>Currency
+                    </div> <MediaQuery minWidth={425}> Currency </MediaQuery>
                   </StyledNavLink>
                 </MediaQuery>
               </nav>
