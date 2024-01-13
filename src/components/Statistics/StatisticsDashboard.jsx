@@ -33,10 +33,12 @@ const StatisticsDashboard = () => {
   // };
 
   const handleOnMonth = e => {
+    e.preventDefault();
     setMonth(e.target.value);
     dispatch(setMonth);
   };
   const handleOnYear = e => {
+    e.preventDefault();
     setYear(e.target.value);
     dispatch(setYear);
   };
