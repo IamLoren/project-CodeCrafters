@@ -16,14 +16,14 @@ import {selectTransactionsList} from '../../../redux/selectors'
 const TransactionsList = () => {
 
   const dispatch = useDispatch();
-  const transactions = useSelector(selectTransactionsList); 
 
   useEffect(() => {
     dispatch(fetchAllTransactionsThunk());
     dispatch(fetchTransactionsCategoriesThunk());
   }, [dispatch]);
-  
-  
+
+  const transactions = useSelector(selectTransactionsList); 
+
   return (
     <Container>
     <TransactionTable class="table table-bordered table-striped">
@@ -43,7 +43,7 @@ const TransactionsList = () => {
               <td colSpan="6">You don't have any transactions of your own yet</td>
             </tr>
           ) : (
-            transactions.map((transaction) => (
+            transactions?.map((transaction) => (
               <TransactionItem key={transaction.id} transaction={transaction} />
             ))
           )}
