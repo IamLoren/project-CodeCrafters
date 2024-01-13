@@ -1,5 +1,5 @@
-import React, { useEffect, useMemo } from 'react';
-import { createPortal } from 'react-dom';
+import React, { useEffect } from 'react';
+// import { createPortal } from 'react-dom';
 import {
   StyledTransactionsModalBackdrop,
   StyledModalTransaction,
