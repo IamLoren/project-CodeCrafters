@@ -1,4 +1,4 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice, isAnyOf } from '@reduxjs/toolkit';
 import {
   loginThunk,
   logoutThunk,
@@ -16,6 +16,9 @@ export const authSlice = createSlice({
     },
     token: '',
     isLogged: false,
+    isLoading: false,
+    isRefresh: false,
+    isError: null,
     balance: 0,
   },
   reducers: {},
@@ -28,6 +31,10 @@ export const authSlice = createSlice({
       })
       .addCase(registerThunk.rejected, (state, { payload }) => {
         toast.error('Error! User exist!');
+        state.isLogged = false;
+      })
+      .addCase(loginThunk.rejected, (state, { payload }) => {
+        toast.error('Error! Something went wrong!');
         state.isLogged = false;
       })
       .addCase(loginThunk.fulfilled, (state, { payload }) => {
@@ -50,10 +57,20 @@ export const authSlice = createSlice({
         state.balance = payload.balance;
         state.isLogged = true;
       })
+      .addCase(refreshThunk.pending, state => {
+        state.isRefresh = true;
+      })
       .addCase(refreshThunk.rejected, (state, { payload }) => {
         toast.error('You need to logIn!');
         state.isLogged = false;
-      });
+      })
+      .addMatcher(
+        isAnyOf(loginThunk.pending, logoutThunk.pending, registerThunk.pending),
+        state => {
+          state.isLoading = true;
+          state.isError = null;
+        }
+      );
   },
 });
 

@@ -5,6 +5,7 @@ import {
   CurrencyThead,
   HigherRate,
   LowerRate,
+  StyledCurrencyWrapper,
   StyledGraphBox,
 } from './CurrencyStyled';
 import { useDispatch, useSelector } from 'react-redux';
@@ -46,47 +47,50 @@ const Currency = () => {
   return (
     <>
       {/* {loading && <Loader />} */}
-      <CurrencyTable>
-        <CurrencyThead>
-          <tr>
-            <th>Currency</th>
-            <th>Purchase</th>
-            <th>Sale</th>
-          </tr>
-        </CurrencyThead>
-        <CurrencyTbody>
-          {currency.map(item => {
-            console.log('item', item);
-            return (
-              <tr key={crypto.randomUUID()}>
-                <td>{item.currencyType}</td>
-                <td>{item.rateBuy}</td>
-                <td>{item.rateSell.toString().slice(0, -2)}</td>
-              </tr>
-            );
+      <StyledCurrencyWrapper>
+        <CurrencyTable>
+          <CurrencyThead>
+            <tr>
+              <th>Currency</th>
+              <th>Purchase</th>
+              <th>Sale</th>
+            </tr>
+          </CurrencyThead>
+          <CurrencyTbody>
+            {currency.map(item => {
+              return (
+                <tr key={crypto.randomUUID()}>
+                  <td>{item.currencyType}</td>
+                  <td>{item.rateBuy}</td>
+                  <td>{item.rateSell.toString().slice(0, -2)}</td>
+                </tr>
+              );
+            })}
+          </CurrencyTbody>
+        </CurrencyTable>
+
+        <StyledGraphBox>
+          {currency?.map(item => {
+            if (item.currencyCodeA === 840) {
+              return (
+                <LowerRate key={crypto.randomUUID()}>{item.rateBuy}</LowerRate>
+              );
+            }
+            return [];
           })}
-        </CurrencyTbody>
-      </CurrencyTable>
 
-      <StyledGraphBox>
-        {currency?.map(item => {
-          if (item.currencyCodeA === 840) {
-            return (
-              <LowerRate key={crypto.randomUUID()}>{item.rateBuy}</LowerRate>
-            );
-          }
-          return [];
-        })}
-
-        {currency?.map(item => {
-          if (item.currencyCodeA === 978) {
-            return (
-              <HigherRate key={crypto.randomUUID()}>{item.rateBuy}</HigherRate>
-            );
-          }
-          return [];
-        })}
-      </StyledGraphBox>
+          {currency?.map(item => {
+            if (item.currencyCodeA === 978) {
+              return (
+                <HigherRate key={crypto.randomUUID()}>
+                  {item.rateBuy}
+                </HigherRate>
+              );
+            }
+            return [];
+          })}
+        </StyledGraphBox>
+      </StyledCurrencyWrapper>
     </>
   );
 };

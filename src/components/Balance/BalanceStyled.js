@@ -7,8 +7,20 @@ export const BalanceWrapper = styled.div`
   padding: 8px 0 11px 56px;
   margin-bottom: 42px;
 
-  @media only screen and (max-width: 768px) {
-    max-width: 100%;
+  @media (min-width: 768px) and (max-width: 1279px) {
+    width: 336px;
+    height: 80px;
+    border-radius: 8px;
+    margin: 0;
+  }
+
+  @media (min-width: 320px) and (max-width: 768px) {
+    width: 280px;
+    height: 80px;
+    margin: 0 auto;
+    margin-bottom: 32px;
+    border-radius: 8px;
+    padding: 12px 0 18px 32px;
   }
 `;
 

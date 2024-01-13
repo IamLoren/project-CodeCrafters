@@ -51,10 +51,10 @@ export const StyledModalTransaction = styled.div`
 export const StyledModalToggle = styled.div`
   display: flex;
   gap: 20px;
+  align-items: center;
 
   margin-bottom: 40px;
   p {
-    color: var(--text-forms);
     font-family: 'Poppins Regular';
     font-size: 16px;
     font-weight: 600;
@@ -62,6 +62,15 @@ export const StyledModalToggle = styled.div`
   /* p.active{
     color:#FF868D;
   } */
+`;
+export const StyledIncomeActive = styled.p`
+  color: var(--income-color);
+`;
+export const StyledExpenseActive = styled.p`
+  color: var(--expenses-color);
+`;
+export const StyledDisabled = styled.p`
+  color: var(--disabled-toggle);
 `;
 export const StyledModalCloseBtn = styled.button`
   position: absolute;
@@ -171,5 +180,11 @@ export const CancelTransactionButton = styled.button`
   //test hover. will change
   &:hover {
     background-color: #0069d9;
+  }
+`;
+
+export const StyledModalArrowDown = styled.div`
+  svg {
+    fill: red;
   }
 `;

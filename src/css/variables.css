@@ -11,10 +11,13 @@
   --text-button: #623f8b;
   --text-forms: rgba(255, 255, 255, 0.6);
 
+  --table-head: rgba(255, 255, 255, 0.2);
+
   --icon-color-link: #3c2371;
 
   --income-color: #ffb627;
   --expenses-color: #ff868d;
+  --disabled-toggle: #E0E0E0;
 
   --balance-bg: rgba(82, 59, 126, 0.6);
 
