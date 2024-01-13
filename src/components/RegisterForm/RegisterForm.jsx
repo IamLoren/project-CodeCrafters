@@ -16,6 +16,7 @@ import { useForm } from 'react-hook-form';
 import { useDispatch } from 'react-redux';
 import { registerThunk } from '../../redux/auth/operations';
 import { toast } from 'react-toastify';
+import PasswordStrengthBar from 'react-password-strength-bar';
 
 const basicSchema = yup.object().shape({
   username: yup.string().required('Name is required!'),
@@ -26,6 +27,7 @@ const basicSchema = yup.object().shape({
   password: yup
     .string()
     .min(6, 'Password must be at least 6 characters!')
+    .max(12)
     .required('Password is required!'),
   confirmPassword: yup
     .string()
@@ -40,6 +42,7 @@ const RegisterForm = () => {
     formState: { errors },
     reset,
   } = useForm({
+    mode: 'onChange',
     resolver: yupResolver(basicSchema),
   });
   const dispatch = useDispatch();
@@ -53,8 +56,13 @@ const RegisterForm = () => {
     dispatch(registerThunk(user))
       .unwrap()
       .then(res => toast.success(`Welcome ${res.user.username}!`))
-      .catch(err => toast.error(err));
+      .catch(error => toast.error('Something went wrong!'));
     reset();
+  };
+
+  const handleInput = e => {
+    const value = e.target.value;
+    console.log(value);
   };
 
   return (
@@ -86,7 +94,7 @@ const RegisterForm = () => {
             <IoMdLock className="icon" />
             <StyledInput
               {...register('password')}
-              type="text"
+              type="password"
               name="password"
               placeholder="Password"
             />
@@ -96,9 +104,19 @@ const RegisterForm = () => {
             <IoMdLock className="icon" />
             <StyledInput
               {...register('confirmPassword')}
-              type="text"
+              type="password"
               name="confirmPassword"
               placeholder="Confirm password"
+              onChange={handleInput}
+              // value={''}
+            />
+            <PasswordStrengthBar
+              // className="strengthBar"
+              password="password"
+              changeCallback={handleInput}
+              minLength={6}
+              minScore={2}
+              scoreWords={['weak', 'okay', 'good', 'strong', 'stronger']}
             />
             <ErrMessage>{errors.confirmPassword?.message}</ErrMessage>
           </div>

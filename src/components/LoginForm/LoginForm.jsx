@@ -1,4 +1,3 @@
-import React from 'react';
 import {
   ErrMessage,
   InputBox,
@@ -22,8 +21,12 @@ const basicSchema = yup.object().shape({
   email: yup
     .string()
     .email('Please enter a valid email!')
-    .required('Email is required'),
-  password: yup.string().min(6).max(12).required('Password is required'),
+    .required('Email is required!'),
+  password: yup
+    .string()
+    .min(6, 'Password must be at least 6 characters!')
+    .max(12)
+    .required('Password is required'),
 });
 
 const LoginForm = () => {
@@ -33,6 +36,7 @@ const LoginForm = () => {
     formState: { errors },
     reset,
   } = useForm({
+    mode: 'onChange',
     resolver: yupResolver(basicSchema),
   });
   const dispatch = useDispatch();
@@ -41,7 +45,7 @@ const LoginForm = () => {
     dispatch(loginThunk(data))
       .unwrap()
       .then(res => toast.success(`Welcome ${res.user.username}!`))
-      .catch(err => toast.error(err));
+      .catch(err => toast.error('Something went wrong!'));
     reset();
   };
 
@@ -65,7 +69,7 @@ const LoginForm = () => {
             <IoMdLock className="icon" />
             <StyledInput
               {...register('password')}
-              type="text"
+              type="password"
               name="password"
               id="password_reg"
               placeholder="Password"
