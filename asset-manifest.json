@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/project-CodeCrafters/static/css/main.2c3c35dd.css",
-    "main.js": "/project-CodeCrafters/static/js/main.6c97c321.js",
+    "main.js": "/project-CodeCrafters/static/js/main.b773a11e.js",
     "static/media/tablet-register.png": "/project-CodeCrafters/static/media/tablet-register.10c4daba2c02f0b9a1d9.png",
     "static/media/tablet-login.png": "/project-CodeCrafters/static/media/tablet-login.0d93070f70bd99d827b0.png",
     "static/media/LoginForm-bg-desc@retina.webp": "/project-CodeCrafters/static/media/LoginForm-bg-desc@retina.a4bda1711893578c4c07.webp",
@@ -18,15 +18,16 @@
     "static/media/Login-bg-desc@retina.webp": "/project-CodeCrafters/static/media/Login-bg-desc@retina.147874254757bb20a284.webp",
     "static/media/Register-bg-desc.webp": "/project-CodeCrafters/static/media/Register-bg-desc.5273df974399ea286cc7.webp",
     "static/media/Login-bg-desc.webp": "/project-CodeCrafters/static/media/Login-bg-desc.1198daf49a01199030fe.webp",
+    "static/media/LogOut-modal-bg-mobile.webp": "/project-CodeCrafters/static/media/LogOut-modal-bg-mobile.79be49a934307cea0881.webp",
     "static/media/Home-bg-desc.webp": "/project-CodeCrafters/static/media/Home-bg-desc.e4f05da1a3a194cec162.webp",
     "static/media/currency-diagr.svg": "/project-CodeCrafters/static/media/currency-diagr.e4ddfc011ea2bd0d0ce4b635fb12fac7.svg",
     "static/media/Main-logo.webp": "/project-CodeCrafters/static/media/Main-logo.abbc004ed39ffa9cd29f.webp",
     "index.html": "/project-CodeCrafters/index.html",
     "main.2c3c35dd.css.map": "/project-CodeCrafters/static/css/main.2c3c35dd.css.map",
-    "main.6c97c321.js.map": "/project-CodeCrafters/static/js/main.6c97c321.js.map"
+    "main.b773a11e.js.map": "/project-CodeCrafters/static/js/main.b773a11e.js.map"
   },
   "entrypoints": [
     "static/css/main.2c3c35dd.css",
-    "static/js/main.6c97c321.js"
+    "static/js/main.b773a11e.js"
   ]
 }
