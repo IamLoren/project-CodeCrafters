@@ -22,8 +22,7 @@ const TransactionsList = () => {
     dispatch(fetchAllTransactionsThunk());
     dispatch(fetchTransactionsCategoriesThunk());
   }, [dispatch]);
-
-  const limitedTransactions = transactions.slice(0, 5);
+  
   
   return (
     <Container>
@@ -39,12 +38,12 @@ const TransactionsList = () => {
         </tr>
       </TransactionThead>
       <TransactionTbody>
-          {limitedTransactions.length === 0 ? (
+          {transactions.length === 0 ? (
             <tr>
               <td colSpan="6">You don't have any transactions of your own yet</td>
             </tr>
           ) : (
-            limitedTransactions.map((transaction) => (
+            transactions.map((transaction) => (
               <TransactionItem key={transaction.id} transaction={transaction} />
             ))
           )}
