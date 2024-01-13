@@ -19,7 +19,7 @@ const persistConfig = {
   key: 'auth',
   version: 1,
   storage,
-  whitelist: ['token', 'currentDate'],
+  whitelist: ['token'],
 };
 
 const currencyPersistConfig = {
@@ -35,7 +35,10 @@ const transactionsPersistConfig = {
 };
 
 const rootReducer = combineReducers({
-  transactionsSlice: persistReducer(transactionsPersistConfig, transactionsReducer),
+  transactionsSlice: persistReducer(
+    transactionsPersistConfig,
+    transactionsReducer
+  ),
   authSlice: authReducer,
   currencySlice: persistReducer(currencyPersistConfig, currencyReducer),
 });

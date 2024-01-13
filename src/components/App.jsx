@@ -9,8 +9,17 @@ import Home from './Home/Home.jsx';
 import CurrencyPage from 'pages/CurrencyPage.jsx';
 import MediaQuery from 'react-responsive';
 import NotFound from 'pages/NotFound.jsx';
+import { useDispatch } from 'react-redux';
+import { useEffect } from 'react';
+import { refreshThunk } from '../redux/auth/operations.js';
 
 export const App = () => {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(refreshThunk());
+  }, [dispatch]);
+
   return (
     <>
       {/* <Loader /> */}

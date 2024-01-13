@@ -56,7 +56,7 @@ const RegisterForm = () => {
     dispatch(registerThunk(user))
       .unwrap()
       .then(res => toast.success(`Welcome ${res.user.username}!`))
-      .catch(err => toast.error('Something went wrong!'));
+      .catch(error => toast.error('Something went wrong!'));
     reset();
   };
 
