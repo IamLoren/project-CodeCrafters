@@ -2,18 +2,16 @@ import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { categories } from '../../redux/selectors.js';
 import { changeSelectOption } from '../../redux/transactions/transactionsSlice.js';
-// import { IoIosArrowDown } from 'react-icons/io';
-// import { StyledModalArrowDown } from 'components/TransactionsModal/TransactionsModal.styled.js';
-import Select from 'react-select';
-import { selectStyle } from './CustomSelect.style.js';
+import Select, { components } from 'react-select';
+import { selectStyle } from './CustomSelect.styled.js';
+import { IoIosArrowDown, IoIosArrowUp } from 'react-icons/io';
 
 const CustomSelect = () => {
   const [selectedOption, setSelectedOption] = useState(null);
   const categoriesTransaction = useSelector(categories);
   const dispatch = useDispatch();
-  // dispatch(changeSelectOption(value))
-  const getSelectValue = selectedOpt => {
-    setSelectedOption(selectedOpt);
+  const getSelectValue = selectedOp => {
+    setSelectedOption(selectedOp);
     dispatch(changeSelectOption(selectedOption.value));
   };
   const arrOfOptions = categoriesTransaction.map(category => {
@@ -23,6 +21,18 @@ const CustomSelect = () => {
     };
   });
 
+  const DropdownIndicator = props => {
+    return (
+      <components.DropdownIndicator {...props}>
+        {props.selectProps.menuIsOpen ? (
+          <IoIosArrowUp size={18} label="Arrow up" color={'var(--white)'} />
+        ) : (
+          <IoIosArrowDown size={18} label="Arrow down" color={'var(--white)'} />
+        )}
+      </components.DropdownIndicator>
+    );
+  };
+
   return (
     <div>
       <Select
@@ -30,10 +40,11 @@ const CustomSelect = () => {
         options={arrOfOptions}
         placeholder="Select a category"
         styles={selectStyle}
-        // isSearchable={false}
         onChange={getSelectValue}
-        // name="category"
-        // {...register('value')}
+        components={{
+          DropdownIndicator,
+          IndicatorSeparator: () => null,
+        }}
       />
     </div>
   );
