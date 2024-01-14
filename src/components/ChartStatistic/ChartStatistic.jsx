@@ -24,6 +24,7 @@ export const dataTr = {
         'rgba(0, 173, 132, 1)',//green dark
       ],
       borderColor: [
+        'rgba(36, 204, 167, 1)',//green
         'rgba(254, 208, 87, 1)',//yellow  
         'rgba(255, 216, 208, 1)',//pouder
         'rgba(253, 148, 152, 1)',//coral
@@ -141,12 +142,12 @@ const ChartStatistic = () => {
   const data = dataTr.datasets[0].data
   transactionsList.forEach(transaction => {
     if (transaction.type === "INCOME") income += transaction.amount;
-    if (transaction.type === "EXPENCE") {
+    if (transaction.type === "EXPENSE") {
       data.push(transaction.amount);
       expence += transaction.amount;
     };
   })
-  const difference = (income - expence)
+  const difference = Math.abs(income - expence)
   return (
     <DoughnutContainerStyled>
       {

@@ -16,7 +16,8 @@ const Balance = () => {
         <BalanceTitle>Your balance</BalanceTitle>
         <BalanceCurrent>
           <MoneySymbol>&#8372;</MoneySymbol>
-          {isNaN(balance) ? Number(0).toFixed(2) : Number(balance).toFixed(2)}
+          {Number(balance).toFixed(2)}
+          {/* {isNaN(balance) ? Number(0).toFixed(2) : Number(balance).toFixed(2)} */}
         </BalanceCurrent>
       </BalanceWrapper>
     </>
