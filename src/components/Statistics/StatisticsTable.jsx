@@ -31,7 +31,7 @@ const StatisticsTable = () => {
   //   'Entertainment',
   // ];
 
-  const data = [
+  let data = [
     {
       i: 1,
       category: 'Main expenses',
@@ -97,20 +97,16 @@ const StatisticsTable = () => {
   // const expenseArr = data?.filter(item => item.type === 'EXPENSE');
   // const incomeArr = data?.filter(item => item.type === 'INCOME');
   const categoriesList = useSelector(categories);
-  const statistic = useSelector(transactionStatistic);
+  const statistics = useSelector(transactionStatistic);
+  const statisticExp = statistics?.filter(item => item.type === 'EXPENSE');
 
-  console.log(
-    'transactionsList',
-    transactionsList,
-    'expenseArr',
-    expenseArr,
-    'incomeArr',
-    incomeArr,
-    'categoriesList',
-    categoriesList
-  );
-  console.log('statistic', statistic);
+  console.log('transactionsList', transactionsList);
+  console.log('expenseArr', expenseArr);
+  console.log('categoriesList', categoriesList);
+  console.log('incomeArr', incomeArr);
+  console.log('statistic', statistics);
 
+  data = statisticExp.map;
   const totalExpense = expenseArr.reduce((total, el) => {
     return total + Number(el.amount);
   }, 0);
