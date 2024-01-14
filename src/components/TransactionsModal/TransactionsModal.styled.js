@@ -57,9 +57,6 @@ export const StyledModalToggle = styled.div`
     font-size: 16px;
     font-weight: 600;
   }
-  /* p.active{
-    color:#FF868D;
-  } */
 `;
 export const StyledIncomeActive = styled.p`
   color: var(--income-color);
@@ -103,8 +100,11 @@ export const StyledTransactionAmount = styled.input`
   width: 181px;
   text-align: center;
   background-color: transparent;
+  color: var(--white);
+  font-family: 'Poppins SemiBold';
   outline: transparent;
   border: none;
+  font-size: 18px;
   border-bottom: 1px solid var(--modal-input-underline);
   padding-bottom: 8px;
   &::placeholder {
@@ -112,7 +112,7 @@ export const StyledTransactionAmount = styled.input`
     font-family: 'Poppins Bold';
     font-size: 18px;
   }
-  &:hover{
+  &:hover {
     color: var(--white);
     font-family: 'Poppins SemiBold';
   }
@@ -125,21 +125,20 @@ export const StyledTransactionComment = styled.textarea`
   width: 394px;
   height: 35px;
   background-color: transparent;
+  font-family: 'Poppins Regular';
+  font-size: 18px;
   border: none;
+  color: var(--white);
   border-bottom: 1px solid var(--modal-input-underline);
   outline: transparent;
   /* resize: vertical; */
   &::placeholder {
     margin-bottom: 8px;
     color: var(--text-forms);
-    font-size: 18px;
-    font-family: 'Poppins Regular';
-  } 
-  &:hover{
-    color: var(--white);
-    font-family: 'Poppins SemiBold';
   }
-
+  &:hover {
+    color: var(--white);
+  }
 `;
 export const StyledTransactionButtonsWrapper = styled.div`
   display: flex;
