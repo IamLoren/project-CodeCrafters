@@ -1,15 +1,13 @@
 import styled from 'styled-components';
 
 export const StyledDeleteButton = styled.button`
-  position: static;
-  width: 70px;
-  height: 30px;
-  right: 40px;
-  bottom: 40px;
-  margin-left: 10px;
+  display: flex;
+  padding: 4px 12px;
+  justify-content: center;
+  align-items: center;
   color: var(--white);
   background: var(--modal-button-gradient);
-  border-radius: 18px;
+  border-radius: 20px;
   border: none;
   outline: transparent;
 
