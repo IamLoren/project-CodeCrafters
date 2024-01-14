@@ -2,7 +2,10 @@ import React, { useEffect, useState } from 'react';
 import { DropsWrap } from './StatisticsStyled';
 import { useDispatch } from 'react-redux';
 import Select, { components } from 'react-select';
-import { fetchTransactionSummaryThunk } from '../../redux/transactions/operations';
+import {
+  fetchTransSumThunk,
+  fetchTransactionSummaryThunk,
+} from '../../redux/transactions/operations';
 import { IoIosArrowDown, IoIosArrowUp } from 'react-icons/io';
 import { libStyles } from './SelectedLibStyle';
 
@@ -22,39 +25,32 @@ const StatisticsDashboard = () => {
     { value: 12, label: 'December' },
   ];
   const years = [
-    { label: 2024, value: 1 },
-    { label: 2023, value: 2 },
-    { label: 2022, value: 3 },
-    { label: 2021, value: 4 },
-    { label: 2020, value: 5 },
+    { label: '2024', value: 2024 },
+    { label: '2023', value: 2023 },
+    { label: '2022', value: 2022 },
+    { label: '2021', value: 2021 },
+    { label: '2020', value: 2020 },
   ];
 
   const dispatch = useDispatch();
 
-  const [chosenMonth, setChosenMonth] = useState();
-  const [chosenYear, setChosenYear] = useState();
-
-  console.log('!!!', chosenMonth, chosenYear);
+  const [chosenMonth, setChosenMonth] = useState(null);
+  const [chosenYear, setChosenYear] = useState(null);
 
   const handleOnMonth = date => {
     setChosenMonth(date.value);
-    console.log(date);
-    // dispatch(
-    //   fetchTransactionSummaryThunk({ month: date.value, year: chosenYear })
-    // );
+    // dispatch(fetchTransSumThunk({ month: date.value, year: chosenYear }));
   };
-
-  console.log('!!!', chosenMonth, chosenYear);
 
   const handleOnYear = date => {
     setChosenYear(date.value);
-    // dispatch(
-    //   fetchTransactionSummaryThunk({ month: chosenMonth, year: date.value })
-    // );
+    // dispatch(fetchTransSumThunk({ month: chosenMonth, year: date.value }));
   };
+  console.log('!!!', chosenMonth, chosenYear);
   useEffect(() => {
-    fetchTransactionSummaryThunk({ month: chosenMonth, year: chosenYear });
+    fetchTransSumThunk({ month: chosenMonth, year: chosenYear });
   }, [dispatch, chosenMonth, chosenYear]);
+
   const DropdownIndicator = props => {
     return (
       <components.DropdownIndicator {...props}>
