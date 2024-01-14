@@ -24,7 +24,7 @@ span, svg{
   font-family:"Poppins Regular";
   font-size: 16px;
   line-height: normal;
-}
+   }
 `
 
 export const StyledExitButton = styled.div`
@@ -32,9 +32,12 @@ display: flex;
 border-left: 1px solid var(--text-forms);
 padding-left: 12px;
 margin-left: 12px;
-@media (max-width: 1279px) {
-    
-  }
+cursor: pointer;
+svg{
+  &:hover {
+		color: white;
+	}
+}
 @media (max-width: 767px) {
     border: none;
     margin-left:8px;
@@ -54,9 +57,10 @@ margin-left: 12px;
   @media (max-width: 767px) {
     display: none;
   }
-  	&:hover {
+  &:hover {
 		color: white;
 	}
+
     }
 `
 
