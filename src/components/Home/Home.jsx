@@ -6,7 +6,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { modalIsOpen } from '../../redux/selectors.js';
 import { AiOutlinePlus } from 'react-icons/ai';
 import { StyledHomeModalOpenBtn, HideOnMobile, HideOnDesktop } from './Home.styled.js';
-import  TransactionMobile  from 'components/TransactionTable/TransactionMobile/TransactionMobile.jsx';
+import  TransactionMobile  from 'components/TransactionMobile/TransactionMobile.jsx';
 
 const Home = () => {
 
