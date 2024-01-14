@@ -5,6 +5,7 @@ import {
   StyledBtn,
   StyledInput,
   StyledNavLink,
+  StyledLogo,
 } from 'components/LoginForm/LoginForm.styled';
 import { IoMdLock } from 'react-icons/io';
 import { MdEmail } from 'react-icons/md';
@@ -17,8 +18,6 @@ import { useDispatch } from 'react-redux';
 import { registerThunk } from '../../redux/auth/operations';
 import { toast } from 'react-toastify';
 import PasswordStrengthBar from 'react-password-strength-bar';
-
-console.dir(PasswordStrengthBar);
 
 const basicSchema = yup.object().shape({
   username: yup.string().required('Name is required!'),
@@ -67,14 +66,12 @@ const RegisterForm = () => {
   const handleInput = e => {
     const value = e.target.value;
     setPassword(value);
-    // let pass = PasswordStrengthBar(value);
-    // console.log(pass);
   };
 
   return (
     <StyledSection>
       <StyledForm onSubmit={handleSubmit(submit)}>
-        <img src={logo} alt="logo" loading="lazy" />
+        <StyledLogo src={logo} alt="logo" loading="lazy" />
         <InputBox>
           <div>
             <FaUser className="icon" />
@@ -114,14 +111,12 @@ const RegisterForm = () => {
               name="confirmPassword"
               placeholder="Confirm password"
               onChange={handleInput}
-              // value={password}
             />
             <PasswordStrengthBar
               className="strengthBar"
               password={password}
               minLength={6}
-              minScore={0}
-              scoreWords={['weak', 'okay', 'good', 'strong', 'stronger']}
+              maxLength={12}
               barColors={['#ddd', '#ef4836', '#f6b44d', '#2b90ef', '#25c281']}
             />
             <ErrMessage>{errors.confirmPassword?.message}</ErrMessage>

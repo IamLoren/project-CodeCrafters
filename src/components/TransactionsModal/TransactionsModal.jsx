@@ -11,11 +11,14 @@ import { useDispatch, useSelector } from 'react-redux';
 import { changeModalClose } from '../../redux/transactions/transactionsSlice.js';
 import ModalEdit from 'components/ModalEdit/ModalEdit.jsx';
 import ModalAdd from 'components/ModalAdd/ModalAdd.jsx';
+import { useMediaQuery } from 'react-responsive';
 
 const TransactionsModal = () => {
   const isModalOpen = useSelector(modalIsOpen);
   const isModalEdit = useSelector(modalIsEdit);
   const isModalAdd = useSelector(modalIsAdd);
+
+  const isDesktop = useMediaQuery({ minWidth: 768 });
 
   const dispatch = useDispatch();
 
@@ -47,13 +50,16 @@ const TransactionsModal = () => {
           {isModalEdit && <h2>Edit transaction</h2>}
 
           {/* button close */}
-          <StyledModalCloseBtn
-            onClick={() => {
-              dispatch(changeModalClose(false));
-            }}
-          >
-            <AiOutlineClose size="24" />
-          </StyledModalCloseBtn>
+          {isDesktop && (
+            <StyledModalCloseBtn
+              onClick={() => {
+                dispatch(changeModalClose(false));
+              }}
+            >
+              <AiOutlineClose size="24" />
+            </StyledModalCloseBtn>
+          )}
+
           {/* render form */}
           {isModalEdit && <ModalEdit />}
           {isModalAdd && <ModalAdd />}

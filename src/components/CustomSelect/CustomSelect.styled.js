@@ -8,6 +8,11 @@ export const selectStyle = {
     outline: 'none',
     borderRadius: '0',
     boxShadow: 'none',
+    
+  '@media (min-width: 320px) and (max-width: 768px)': {
+    width: '280px',
+    paddingLeft: '8px',
+  }
   }),
   singleValue: styles => ({
     ...styles,
