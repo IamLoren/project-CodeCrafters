@@ -30,6 +30,9 @@ span{
   line-height: normal;
   color: var(--white);
 }
+@media (max-width: 767px) {
+   z-index: 1;
+  }
 `
 export const NotifStyled = styled.div`
     display: flex;

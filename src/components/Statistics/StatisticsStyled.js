@@ -114,6 +114,9 @@ export const Wrap = styled.section`
     margin-top: 20px;
     padding:0;
     width: calc(100% - 40px);
+    display: flex;
+    flex-direction: row;
+    gap:32px;
   }
   @media only screen and (max-width: 767px){
     display: flex;
@@ -133,6 +136,9 @@ export const Wrap = styled.section`
 export const WrapCategories = styled.div`
   display: flex;
   flex-direction: column;
+  @media (max-width: 1279px){
+    width: 296px;
+      }
   @media only screen and (max-width: 767px){
     width: 280px;
   }
@@ -151,7 +157,7 @@ export const StatisticHead = styled.div`
   box-shadow: 0px 4px 60px 0px rgba(0, 0, 0, 0.25);
   /* backdrop-filter: blur(50px); */
   @media only screen and (max-width: 1279px){
-    width: 336px;
+    width: 296px;
   }
   @media only screen and (max-width: 767px){
     width: 280px;
@@ -182,6 +188,10 @@ export const CategoriesItem = styled.li`
   span {
     color: var(--expenses-color);
     font-size: 14px;
+  }
+  @media only screen and (max-width: 1279px){
+    width: 296px;
+    padding:0 15px;
   }
 `;
 export const SpanIncome = styled.span`
