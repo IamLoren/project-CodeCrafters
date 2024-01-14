@@ -46,6 +46,13 @@ export const CurrencyTbody = styled.tbody`
   tr {
     background: transparent;
     height: 48px;
+    @media (min-width: 768px) and (max-width: 1279px) {
+      height: 30px;
+    }
+
+    @media (min-width: 320px) and (max-width: 768px) {
+      height: 48px;
+    }
   }
   td {
     color: var(--white);
@@ -67,11 +74,15 @@ export const StyledGraphBox = styled.div`
     width: 100%;
     height: 134px;
     position: absolute;
-    top: 114px;
-    left: 184px;
+    top: 80px;
+    left: 180px;
   }
 
   @media (min-width: 320px) and (max-width: 768px) {
+    position: absolute;
+    top: 244px;
+    height: 112px;
+    width: 280px;
   }
 `;
 
