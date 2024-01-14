@@ -12,3 +12,4 @@ export const StyledHomeModalOpenBtn = styled.button`
   border: none;
   outline: transparent;
 `;
+ 
