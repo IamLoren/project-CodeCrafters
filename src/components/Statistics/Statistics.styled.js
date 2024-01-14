@@ -1,5 +1,6 @@
 import styled from 'styled-components';
-import statisticsBgMobRetina from '../../img/Mobile/statistics-bg-mob@retina.webp'
+import statisticsBgMobRetina from '../../img/Mobile/statistics-bg-mob@retina.webp';
+import statisticsBgMob from '../../img/Mobile/statistics-bg-mob.webp'
 
 export const StatisticsTitle = styled.h3`
   color: var(--white);
@@ -102,7 +103,7 @@ export const Wrap = styled.div`
   @media only screen and (max-width: 767px){
     display: flex;
     flex-direction: column;
-    background-image: url(${statisticsBgMobRetina});
+    background-image: url(${statisticsBgMob});
     width:100% ;
     background: var(--modal-background);
 		background-position: center;
