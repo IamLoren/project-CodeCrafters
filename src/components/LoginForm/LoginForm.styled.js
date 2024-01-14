@@ -11,7 +11,7 @@ export const StyledSection = styled.section`
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background-size: cover;
+  background-size:cover;
   background-position: center;
   background-repeat: no-repeat;
 
@@ -47,6 +47,7 @@ export const StyledForm = styled.form`
     background: var(--modal-background);
     background-position: center;
     background-repeat: no-repeat;
+    background-size: 100%;
     box-shadow: 0px 4px 60px 0px var(--modal-shadow);
     background-image: url(${formBg});
     /* backdrop-filter: blur(50px); */

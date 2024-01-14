@@ -1,5 +1,7 @@
 import { createGlobalStyle } from 'styled-components';
-import bg from '../img/Home-bg-desc.webp'
+import bg from '../img/Home-bg-desc.webp';
+import './variables.css';
+
 export const Global = createGlobalStyle`
 
 h1,
@@ -39,6 +41,15 @@ body{
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+    transition: background-color 5000s ease-in-out 0s;
+    background-color: inherit !important;
+    color: var(--text-forms);
 }
 `;
 
