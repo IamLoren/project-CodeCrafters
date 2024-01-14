@@ -56,7 +56,7 @@ export const StyledForm = styled.form`
     background-size: 200%;
     background-image: url(${formBgRetina});
     box-shadow: 0px 4px 60px 0px var(--modal-shadow);
-    backdrop-filter: blur(50px);
+    /* backdrop-filter: blur(50px); */
   }
 
   @media only screen and (max-width: 767px) {
