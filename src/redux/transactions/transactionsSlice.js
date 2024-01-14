@@ -24,7 +24,7 @@ export const transactionsSlice = createSlice({
     transactionslist: [],
     balance: 0, // записати з поля data.balanceAfter останнього обєкта із [transactionslist]
     isLoading: false,
-    transactionSummary: [],
+    transactionSummary: {},
   },
   reducers: {
     changeModalClose: (state, { payload }) => {
@@ -92,18 +92,12 @@ export const transactionsSlice = createSlice({
           state.isLoading = false;
         }
       )
-      .addCase(
-        fetchTransactionsCategoriesThunk.pending,
-        state => {
-          state.isLoading = true;
-        }
-      )
-      .addCase(
-        fetchTransactionsCategoriesThunk.rejected,
-        (state, action) => {
-          toast.error(`Failed to select this category: ${action.payload}`)
-        }
-      );
+      .addCase(fetchTransactionsCategoriesThunk.pending, state => {
+        state.isLoading = true;
+      })
+      .addCase(fetchTransactionsCategoriesThunk.rejected, (state, action) => {
+        toast.error(`Failed to select this category: ${action.payload}`);
+      });
   },
 });
 

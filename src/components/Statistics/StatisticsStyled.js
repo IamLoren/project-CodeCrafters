@@ -1,4 +1,6 @@
 import styled from 'styled-components';
+import mainbgtab from '../../img/Tablet/main-bg-tab.webp';
+// import mainbgtabRetina from '../../img/Tablet/main-bg-tab@retina.webp';
 
 export const StatisticsTitle = styled.h3`
   color: var(--white);
@@ -61,14 +63,32 @@ export const DropdownContent = styled.option`
   }
 `;
 
-export const Wrap = styled.div`
-  /* width: 800px; */
-  width: 100%;
-  display: flex;
-  flex-direction: row;
-  gap: 32px;
-  padding: 32px 16px 46px 69px;
-  justify-content: space-between;
+export const Wrap = styled.section`
+  @media only screen and (min-width: 1280px) {
+    width: 800px;
+    width: 100%;
+
+    margin: 0 auto;
+    /* height: 100vh; */
+    display: flex;
+    flex-direction: row;
+    gap: 32px;
+    padding-top: 32px;
+    /* padding: 32px 16px 46px 69px; */
+    justify-content: flex-end;
+    /* background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat; */
+  }
+  @media only screen and (min-width: 768px) and (max-width: 1279px) {
+    /* background-image: url(${mainbgtab}); */
+
+    padding: 0;
+  }
+
+  @media only screen and (min-width: 320px) and (max-width: 768px) {
+    max-width: 320px;
+  }
 `;
 
 export const WrapCategories = styled.div`
