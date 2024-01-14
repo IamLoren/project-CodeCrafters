@@ -3,12 +3,15 @@ import { useDispatch, useSelector } from 'react-redux';
 import TransactionItem from '../TransactionsItem/TransactionItem';
 import { fetchAllTransactionsThunk, fetchTransactionsCategoriesThunk } from '../../../redux/transactions/operations';
 import { selectTransactionsList } from '../../../redux/selectors';
+import { changeModalEditForm } from '../../../redux/transactions/transactionsSlice';
 import {
   TransactionContainer,
   SquareContainer,
-  HeaderList,
-  HeaderItem,
+  TransactionDetails,
+  StyledDeleteButt,
 } from './TransactionMobileStyled';
+import { LuPencil } from 'react-icons/lu';
+import { deleteTransactionThunk } from '../../../../src/redux/transactions/operations';
 
 const TransactionMobile = () => {
   const dispatch = useDispatch();
@@ -18,28 +21,42 @@ const TransactionMobile = () => {
     dispatch(fetchTransactionsCategoriesThunk());
   }, [dispatch]);
 
+  
   const transactions = useSelector(selectTransactionsList);
+
+  const deleteTransaction = (id) => dispatch(deleteTransactionThunk(id));
+
+
 
   return (
     <TransactionContainer>
       {transactions.length === 0 ? (
-        <p>You don't have any transactions of your own yet</p>
+        <p>You don't have any transactions yet</p>
       ) : (
         transactions?.map((transaction) => (
           <SquareContainer key={transaction.id}>
-            <HeaderList>
-              <HeaderItem>Date:</HeaderItem>
-              <HeaderItem>Type:</HeaderItem>
-              <HeaderItem>Category:</HeaderItem>
-              <HeaderItem>Comment:</HeaderItem>
-              <HeaderItem>Sum:</HeaderItem>
-            </HeaderList>
-            <TransactionItem  transaction={transaction} />
+            <TransactionDetails>
+              <p>Date: {transaction.transactionDate}</p>
+              <p>Type: {transaction.type}</p>
+              <p>Category: {transaction.categoryName}</p>
+              <p>Comment: {transaction.comment}</p>
+              <p>Sum: {transaction.amount}</p>
+              <TransactionItem key={transaction.id} transaction={transaction} />
+              <StyledDeleteButt onClick={() => deleteTransaction(transaction.id)}>
+                Delete
+              </StyledDeleteButt>
+              <LuPencil
+                onClick={() => {
+                  dispatch(changeModalEditForm(true));
+                }}
+              />
+            </TransactionDetails>
           </SquareContainer>
         ))
       )}
     </TransactionContainer>
   );
 };
+
 
 export default TransactionMobile;
