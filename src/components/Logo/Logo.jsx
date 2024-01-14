@@ -3,15 +3,16 @@ import mainLogo from '../../img/Main-logo.webp'
 
 const Logo = () => {
   return (
-    <div><a href="/project-CodeCrafters">
+    <div>
       <img
         src={mainLogo}
         alt='Main-logo'
         width='115'
         height='48'
         loading='lazy' />
-    </a></div>
+    </div>
   )
 }
 
 export default Logo
+

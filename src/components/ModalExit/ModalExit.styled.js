@@ -24,6 +24,7 @@ export const ModalContent = styled.div`
 	background-image: url(${logOutBg});
 	background-position: center;
   background-repeat: no-repeat;
+	background-size: inherit;
 	overflow: hidden;
 	max-width: 1000px;
 	border-radius: 8px;
@@ -35,20 +36,21 @@ export const ModalContent = styled.div`
   justify-content: space-between;
 	box-shadow: 0px 4px 60px 0px rgba(0, 0, 0, 0.25);
 @media (max-width: 767px) {
-    height: 100vh;
+	height: calc(100vh - 72px);
 		justify-content: center;
 		background-image: url(${logOutBgMobile});
-		max-height: 690px;
+		background-size: cover;
   }
 
 img{
 	width: 182px;
-	height: 76px;
-margin-top: 60px;
+	height: 75px;
+margin-top: 52px;
 margin-bottom: 0;
 @media (max-width: 767px) {
     display: none;
-  }
+		  }
+			
 }
 p{
 	color: #FFF;
