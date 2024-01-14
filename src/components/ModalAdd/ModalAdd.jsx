@@ -102,6 +102,7 @@ const ModalAdd = () => {
         <DatePickerWrapper>
           <FaRegCalendarAlt />
           <ReactDatePicker
+            required
             name="date"
             selected={startDate}
             onChange={onChange}
@@ -111,6 +112,7 @@ const ModalAdd = () => {
       </StyledTransactionModalSelect>
 
       <StyledTransactionComment
+        required
         name="comment"
         placeholder="Comment"
       ></StyledTransactionComment>
