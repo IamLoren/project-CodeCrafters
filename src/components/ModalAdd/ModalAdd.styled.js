@@ -3,31 +3,33 @@ import styled from 'styled-components';
 export const StyledDatePicker = styled.div`
   div {
     width: 181px;
-    color: var(--text-forms);
+    /* color: var(--text-forms); */
     text-align: center;
-    font-family: 'Poppins Bold';
-    font-size: 18px;
+    /* font-family: 'Poppins Bold';
+    font-size: 18px; */
     background-color: transparent;
-    /* border: none; */
-    border-top:none;
-    border-right:none;
+    border-top: none;
+    border-right: none;
     border-left: none;
     border-radius: 0%;
-    input:placeholder-disabled{
+    border-color: var(--modal-input-underline);
+    /* input:placeholder-disabled{
         color: #fff;
+    } */
+    input {
+      color: var(--text-forms);
+      &::placeholder {
+        color: var(--text-forms);
+      }
+    }
+    span {
+      color: var(--icon-violet);
     }
     input:focus-within {
-        color: #fff;
+      color: #fff;
     }
     input:hover {
-        color: #fff;
+      color: #fff;
     }
   }
 `;
-// export const StyledConfigProvider = styled.ConfigProvider`
- 
-//         border-bottom: 1px solid var(--modal-input-underline);
-
-    
-
-// `;
