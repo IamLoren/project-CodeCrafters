@@ -39,7 +39,7 @@ export const StyledAmount = styled.input`
 
   @media (min-width: 320px) and (max-width: 768px) {
     width: 280px;
-    padding-left:20px;
+    padding-left: 20px;
     text-align: start;
   }
 `;
@@ -87,9 +87,9 @@ export const StyledEditDatePickerWrapper = styled.div`
       color: var(--white);
     }
     @media (min-width: 320px) and (max-width: 768px) {
-    text-align: start;
-    padding-left:1px;
-  }
+      text-align: start;
+      padding-left: 1px;
+    }
   }
   svg {
     position: absolute;
@@ -99,13 +99,13 @@ export const StyledEditDatePickerWrapper = styled.div`
     width: 24px;
     height: 24px;
     @media (min-width: 320px) and (max-width: 768px) {
-   right:17px;
-  }
+      right: 17px;
+    }
   }
 
   @media (min-width: 320px) and (max-width: 768px) {
     width: 280px;
     text-align: start;
-    padding-left:20px;
+    padding-left: 20px;
   }
 `;
