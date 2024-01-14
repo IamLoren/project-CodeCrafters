@@ -8,10 +8,19 @@ import {
   changeModalEditForm,
 } from '../../../redux/transactions/transactionsSlice';
 import { categories } from '../../../redux/selectors';
+import { changeBalanceValue } from '../../../redux/auth/authSlice.js';
 
 const TransactionItem = ({ transaction }) => {
   const dispatch = useDispatch();
-  const delateTransaction = id => dispatch(deleteTransactionThunk(id));
+
+  const delateTransaction = (id, amount) => {
+    dispatch(deleteTransactionThunk(id))
+      .unwrap()
+      .then(() => {
+        dispatch(changeBalanceValue(amount));
+      });
+  };
+
   const categoriesTransaction = useSelector(categories);
   const categoryName = categoriesTransaction?.find(
     category => category.id === transaction?.categoryId
@@ -31,8 +40,16 @@ const TransactionItem = ({ transaction }) => {
       <td className="comment">{transaction?.comment}</td>
       <td className="amount">{transaction?.amount}</td>
       <td>
-        <LuPencil onClick={() => handleClick(transaction)} />
-        <StyledDeleteButton onClick={() => delateTransaction(transaction?.id)}>
+        <LuPencil
+          onClick={() => {
+            dispatch(changeModalEditForm(true));
+          }}
+        />
+        <StyledDeleteButton
+          onClick={() =>
+            delateTransaction(transaction?.id, transaction?.amount)
+          }
+        >
           Delete
         </StyledDeleteButton>
       </td>

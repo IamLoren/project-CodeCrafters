@@ -8,7 +8,6 @@ import {
 import { toast } from 'react-toastify';
 import {
   addTransactionThunk,
-  deleteTransactionThunk,
   editTransactionThunk,
 } from '../../redux/transactions/operations.js';
 
@@ -18,17 +17,17 @@ export const authSlice = createSlice({
     user: {
       email: '',
       name: '',
+      balance: 0,
     },
     token: '',
     isLogged: false,
     isLoading: false,
     isRefresh: false,
     isError: null,
-    balance: 0,
   },
   reducers: {
-    changeBalance: (state, { payload }) => {
-      state.user.balance = state.user.balance + payload;
+    changeBalanceValue: (state, { payload }) => {
+      state.user.balance = state.user.balance - payload;
     },
   },
 
@@ -56,6 +55,7 @@ export const authSlice = createSlice({
         state.user = {
           email: '',
           name: '',
+          balance: 0,
         };
         state.token = '';
         state.isLogged = false;
@@ -68,7 +68,7 @@ export const authSlice = createSlice({
         console.log('payload', { payload });
         state.user.name = payload.name;
         state.user.email = payload.email;
-        state.balance = payload.balance;
+        state.user.balance = payload.balance;
         state.isLogged = true;
       })
       .addCase(refreshThunk.pending, state => {
@@ -79,13 +79,10 @@ export const authSlice = createSlice({
         state.isLogged = false;
       })
       .addCase(addTransactionThunk.fulfilled, (state, { payload }) => {
-        state.balance = payload.balanceAfter;
-      })
-      .addCase(deleteTransactionThunk.fulfilled, (state, { payload }) => {
-        state.balance = payload.balanceAfter;
+        state.user.balance = payload.balanceAfter;
       })
       .addCase(editTransactionThunk.fulfilled, (state, { payload }) => {
-        state.balance = payload.balanceAfter;
+        state.user.balance = state.user.balance - payload;
       })
       .addMatcher(
         isAnyOf(loginThunk.pending, logoutThunk.pending, registerThunk.pending),
@@ -98,4 +95,4 @@ export const authSlice = createSlice({
 });
 
 export const authReducer = authSlice.reducer;
-export const { changeBalance } = authSlice.actions;
+export const { changeBalanceValue } = authSlice.actions;
