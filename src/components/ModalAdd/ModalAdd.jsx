@@ -1,4 +1,3 @@
-import { ConfigProvider, DatePicker, Space } from 'antd';
 import {
   StyledDisabled,
   StyledExpenseActive,
@@ -26,11 +25,16 @@ import {
   SpanToggle,
   ToggleSwitch,
 } from 'components/Toggle/Toggle.styled.js';
-import { StyledDatePicker } from './ModalAdd.styled.js';
+import { DatePickerWrapper } from './ModalAdd.styled.js';
+import 'react-datepicker/dist/react-datepicker.css';
+import { FaRegCalendarAlt } from 'react-icons/fa';
+import ReactDatePicker from 'react-datepicker';
 
 const ModalAdd = () => {
+  const [startDate, setStartDate] = useState(new Date());
   const [isDisabled, setIsDisabled] = useState(true);
   const [isChecked, setIsChecked] = useState(true);
+  const [date, setDate] = useState('');
 
   const onChangeToggle = () => {
     setIsDisabled(!isDisabled);
@@ -38,10 +42,7 @@ const ModalAdd = () => {
     dispatch(changeToggleState(isChecked));
   };
 
-  const [date, setDate] = useState('');
-  const onChange = (date, dateString) => {
-    setDate(dateString);
-  };
+  const onChange = date => setStartDate(date);
 
   const dispatch = useDispatch();
 
@@ -64,7 +65,6 @@ const ModalAdd = () => {
 
   return (
     <StyledModalBody onSubmit={createTransaction}>
-      
       <StyledModalToggle>
         {isDisabled ? (
           <StyledDisabled>Income</StyledDisabled>
@@ -99,27 +99,15 @@ const ModalAdd = () => {
           required
         />
 
-        {/* <TransactionDate type="date" required /> */}
-
-        <ConfigProvider
-          theme={{
-            components: {
-              DatePicker: {
-                activeBg: 'transparent',
-                activeBorderColor: 'var(--modal-input-underline)',
-                // hoverBorderColor: '#906090',
-                hoverBg: 'transparent',
-                cellHoverBg: 'var(--balance-bg)',
-              },
-            },
-          }}
-        >
-          <Space direction="vertical" placeholder="Select date">
-            <StyledDatePicker>
-              <DatePicker onChange={onChange} />
-            </StyledDatePicker>
-          </Space>
-        </ConfigProvider>
+        <DatePickerWrapper>
+          <FaRegCalendarAlt />
+          <ReactDatePicker
+            name="date"
+            selected={startDate}
+            onChange={onChange}
+            dateFormat="dd.MM.yyyy"
+          />
+        </DatePickerWrapper>
       </StyledTransactionModalSelect>
 
       <StyledTransactionComment

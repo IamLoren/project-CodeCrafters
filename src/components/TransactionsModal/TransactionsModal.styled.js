@@ -98,7 +98,6 @@ export const StyledTransactionAmount = styled.input`
   /* -webkit-appearance: none; */
   /* -moz-appearance: textfield; */
   width: 181px;
-  height:35px;
   text-align: center;
   background-color: transparent;
   color: var(--white);
@@ -125,6 +124,7 @@ export const StyledTransactionAmount = styled.input`
 export const StyledTransactionComment = styled.textarea`
   width: 394px;
   height: 35px;
+  padding-left: 8px;
   background-color: transparent;
   font-family: 'Poppins Regular';
   font-size: 18px;
