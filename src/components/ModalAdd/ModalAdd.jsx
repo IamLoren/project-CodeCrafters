@@ -1,5 +1,8 @@
 import { ConfigProvider, DatePicker, Space } from 'antd';
 import {
+  StyledDisabled,
+  StyledExpenseActive,
+  StyledIncomeActive,
   StyledModalBody,
   StyledModalToggle,
   StyledTransactionAmount,
@@ -11,34 +14,49 @@ import React, { useState } from 'react';
 import Button from '../Button/Button.jsx';
 import AccentButton from '../../components/AccentButton/AccentButton.jsx';
 import CustomSelect from 'components/CustomSelect/CustomSelect.jsx';
-import Toggle from 'components/Toggle/Toggle.jsx';
+// import Toggle from 'components/Toggle/Toggle.jsx';
 import { useDispatch, useSelector } from 'react-redux';
-import { IDfromSelect, toggleState } from '../../redux/selectors.js';
+import { IDfromSelect } from '../../redux/selectors.js';
 import { addTransactionThunk } from '../../redux/transactions/operations.js';
+import { changeToggleState } from '../../redux/transactions/transactionsSlice.js';
+import {
+  LabelToggle,
+  SpanToggle,
+  ToggleSwitch,
+} from 'components/Toggle/Toggle.styled.js';
 
 const ModalAdd = () => {
+  const [isDisabled, setIsDisabled] = useState(true);
+  const [isChecked, setIsChecked] = useState(true);
+
+  const onChangeToggle = () => {
+    setIsDisabled(!isDisabled);
+    // dispatch(changeToggleState(!checked));
+    setIsChecked(!isChecked);
+    dispatch(changeToggleState(isChecked));
+  };
+
+  //
+  //
   const [date, setDate] = useState('');
   const onChange = (date, dateString) => {
     setDate(dateString);
-    // console.log(date);
   };
 
   const dispatch = useDispatch();
 
-  const typeToggle = useSelector(toggleState);
   const id = useSelector(IDfromSelect);
   const createTransaction = event => {
     event.preventDefault();
     const formData = new FormData(event.target);
     const amountValue = formData.get('amount');
     const comment = formData.get('comment');
-    console.log(typeToggle)
     const transaction = {
       transactionDate: `${date}`,
-      type: `${typeToggle ? 'INCOME' : 'EXPENSE'}`,
-      categoryId: `${typeToggle ? "063f1132-ba5d-42b4-951d-44011ca46262" : id}`,
+      type: `${!isChecked ? 'INCOME' : 'EXPENSE'}`,
+      categoryId: `${!isChecked ? '063f1132-ba5d-42b4-951d-44011ca46262' : id}`,
       comment: `${comment}`,
-      amount: `${typeToggle ? amountValue : -amountValue}`
+      amount: `${!isChecked ? amountValue : -amountValue}`,
     };
     dispatch(addTransactionThunk(transaction));
   };
@@ -46,11 +64,29 @@ const ModalAdd = () => {
   return (
     <StyledModalBody onSubmit={createTransaction}>
       <StyledModalToggle>
-        <p>Expense</p>
-        <Toggle />
-        <p>Income</p>
+        {isDisabled ? (
+          <StyledDisabled>Income</StyledDisabled>
+        ) : (
+          <StyledIncomeActive>Income</StyledIncomeActive>
+        )}
+
+        <LabelToggle>
+          <ToggleSwitch
+            defaultChecked
+            type="checkbox"
+            onChange={onChangeToggle}
+            name="type"
+          />
+          <SpanToggle />
+        </LabelToggle>
+        {isDisabled ? (
+          <StyledExpenseActive>Expense</StyledExpenseActive>
+        ) : (
+          <StyledDisabled>Expense</StyledDisabled>
+        )}
       </StyledModalToggle>
-      <CustomSelect />
+
+      {isChecked && <CustomSelect />}
 
       <StyledTransactionModalSelect>
         <StyledTransactionAmount
