@@ -20,7 +20,7 @@ export const transactionsSlice = createSlice({
       modalAddForm: false,
       toggleState: true,
       select: '',
-      transactionForEdit: '',
+      transactionForEdit: {},
     },
     categories: [],
     transactionslist: [],

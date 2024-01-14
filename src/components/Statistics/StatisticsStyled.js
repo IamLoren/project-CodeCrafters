@@ -1,10 +1,13 @@
 import styled from 'styled-components';
 import mainbgtab from '../../img/Tablet/main-bg-tab.webp';
 // import mainbgtabRetina from '../../img/Tablet/main-bg-tab@retina.webp';
+import statisticsBgMobRetina from '../../img/Mobile/statistics-bg-mob@retina.webp';
+import statisticsBgMob from '../../img/Mobile/statistics-bg-mob.webp'
 
 export const StatisticsTitle = styled.h3`
   color: var(--white);
   font-family: 'Poppins Regular';
+  font-weight: 400;
   font-size: 30px;
 `;
 export const StatisticsChart = styled.div`
@@ -15,11 +18,24 @@ export const StatisticsChart = styled.div`
 export const StatisticsInfoWrap = styled.div`
   display: flex;
   flex-direction: column;
+  @media only screen and (max-width: 1279px) {
+    width: 336px;
+  }
+  @media only screen and (max-width: 767px) {
+    width: 280px;
+  }
 `;
 export const DropsWrap = styled.div`
   display: flex;
   gap: 32px;
   margin-bottom: 20px;
+  @media only screen and (max-width: 1279px) {
+    gap: 16px;
+  }
+  @media only screen and (max-width: 767px) {
+    display: flex;
+    flex-direction: column;
+  }
 `;
 export const Dropdown = styled.select`
   width: 182px;
@@ -34,6 +50,12 @@ export const Dropdown = styled.select`
   color: var(--white, #fbfbfb);
   font-family: 'Poppins Regular';
   font-size: 16px;
+  @media only screen and (max-width: 1279px) {
+    width: 160px;
+  }
+  @media only screen and (max-width: 767px) {
+    width: 280px;
+  }
 `;
 
 export const DropdownContent = styled.option`
@@ -66,34 +88,60 @@ export const DropdownContent = styled.option`
 export const Wrap = styled.section`
   @media only screen and (min-width: 1280px) {
     width: 800px;
-    width: 100%;
+    /* width: 100%; */
 
     margin: 0 auto;
     /* height: 100vh; */
     display: flex;
     flex-direction: row;
     gap: 32px;
-    padding-top: 32px;
-    /* padding: 32px 16px 46px 69px; */
+    /* padding-top: 32px; */
+    padding: 32px 16px 46px 46px;
     justify-content: flex-end;
     /* background-size: cover;
   background-position: center;
   background-repeat: no-repeat; */
   }
-  @media only screen and (min-width: 768px) and (max-width: 1279px) {
+  /* @media only screen and (min-width: 768px) and (max-width: 1279px) { */
     /* background-image: url(${mainbgtab}); */
+    /* padding: 0;
+  } */
 
-    padding: 0;
-  }
-
-  @media only screen and (min-width: 320px) and (max-width: 768px) {
+  /* @media only screen and (min-width: 320px) and (max-width: 768px) {
     max-width: 320px;
+  } */
+  @media (max-width: 1279px) {
+    margin-top: 20px;
+    padding:0;
+    width: calc(100% - 40px);
+    display: flex;
+    flex-direction: row;
+    gap:32px;
+  }
+  @media only screen and (max-width: 767px){
+    display: flex;
+    flex-direction: column;
+    background-image: url(${statisticsBgMob});
+    width:100% ;
+    background: var(--modal-background);
+		background-position: center;
+  background-repeat: no-repeat;
+	background-size: inherit;
+  }
+    @media only screen and (max-width: 767px) and (min-resolution: 192dpi) {
+    background-image: url(${statisticsBgMobRetina});
   }
 `;
 
 export const WrapCategories = styled.div`
   display: flex;
   flex-direction: column;
+  @media (max-width: 1279px){
+    width: 296px;
+      }
+  @media only screen and (max-width: 767px){
+    width: 280px;
+  }
 `;
 
 export const StatisticHead = styled.div`
@@ -107,11 +155,20 @@ export const StatisticHead = styled.div`
   padding: 16px;
   align-items: center;
   box-shadow: 0px 4px 60px 0px rgba(0, 0, 0, 0.25);
-  backdrop-filter: blur(50px);
+  /* backdrop-filter: blur(50px); */
+  @media only screen and (max-width: 1279px){
+    width: 296px;
+  }
+  @media only screen and (max-width: 767px){
+    width: 280px;
+  }
 `;
 export const Text = styled.p`
   color: var(--white);
   display: block;
+  @media only screen and (max-width: 767px){
+    padding: 0 15px;
+  }
 `;
 export const Info = styled.p`
   display: block;
@@ -131,6 +188,10 @@ export const CategoriesItem = styled.li`
   span {
     color: var(--expenses-color);
     font-size: 14px;
+  }
+  @media only screen and (max-width: 1279px){
+    width: 296px;
+    padding:0 15px;
   }
 `;
 export const SpanIncome = styled.span`

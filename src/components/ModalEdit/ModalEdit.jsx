@@ -32,7 +32,7 @@ const ModalEdit = () => {
   const categoriesTransaction = useSelector(categories);
 
   const categoryName = categoriesTransaction?.find(
-    category => category.id === transactionEdit.categoryId
+    category => category.id === transactionEdit?.categoryId
   );
 
   const editTransaction = event => {
@@ -43,11 +43,11 @@ const ModalEdit = () => {
     const comment = formData.get('comment');
     const transaction = {
       transactionDate: `${date}`,
-      type: `${transactionEdit.type}`,
-      categoryId: `${transactionEdit.categoryId}`,
+      type: `${transactionEdit?.type}`,
+      categoryId: `${transactionEdit?.categoryId}`,
       comment: `${comment}`,
       amount: `${
-        transactionEdit.type === 'INCOME' ? amountValue : -amountValue
+        transactionEdit?.type === 'INCOME' ? amountValue : -amountValue
       }`,
     };
     dispatch(editTransactionThunk(id, transaction));
@@ -55,29 +55,31 @@ const ModalEdit = () => {
     console.log(transactionEdit);
   };
 
+  const amountPlaceholder = Math.abs(transactionEdit?.amount);
+
   return (
     <StyledModalBody onSubmit={editTransaction}>
       <StyledModalToggle>
-        {transactionEdit.type === 'INCOME' ? (
+        {transactionEdit?.type === 'INCOME' ? (
           <StyledIncomeActive>{transactionEdit.type}</StyledIncomeActive>
         ) : (
           <StyledDisabled>Income</StyledDisabled>
         )}
         /
-        {transactionEdit.type === 'EXPENSE' ? (
-          <StyledExpenseActive>{transactionEdit.type}</StyledExpenseActive>
+        {transactionEdit?.type === 'EXPENSE' ? (
+          <StyledExpenseActive>{transactionEdit?.type}</StyledExpenseActive>
         ) : (
           <StyledDisabled>Expense</StyledDisabled>
         )}
       </StyledModalToggle>
 
-      {transactionEdit.type === 'EXPENSE' && <span>{categoryName?.name}</span>}
+      {transactionEdit?.type === 'EXPENSE' && <span>{categoryName?.name}</span>}
 
       <StyledTransactionModalSelect>
         <StyledTransactionAmount
           name="amount"
           type="number"
-          placeholder={Math.abs(transactionEdit.amount)}
+          placeholder={amountPlaceholder}
           required
         />
 
@@ -95,7 +97,7 @@ const ModalEdit = () => {
         >
           <Space
             direction="vertical"
-            placeholder={transactionEdit.transactionDate}
+            placeholder={transactionEdit?.transactionDate}
           >
             <StyledDatePicker>
               <DatePicker onChange={onChange} />
@@ -106,7 +108,7 @@ const ModalEdit = () => {
 
       <StyledTransactionComment
         name="comment"
-        placeholder={transactionEdit.comment}
+        placeholder={transactionEdit?.comment}
       ></StyledTransactionComment>
 
       <StyledTransactionButtonsWrapper>
