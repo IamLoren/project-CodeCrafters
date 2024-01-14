@@ -73,8 +73,9 @@ export const Wrap = styled.section`
     display: flex;
     flex-direction: row;
     gap: 32px;
-    padding: 32px 16px 46px 69px;
-    justify-content: space-between;
+    padding-top: 32px;
+    /* padding: 32px 16px 46px 69px; */
+    justify-content: flex-end;
     /* background-size: cover;
   background-position: center;
   background-repeat: no-repeat; */
