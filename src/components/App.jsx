@@ -1,4 +1,4 @@
-import { Routes, Route, Navigate } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 import PrivateRoute from '../routesConfig/PrivateRoute.jsx';
 import PublicRoute from '../routesConfig/PublicRoute';
 import MainLayout from './MainLayout/MainLayout.jsx';
