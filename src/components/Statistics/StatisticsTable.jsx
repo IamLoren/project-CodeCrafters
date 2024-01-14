@@ -99,7 +99,8 @@ const StatisticsTable = () => {
 
   console.log('incomeArr:', incomeArr);
   console.log('categoriesList:', categoriesList);
-  console.log('Date:', expenseArr[0].transactionDate);
+  // const t = expenseArr[0].transactionDate;
+  // console.log('Date:', t.getTime());
 
   const totalExpense = expenseArr.reduce((total, el) => {
     return total + Number(el.amount);
