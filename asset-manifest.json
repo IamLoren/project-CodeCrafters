@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/project-CodeCrafters/static/css/main.41b9dba6.css",
-    "main.js": "/project-CodeCrafters/static/js/main.fa5f53bf.js",
+    "main.js": "/project-CodeCrafters/static/js/main.bd457411.js",
     "static/media/LoginForm-bg-desc@retina.webp": "/project-CodeCrafters/static/media/LoginForm-bg-desc@retina.a4bda1711893578c4c07.webp",
     "static/media/RegisterForm-bg@retina.webp": "/project-CodeCrafters/static/media/RegisterForm-bg@retina.484279e3d8928496491c.webp",
     "static/media/Circe-Regular.ttf": "/project-CodeCrafters/static/media/Circe-Regular.f80cf2f1a50fc5107f4c.ttf",
@@ -22,16 +22,17 @@
     "static/media/LogOut-modal-bg-mobile.webp": "/project-CodeCrafters/static/media/LogOut-modal-bg-mobile.79be49a934307cea0881.webp",
     "static/media/login-bg-tab.webp": "/project-CodeCrafters/static/media/login-bg-tab.e3cd1e03d2fe6551c85b.webp",
     "static/media/Home-bg-desc.webp": "/project-CodeCrafters/static/media/Home-bg-desc.e4f05da1a3a194cec162.webp",
+    "static/media/main-bg-tab.webp": "/project-CodeCrafters/static/media/main-bg-tab.d45d4629e819a34a3fae.webp",
     "static/media/home-bg-mob@retina.webp": "/project-CodeCrafters/static/media/home-bg-mob@retina.5c3e014c177cba0b2d81.webp",
     "static/media/currency-diagr.svg": "/project-CodeCrafters/static/media/currency-diagr.e4ddfc011ea2bd0d0ce4b635fb12fac7.svg",
     "static/media/Main-logo.webp": "/project-CodeCrafters/static/media/Main-logo.abbc004ed39ffa9cd29f.webp",
     "static/media/home-bg-mob.webp": "/project-CodeCrafters/static/media/home-bg-mob.1fd8eaa806ba7e0dd460.webp",
     "index.html": "/project-CodeCrafters/index.html",
     "main.41b9dba6.css.map": "/project-CodeCrafters/static/css/main.41b9dba6.css.map",
-    "main.fa5f53bf.js.map": "/project-CodeCrafters/static/js/main.fa5f53bf.js.map"
+    "main.bd457411.js.map": "/project-CodeCrafters/static/js/main.bd457411.js.map"
   },
   "entrypoints": [
     "static/css/main.41b9dba6.css",
-    "static/js/main.fa5f53bf.js"
+    "static/js/main.bd457411.js"
   ]
 }
