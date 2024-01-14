@@ -6,6 +6,7 @@ import { StyledExitButton, StyledHeader } from './Header.styled';
 import { selectUserName } from '../../redux/selectors';
 import { useSelector } from 'react-redux';
 import { IoExitOutline } from 'react-icons/io5';
+import { NavLink } from 'react-router-dom';
 
 export const Header = ({ children }) => {
 
@@ -25,7 +26,9 @@ export const Header = ({ children }) => {
 
   return (<>
     <StyledHeader>
-      <Logo />
+      <NavLink to="/">
+        <Logo />
+      </NavLink>
       <div >
         {userName && <span>{userName}</span>}
         <StyledExitButton onClick={handleShowModal}>

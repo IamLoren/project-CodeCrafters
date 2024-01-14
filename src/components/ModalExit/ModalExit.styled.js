@@ -45,11 +45,8 @@ export const ModalContent = styled.div`
 img{
 	width: 182px;
 	height: 75px;
-margin-top: 60px;
+margin-top: 52px;
 margin-bottom: 0;
-@media (max-width: 1279px) {
-				margin-top: 52px;
-  }
 @media (max-width: 767px) {
     display: none;
 		  }
