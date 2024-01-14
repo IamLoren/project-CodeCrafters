@@ -50,9 +50,9 @@ export const StyledForm = styled.form`
   border-radius: 8px;
 
   @media only screen and (min-width: 768px) {
-    background: var(--modal-background);
     background-position: center;
     background-repeat: no-repeat;
+    background-size: 200%;
     box-shadow: 0px 4px 60px 0px var(--modal-shadow);
     background-image: url(${formBg});
     /* backdrop-filter: blur(50px); */
