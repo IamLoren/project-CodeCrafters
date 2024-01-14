@@ -45,7 +45,7 @@ export const StyledForm = styled.form`
   align-items: center;
 
   width: 533px;
-  min-height: 624px;
+  height: 624px;
   padding: 40px 62px;
   border-radius: 8px;
 
@@ -70,10 +70,11 @@ export const InputBox = styled.div`
 
   width: 410px;
   position: relative;
-  margin: 40px 0;
   display: flex;
   flex-direction: column;
-  row-gap: 40px;
+  row-gap: 20px;
+  margin-top: 40px;
+  margin-bottom: 14px;
 
   .icon {
     fill: var(--modal-input-underline);
