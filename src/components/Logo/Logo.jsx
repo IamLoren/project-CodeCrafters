@@ -3,7 +3,7 @@ import mainLogo from '../../img/Main-logo.webp'
 
 const Logo = () => {
   return (
-    <div><a href="/" >
+    <div><a href="/project-CodeCrafters">
       <img
         src={mainLogo}
         alt='Main-logo'
