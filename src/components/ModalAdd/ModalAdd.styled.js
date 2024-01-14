@@ -8,26 +8,19 @@ export const StyledDatePicker = styled.div`
     font-family: 'Poppins Bold';
     font-size: 18px;
     background-color: transparent;
-    /* border: none; */
-    border-top:none;
-    border-right:none;
+    border-top: none;
+    border-right: none;
     border-left: none;
     border-radius: 0%;
-    input:placeholder-disabled{
+    border-color: var(--modal-input-underline);
+    /* input:placeholder-disabled{
         color: #fff;
-    }
+    } */
     input:focus-within {
-        color: #fff;
+      color: #fff;
     }
     input:hover {
-        color: #fff;
+      color: #fff;
     }
   }
 `;
-// export const StyledConfigProvider = styled.ConfigProvider`
- 
-//         border-bottom: 1px solid var(--modal-input-underline);
-
-    
-
-// `;
