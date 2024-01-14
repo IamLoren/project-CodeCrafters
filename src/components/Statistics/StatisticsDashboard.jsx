@@ -4,6 +4,7 @@ import { useDispatch } from 'react-redux';
 import Select, { components } from 'react-select';
 import { fetchTransactionSummaryThunk } from '../../redux/transactions/operations';
 import { IoIosArrowDown, IoIosArrowUp } from 'react-icons/io';
+import { libStyles } from './SelectedLibStyle';
 
 const StatisticsDashboard = () => {
   const months = [
@@ -36,7 +37,7 @@ const StatisticsDashboard = () => {
   console.log('!!!', chosenMonth, chosenYear);
 
   const handleOnMonth = date => {
-    // setChosenMonth(date.value);
+    setChosenMonth(date.value);
     console.log(date);
     // dispatch(
     //   fetchTransactionSummaryThunk({ month: date.value, year: chosenYear })
@@ -54,43 +55,6 @@ const StatisticsDashboard = () => {
   useEffect(() => {
     fetchTransactionSummaryThunk({ month: chosenMonth, year: chosenYear });
   }, [dispatch, chosenMonth, chosenYear]);
-
-  const libStyles = {
-    control: (provided, state) => ({
-      ...provided,
-      fontSize: '16px',
-      fontFamily: 'Poppins-Regular',
-      borderRadius: '8px',
-      border: `1px solid (--white-60, rgba(255, 255, 255, 0.60))`,
-      background: 'rgba(74, 86, 226, 0.10)',
-
-      width: '182px',
-      height: '50px',
-      paddingLeft: '12px',
-    }),
-    singleValue: (provided, state) => ({
-      ...provided,
-      color: 'var(--white)',
-    }),
-    menu: (provided, state) => ({
-      ...provided,
-      borderRadius: '8px',
-      background:
-        'var(--Small-Form-color, linear-gradient(0deg, rgba(83, 61, 186, 0.70) 0%, rgba(80, 48, 154, 0.70) 43.14%, rgba(106, 70, 165, 0.52) 73.27%, rgba(133, 93, 175, 0.13) 120.03%))',
-      boxShadow: '0px 4px 60px 0px rgba(0, 0, 0, 0.25)',
-      backdropFilter: 'blur(50px)',
-    }),
-    option: (provided, { isSelected }) => ({
-      ...provided,
-      borderRadius: '8px',
-      background: isSelected ? 'var(--modal-background)' : 'transparent',
-      color: isSelected ? 'var(--expenses-color)' : provided.color,
-      ':hover': {
-        background: 'var(--modal-background)',
-        color: 'var(--expenses-color)',
-      },
-    }),
-  };
   const DropdownIndicator = props => {
     return (
       <components.DropdownIndicator {...props}>
@@ -119,11 +83,11 @@ const StatisticsDashboard = () => {
         }}
       >
         {/* {' '}
-        {months.map(month => (
-          <DropdownContent key={month.indexOf(month)} value={month}>
-            {month}
-          </DropdownContent>
-        ))} */}
+          {months.map(month => (
+            <DropdownContent key={month.indexOf(month)} value={month}>
+              {month}
+            </DropdownContent>
+          ))} */}
       </Select>
       <Select
         id="year"
@@ -140,11 +104,11 @@ const StatisticsDashboard = () => {
         }}
       >
         {/* {' '}
-        {years.map(year => (
-          <DropdownContent key={years.indexOf(year)} value={year}>
-            {year}
-          </DropdownContent>
-        ))} */}
+          {years.map(year => (
+            <DropdownContent key={years.indexOf(year)} value={year}>
+              {year}
+            </DropdownContent>
+          ))} */}
       </Select>
     </DropsWrap>
   );
