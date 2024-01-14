@@ -112,6 +112,13 @@ export const StyledTransactionAmount = styled.input`
     font-family: 'Poppins Bold';
     font-size: 18px;
   }
+  &:hover{
+    color: var(--white);
+    font-family: 'Poppins SemiBold';
+  }
+  /* input::-webkit-input-placeholder {
+    color: var(--white);
+  } */
 `;
 
 export const StyledTransactionComment = styled.textarea`
@@ -127,12 +134,12 @@ export const StyledTransactionComment = styled.textarea`
     color: var(--text-forms);
     font-size: 18px;
     font-family: 'Poppins Regular';
+  } 
+  &:hover{
+    color: var(--white);
+    font-family: 'Poppins SemiBold';
   }
-  &::placeholder:hover{
-    color: var(--text-forms);
-    font-size: 18px;
-    font-family: 'Poppins Regular';
-  }
+
 `;
 export const StyledTransactionButtonsWrapper = styled.div`
   display: flex;
