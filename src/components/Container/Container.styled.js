@@ -13,7 +13,7 @@ export const StyledContainer = styled.div`
   }
 
   @media only screen and (max-width: 768px) {
-    max-width: 375px;
+    max-width: 320px;
     padding-left: 20px;
     padding-right: 20px; 
     
