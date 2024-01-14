@@ -1,4 +1,4 @@
-import { Routes, Route, Navigate } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 import PrivateRoute from '../routesConfig/PrivateRoute.jsx';
 import PublicRoute from '../routesConfig/PublicRoute';
 import MainLayout from './MainLayout/MainLayout.jsx';
@@ -16,7 +16,7 @@ import Statistics from './Statistics/Statistics.jsx';
 
 export const App = () => {
   const isMobile = useMediaQuery({ maxWidth: 767 });
-  const isDesktop = useMediaQuery({ minWidth: 768 }); 
+  const isDesktop = useMediaQuery({ minWidth: 768 });
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -55,13 +55,14 @@ export const App = () => {
             </PublicRoute>
           }
         />
-        <Route path="*" element={<Navigate to="/" />} />
+        {/* <Route path="*" element={<Navigate to="/" />} /> */}
+        <Route path="*" element={<NotFound />} />
         <Route
           path="/currency"
           element={
             <PrivateRoute>
-          {isMobile && <CurrencyPage />}
-           {isDesktop && <NotFound />}     
+              {isMobile && <CurrencyPage />}
+              {isDesktop && <NotFound />}
             </PrivateRoute>
           }
         />
