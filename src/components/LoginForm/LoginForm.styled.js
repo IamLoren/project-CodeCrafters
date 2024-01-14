@@ -113,7 +113,6 @@ export const StyledInput = styled.input`
   &:focus,
   &:active {
     outline: none;
-    background: none;
   }
 `;
 
