@@ -1,6 +1,7 @@
 import { createGlobalStyle } from 'styled-components';
 import bgDesc from '../img/Home-bg-desc.webp';
-import bgMob from '../img/Mobile/statistics-bg-mob@retina.webp';
+import bgMob from '../img/Mobile/statistics-bg-mob.webp';
+import BgMobRetina from  '../img/Mobile/statistics-bg-mob@retina.webp'
 import './variables.css';
 
 export const Global = createGlobalStyle`
@@ -59,6 +60,12 @@ input:-webkit-autofill:active {
     height: fit-content;
     background-image: url(${bgMob});
     /* Додаткові стилі для бекграунду на малих екранах */
+  }
+
+  @media only screen and (max-width: 767px) and (min-resolution: 192dpi) {
+    body {
+       background-image: url(${BgMobRetina};
+    }
   }
 `;
 
