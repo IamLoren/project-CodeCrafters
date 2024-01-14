@@ -26,11 +26,11 @@ const TransactionItem = ({ transaction }) => {
     category => category.id === transaction?.categoryId
   );
 
-  // const handleClick = tr => {
-  //   dispatch(changeEditTransaction(tr));
-  //   dispatch(changeModalEditForm(true));
-  //   // const type = event.target.closest('tr').querySelector('.type').textContent;
-  // };
+  const handleClick = tr => {
+    dispatch(changeEditTransaction(tr));
+    dispatch(changeModalEditForm(true));
+    // const type = event.target.closest('tr').querySelector('.type').textContent;
+  };
 
   return (
     <tr>
@@ -54,7 +54,7 @@ const TransactionItem = ({ transaction }) => {
         <LuPencil
           size={14}
           onClick={() => {
-            dispatch(changeModalEditForm(true));
+            handleClick(transaction);
           }}
         />
       </td>
