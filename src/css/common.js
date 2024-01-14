@@ -59,12 +59,14 @@ input:-webkit-autofill:active {
   body {
     height: fit-content;
     background-image: url(${bgMob});
+    background-position: bottom;
     /* Додаткові стилі для бекграунду на малих екранах */
   }
 
   @media only screen and (max-width: 767px) and (min-resolution: 192dpi) {
     body {
        background-image: url(${BgMobRetina};
+        background-position: bottom;
     }
   }
 `;
