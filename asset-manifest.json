@@ -1,33 +1,37 @@
 {
   "files": {
     "main.css": "/project-CodeCrafters/static/css/main.41b9dba6.css",
-    "main.js": "/project-CodeCrafters/static/js/main.39bcb1e5.js",
-    "static/media/tablet-register.png": "/project-CodeCrafters/static/media/tablet-register.10c4daba2c02f0b9a1d9.png",
-    "static/media/tablet-login.png": "/project-CodeCrafters/static/media/tablet-login.0d93070f70bd99d827b0.png",
+    "main.js": "/project-CodeCrafters/static/js/main.fa5f53bf.js",
     "static/media/LoginForm-bg-desc@retina.webp": "/project-CodeCrafters/static/media/LoginForm-bg-desc@retina.a4bda1711893578c4c07.webp",
     "static/media/RegisterForm-bg@retina.webp": "/project-CodeCrafters/static/media/RegisterForm-bg@retina.484279e3d8928496491c.webp",
     "static/media/Circe-Regular.ttf": "/project-CodeCrafters/static/media/Circe-Regular.f80cf2f1a50fc5107f4c.ttf",
     "static/media/Circe-Bold.ttf": "/project-CodeCrafters/static/media/Circe-Bold.d9332714c66b14bb30e5.ttf",
+    "static/media/notfoundimg.webp": "/project-CodeCrafters/static/media/notfoundimg.0491fde7194dce7e359b.webp",
     "static/media/Poppins-Regular.ttf": "/project-CodeCrafters/static/media/Poppins-Regular.35d26b781dc5fda684cc.ttf",
     "static/media/Poppins-SemiBold.ttf": "/project-CodeCrafters/static/media/Poppins-SemiBold.ac8d04b620e54be9b0f0.ttf",
     "static/media/Poppins-Bold.ttf": "/project-CodeCrafters/static/media/Poppins-Bold.cdb29a5d7ccf57ff05a3.ttf",
-    "static/media/mobile-page-bg.png": "/project-CodeCrafters/static/media/mobile-page-bg.2984eb37098605de0ff8.png",
     "static/media/Bg-trans-modal-desc.webp": "/project-CodeCrafters/static/media/Bg-trans-modal-desc.a08e4576e1d421fb0d87.webp",
     "static/media/LogOut-modal-bg.webp": "/project-CodeCrafters/static/media/LogOut-modal-bg.8ae48e016b0f7181ffbf.webp",
     "static/media/Register-bg-desc@retina.webp": "/project-CodeCrafters/static/media/Register-bg-desc@retina.df977821142affe7e98d.webp",
     "static/media/Login-bg-desc@retina.webp": "/project-CodeCrafters/static/media/Login-bg-desc@retina.147874254757bb20a284.webp",
     "static/media/Register-bg-desc.webp": "/project-CodeCrafters/static/media/Register-bg-desc.5273df974399ea286cc7.webp",
+    "static/media/login-bg-tab@retina.webp": "/project-CodeCrafters/static/media/login-bg-tab@retina.b102c2775497594f60f2.webp",
+    "static/media/registr-bg-tab.webp": "/project-CodeCrafters/static/media/registr-bg-tab.1fd25a6c765aacc79ae3.webp",
+    "static/media/registr-bg-tab@retina.webp": "/project-CodeCrafters/static/media/registr-bg-tab@retina.1fd25a6c765aacc79ae3.webp",
     "static/media/Login-bg-desc.webp": "/project-CodeCrafters/static/media/Login-bg-desc.1198daf49a01199030fe.webp",
     "static/media/LogOut-modal-bg-mobile.webp": "/project-CodeCrafters/static/media/LogOut-modal-bg-mobile.79be49a934307cea0881.webp",
+    "static/media/login-bg-tab.webp": "/project-CodeCrafters/static/media/login-bg-tab.e3cd1e03d2fe6551c85b.webp",
     "static/media/Home-bg-desc.webp": "/project-CodeCrafters/static/media/Home-bg-desc.e4f05da1a3a194cec162.webp",
+    "static/media/home-bg-mob@retina.webp": "/project-CodeCrafters/static/media/home-bg-mob@retina.5c3e014c177cba0b2d81.webp",
     "static/media/currency-diagr.svg": "/project-CodeCrafters/static/media/currency-diagr.e4ddfc011ea2bd0d0ce4b635fb12fac7.svg",
     "static/media/Main-logo.webp": "/project-CodeCrafters/static/media/Main-logo.abbc004ed39ffa9cd29f.webp",
+    "static/media/home-bg-mob.webp": "/project-CodeCrafters/static/media/home-bg-mob.1fd8eaa806ba7e0dd460.webp",
     "index.html": "/project-CodeCrafters/index.html",
     "main.41b9dba6.css.map": "/project-CodeCrafters/static/css/main.41b9dba6.css.map",
-    "main.39bcb1e5.js.map": "/project-CodeCrafters/static/js/main.39bcb1e5.js.map"
+    "main.fa5f53bf.js.map": "/project-CodeCrafters/static/js/main.fa5f53bf.js.map"
   },
   "entrypoints": [
     "static/css/main.41b9dba6.css",
-    "static/js/main.39bcb1e5.js"
+    "static/js/main.fa5f53bf.js"
   ]
 }
