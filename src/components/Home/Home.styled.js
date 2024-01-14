@@ -12,14 +12,4 @@ export const StyledHomeModalOpenBtn = styled.button`
   border: none;
   outline: transparent;
 `;
- export const HideOnMobile = styled.div`
-  @media (max-width: 768px) {
-    display: none;
-  }
-`;
-
-export const HideOnDesktop = styled.div`
-  @media (min-width: 769px) {
-    display: none;
-  }
-`;
+ 

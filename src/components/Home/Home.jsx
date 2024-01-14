@@ -5,23 +5,22 @@ import { changeModalAddForm } from '../../redux/transactions/transactionsSlice.j
 import { useDispatch, useSelector } from 'react-redux';
 import { modalIsOpen } from '../../redux/selectors.js';
 import { AiOutlinePlus } from 'react-icons/ai';
-import { StyledHomeModalOpenBtn, HideOnMobile, HideOnDesktop } from './Home.styled.js';
+import { StyledHomeModalOpenBtn } from './Home.styled.js';
 import  TransactionMobile  from 'components/TransactionMobile/TransactionMobile.jsx';
+import { useMediaQuery } from 'react-responsive';
 
 const Home = () => {
 
   const isModalOpen = useSelector(modalIsOpen);
   const dispatch = useDispatch();
+  const isTransactionMobile = useMediaQuery({ maxWidth: 767 });
+  const isTransactionDesktop = useMediaQuery({ minWidth: 768 });
 
 
   return (
     <>
-      <HideOnMobile>
-        <TransactionsList />
-      </HideOnMobile>
-      <HideOnDesktop>
-        <TransactionMobile />
-      </HideOnDesktop>
+      {isTransactionDesktop && <TransactionsList />}
+      {isTransactionMobile && <TransactionMobile />}
       {isModalOpen && <TransactionsModal />}
       <StyledHomeModalOpenBtn
         onClick={() => {
