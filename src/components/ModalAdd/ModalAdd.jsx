@@ -100,32 +100,26 @@ const ModalAdd = () => {
         />
 
         {/* <TransactionDate type="date" required /> */}
-       
-          <ConfigProvider
-            theme={{
-              components: {
-                DatePicker: {
-                  activeBg: 'transparent',
-                  activeBorderColor: '#906090',
-                  hoverBorderColor: '#906090',
-                  hoverBg: 'transparent',
-                  cellHoverBg: '#906090',
-                  // tests
-                  // cellHoverWithRangeBg: 'orange',
-                  // cellBgDisabled: 'red',
-                  // addonBg: 'green',
-                  // cellActiveWithRangeBg: 'yellow',
-                },
+
+        <ConfigProvider
+          theme={{
+            components: {
+              DatePicker: {
+                activeBg: 'transparent',
+                activeBorderColor: 'var(--modal-input-underline)',
+                // hoverBorderColor: '#906090',
+                hoverBg: 'transparent',
+                cellHoverBg: 'var(--balance-bg)',
               },
-            }}
-          >
-            <Space direction="vertical" placeholder="Select date">
+            },
+          }}
+        >
+          <Space direction="vertical" placeholder="Select date">
             <StyledDatePicker>
               <DatePicker onChange={onChange} />
-              </StyledDatePicker>
-            </Space>
-          </ConfigProvider>
-        
+            </StyledDatePicker>
+          </Space>
+        </ConfigProvider>
       </StyledTransactionModalSelect>
 
       <StyledTransactionComment
