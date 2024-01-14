@@ -44,7 +44,7 @@ export const StyledForm = styled.form`
   justify-content: center;
   align-items: center;
 
-  width: 533px;
+  max-width: 533px;
   height: 624px;
   padding: 40px 62px;
   border-radius: 8px;
