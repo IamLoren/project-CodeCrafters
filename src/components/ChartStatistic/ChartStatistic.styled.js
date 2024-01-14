@@ -45,6 +45,6 @@ export const NotifStyled = styled.div`
     align-items: center;
     box-shadow: 0px 4px 60px 0px rgba(0, 0, 0, 0.25);
     backdrop-filter: blur(50px);
-    color: white;
+    color: var(--white);
     margin-top: 14px;
 `
