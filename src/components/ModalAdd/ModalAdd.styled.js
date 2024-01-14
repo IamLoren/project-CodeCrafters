@@ -22,13 +22,20 @@ export const StyledDatePicker = styled.div`
       color: var(--white);
       font-size: 18px;
       font-family: 'Poppins Regular';
+      padding-bottom:5px;
     }
     .ant-picker-input > input::placeholder {
       color: var(--text-forms);
+     
     }
 
     span {
       color: var(--icon-violet);
+    }
+    svg{
+margin-bottom: 8px;
+      width:24px;
+      height:24px;
     }
     input:focus-within {
       color: var(--modal-accent-white);

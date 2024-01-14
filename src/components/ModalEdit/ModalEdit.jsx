@@ -1,5 +1,8 @@
 import { ConfigProvider, DatePicker, Space } from 'antd';
 import {
+  StyledDisabled,
+  StyledExpenseActive,
+  StyledIncomeActive,
   StyledModalBody,
   StyledModalToggle,
   StyledTransactionAmount,
@@ -7,55 +10,107 @@ import {
   StyledTransactionComment,
   StyledTransactionModalSelect,
 } from 'components/TransactionsModal/TransactionsModal.styled';
-import React from 'react';
+import React, { useState } from 'react';
 import Button from '../Button/Button.jsx';
 import AccentButton from '../../components/AccentButton/AccentButton.jsx';
-// import Toggle from 'components/Toggle/Toggle.jsx';
-
-const onChange = (date, dateString) => {
-  // console.log(date, dateString);
-};
+import { StyledDatePicker } from 'components/ModalAdd/ModalAdd.styled.js';
+import { useDispatch, useSelector } from 'react-redux';
+import { categories, transactionForEdit } from '../../redux/selectors.js';
+import { editTransactionThunk } from '../../redux/transactions/operations.js';
+import { changeModalClose } from '../../redux/transactions/transactionsSlice.js';
 
 const ModalEdit = () => {
+  const [date, setDate] = useState('');
+
+  const onChange = (date, dateString) => {
+    setDate(dateString);
+  };
+
+  const dispatch = useDispatch();
+
+  const transactionEdit = useSelector(transactionForEdit);
+  const categoriesTransaction = useSelector(categories);
+
+  const categoryName = categoriesTransaction?.find(
+    category => category.id === transactionEdit.categoryId
+  );
+
+  const editTransaction = event => {
+    event.preventDefault();
+    const id = transactionEdit.id;
+    const formData = new FormData(event.target);
+    const amountValue = formData.get('amount');
+    const comment = formData.get('comment');
+    const transaction = {
+      transactionDate: `${date}`,
+      type: `${transactionEdit.type}`,
+      categoryId: `${transactionEdit.categoryId}`,
+      comment: `${comment}`,
+      amount: `${
+        transactionEdit.type === 'INCOME' ? amountValue : -amountValue
+      }`,
+    };
+    dispatch(editTransactionThunk(id, transaction));
+    dispatch(changeModalClose(false));
+    console.log(transactionEdit);
+  };
+
   return (
-    <StyledModalBody>
+    <StyledModalBody onSubmit={editTransaction}>
       <StyledModalToggle>
-        <p>Income</p>
-        {/* <Toggle /> */}
-        <p>Expense</p>
+        {transactionEdit.type === 'INCOME' ? (
+          <StyledIncomeActive>{transactionEdit.type}</StyledIncomeActive>
+        ) : (
+          <StyledDisabled>Income</StyledDisabled>
+        )}
+        /
+        {transactionEdit.type === 'EXPENSE' ? (
+          <StyledExpenseActive>{transactionEdit.type}</StyledExpenseActive>
+        ) : (
+          <StyledDisabled>Expense</StyledDisabled>
+        )}
       </StyledModalToggle>
+
+      {transactionEdit.type === 'EXPENSE' && <span>{categoryName?.name}</span>}
+
       <StyledTransactionModalSelect>
-        <StyledTransactionAmount type="number" placeholder="0.00" required />
+        <StyledTransactionAmount
+          name="amount"
+          type="number"
+          placeholder={Math.abs(transactionEdit.amount)}
+          required
+        />
 
         <ConfigProvider
           theme={{
             components: {
               DatePicker: {
                 activeBg: 'transparent',
-                activeBorderColor: '#906090',
-                hoverBorderColor: '#906090',
+                activeBorderColor: 'var(--modal-input-underline)',
                 hoverBg: 'transparent',
-                cellHoverBg: '#906090',
-                // tests
-                cellHoverWithRangeBg: 'orange',
-                cellBgDisabled: 'red',
-                addonBg: 'green',
-                cellActiveWithRangeBg: 'yellow',
+                cellHoverBg: 'var(--balance-bg)',
               },
             },
           }}
         >
-          <Space direction="vertical" placeholder="Select date">
-            <DatePicker onChange={onChange} />
+          <Space
+            direction="vertical"
+            placeholder={transactionEdit.transactionDate}
+          >
+            <StyledDatePicker>
+              <DatePicker onChange={onChange} />
+            </StyledDatePicker>
           </Space>
         </ConfigProvider>
       </StyledTransactionModalSelect>
 
-      <br />
-      <StyledTransactionComment placeholder="Comment"></StyledTransactionComment>
-      <br />
+      <StyledTransactionComment
+        name="comment"
+        placeholder={transactionEdit.comment}
+      ></StyledTransactionComment>
+
       <StyledTransactionButtonsWrapper>
-        <Button title="Add" />
+        <Button title="Save" />
         <AccentButton title="Cancel" />
       </StyledTransactionButtonsWrapper>
     </StyledModalBody>

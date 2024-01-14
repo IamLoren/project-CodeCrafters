@@ -43,7 +43,8 @@ const TransactionsModal = () => {
       >
         {/* header */}
         <StyledModalTransaction>
-          <h2>Add transaction</h2>
+          {isModalAdd && <h2>Add transaction</h2>}
+          {isModalEdit && <h2>Edit transaction</h2>}
 
           {/* button close */}
           <StyledModalCloseBtn

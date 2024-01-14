@@ -2,6 +2,7 @@ import { createSlice } from '@reduxjs/toolkit';
 import { toast } from 'react-toastify';
 import {
   addTransactionThunk,
+  editTransactionThunk,
   fetchAllTransactionsThunk,
   fetchTransactionsCategoriesThunk,
 } from './operations';
@@ -19,6 +20,7 @@ export const transactionsSlice = createSlice({
       modalAddForm: false,
       toggleState: true,
       select: '',
+      transactionForEdit: '',
     },
     categories: [],
     transactionslist: [],
@@ -45,6 +47,9 @@ export const transactionsSlice = createSlice({
     },
     changeSelectOption: (state, { payload }) => {
       state.modal.select = payload;
+    },
+    changeEditTransaction: (state, { payload }) => {
+      state.modal.transactionForEdit = payload;
     },
   },
   extraReducers: builder => {
@@ -77,13 +82,24 @@ export const transactionsSlice = createSlice({
       .addCase(addTransactionThunk.fulfilled, (state, { payload }) => {
         state.transactionslist.push(payload);
         state.isLoading = false;
-        toast.success('Your transaction was added succesfully!');
+        toast.success('Your transaction was added successfully!');
       })
       .addCase(addTransactionThunk.pending, state => {
         state.isLoading = true;
       })
       .addCase(addTransactionThunk.rejected, (state, action) => {
         toast.error(`Failed to add transaction: ${action.payload}`);
+      })
+      .addCase(editTransactionThunk.fulfilled, (state, { payload }) => {
+        state.transactionslist.push(payload);
+        state.isLoading = false;
+        toast.success('Your transaction was edited successfully');
+      })
+      .addCase(editTransactionThunk.pending, state => {
+        state.isLoading = true;
+      })
+      .addCase(editTransactionThunk.rejected, (state, action) => {
+        toast.error(`Failed to edit transaction: ${action.payload}`);
       })
       .addCase(
         fetchTransactionsCategoriesThunk.fulfilled,
@@ -108,4 +124,5 @@ export const {
   changeModalClose,
   changeToggleState,
   changeSelectOption,
+  changeEditTransaction,
 } = transactionsSlice.actions;
