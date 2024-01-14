@@ -8,6 +8,11 @@ export const StyledDisabledSelect = styled.span`
   padding-left: 8px;
   font-size: 18px;
   font-family: 'Poppins Regular';
+
+  @media (min-width: 320px) and (max-width: 768px) {
+    width: 280px;
+    padding-left: 20px;
+  }
 `;
 
 export const StyledAmount = styled.input`
@@ -31,6 +36,12 @@ export const StyledAmount = styled.input`
     color: var(--white);
     font-family: 'Poppins SemiBold';
   }
+
+  @media (min-width: 320px) and (max-width: 768px) {
+    width: 280px;
+    padding-left:20px;
+    text-align: start;
+  }
 `;
 export const StyledComment = styled.textarea`
   width: 394px;
@@ -46,6 +57,11 @@ export const StyledComment = styled.textarea`
   &::placeholder {
     margin-bottom: 8px;
     color: var(--white);
+  }
+
+  @media (min-width: 320px) and (max-width: 768px) {
+    width: 280px;
+    padding-left: 20px;
   }
 `;
 
@@ -70,6 +86,10 @@ export const StyledEditDatePickerWrapper = styled.div`
     &:hover {
       color: var(--white);
     }
+    @media (min-width: 320px) and (max-width: 768px) {
+    text-align: start;
+    padding-left:1px;
+  }
   }
   svg {
     position: absolute;
@@ -78,5 +98,14 @@ export const StyledEditDatePickerWrapper = styled.div`
     color: var(--icon-violet);
     width: 24px;
     height: 24px;
+    @media (min-width: 320px) and (max-width: 768px) {
+   right:17px;
+  }
+  }
+
+  @media (min-width: 320px) and (max-width: 768px) {
+    width: 280px;
+    text-align: start;
+    padding-left:20px;
   }
 `;

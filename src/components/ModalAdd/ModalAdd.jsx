@@ -34,7 +34,7 @@ const ModalAdd = () => {
   const [startDate, setStartDate] = useState(new Date());
   const [isDisabled, setIsDisabled] = useState(true);
   const [isChecked, setIsChecked] = useState(true);
-  const [date, setDate] = useState('');
+  const [date] = useState('');
 
   const onChangeToggle = () => {
     setIsDisabled(!isDisabled);
