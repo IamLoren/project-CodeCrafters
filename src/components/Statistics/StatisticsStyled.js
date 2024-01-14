@@ -121,15 +121,15 @@ export const Wrap = styled.section`
   @media only screen and (max-width: 767px){
     display: flex;
     flex-direction: column;
-    background-image: url(${statisticsBgMob});
+    // background-image: url(${statisticsBgMob});
     width:100% ;
-    background: var(--modal-background);
+    // background: var(--modal-background);
 		background-position: center;
   background-repeat: no-repeat;
 	background-size: inherit;
   }
     @media only screen and (max-width: 767px) and (min-resolution: 192dpi) {
-    background-image: url(${statisticsBgMobRetina});
+    // background-image: url(${statisticsBgMobRetina});
   }
 `;
 
