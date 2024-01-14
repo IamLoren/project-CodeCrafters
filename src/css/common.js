@@ -1,5 +1,7 @@
 import { createGlobalStyle } from 'styled-components';
-import bg from '../img/Home-bg-desc.webp';
+import bgDesc from '../img/Home-bg-desc.webp';
+import bgMob from '../img/Mobile/statistics-bg-mob.webp';
+import BgMobRetina from  '../img/Mobile/statistics-bg-mob@retina.webp'
 import './variables.css';
 
 export const Global = createGlobalStyle`
@@ -37,10 +39,11 @@ body{
   font-size: 18px;
   height: 100vh;
   color: #000;
-  background-image: url(${bg});
+  background-image: url(${bgDesc});
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+
 }
 
 input:-webkit-autofill,
@@ -51,6 +54,21 @@ input:-webkit-autofill:active {
     background-color: inherit !important;
     color: var(--text-forms);
 }
+
+@media screen and (max-width: 767px) {
+  body {
+    height: fit-content;
+    background-image: url(${bgMob});
+    background-position: bottom;
+    /* Додаткові стилі для бекграунду на малих екранах */
+  }
+
+  @media only screen and (max-width: 767px) and (min-resolution: 192dpi) {
+    body {
+       background-image: url(${BgMobRetina};
+        background-position: bottom;
+    }
+  }
 `;
 
 export default Global;

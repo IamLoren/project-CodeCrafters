@@ -1,8 +1,5 @@
 import styled from 'styled-components';
 import mainbgtab from '../../img/Tablet/main-bg-tab.webp';
-// import mainbgtabRetina from '../../img/Tablet/main-bg-tab@retina.webp';
-import statisticsBgMobRetina from '../../img/Mobile/statistics-bg-mob@retina.webp';
-import statisticsBgMob from '../../img/Mobile/statistics-bg-mob.webp'
 
 export const StatisticsTitle = styled.h3`
   color: var(--white);
@@ -121,16 +118,13 @@ export const Wrap = styled.section`
   @media only screen and (max-width: 767px){
     display: flex;
     flex-direction: column;
-    background-image: url(${statisticsBgMob});
     width:100% ;
-    background: var(--modal-background);
+    // background: var(--modal-background);
 		background-position: center;
   background-repeat: no-repeat;
 	background-size: inherit;
   }
-    @media only screen and (max-width: 767px) and (min-resolution: 192dpi) {
-    background-image: url(${statisticsBgMobRetina});
-  }
+    
 `;
 
 export const WrapCategories = styled.div`
