@@ -49,11 +49,11 @@ export const StyledModalTransaction = styled.div`
 
   @media (min-width: 320px) and (max-width: 768px) {
     width: 100%;
-  min-height: 600px;
+    min-height: 600px;
 
-  h2{
-    font-size: 24px;
-  }
+    h2 {
+      font-size: 24px;
+    }
   }
 `;
 export const StyledModalToggle = styled.div`
@@ -74,7 +74,7 @@ export const StyledExpenseActive = styled.p`
   color: var(--expenses-color);
 `;
 export const StyledDisabled = styled.p`
-  color: var( --text-forms);
+  color: var(--text-forms);
 `;
 export const StyledModalCloseBtn = styled.button`
   position: absolute;
@@ -131,7 +131,7 @@ export const StyledTransactionAmount = styled.input`
   }
   @media (min-width: 320px) and (max-width: 768px) {
     width: 280px;
-    padding-left:20px;
+    padding-left: 20px;
     text-align: start;
   }
 `;
@@ -152,9 +152,9 @@ export const StyledTransactionComment = styled.textarea`
     margin-bottom: 8px;
     color: var(--text-forms);
 
-  @media (min-width: 320px) and (max-width: 768px) {
-   padding-left:10px;
-  }
+    @media (min-width: 320px) and (max-width: 768px) {
+      padding-left: 10px;
+    }
   }
   &:hover {
     color: var(--white);
