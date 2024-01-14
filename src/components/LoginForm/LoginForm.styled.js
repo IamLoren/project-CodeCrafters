@@ -64,6 +64,13 @@ export const StyledForm = styled.form`
   }
 `;
 
+export const StyledLogo = styled.img`
+  @media only screen and (max-width: 767px) {
+    width: 128px;
+    height: 54px;
+  }
+`;
+
 export const InputBox = styled.div`
   @media only screen and (max-width: 767px) {
     width: 280px;
