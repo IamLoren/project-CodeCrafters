@@ -21,7 +21,12 @@ export const authSlice = createSlice({
     isError: null,
     balance: 0,
   },
-  reducers: {},
+  reducers: {
+    changeBalance: (state, { payload }) => {
+      state.user.balance = state.user.balance + payload;
+    },
+  },
+
   extraReducers: builder => {
     builder
       .addCase(registerThunk.fulfilled, (state, { payload }) => {
@@ -79,3 +84,4 @@ export const authSlice = createSlice({
 });
 
 export const authReducer = authSlice.reducer;
+export const { changeBalance } = authSlice.actions;
