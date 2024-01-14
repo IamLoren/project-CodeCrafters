@@ -98,15 +98,18 @@ const StatisticsTable = () => {
   // const incomeArr = data?.filter(item => item.type === 'INCOME');
   const categoriesList = useSelector(categories);
   const statistics = useSelector(transactionStatistic);
-  const statisticExp = statistics?.filter(item => item.type === 'EXPENSE');
+  const statisticExp = statistics.categoriesSummary
+    ? statistics.categoriesSummar.filter(item => item.type === 'EXPENSE')
+    : [];
 
   console.log('transactionsList', transactionsList);
-  console.log('expenseArr', expenseArr);
   console.log('categoriesList', categoriesList);
-  console.log('incomeArr', incomeArr);
   console.log('statistic', statistics);
 
-  data = statisticExp.map;
+  data = statisticExp.map(item => ({
+    ...item,
+    color: coloredCategoriesMap.get(item.name),
+  }));
   const totalExpense = expenseArr.reduce((total, el) => {
     return total + Number(el.amount);
   }, 0);
