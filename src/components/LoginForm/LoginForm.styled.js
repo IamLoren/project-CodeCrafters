@@ -46,16 +46,16 @@ export const StyledForm = styled.form`
   align-items: center;
 
   max-width: 533px;
-  min-height: 570px;
+  height: 570px;
   padding: 80px 62px;
   border-radius: 8px;
 
   @media only screen and (min-width: 768px) {
-    background: var(--modal-background);
     background-position: center;
     background-repeat: no-repeat;
     box-shadow: 0px 4px 60px 0px var(--modal-shadow);
     background-image: url(${formBg});
+    /* background: var(--modal-background); */
     /* backdrop-filter: blur(50px); */
   }
 
@@ -68,13 +68,13 @@ export const InputBox = styled.div`
   @media only screen and (max-width: 767px) {
     width: 280px;
   }
+  width: 410px;
   position: relative;
-  margin: 52px 0;
   display: flex;
   flex-direction: column;
-  row-gap: 40px;
-
-  width: 410px;
+  row-gap: 20px;
+  margin-top: 52px;
+  margin-bottom: 36px;
 
   .icon {
     fill: var(--modal-input-underline);
