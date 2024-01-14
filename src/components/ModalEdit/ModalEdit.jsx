@@ -25,7 +25,7 @@ import {
 } from './ModalEdit.styled.js';
 
 const ModalEdit = () => {
-  const [date, setDate] = useState('');
+  const [date] = useState('');
   const [startDate, setStartDate] = useState(new Date());
 
   const onChange = date => setStartDate(date);
@@ -92,6 +92,7 @@ const ModalEdit = () => {
         <StyledEditDatePickerWrapper>
           <FaRegCalendarAlt />
           <ReactDatePicker
+            required
             name="date"
             selected={startDate}
             onChange={onChange}
@@ -101,6 +102,7 @@ const ModalEdit = () => {
       </StyledTransactionModalSelect>
 
       <StyledComment
+        required
         name="comment"
         placeholder={transactionEdit?.comment}
       ></StyledComment>

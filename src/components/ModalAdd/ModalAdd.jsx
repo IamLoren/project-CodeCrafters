@@ -34,7 +34,7 @@ const ModalAdd = () => {
   const [startDate, setStartDate] = useState(new Date());
   const [isDisabled, setIsDisabled] = useState(true);
   const [isChecked, setIsChecked] = useState(true);
-  const [date, setDate] = useState('');
+  const [date] = useState('');
 
   const onChangeToggle = () => {
     setIsDisabled(!isDisabled);
@@ -102,6 +102,7 @@ const ModalAdd = () => {
         <DatePickerWrapper>
           <FaRegCalendarAlt />
           <ReactDatePicker
+            required
             name="date"
             selected={startDate}
             onChange={onChange}
@@ -111,6 +112,7 @@ const ModalAdd = () => {
       </StyledTransactionModalSelect>
 
       <StyledTransactionComment
+        required
         name="comment"
         placeholder="Comment"
       ></StyledTransactionComment>

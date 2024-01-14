@@ -22,6 +22,10 @@ export const DatePickerWrapper = styled.div`
     &:hover {
       color: var(--white);
     }
+    @media (min-width: 320px) and (max-width: 768px) {
+    text-align: start;
+    padding-left:1px;
+  }
   }
   svg {
     position: absolute;
@@ -30,6 +34,15 @@ export const DatePickerWrapper = styled.div`
     color: var(--icon-violet);
     width: 24px;
     height: 24px;
+    @media (min-width: 320px) and (max-width: 768px) {
+   right:17px;
+  }
+  }
+
+  @media (min-width: 320px) and (max-width: 768px) {
+    width: 280px;
+    text-align: start;
+    padding-left:20px;
   }
 `;
 
