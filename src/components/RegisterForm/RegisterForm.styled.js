@@ -2,8 +2,8 @@ import styled from 'styled-components';
 import registerbgRetina from '../../img/Register-bg-desc@retina.webp';
 import registerbg from '../../img/Register-bg-desc.webp';
 import formBg from '../../img/RegisterForm-bg@retina.webp';
-import mobileBg from '../../img/mobile-page-bg.png';
-import tabletBg from '../../img/tablet-register.png';
+// import mobileBg from '../../img/mobile-page-bg.png';
+// import tabletBg from '../../img/tablet-register.png';
 
 export const StyledSection = styled.section`
   display: flex;
@@ -22,13 +22,13 @@ export const StyledSection = styled.section`
     background-image: url((${registerbgRetina}));
   }
 
-  @media only screen and (min-width: 768px) {
-    background-image: url(${tabletBg});
+  /* @media only screen and (min-width: 768px) {
+    background-image: url();
   }
 
   @media only screen and (max-width: 767px) {
-    background-image: url(${mobileBg});
-  }
+    background-image: url();
+  } */
 `;
 
 export const StyledForm = styled.form`

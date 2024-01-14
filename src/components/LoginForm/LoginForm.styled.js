@@ -2,9 +2,11 @@ import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 import loginBg from '../../img/Login-bg-desc.webp';
 import loginBgRetina from '../../img/Login-bg-desc@retina.webp';
+import tabletBg from '../../img/Tablet/login-bg-tab.webp';
+import tabletBgRetina from '../../img/Tablet/login-bg-tab@retina.webp';
+import mobileBg from '../../img/Mobile/home-bg-mob.webp';
+import mobileBgRetina from '../../img/Mobile/home-bg-mob@retina.webp';
 import formBg from '../../img/LoginForm-bg-desc@retina.webp';
-import mobileBg from '../../img/mobile-page-bg.png';
-import tabletBg from '../../img/tablet-login.png';
 
 export const StyledSection = styled.section`
   display: flex;
@@ -14,6 +16,19 @@ export const StyledSection = styled.section`
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  background-image: url(${mobileBg});
+
+  @media only screen and(max-width: 767px) and (min-resolution: 192dpi) {
+    background-image: url((${mobileBgRetina}));
+  }
+
+  @media only screen and (min-width: 768px) {
+    background-image: url(${tabletBg});
+  }
+
+  @media only screen and (min-width: 768px) and (min-resolution: 192dpi) {
+    background-image: url((${tabletBgRetina}));
+  }
 
   @media only screen and (min-width: 1280px) {
     background-image: url(${loginBg});
@@ -21,14 +36,6 @@ export const StyledSection = styled.section`
 
   @media only screen and (min-width: 1280px) and (min-resolution: 192dpi) {
     background-image: url((${loginBgRetina}));
-  }
-
-  @media only screen and (min-width: 768px) {
-    background-image: url(${tabletBg});
-  }
-
-  @media only screen and (max-width: 767px) {
-    background-image: url(${mobileBg});
   }
 `;
 
@@ -58,19 +65,23 @@ export const StyledForm = styled.form`
 `;
 
 export const InputBox = styled.div`
+  @media only screen and (max-width: 767px) {
+    width: 280px;
+  }
   position: relative;
   margin: 52px 0;
   display: flex;
   flex-direction: column;
   row-gap: 40px;
-  max-height: 164px;
+
+  width: 410px;
 
   .icon {
     fill: var(--modal-input-underline);
     font-size: 24px;
 
     position: absolute;
-    transform: translateY(70%);
+    transform: translateY(30%);
     margin-left: 10px;
   }
 `;
@@ -81,12 +92,12 @@ export const StyledInput = styled.input`
   }
 
   width: 410px;
-  height: 60px;
+  height: 40px;
   background: transparent;
   border: none;
   border-bottom: 1px solid var(--modal-input-underline);
   color: var(--text-forms);
-  padding-left: 54px;
+  padding: 8px 8px 8px 54px;
 
   &::placeholder {
     color: var(--text-forms);
@@ -144,4 +155,6 @@ export const StyledNavLink = styled(NavLink)`
 export const ErrMessage = styled.p`
   color: var(--text-forms);
   padding-top: 2px;
+  font-size: 14px;
+  height: 16px;
 `;
