@@ -10,7 +10,7 @@ export const ToggleSwitch = styled.input`
   display: none;
   &:checked + ::before {
     transform: translateX(40px);
-    background-color: #ff868d;
+    background-color: var(--expenses-color);
     content: '-';
   }
 `;
@@ -18,7 +18,7 @@ export const ToggleSwitch = styled.input`
 export const SpanToggle = styled.span`
   position: absolute;
   cursor: pointer;
-  background-color: #fff;
+  background-color: var(--modal-accent-white);
   border-radius: 25px;
   top: 0;
   right: 0;
@@ -30,7 +30,7 @@ export const SpanToggle = styled.span`
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #fff;
+    color: var(--modal-accent-white);
     font-size: 40px;
     position: absolute;
     content: '+';
@@ -39,8 +39,8 @@ export const SpanToggle = styled.span`
     width: 44px;
     height: 44px;
     border-radius: 44px;
-    background: var(--yellow, #ffb627);
-    box-shadow: 0px 6px 15px 0px rgba(255, 199, 39, 0.5);
+    background: var( --income-color);
+    box-shadow: 0px 6px 15px 0px var(--modal-toggle-shadow);
     transition: transform 0.3s ease;
   }
 `;

@@ -14,9 +14,9 @@ export const transactionsSlice = createSlice({
   name: 'transactionsSlice',
   initialState: {
     modal: {
-      modalIsOpen: false, //
-      modalEditForm: false, //
-      modalAddForm: false, //to false
+      modalIsOpen: false,
+      modalEditForm: false,
+      modalAddForm: false,
       toggleState: true,
       select: '',
     },
@@ -76,12 +76,32 @@ export const transactionsSlice = createSlice({
       //
       .addCase(addTransactionThunk.fulfilled, (state, { payload }) => {
         state.transactionslist.push(payload);
+        state.isLoading = false;
         toast.success('Your transaction was added succesfully!');
+      })
+      .addCase(addTransactionThunk.pending, state => {
+        state.isLoading = true;
+      })
+      .addCase(addTransactionThunk.rejected, (state, action) => {
+        toast.error(`Failed to add transaction: ${action.payload}`);
       })
       .addCase(
         fetchTransactionsCategoriesThunk.fulfilled,
         (state, { payload }) => {
           state.categories = payload;
+          state.isLoading = false;
+        }
+      )
+      .addCase(
+        fetchTransactionsCategoriesThunk.pending,
+        state => {
+          state.isLoading = true;
+        }
+      )
+      .addCase(
+        fetchTransactionsCategoriesThunk.rejected,
+        (state, action) => {
+          toast.error(`Failed to select this category: ${action.payload}`)
         }
       );
   },
