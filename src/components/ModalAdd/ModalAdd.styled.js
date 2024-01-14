@@ -3,10 +3,10 @@ import styled from 'styled-components';
 export const StyledDatePicker = styled.div`
   div {
     width: 181px;
-    color: var(--text-forms);
+    /* color: var(--text-forms); */
     text-align: center;
-    font-family: 'Poppins Bold';
-    font-size: 18px;
+    /* font-family: 'Poppins Bold';
+    font-size: 18px; */
     background-color: transparent;
     border-top: none;
     border-right: none;
@@ -16,6 +16,15 @@ export const StyledDatePicker = styled.div`
     /* input:placeholder-disabled{
         color: #fff;
     } */
+    input {
+      color: var(--text-forms);
+      &::placeholder {
+        color: var(--text-forms);
+      }
+    }
+    span {
+      color: var(--icon-violet);
+    }
     input:focus-within {
       color: #fff;
     }

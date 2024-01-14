@@ -128,6 +128,11 @@ export const StyledTransactionComment = styled.textarea`
     font-size: 18px;
     font-family: 'Poppins Regular';
   }
+  &::placeholder:hover{
+    color: var(--text-forms);
+    font-size: 18px;
+    font-family: 'Poppins Regular';
+  }
 `;
 export const StyledTransactionButtonsWrapper = styled.div`
   display: flex;
