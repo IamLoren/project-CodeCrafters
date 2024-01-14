@@ -123,6 +123,13 @@ export const StyledBtn = styled.button`
   border-radius: 20px;
   background: var(--modal-button-gradient);
   box-shadow: 1px 9px 15px 0px var(--modal-button-shadow);
+  transition: transform 0.3s ease-in-out;
+
+  &:hover,
+  &:focus,
+  &:active {
+    transform: scale(1.1);
+  }
 
   @media only screen and (max-width: 767px) {
     width: 280px;
@@ -146,6 +153,14 @@ export const StyledNavLink = styled(NavLink)`
   border: 1px solid var(--household);
   background: #fcfcfc;
   box-shadow: 1px 9px 15px 0px var(--modal-button-shadow);
+
+  transition: transform 0.3s ease-in-out;
+
+  &:hover,
+  &:focus,
+  &:active {
+    transform: scale(1.1);
+  }
 
   @media only screen and (max-width: 767px) {
     width: 280px;
