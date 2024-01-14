@@ -4,7 +4,7 @@ import {
   StatisticsTitle,
   StatisticsChart,
   Wrap,
-} from './StatisticsStyled';
+} from './Statistics.styled';
 import ChartStatistic from '../ChartStatistic/ChartStatistic';
 import StatisticsTable from './StatisticsTable';
 import StatisticsDashboard from './StatisticsDashboard';

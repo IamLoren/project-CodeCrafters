@@ -9,7 +9,7 @@ import {
   SpanIncome,
   IndicateColor,
   NameColor,
-} from './StatisticsStyled';
+} from './Statistics.styled';
 import { useSelector } from 'react-redux';
 import { categories, selectTransactionsList } from '../../redux/selectors.js';
 

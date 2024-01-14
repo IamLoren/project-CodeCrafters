@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { DropsWrap, Dropdown, DropdownContent } from './StatisticsStyled';
+import { DropsWrap, Dropdown, DropdownContent } from './Statistics.styled';
 import { useDispatch } from 'react-redux';
 
 const StatisticsDashboard = () => {
