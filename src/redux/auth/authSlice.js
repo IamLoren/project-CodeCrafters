@@ -6,6 +6,11 @@ import {
   registerThunk,
 } from './operations';
 import { toast } from 'react-toastify';
+import {
+  addTransactionThunk,
+  deleteTransactionThunk,
+  editTransactionThunk,
+} from '../../redux/transactions/operations.js';
 
 export const authSlice = createSlice({
   name: 'auth',
@@ -72,6 +77,15 @@ export const authSlice = createSlice({
       .addCase(refreshThunk.rejected, (state, { payload }) => {
         toast.error('You need to logIn!');
         state.isLogged = false;
+      })
+      .addCase(addTransactionThunk.fulfilled, (state, { payload }) => {
+        state.balance = payload.balanceAfter;
+      })
+      .addCase(deleteTransactionThunk.fulfilled, (state, { payload }) => {
+        state.balance = payload.balanceAfter;
+      })
+      .addCase(editTransactionThunk.fulfilled, (state, { payload }) => {
+        state.balance = payload.balanceAfter;
       })
       .addMatcher(
         isAnyOf(loginThunk.pending, logoutThunk.pending, registerThunk.pending),
