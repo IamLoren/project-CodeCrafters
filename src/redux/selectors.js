@@ -11,3 +11,4 @@ export const currencySelector = state => state.currencySlice.data;
 export const loadingCurrencySelector = state => state.currencySlice.isLoading;
 export const selectUserName = state => state.authSlice.user.username;
 export const IDfromSelect = state => state.transactionsSlice.modal.select;
+export const transactionForEdit = state => state.transactionsSlice.modal.transactionForEdit;
