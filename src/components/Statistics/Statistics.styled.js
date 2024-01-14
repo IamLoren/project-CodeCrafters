@@ -165,9 +165,12 @@ export const CategoriesItem = styled.li`
     color: var(--expenses-color);
     font-size: 14px;
   }
-  @media only screen and (max-width: 767px){
+  @media only screen and (max-width: 1279px){
     padding: 0 15px;
   }
+  /* @media only screen and (max-width: 767px){
+    padding: 0 15px;
+  } */
 `;
 export const SpanIncome = styled.span`
   color: var(--income-color);
