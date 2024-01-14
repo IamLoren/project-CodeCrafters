@@ -6,14 +6,14 @@ import tabletBg from '../../img/Tablet/login-bg-tab.webp';
 import tabletBgRetina from '../../img/Tablet/login-bg-tab@retina.webp';
 import mobileBg from '../../img/Mobile/home-bg-mob.webp';
 import mobileBgRetina from '../../img/Mobile/home-bg-mob@retina.webp';
-import formBg from '../../img/LoginForm-bg-desc@retina.webp';
+import formBgRetina from '../../img/LoginForm-bg-desc@retina.webp';
 
 export const StyledSection = styled.section`
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background-size: cover;
+  background-size:cover;
   background-position: center;
   background-repeat: no-repeat;
   background-image: url(${mobileBg});
@@ -53,14 +53,21 @@ export const StyledForm = styled.form`
   @media only screen and (min-width: 768px) {
     background-position: center;
     background-repeat: no-repeat;
+    background-size: 200%;
+    background-image: url(${formBgRetina});
     box-shadow: 0px 4px 60px 0px var(--modal-shadow);
-    background-image: url(${formBg});
-    /* background: var(--modal-background); */
     /* backdrop-filter: blur(50px); */
   }
 
   @media only screen and (max-width: 767px) {
     padding: 97px 20px;
+  }
+`;
+
+export const StyledLogo = styled.img`
+  @media only screen and (max-width: 767px) {
+    width: 128px;
+    height: 54px;
   }
 `;
 
@@ -123,6 +130,13 @@ export const StyledBtn = styled.button`
   border-radius: 20px;
   background: var(--modal-button-gradient);
   box-shadow: 1px 9px 15px 0px var(--modal-button-shadow);
+  transition: transform 0.3s ease-in-out;
+
+  &:hover,
+  &:focus,
+  &:active {
+    transform: scale(1.1);
+  }
 
   @media only screen and (max-width: 767px) {
     width: 280px;
@@ -146,6 +160,14 @@ export const StyledNavLink = styled(NavLink)`
   border: 1px solid var(--household);
   background: #fcfcfc;
   box-shadow: 1px 9px 15px 0px var(--modal-button-shadow);
+
+  transition: transform 0.3s ease-in-out;
+
+  &:hover,
+  &:focus,
+  &:active {
+    transform: scale(1.1);
+  }
 
   @media only screen and (max-width: 767px) {
     width: 280px;
