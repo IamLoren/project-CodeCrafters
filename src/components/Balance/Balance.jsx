@@ -1,4 +1,3 @@
-// import React, { useEffect } from 'react';
 import {
   BalanceCurrent,
   BalanceTitle,
@@ -16,7 +15,8 @@ const Balance = () => {
       <BalanceWrapper>
         <BalanceTitle>Your balance</BalanceTitle>
         <BalanceCurrent>
-          <MoneySymbol>&#8372;</MoneySymbol> {Number(balance).toFixed(2)}
+          <MoneySymbol>&#8372;</MoneySymbol>
+          {isNaN(balance) ? Number(0).toFixed(2) : Number(balance).toFixed(2)}
         </BalanceCurrent>
       </BalanceWrapper>
     </>
