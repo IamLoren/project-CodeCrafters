@@ -4,7 +4,7 @@ import React from 'react';
 import { LuPencil } from 'react-icons/lu';
 import { useDispatch, useSelector } from 'react-redux';
 import {
-  changeEditTransaction,
+  // changeEditTransaction,
   changeModalEditForm,
 } from '../../../redux/transactions/transactionsSlice';
 import { categories } from '../../../redux/selectors';
