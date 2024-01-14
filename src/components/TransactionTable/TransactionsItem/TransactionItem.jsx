@@ -4,6 +4,7 @@ import React from 'react';
 import { LuPencil } from 'react-icons/lu';
 import { useDispatch, useSelector } from 'react-redux';
 import {
+  changeEditTransaction,
   // changeEditTransaction,
   changeModalEditForm,
 } from '../../../redux/transactions/transactionsSlice';
@@ -26,11 +27,11 @@ const TransactionItem = ({ transaction }) => {
     category => category.id === transaction?.categoryId
   );
 
-  // const handleClick = tr => {
-  //   dispatch(changeEditTransaction(tr));
-  //   dispatch(changeModalEditForm(true));
-  //   // const type = event.target.closest('tr').querySelector('.type').textContent;
-  // };
+  const handleClick = tr => {
+    dispatch(changeEditTransaction(tr));
+    dispatch(changeModalEditForm(true));
+    // const type = event.target.closest('tr').querySelector('.type').textContent;
+  };
 
   return (
     <tr>
@@ -42,7 +43,7 @@ const TransactionItem = ({ transaction }) => {
       <td>
         <LuPencil
           onClick={() => {
-            dispatch(changeModalEditForm(true));
+            handleClick(transaction)
           }}
         />
         <StyledDeleteButton
