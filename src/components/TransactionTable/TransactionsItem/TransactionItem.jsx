@@ -3,30 +3,54 @@ import { deleteTransactionThunk } from '../../../../src/redux/transactions/opera
 import React from 'react';
 import { LuPencil } from 'react-icons/lu';
 import { useDispatch, useSelector } from 'react-redux';
-import { changeModalEditForm } from '../../../redux/transactions/transactionsSlice';
+import {
+  changeEditTransaction,
+  // changeEditTransaction,
+  changeModalEditForm,
+} from '../../../redux/transactions/transactionsSlice';
 import { categories } from '../../../redux/selectors';
+import { changeBalanceValue } from '../../../redux/auth/authSlice.js';
 
 const TransactionItem = ({ transaction }) => {
   const dispatch = useDispatch();
-  const delateTransaction = id => dispatch(deleteTransactionThunk(id));
+
+  const delateTransaction = (id, amount) => {
+    dispatch(deleteTransactionThunk(id))
+      .unwrap()
+      .then(() => {
+        dispatch(changeBalanceValue(amount));
+      });
+  };
+
   const categoriesTransaction = useSelector(categories);
   const categoryName = categoriesTransaction?.find(
     category => category.id === transaction?.categoryId
   );
+
+  const handleClick = tr => {
+    dispatch(changeEditTransaction(tr));
+    dispatch(changeModalEditForm(true));
+    // const type = event.target.closest('tr').querySelector('.type').textContent;
+  };
+
   return (
     <tr>
-      <td>{transaction?.transactionDate}</td>
-      <td>{transaction?.type}</td>
-      <td>{categoryName?.name}</td>
-      <td>{transaction?.comment}</td>
-      <td>{transaction?.amount}</td>
+      <td className="date">{transaction?.transactionDate}</td>
+      <td className="type">{transaction?.type}</td>
+      <td className="name">{categoryName?.name}</td>
+      <td className="comment">{transaction?.comment}</td>
+      <td className="amount">{transaction?.amount}</td>
       <td>
         <LuPencil
           onClick={() => {
-            dispatch(changeModalEditForm(true));
+            handleClick(transaction)
           }}
         />
-        <StyledDeleteButton onClick={() => delateTransaction(transaction?.id)}>
+        <StyledDeleteButton
+          onClick={() =>
+            delateTransaction(transaction?.id, transaction?.amount)
+          }
+        >
           Delete
         </StyledDeleteButton>
       </td>

@@ -98,6 +98,7 @@ export const StyledTransactionAmount = styled.input`
   /* -webkit-appearance: none; */
   /* -moz-appearance: textfield; */
   width: 181px;
+  height:35px;
   text-align: center;
   background-color: transparent;
   color: var(--white);

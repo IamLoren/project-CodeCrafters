@@ -1,20 +1,8 @@
-import { StyledNavLink } from 'components/MainLayout/MainLayoutStyled';
 import React from 'react';
-import { IoMdHome } from 'react-icons/io';
-import { ImFileEmpty } from 'react-icons/im';
+import NoFound from 'components/NoFound/NoFound';
 
 const NotFound = () => {
-  return (
-    <div>
-      <ImFileEmpty size="15" color="white" />
-      <StyledNavLink to="/">
-        <div>
-          <IoMdHome size="15" />
-        </div>
-        Home
-      </StyledNavLink>
-    </div>
-  );
+  return <NoFound />;
 };
 
 export default NotFound;

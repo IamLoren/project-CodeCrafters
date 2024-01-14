@@ -12,7 +12,7 @@ const CustomSelect = () => {
   const dispatch = useDispatch();
   const getSelectValue = selectedOp => {
     setSelectedOption(selectedOp);
-    dispatch(changeSelectOption(selectedOption.value));
+    dispatch(changeSelectOption(selectedOption?.value));
   };
   const arrOfOptions = categoriesTransaction.map(category => {
     return {

@@ -1,9 +1,11 @@
 import styled from 'styled-components';
-import registerbgRetina from '../../img/Register-bg-desc@retina.webp';
 import registerbg from '../../img/Register-bg-desc.webp';
+import registerbgRetina from '../../img/Register-bg-desc@retina.webp';
+import tabletBg from '../../img/Tablet/registr-bg-tab.webp';
+import tabletBgRetina from '../../img/Tablet/registr-bg-tab@retina.webp';
+import mobileBg from '../../img/Mobile/home-bg-mob.webp';
+import mobileBgRetina from '../../img/Mobile/home-bg-mob@retina.webp';
 import formBg from '../../img/RegisterForm-bg@retina.webp';
-import mobileBg from '../../img/mobile-page-bg.png';
-import tabletBg from '../../img/tablet-register.png';
 
 export const StyledSection = styled.section`
   display: flex;
@@ -13,6 +15,19 @@ export const StyledSection = styled.section`
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  background-image: url(${mobileBg});
+
+  @media only screen and(max-width: 767px) and (min-resolution: 192dpi) {
+    background-image: url((${mobileBgRetina}));
+  }
+
+  @media only screen and (min-width: 768px) {
+    background-image: url(${tabletBg});
+  }
+
+  @media only screen and (min-width: 768px) and (min-resolution: 192dpi) {
+    background-image: url((${tabletBgRetina}));
+  }
 
   @media only screen and (min-width: 1280px) {
     background-image: url(${registerbg});
@@ -20,14 +35,6 @@ export const StyledSection = styled.section`
 
   @media only screen and (min-width: 1280px) and (min-resolution: 192dpi) {
     background-image: url((${registerbgRetina}));
-  }
-
-  @media only screen and (min-width: 768px) {
-    background-image: url(${tabletBg});
-  }
-
-  @media only screen and (max-width: 767px) {
-    background-image: url(${mobileBg});
   }
 `;
 
@@ -38,14 +45,14 @@ export const StyledForm = styled.form`
   align-items: center;
 
   width: 533px;
-  min-height: 624px;
+  height: 624px;
   padding: 40px 62px;
   border-radius: 8px;
 
   @media only screen and (min-width: 768px) {
-    background: var(--modal-background);
     background-position: center;
     background-repeat: no-repeat;
+    background-size: 200%;
     box-shadow: 0px 4px 60px 0px var(--modal-shadow);
     background-image: url(${formBg});
     /* backdrop-filter: blur(50px); */
@@ -57,23 +64,32 @@ export const StyledForm = styled.form`
 `;
 
 export const InputBox = styled.div`
+  @media only screen and (max-width: 767px) {
+    width: 280px;
+  }
+
+  width: 410px;
   position: relative;
-  margin: 40px 0;
   display: flex;
   flex-direction: column;
-  row-gap: 40px;
+  row-gap: 20px;
+  margin-top: 40px;
+  margin-bottom: 14px;
 
   .icon {
     fill: var(--modal-input-underline);
     font-size: 24px;
 
     position: absolute;
-    transform: translateY(70%);
+    transform: translateY(30%);
     margin-left: 10px;
   }
 
   .strengthBar {
-    outline: red;
-    margin-top: 20px;
+    margin-top: 8px;
+
+    p {
+      display: none;
+    }
   }
 `;

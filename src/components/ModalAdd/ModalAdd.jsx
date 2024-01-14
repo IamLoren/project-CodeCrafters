@@ -38,8 +38,6 @@ const ModalAdd = () => {
     dispatch(changeToggleState(isChecked));
   };
 
-  //
-  //
   const [date, setDate] = useState('');
   const onChange = (date, dateString) => {
     setDate(dateString);
@@ -66,6 +64,7 @@ const ModalAdd = () => {
 
   return (
     <StyledModalBody onSubmit={createTransaction}>
+      
       <StyledModalToggle>
         {isDisabled ? (
           <StyledDisabled>Income</StyledDisabled>
@@ -82,6 +81,7 @@ const ModalAdd = () => {
           />
           <SpanToggle />
         </LabelToggle>
+
         {isDisabled ? (
           <StyledExpenseActive>Expense</StyledExpenseActive>
         ) : (
