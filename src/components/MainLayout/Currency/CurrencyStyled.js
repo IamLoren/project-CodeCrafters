@@ -1,99 +1,141 @@
 import styled from 'styled-components';
-import BgCurrencyDiagram from '../../../img/currency-diagr.svg';
 
 export const StyledCurrencyWrapper = styled.div`
   display: flex;
   flex-direction: column;
-`;
+  /* align-items: center; */
+  justify-content: center;
+  max-width: 480px;
+  margin-top: 32px;
+  background-color: rgba(74, 86, 226, 0.1);
 
-export const CurrencyTable = styled.table`
-  width: 100%;
-  background: transparent;
-  border-collapse: collapse;
   @media (min-width: 768px) and (max-width: 1279px) {
+    margin-top: 0;
     width: 336px;
+    display: flex;
+    justify-content: flex-start;
   }
-
-  @media (min-width: 320px) and (max-width: 768px) {
+  @media (min-width: 320px) and (max-width: 767px) {
+    max-width: 320px;
   }
 `;
 
-export const CurrencyThead = styled.thead`
-  background: var(--head-currency);
-  display: table-header-group;
-  border-collapse: collapse;
-  border-spacing: 0;
-  margin: 0;
+export const CurrencyTable = styled.div`
+  max-height: 170px;
+  width: 100%;
   @media (min-width: 768px) and (max-width: 1279px) {
-    background: #604d9e;
   }
 
-  @media (min-width: 320px) and (max-width: 768px) {
-  }
-  th {
-    border: 0;
-    border: none;
-    padding: 16px;
-    color: var(--white);
-    font-family: 'Poppins Regular';
-    font-size: 16px;
-    font-weight: 600;
+  @media (min-width: 320px) and (max-width: 767px) {
   }
 `;
 
-export const CurrencyTbody = styled.tbody`
-  text-align: center;
-  tr {
-    background: transparent;
-    height: 48px;
-    @media (min-width: 768px) and (max-width: 1279px) {
-      height: 30px;
-    }
+export const CurrencyThead = styled.div`
+  background: rgba(255, 255, 255, 0.2);
+  padding-left: 62px;
+  margin-bottom: 24px;
+  @media (min-width: 768px) and (max-width: 1279px) {
+    display: flex;
+    padding-left: 20px;
+    margin-bottom: 8px;
+  }
 
-    @media (min-width: 320px) and (max-width: 768px) {
-      height: 48px;
+  @media (min-width: 320px) and (max-width: 767px) {
+    padding-left: 0;
+  }
+  div {
+    display: flex;
+    flex-direction: row;
+    gap: 50px;
+    padding: 16px 0px;
+    @media (min-width: 768px) and (max-width: 1279px) {
+      display: flex;
+      justify-content: space-around;
+    }
+    @media (min-width: 320px) and (max-width: 767px) {
+      gap: 33px;
+      padding: 16px 10px;
     }
   }
-  td {
+  span {
+    color: var(--white, #fbfbfb);
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    text-align: center;
+    font-family: 'Poppins Regular';
+
+    @media (min-width: 768px) and (max-width: 1279px) {
+      margin-bottom: 0;
+      padding-left: 0;
+    }
+  }
+`;
+
+export const CurrencyTbody = styled.div`
+  display: flex;
+  flex-direction: column;
+  padding-left: 62px;
+  gap: 24px;
+  margin-bottom: 20px;
+  @media (min-width: 768px) and (max-width: 1279px) {
+    padding-left: 0;
+    padding-left: 20px;
+    gap: 20px;
+    margin-bottom: 6px;
+  }
+  @media (min-width: 320px) and (max-width: 767px) {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+  div {
+    display: flex;
+    flex-direction: row;
+    text-align: start;
+    gap: 60px;
+    @media (min-width: 768px) and (max-width: 1279px) {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    @media (min-width: 320px) and (max-width: 767px) {
+    }
+  }
+  span {
     color: var(--white);
     font-family: 'Poppins Regular';
     font-size: 16px;
     font-weight: 400;
+    width: 65px;
   }
 `;
 
 export const StyledGraphBox = styled.div`
-  width: 100%;
-  height: 200px;
   position: relative;
-  background-image: url('${BgCurrencyDiagram}');
-  background-size: 100% 100%;
-  background-position: right bottom -20px;
-  background-repeat: no-repeat;
   @media (min-width: 768px) and (max-width: 1279px) {
-    width: 100%;
-    height: 134px;
-    position: absolute;
-    top: 80px;
-    left: 180px;
+    overflow: hidden;
+    img {
+      width: 100%;
+    }
   }
 
-  @media (min-width: 320px) and (max-width: 768px) {
-    position: absolute;
-    top: 244px;
-    height: 112px;
-    width: 280px;
+  @media (min-width: 320px) and (max-width: 767px) {
+    img {
+      width: 280px;
+    }
   }
 `;
 
 export const LowerRate = styled.p`
   position: absolute;
-  left: 51px;
-  top: 40px;
-  color: var(--expenses-color);
-  font-family: 'Poppins Regular';
+  top: 20px;
+  left: 50px;
+  color: var(--dashboard-text, #ff868d);
   font-size: 12px;
-  font-weight: 400;
+  font-style: normal;
+  font-family: 'Poppins Regular';
+
   @media (min-width: 320px) and (max-width: 1279px) {
     display: none;
   }
@@ -101,12 +143,13 @@ export const LowerRate = styled.p`
 
 export const HigherRate = styled.p`
   position: absolute;
-  right: 102px;
-  top: 5px;
-  color: var(--expenses-color);
-  font-family: 'Poppins Regular';
+  top: -14px;
+  right: 97px;
+  color: var(--dashboard-text, #ff868d);
   font-size: 12px;
-  font-weight: 400;
+  font-style: normal;
+  font-family: 'Poppins Regular';
+
   @media (min-width: 320px) and (max-width: 1279px) {
     display: none;
   }
