@@ -4,7 +4,7 @@ import {
   fetchAllTransactionsThunk,
   fetchTransactionsCategoriesThunk,
 } from '../../redux/transactions/operations';
-import { selectTransactionsList } from '../../redux/selectors';
+import { selectIsLogged, selectTransactionsList } from '../../redux/selectors';
 import TransactionCard from '../TransactionCard/TransactionCard';
 import {
   SquareContainer,
@@ -12,12 +12,16 @@ import {
 } from '../TransactionMobile/TransactionMobileStyled';
 
 const TransactionMobile = () => {
+  const isLogged = useSelector(selectIsLogged);
+  console.log('isLogged', isLogged);
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(fetchAllTransactionsThunk());
-    dispatch(fetchTransactionsCategoriesThunk());
-  }, [dispatch]);
+    if (isLogged) {
+      dispatch(fetchTransactionsCategoriesThunk());
+      dispatch(fetchAllTransactionsThunk());
+    }
+  }, [dispatch, isLogged]);
 
   const transactions = useSelector(selectTransactionsList);
 

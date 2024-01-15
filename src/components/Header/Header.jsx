@@ -2,11 +2,12 @@
 import Logo from 'components/Logo/Logo';
 import ModalExit from 'components/ModalExit/ModalExit';
 import React, { useEffect, useState } from 'react';
-import { StyledExitButton, StyledHeader } from './Header.styled';
+import { StyledExitButton, StyledHeader, StyledInnerHeader } from './Header.styled';
 import { selectUserName } from '../../redux/selectors';
 import { useSelector } from 'react-redux';
 import { IoExitOutline } from 'react-icons/io5';
 import { NavLink } from 'react-router-dom';
+import { StyledContainer } from 'components/Container/Container.styled';
 
 export const Header = ({ children }) => {
 
@@ -26,16 +27,20 @@ export const Header = ({ children }) => {
 
   return (<>
     <StyledHeader>
-      <NavLink to="/">
-        <Logo />
-      </NavLink>
-      <div >
-        {userName && <span>{userName}</span>}
-        <StyledExitButton onClick={handleShowModal}>
-          <IoExitOutline size="23" />
-          <button>Exit</button>
-        </StyledExitButton>
-      </div>
+      <StyledContainer>
+        <StyledInnerHeader>
+          <NavLink to="/">
+            <Logo />
+          </NavLink>
+          <div >
+            {userName && <span>{userName}</span>}
+            <StyledExitButton onClick={handleShowModal}>
+              <IoExitOutline size="23" />
+              <button>Exit</button>
+            </StyledExitButton>
+          </div>
+        </StyledInnerHeader>
+      </StyledContainer>
     </StyledHeader>
 
     {isOpenModal ? <ModalExit handleCloseModal={handleCloseModal} /> : null
