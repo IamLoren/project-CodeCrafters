@@ -50,7 +50,7 @@ const TransactionItem = ({ transaction }) => {
         </td>
       ) : (
         <td className="amount" style={{ color: '#FF868D', fontWeight: 600 }}>
-          {transaction?.amount}
+          {Math.abs(transaction.amount)}
         </td>
       )}
         <td>
