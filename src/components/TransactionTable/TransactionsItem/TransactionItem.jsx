@@ -55,6 +55,7 @@ const TransactionItem = ({ transaction }) => {
       )}
         <td>
         <LuPencil
+            style={{ cursor: 'pointer' }}
           size={14}
           onClick={() => {
             handleClick(transaction);
