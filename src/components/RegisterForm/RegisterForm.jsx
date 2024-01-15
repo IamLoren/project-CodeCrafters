@@ -28,7 +28,7 @@ const basicSchema = yup.object().shape({
   password: yup
     .string()
     .min(6, 'Password must be at least 6 characters!')
-    .max(12)
+    .max(12, 'Password must be at most 12 characters!')
     .required('Password is required!'),
   confirmPassword: yup
     .string()
@@ -64,8 +64,7 @@ const RegisterForm = () => {
   const [password, setPassword] = useState('');
 
   const handleInput = e => {
-    const value = e.target.value;
-    setPassword(value);
+    setPassword(e.target.value);
   };
 
   return (
@@ -100,6 +99,7 @@ const RegisterForm = () => {
               type="password"
               name="password"
               placeholder="Password"
+              onChange={handleInput}
             />
             <ErrMessage>{errors.password?.message}</ErrMessage>
           </div>
@@ -110,14 +110,11 @@ const RegisterForm = () => {
               type="password"
               name="confirmPassword"
               placeholder="Confirm password"
-              onChange={handleInput}
             />
             <PasswordStrengthBar
               className="strengthBar"
               password={password}
               minLength={6}
-              maxLength={12}
-              barColors={['#ddd', '#ef4836', '#f6b44d', '#2b90ef', '#25c281']}
             />
             <ErrMessage>{errors.confirmPassword?.message}</ErrMessage>
           </div>
