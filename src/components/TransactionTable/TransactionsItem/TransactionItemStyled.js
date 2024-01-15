@@ -10,7 +10,7 @@ export const StyledDeleteButton = styled.button`
   font-size: 14px;
   right: 40px;
   bottom: 40px;
-  margin-left: 10px;
+  margin-left: -30px;
   color: var(--white);
   background: var(--modal-button-gradient);
   border-radius: 20px;
@@ -22,9 +22,10 @@ export const StyledDeleteButton = styled.button`
   }
 `;
 
-export const PencilButton = styled.button`
-  background: none;
-  border: none;
-  cursor: pointer;
-  color: var(--text-forms);
-`;
+// export const PencilButton = styled.button`
+//   background: none;
+//   border: none;
+//   cursor: pointer;
+//   color: var(--text-forms);
+//   margin-right: 5px;
+// `;

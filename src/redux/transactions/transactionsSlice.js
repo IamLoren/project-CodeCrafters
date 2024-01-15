@@ -130,7 +130,7 @@ export const transactionsSlice = createSlice({
       })
       .addCase(fetchTransSumThunk.fulfilled, (state, { payload }) => {
         state.transactionSummary = payload;
-        console.log('!!!!!!!', payload);
+        console.log('transactionSummary:', payload);
         state.isLoading = false;
       })
       .addCase(fetchTransSumThunk.pending, state => {
