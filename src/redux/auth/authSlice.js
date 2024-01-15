@@ -50,6 +50,7 @@ export const authSlice = createSlice({
         state.user = payload.user;
         state.token = payload.token;
         state.isLogged = true;
+        state.isLoading = false;
       })
       .addCase(logoutThunk.fulfilled, state => {
         state.user = {
@@ -70,8 +71,11 @@ export const authSlice = createSlice({
         state.user.email = payload.email;
         state.user.balance = payload.balance;
         state.isLogged = true;
+        state.isLoading = false;
       })
       .addCase(refreshThunk.pending, state => {
+        state.isLogged = true;
+        state.isLoading = true;
         state.isRefresh = true;
       })
       .addCase(refreshThunk.rejected, (state, { payload }) => {

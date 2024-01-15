@@ -21,7 +21,7 @@ const TransactionsList = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    if(isLogged){
+    if (isLogged) {
       dispatch(fetchTransactionsCategoriesThunk());
       dispatch(fetchAllTransactionsThunk());
     }

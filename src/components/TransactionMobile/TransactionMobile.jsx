@@ -12,11 +12,12 @@ import {
 } from '../TransactionMobile/TransactionMobileStyled';
 
 const TransactionMobile = () => {
-  const isLogged = useSelector(selectIsLogged)
+  const isLogged = useSelector(selectIsLogged);
+  console.log('isLogged', isLogged);
   const dispatch = useDispatch();
 
   useEffect(() => {
-    if(isLogged){
+    if (isLogged) {
       dispatch(fetchTransactionsCategoriesThunk());
       dispatch(fetchAllTransactionsThunk());
     }
