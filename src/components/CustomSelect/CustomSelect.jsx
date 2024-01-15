@@ -1,4 +1,3 @@
-import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { categories } from '../../redux/selectors.js';
 import { changeSelectOption } from '../../redux/transactions/transactionsSlice.js';
