@@ -19,7 +19,7 @@ import {
   transactionStatistic,
 } from '../../redux/selectors.js';
 
-const StatisticsTable = () => {
+export const StatisticsTable = () => {
   const coloredCategoriesMap = new Map([
     ['Main expenses', 'var(--main-expenses)'],
     ['Products', 'var(--products)'],
