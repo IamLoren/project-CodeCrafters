@@ -21,7 +21,7 @@ const TransactionCard = ({ transaction }) => {
   );
 
   return (
-    <TransactionCardContainer type={transaction.type}>
+    <TransactionCardContainer type={transaction.type} >
       <TransactionContent>
         <p>
           <span>Date</span>
@@ -50,7 +50,7 @@ const TransactionCard = ({ transaction }) => {
               fontWeight: 600,
             }}
           >
-            {transaction.amount}
+            {Math.abs(transaction.amount)}
           </span>
         </p>
         <p>
