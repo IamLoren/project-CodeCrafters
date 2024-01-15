@@ -13,17 +13,19 @@ import {
   fetchAllTransactionsThunk,
   fetchTransactionsCategoriesThunk,
 } from '../../../redux/transactions/operations';
-import { selectTransactionsList } from '../../../redux/selectors';
+import { selectIsLogged, selectTransactionsList } from '../../../redux/selectors';
 
 const TransactionsList = () => {
   const [overflowY, setOverflowY] = useState('hidden');
-
+  const isLogged = useSelector(selectIsLogged)
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(fetchAllTransactionsThunk());
-    dispatch(fetchTransactionsCategoriesThunk());
-  }, [dispatch]);
+    if(isLogged){
+      dispatch(fetchTransactionsCategoriesThunk());
+      dispatch(fetchAllTransactionsThunk());
+    }
+  }, [dispatch, isLogged]);
 
   const transactions = useSelector(selectTransactionsList);
 
