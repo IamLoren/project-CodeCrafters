@@ -95,9 +95,9 @@ export const StatisticsTable = () => {
   const transactionsList = useSelector(selectTransactionsList);
   const expenseArr = transactionsList?.filter(item => item.type === 'EXPENSE');
   const incomeArr = transactionsList?.filter(item => item.type === 'INCOME');
-  // const expenseArr = data?.filter(item => item.type === 'EXPENSE');
-  // const incomeArr = data?.filter(item => item.type === 'INCOME');
+
   const categoriesList = useSelector(categories);
+
   const statistics = useSelector(transactionStatistic);
   const statisticExp = statistics.categoriesSummary
     ? statistics.categoriesSummar.filter(item => item.type === 'EXPENSE')
@@ -105,7 +105,7 @@ export const StatisticsTable = () => {
 
   console.log('transactionsList', transactionsList);
   console.log('categoriesList', categoriesList);
-  console.log('statistic', statistics);
+  console.log('statistics', statistics);
 
   data = statisticExp.map(item => ({
     ...item,

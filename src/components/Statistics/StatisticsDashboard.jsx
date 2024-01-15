@@ -2,9 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { DropsWrap } from './StatisticsStyled';
 import { useDispatch } from 'react-redux';
 import Select, { components } from 'react-select';
-import {
-  fetchTransSumThunk,
-} from '../../redux/transactions/operations';
+import { fetchTransSumThunk } from '../../redux/transactions/operations';
 import { IoIosArrowDown, IoIosArrowUp } from 'react-icons/io';
 import { libStyles } from './SelectedLibStyle';
 
@@ -38,12 +36,12 @@ const StatisticsDashboard = () => {
 
   const handleOnMonth = date => {
     setChosenMonth(date.value);
-    // dispatch(fetchTransSumThunk({ month: date.value, year: chosenYear }));
+    dispatch(fetchTransSumThunk({ month: date.value, year: chosenYear }));
   };
 
   const handleOnYear = date => {
     setChosenYear(date.value);
-    // dispatch(fetchTransSumThunk({ month: chosenMonth, year: date.value }));
+    dispatch(fetchTransSumThunk({ month: chosenMonth, year: date.value }));
   };
   console.log('!!!', chosenMonth, chosenYear);
   useEffect(() => {
