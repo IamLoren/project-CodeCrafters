@@ -11,21 +11,18 @@ import StatisticsDashboard from './StatisticsDashboard';
 import { categories, transactionStatistic } from '../../redux/selectors';
 import { useSelector } from 'react-redux';
 
+const coloredCategoriesMap = new Map([
+  ['Main expenses', 'rgba(0, 173, 132, 1)'],
+  ['Products', 'rgba(255, 216, 208, 1)'],
+  ['Car', 'rgba(253, 148, 152, 1)'],
+  ['Self care', 'rgba(197, 186, 255, 1)'],
+  ['Child care', 'rgba(74, 86, 226, 1)'],
+  ['Household products', 'rgba(74, 86, 226, 1)'],
+  ['Education', 'rgba(129, 225, 255, 1)'],
+  ['Leisure', 'rgba(36, 204, 167, 1)'],
+  ['Other expenses', 'rgba(0, 173, 132, 1)'],
+]);
 const Statistics = () => {
-  const coloredCategoriesMap = new Map([
-    ['Main expenses', 'var(--main-expenses)'],
-    ['Products', 'var(--products)'],
-    ['Car', 'var(--car)'],
-    ['Self care', 'var(--self-care)'],
-    ['Child care', 'var(--child-care)'],
-    ['Household products', 'var(--household)'],
-    ['Education', 'var(--education)'],
-    ['Leisure', 'var(--leisure)'],
-    ['Other expenses', 'var(--other-expenses)'],
-  ]);
-  // const transactionsList = useSelector(selectTransactionsList);
-  // const expenseArr = transactionsList?.filter(item => item.type === 'EXPENSE');
-  // const incomeArr = transactionsList?.filter(item => item.type === 'INCOME');
 
   const categoriesList = useSelector(categories);
 
@@ -35,7 +32,6 @@ const Statistics = () => {
     ? statistics.categoriesSummary.filter(item => item.type === 'EXPENSE')
     : [];
 
-  // console.log('transactionsList', transactionsList);
   console.log('categoriesList', categoriesList);
   console.log('statistics', statistics);
   console.log('statisticExp', statisticExp);
@@ -47,21 +43,15 @@ const Statistics = () => {
     color: coloredCategoriesMap.get(item.name),
   }));
 
-  console.log('Maindata:', data);
-  // const totalExpense = expenseArr.reduce((total, el) => {
-  //   return total + Number(el.amount);
-  // }, 0);
-  // const expense = totalExpense.toFixed(2);
-
-  // const incomeTotal = incomeArr.reduce((total, el) => {
-  //   return (total += Number(el.amount));
-  // }, 0);
-
   return (
     <Wrap>
       <StatisticsChart>
         <StatisticsTitle>Statistics</StatisticsTitle>
-        <ChartStatistic data={data} />
+        <ChartStatistic
+          data={data}
+          expenseSummary={expenseSummary}
+          incomeSummary={incomeSummary}
+        />
       </StatisticsChart>
       <StatisticsInfoWrap>
         <StatisticsDashboard />

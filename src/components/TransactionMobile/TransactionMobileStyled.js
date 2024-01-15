@@ -46,7 +46,7 @@ position: absolute;
 font-family: "Poppins Bold";
 font-weight: 700;
 font-style: normal;
-  margin-left: 20px;
+  margin-left: 80px;
   margin-top: 70px;
   color: #fff;
 `;
