@@ -44,17 +44,31 @@ const TransactionItem = ({ transaction }) => {
       <td className="name">{categoryName?.name}</td>
       <td className="comment">{transaction?.comment}</td>
       {transaction?.type === 'INCOME' ? (
-        <td className="amount" style={{ color: '#FFB627', fontWeight: 600, fontFamily: 'Poppins SemiBold', }}>
+        <td
+          className="amount"
+          style={{
+            color: '#FFB627',
+            fontWeight: 600,
+            fontFamily: 'Poppins SemiBold',
+          }}
+        >
           {transaction?.amount}
         </td>
       ) : (
-        <td className="amount" style={{ color: '#FF868D', fontWeight: 600, fontFamily: 'Poppins SemiBold', }}>
+        <td
+          className="amount"
+          style={{
+            color: '#FF868D',
+            fontWeight: 600,
+            fontFamily: 'Poppins SemiBold',
+          }}
+        >
           {Math.abs(transaction?.amount)}
         </td>
       )}
       <td>
         <LuPencil
-            style={{ cursor: 'pointer', color: 'var(--text-forms)' }}
+          style={{ cursor: 'pointer', color: 'var(--text-forms)' }}
           size={14}
           onClick={() => {
             handleClick(transaction);

@@ -93,6 +93,10 @@ export const StyledModalCloseBtn = styled.button`
   border: none;
   outline: transparent;
   color: var(--white);
+  transition: all 0.5s ease;
+  &:hover {
+    transform: scale(1.05);
+  }
 `;
 export const StyledModalBody = styled.form`
   gap: 40px;
@@ -137,6 +141,7 @@ export const StyledTransactionAmount = styled.input`
   &:hover {
     color: var(--white);
     font-family: 'Poppins SemiBold';
+    border-bottom: 1px solid var(--text-forms);
   }
   @media (min-width: 320px) and (max-width: 768px) {
     width: 280px;
@@ -157,7 +162,6 @@ export const StyledTransactionComment = styled.textarea`
   border-bottom: 1px solid var(--modal-input-underline);
   outline: transparent;
   resize: none;
-
   &::placeholder {
     margin-bottom: 8px;
     color: var(--text-forms);
@@ -168,6 +172,7 @@ export const StyledTransactionComment = styled.textarea`
   }
   &:hover {
     color: var(--white);
+    border-bottom: 1px solid var(--text-forms);
   }
 
   @media (min-width: 320px) and (max-width: 768px) {
@@ -195,8 +200,17 @@ export const AddTransactionButton = styled.button`
   cursor: pointer;
   transition: all 0.5s ease;
   &:hover {
-    transform: scale(1.1);
-    background: var(--button-gradient-hover);
+    transform: scale(1.05);
+    background-image: linear-gradient(
+      to right,
+      #7000ff 0%,
+      #9e40ba 31%,
+      #ffc727 100%
+    );
+    display: block;
+    transition: 1s;
+    background-size: 200% auto;
+    background-position: right center;
   }
 `;
 export const CancelTransactionButton = styled.button`
@@ -215,14 +229,16 @@ export const CancelTransactionButton = styled.button`
   cursor: pointer;
   transition: all 0.5s ease;
   &:hover {
-    transform: scale(1.1);
-    background: var(--expenses-color);
-    color: white;
+    transform: scale(1.05);
+    background-image: linear-gradient(
+      to right,
+      #fff 0%,
+      #623f8b 31%,
+      #fff 100%
+    );
+    display: block;
+    transition: 1s;
+    background-size: 200% auto;
+    background-position: right center;
   }
 `;
-
-// export const StyledModalArrowDown = styled.div`
-//   svg {
-//     fill: red;
-//   }
-// `;
