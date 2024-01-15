@@ -18,18 +18,17 @@ import {
 } from '../../redux/selectors.js';
 
 const StatisticsTable = () => {
-  // const categories = [
-  //   'Main expenses',
-  //   'Products',
-  //   'Car',
-  //   'Self care',
-  //   'Child care',
-  //   'Household products',
-  //   'Education',
-  //   'Leisure',
-  //   'Other expenses',
-  //   'Entertainment',
-  // ];
+  const coloredCategoriesMap = new Map([
+    ['Main expenses', 'var(--main-expenses)'],
+    ['Products', 'var(--products)'],
+    ['Car', 'var(--car)'],
+    ['Self care', 'var(--self-care)'],
+    ['Child care', 'var(--child-care)'],
+    ['Household products', 'var(--household)'],
+    ['Education', 'var(--education)'],
+    ['Leisure', 'var(--leisure)'],
+    ['Other expenses', 'var(--other-expenses)'],
+  ]);
 
   let data = [
     {
@@ -154,15 +153,5 @@ const StatisticsTable = () => {
     </WrapCategories>
   );
 };
-const coloredCategoriesMap = new Map([
-  ['Main expenses', 'var(--main-expenses)'],
-  ['Products', 'var(--products)'],
-  ['Car', 'var(--car)'],
-  ['Self care', 'var(--self-care)'],
-  ['Child care', 'var(--child-care)'],
-  ['Household products', 'var(--household)'],
-  ['Education', 'var(--education)'],
-  ['Leisure', 'var(--leisure)'],
-  ['Other expenses', 'var(--other-expenses)'],
-]);
+
 export default StatisticsTable;
