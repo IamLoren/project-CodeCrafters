@@ -1,6 +1,6 @@
 import {
   StyledDeleteButton,
-  PencilButton,
+  // PencilButton,
 } from '../TransactionsItem/TransactionItemStyled';
 import { deleteTransactionThunk } from '../../../../src/redux/transactions/operations';
 import React from 'react';
