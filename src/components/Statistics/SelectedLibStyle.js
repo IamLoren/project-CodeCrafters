@@ -1,3 +1,5 @@
+import { LuPointer } from 'react-icons/lu';
+
 export const libStyles = {
   control: (provided, state) => ({
     ...provided,
@@ -29,6 +31,7 @@ export const libStyles = {
     ...provided,
     color: 'var(--white)',
     borderRadius: '8px',
+    cursor: 'pointer',
     background:
       'var(--Small-Form-color, linear-gradient(0deg, rgba(83, 61, 186, 0.70) 0%, rgba(80, 48, 154, 0.70) 43.14%, rgba(106, 70, 165, 0.52) 73.27%, rgba(133, 93, 175, 0.13) 120.03%))',
     boxShadow: '0px 4px 60px 0px rgba(0, 0, 0, 0.25)',

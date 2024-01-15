@@ -33,7 +33,7 @@ const StatisticsDashboard = () => {
   const isLogged = useSelector(selectIsLogged);
   const dispatch = useDispatch();
 
-  const [chosenMonth, setChosenMonth] = useState(1);
+  const [chosenMonth, setChosenMonth] = useState(2);
   const [chosenYear, setChosenYear] = useState(2024);
 
   const handleOnMonth = date => {
@@ -75,15 +75,12 @@ const StatisticsDashboard = () => {
   return (
     <DropsWrap>
       <Select
-        id="month"
-        name="month"
         required
         options={months}
         placeholder="Select a month"
         onChange={handleOnMonth}
         styles={libStyles}
-        isSearchable={false}
-        default={'1'}
+        defaultValue={'Jan'}
         components={{
           DropdownIndicator,
           IndicatorSeparator: () => null,
@@ -97,15 +94,12 @@ const StatisticsDashboard = () => {
           ))} */}
       </Select>
       <Select
-        id="year"
-        name="year"
         required
         options={years}
         placeholder="Select a year"
         onChange={handleOnYear}
         styles={libStyles}
-        isSearchable={false}
-        default={'2024'}
+        defaultValue={2024}
         components={{
           DropdownIndicator,
           IndicatorSeparator: () => null,
