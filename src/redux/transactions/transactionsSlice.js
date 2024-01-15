@@ -80,7 +80,7 @@ export const transactionsSlice = createSlice({
       })
       //
       .addCase(addTransactionThunk.fulfilled, (state, { payload }) => {
-        state.transactionslist = payload;
+        state.transactionslist.push(payload);
         state.isLoading = false;
         toast.success('Your transaction was added successfully!');
       })

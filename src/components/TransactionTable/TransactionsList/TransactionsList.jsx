@@ -28,7 +28,7 @@ const TransactionsList = () => {
   const transactions = useSelector(selectTransactionsList);
 
   useEffect(() => {
-    if (transactions.length > 5) {
+    if (transactions?.length > 5) {
       setOverflowY('scroll');
     } else {
       setOverflowY('hidden');
@@ -51,7 +51,7 @@ const TransactionsList = () => {
             </tr>
           </TransactionThead>
           <TransactionTbody>
-            {transactions.length === 0 ? (
+            {transactions?.length === 0 ? (
               <tr>
                 <td colSpan="6">
                   You don't have any transactions of your own yet
