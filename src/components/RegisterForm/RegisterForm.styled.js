@@ -87,7 +87,22 @@ export const InputBox = styled.div`
 
   .strengthBar {
     margin-top: 8px;
+    div {
+      height: 4px !important;
+      filter: drop-shadow(0px 1px 8px var(--modal-toggle-shadow));
 
+      :first-child {
+        border-top-left-radius: 5px;
+        border-bottom-left-radius: 5px;
+      }
+      :last-child {
+        border-top-right-radius: 5px;
+        border-bottom-right-radius: 5px;
+      }
+      :nth-child(even) {
+        width: 0 !important;
+      }
+    }
     p {
       display: none;
     }
