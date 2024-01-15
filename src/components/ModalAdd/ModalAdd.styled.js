@@ -12,13 +12,12 @@ export const DatePickerWrapper = styled.div`
     color: var(--text-forms);
     font-size: 18px;
     font-weight: 400;
-
-    text-align: center;
     background: none;
     background-color: transparent;
     border: none;
     outline: transparent;
     padding-bottom: 8px;
+    padding-left: 20px;
     &:hover {
       color: var(--white);
     }

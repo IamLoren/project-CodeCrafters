@@ -8,7 +8,6 @@ import { LuPencil } from 'react-icons/lu';
 import { useDispatch, useSelector } from 'react-redux';
 import {
   changeEditTransaction,
-  // changeEditTransaction,
   changeModalEditForm,
 } from '../../../redux/transactions/transactionsSlice';
 import { categories } from '../../../redux/selectors';
@@ -50,18 +49,19 @@ const TransactionItem = ({ transaction }) => {
         </td>
       ) : (
         <td className="amount" style={{ color: '#FF868D', fontWeight: 600 }}>
-          {transaction?.amount}
+          {Math.abs(transaction?.amount)}
         </td>
       )}
-        <td>
+      <td>
         <LuPencil
+            style={{ cursor: 'pointer' }}
           size={14}
           onClick={() => {
             handleClick(transaction);
           }}
         />
       </td>
-        <td>
+      <td>
         <StyledDeleteButton
           onClick={() =>
             delateTransaction(transaction?.id, transaction?.amount)

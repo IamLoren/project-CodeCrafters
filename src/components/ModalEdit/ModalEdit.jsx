@@ -25,7 +25,7 @@ import {
 } from './ModalEdit.styled.js';
 
 const ModalEdit = () => {
-  const [date] = useState('');
+  // const [date, setDate] = useState('');
   const [startDate, setStartDate] = useState(new Date());
 
   const onChange = date => setStartDate(date);
@@ -45,16 +45,18 @@ const ModalEdit = () => {
     const formData = new FormData(event.target);
     const amountValue = formData.get('amount');
     const comment = formData.get('comment');
+    const formattedDate = startDate.toISOString().slice(0, 10);
+    setStartDate(formattedDate);
     const transaction = {
-      transactionDate: `${date}`,
+      transactionDate: `${formattedDate}`,
       type: `${transactionEdit?.type}`,
       categoryId: `${transactionEdit?.categoryId}`,
       comment: `${comment}`,
-      amount: `${
-        transactionEdit?.type === 'INCOME' ? amountValue : -amountValue
-      }`,
+      amount: 
+        transactionEdit?.type === 'INCOME' ? Number(amountValue) : Number(-amountValue)
+      ,
     };
-    dispatch(editTransactionThunk(id, transaction));
+    dispatch(editTransactionThunk({id, transaction}));
     dispatch(changeModalClose(false));
     console.log(transactionEdit);
   };

@@ -34,6 +34,7 @@ const ModalAdd = () => {
   const [startDate, setStartDate] = useState(new Date());
   const [isDisabled, setIsDisabled] = useState(true);
   const [isChecked, setIsChecked] = useState(true);
+  const today = new Date();
 
   const onChangeToggle = () => {
     setIsDisabled(!isDisabled);
@@ -50,7 +51,7 @@ const ModalAdd = () => {
     event.preventDefault();
     const formattedDate = startDate.toISOString().slice(0, 10);
     setStartDate(formattedDate);
-    
+
     const formData = new FormData(event.target);
     const amountValue = formData.get('amount');
     const comment = formData.get('comment');
@@ -61,7 +62,7 @@ const ModalAdd = () => {
       comment: `${comment}`,
       amount: `${!isChecked ? amountValue : -amountValue}`,
     };
-    console.log(transaction);
+    // console.log(transaction);
     dispatch(addTransactionThunk(transaction));
     dispatch(changeModalClose(false));
   };
@@ -110,6 +111,8 @@ const ModalAdd = () => {
             selected={startDate}
             onChange={onChange}
             dateFormat="yyyy-MM-dd"
+            maxDate={today}
+            // showDisabledMonthNavigation
           />
         </DatePickerWrapper>
       </StyledTransactionModalSelect>
