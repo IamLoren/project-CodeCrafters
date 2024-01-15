@@ -6,6 +6,17 @@ import { useSelector } from 'react-redux';
 import { selectBalance, selectTransactionsList } from '../../redux/selectors';
 
 ChartJS.register(ArcElement, Tooltip, Legend);
+// const coloredCategoriesMap = new Map([
+//   ['Main expenses', 'var(--main-expenses)'],
+//   ['Products', 'var(--products)'],
+//   ['Car', 'var(--car)'],
+//   ['Self care', 'var(--self-care)'],
+//   ['Child care', 'var(--child-care)'],
+//   ['Household products', 'var(--household)'],
+//   ['Education', 'var(--education)'],
+//   ['Leisure', 'var(--leisure)'],
+//   ['Other expenses', 'var(--other-expenses)'],
+// ]);
 
 export const dataTr = {
   datasets: [
@@ -140,19 +151,21 @@ const ChartStatistic = () => {
   let income = 0;
   let expence = 0;
   const data = dataTr.datasets[0].data
+  // const bgColor = dataTr.datasets[0].backgroundColor
   transactionsList.forEach(transaction => {
     if (transaction.type === "INCOME") income += transaction.amount;
     if (transaction.type === "EXPENSE") {
       data.push(transaction.amount);
       expence += transaction.amount;
+      // backgroundColor.push
     };
   })
-  const difference = Math.abs(income - expence)
+  const difference = (income + expence)
   return (
     <DoughnutContainerStyled>
       {
         ((!expence && !income) && <NotifStyled>You don't have any expences and incomes. <br />Now your balance is ₴ {balance}</NotifStyled>) ||
-        ((!expence && income) && <NotifStyled>You don't have any expences. <br />Your income is ₴ {income}</NotifStyled>) ||
+        ((!expence && income) && <NotifStyled>You don't have any expences. <br />Your income is ₴ {income || 0}</NotifStyled>) ||
         ((expence && income) && <BalanceStyled><span>₴ {difference}</span></BalanceStyled>)
       }
       <Doughnut data={dataTr} />
