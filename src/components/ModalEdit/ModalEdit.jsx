@@ -45,14 +45,16 @@ const ModalEdit = () => {
     const formData = new FormData(event.target);
     const amountValue = formData.get('amount');
     const comment = formData.get('comment');
+    const formattedDate = startDate.toISOString().slice(0, 10);
+    setStartDate(formattedDate);
     const transaction = {
-      transactionDate: `${startDate}`,
+      transactionDate: `${formattedDate}`,
       type: `${transactionEdit?.type}`,
       categoryId: `${transactionEdit?.categoryId}`,
       comment: `${comment}`,
-      amount: `${
+      amount: 
         transactionEdit?.type === 'INCOME' ? Number(amountValue) : Number(-amountValue)
-      }`,
+      ,
     };
     dispatch(editTransactionThunk({id, transaction}));
     dispatch(changeModalClose(false));
