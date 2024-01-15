@@ -44,7 +44,7 @@ export const Dropdown = styled.select`
   cursor: pointer;
   padding-left: 20px;
   padding-right: 20px;
-  color: var(--white, #fbfbfb);
+  color: var(--white);
   font-family: 'Poppins Regular';
   font-size: 16px;
   @media only screen and (max-width: 1279px) {
@@ -73,7 +73,7 @@ export const DropdownContent = styled.option`
 
   box-shadow: 0px 4px 60px 0px rgba(0, 0, 0, 0.25);
   backdrop-filter: blur(50px);
-  color: var(--white, #fbfbfb);
+  color: var(--white);
   font-family: 'Poppins Regular';
   font-size: 16px;
   padding: 4px auto 4px 20px;
@@ -191,6 +191,11 @@ export const SpanIncome = styled.span`
   color: var(--income-color);
   font-size: 14px;
 `;
+
+export const SpanExp = styled.span`
+  color: var(--expenses-color);
+  font-size: 14px;
+`;
 export const CategoryName = styled.p`
   display: block;
   font-size: 14px;
@@ -210,7 +215,7 @@ export const IndicateColor = styled.p`
 `;
 
 export const NoTrans = styled.p`
-  color: var(--white, #fbfbfb);
+  color: var(--leisure);
   font-family: 'Poppins Regular';
   font-size: 16px;
 `;
