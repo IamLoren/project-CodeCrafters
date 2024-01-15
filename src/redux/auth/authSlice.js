@@ -82,7 +82,7 @@ export const authSlice = createSlice({
         state.user.balance = payload.balanceAfter;
       })
       .addCase(editTransactionThunk.fulfilled, (state, { payload }) => {
-        state.user.balance = state.user.balance - payload;
+        state.user.balance = payload.balanceAfter;
       })
       .addMatcher(
         isAnyOf(loginThunk.pending, logoutThunk.pending, registerThunk.pending),

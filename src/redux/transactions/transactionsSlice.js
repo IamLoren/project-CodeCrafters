@@ -91,7 +91,14 @@ export const transactionsSlice = createSlice({
         toast.error(`Failed to add transaction: ${action.payload}`);
       })
       .addCase(editTransactionThunk.fulfilled, (state, { payload }) => {
-        // state.transactionslist.push(payload);
+        const index = state.transactionslist.findIndex(
+          transaction => transaction.id === payload.id
+        );
+        if (index !== -1) {
+          state.transactionslist[index] = payload;
+        } else {
+          state.transactionslist.push(payload);
+        }
         state.isLoading = false;
         toast.success('Your transaction was edited successfully');
       })
