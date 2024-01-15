@@ -43,12 +43,15 @@ const Statistics = () => {
   console.log('categoriesList', categoriesList);
   console.log('statistics', statistics);
   console.log('statisticExp', statisticExp);
+  const expenseSummary = statistics.expenseSummary;
+  const incomeSummary = statistics.incomeSummary;
 
   const data = statisticExp.map(item => ({
     ...item,
     color: coloredCategoriesMap.get(item.name),
   }));
-  console.log(data);
+
+  console.log('Maindata:', data);
   // const totalExpense = expenseArr.reduce((total, el) => {
   //   return total + Number(el.amount);
   // }, 0);
@@ -66,7 +69,11 @@ const Statistics = () => {
       </StatisticsChart>
       <StatisticsInfoWrap>
         <StatisticsDashboard />
-        <StatisticsTable data={data} />
+        <StatisticsTable
+          data={data}
+          expenseSummary={expenseSummary}
+          incomeSummary={incomeSummary}
+        />
       </StatisticsInfoWrap>
     </Wrap>
   );

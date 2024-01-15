@@ -19,10 +19,12 @@ import {
   transactionStatistic,
 } from '../../redux/selectors.js';
 
-export const StatisticsTable = data => {
+export const StatisticsTable = ({ data, expenseSummary, incomeSummary }) => {
   // const income = incomeTotal.toFixed(2);
 
   // Math.abs("-1"); // 1
+  console.log('StTable-data:', data);
+  // const statistics = useSelector(transactionStatistic);
 
   return (
     <WrapCategories>
@@ -38,7 +40,7 @@ export const StatisticsTable = data => {
                 <IndicateColor color={category.color}></IndicateColor>
                 <CategoryName>{category.name}</CategoryName>
               </NameColor>
-              <CategoryName>{category.total}</CategoryName>
+              <CategoryName>{Math.abs(category.total)}</CategoryName>
             </CategoriesItem>
           ))
         ) : (
@@ -46,11 +48,11 @@ export const StatisticsTable = data => {
         )}
         <CategoriesItem>
           <CategoryName>Expenses:</CategoryName>
-          <SpanExp>{data.expenseSummary}</SpanExp>
+          <SpanExp>{Math.abs(expenseSummary)}</SpanExp>
         </CategoriesItem>
         <CategoriesItem>
           <CategoryName>Income:</CategoryName>
-          <SpanIncome>{data.incomeSummary}</SpanIncome>
+          <SpanIncome>{incomeSummary}</SpanIncome>
         </CategoriesItem>
       </CategoriesList>
     </WrapCategories>
