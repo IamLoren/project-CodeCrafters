@@ -7,7 +7,9 @@ export const DatePickerWrapper = styled.div`
   font-family: 'Poppins Regular';
   align-items: center;
   border-bottom: 1px solid var(--modal-input-underline);
-
+  &:hover {
+    border-color: var(--text-forms);
+  }
   input {
     color: var(--text-forms);
     font-size: 18px;
@@ -20,6 +22,7 @@ export const DatePickerWrapper = styled.div`
     padding-left: 20px;
     &:hover {
       color: var(--white);
+      border-color: var(--text-forms);
     }
     @media (min-width: 320px) and (max-width: 768px) {
       text-align: start;

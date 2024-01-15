@@ -121,6 +121,7 @@ const ModalAdd = () => {
         required
         name="comment"
         placeholder="Comment"
+        maxLength={12}
       ></StyledTransactionComment>
 
       <StyledTransactionButtonsWrapper>

@@ -115,6 +115,7 @@ const ModalEdit = () => {
         required
         name="comment"
         placeholder={transactionEdit?.comment}
+        maxLength={12}
       ></StyledComment>
 
       <StyledTransactionButtonsWrapper>
