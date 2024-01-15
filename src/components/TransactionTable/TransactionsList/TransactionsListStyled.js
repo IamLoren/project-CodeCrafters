@@ -27,7 +27,6 @@ export const TransactionThead = styled.thead`
   font-family: 'Poppins Regular';
   font-size: 16px;
   font-weight: 600;
-  /* margin-bottom: 18px; */
   display: table-header-group;
   border-collapse: collapse;
   border-spacing: 0;
@@ -36,9 +35,9 @@ export const TransactionThead = styled.thead`
   th {
     border: 0;
     border: none;
-    padding: 15.5px 20px; /* Adjusted padding for header cells */
+    padding: 15.5px 20px;
     color: #fff;
-    font-size: 16px; /* Adjusted font size for header cells */
+    font-size: 16px;
     font-style: normal;
     font-weight: 600;
     line-height: normal;
@@ -63,7 +62,7 @@ export const TransactionTbody = styled.tbody`
   text-align: left;
   tr {
     background: transparent;
-    height: 53px; /* Adjusted height for table rows */
+    height: 53px;
     border-bottom: 0.5px solid rgba(255, 255, 255, 0.41);
   }
   tr:last-child {

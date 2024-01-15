@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const SquareContainer = styled.div`
   width: 100%;
-  max-width: 300px; /* Adjust as needed */
+  max-width: 300px;
   margin: 0 auto;
 `;
 

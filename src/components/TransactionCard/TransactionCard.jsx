@@ -4,22 +4,30 @@ import { useDispatch, useSelector } from 'react-redux';
 import { deleteTransactionThunk } from '../../redux/transactions/operations';
 import { changeModalEditForm } from '../../redux/transactions/transactionsSlice';
 import { categories } from '../../redux/selectors';
-import { TransactionCardContainer, TransactionContent, EditButton, StyledDeleteButt  } from './TransactionCardStyled';
+import {
+  TransactionCardContainer,
+  TransactionContent,
+  EditButton,
+  StyledDeleteButt,
+} from './TransactionCardStyled';
 
 const TransactionCard = ({ transaction }) => {
   const dispatch = useDispatch();
-  const deleteTransaction = () => dispatch(deleteTransactionThunk(transaction.id));
+  const deleteTransaction = () =>
+    dispatch(deleteTransactionThunk(transaction.id));
   const categoriesTransaction = useSelector(categories);
   const categoryName = categoriesTransaction?.find(
-    (category) => category.id === transaction.categoryId
+    category => category.id === transaction.categoryId
   );
 
   return (
-    <TransactionCardContainer>
+    <TransactionCardContainer type={transaction.type}>
       <TransactionContent>
         <p>
           <span>Date</span>
-          <span className="transaction-value">{transaction.transactionDate}</span>
+          <span className="transaction-value">
+            {transaction.transactionDate}
+          </span>
         </p>
         <p>
           <span>Type</span>
@@ -35,13 +43,23 @@ const TransactionCard = ({ transaction }) => {
         </p>
         <p>
           <span>Sum</span>
-          <span className="transaction-sum">{transaction.amount}</span>
+          <span
+            className="transaction-sum"
+            style={{
+              color: transaction.type === 'INCOME' ? '#FFB627' : '#FF868D',
+              fontWeight: 600,
+            }}
+          >
+            {transaction.amount}
+          </span>
         </p>
         <p>
-          <StyledDeleteButt onClick={deleteTransaction}>Delete</StyledDeleteButt>
+          <StyledDeleteButt onClick={deleteTransaction}>
+            Delete
+          </StyledDeleteButt>
           <EditButton onClick={() => dispatch(changeModalEditForm(true))}>
-  <LuPencil /> Edit
-</EditButton>
+            <LuPencil /> Edit
+          </EditButton>
         </p>
       </TransactionContent>
     </TransactionCardContainer>

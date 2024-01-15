@@ -55,7 +55,6 @@ const TransactionItem = ({ transaction }) => {
       )}
 
       <td>
-
         <PencilButton onClick={() => dispatch(changeModalEditForm(true))}>
           <LuPencil />
         </PencilButton>
