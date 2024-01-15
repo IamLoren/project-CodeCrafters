@@ -3,7 +3,7 @@ import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
 import { Doughnut } from 'react-chartjs-2';
 import { BalanceStyled, DoughnutContainerStyled, NotifStyled } from './ChartStatistic.styled';
 import { useSelector } from 'react-redux';
-import { selectBalance, selectTransactionsList, transactionStatistic } from '../../redux/selectors';
+import { selectBalance, selectTransactionsList } from '../../redux/selectors';
 import { TransactionList } from 'components/TransactionMobile/TransactionMobileStyled';
 
 ChartJS.register(ArcElement, Tooltip, Legend);
@@ -67,7 +67,7 @@ const ChartStatistic = () => {
     if (transaction.type === "EXPENSE") {
       data.push(transaction.amount);
       expence += transaction.amount;
-      bgcl.push(coloredCategoriesMap.get('Main expenses'))
+      bgcl.push(coloredCategoriesMap.get((index, item) => item(index)))
       console.log(bgcl)
     };
 
