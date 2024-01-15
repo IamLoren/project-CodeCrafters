@@ -12,11 +12,13 @@ import { changeModalClose } from '../../redux/transactions/transactionsSlice.js'
 import ModalEdit from 'components/ModalEdit/ModalEdit.jsx';
 import ModalAdd from 'components/ModalAdd/ModalAdd.jsx';
 import { useMediaQuery } from 'react-responsive';
+import Header from 'components/Header/Header.jsx';
 
 const TransactionsModal = () => {
   const isModalOpen = useSelector(modalIsOpen);
   const isModalEdit = useSelector(modalIsEdit);
   const isModalAdd = useSelector(modalIsAdd);
+  const isMobile = useMediaQuery({ maxWidth: 767 });
 
   const isDesktop = useMediaQuery({ minWidth: 768 });
 
@@ -45,6 +47,7 @@ const TransactionsModal = () => {
         onClick={clickBackdrop}
       >
         {/* header */}
+        {isMobile && <Header />}
         <StyledModalTransaction>
           {isModalAdd && <h2>Add transaction</h2>}
           {isModalEdit && <h2>Edit transaction</h2>}
@@ -61,6 +64,7 @@ const TransactionsModal = () => {
           )}
 
           {/* render form */}
+
           {isModalEdit && <ModalEdit />}
           {isModalAdd && <ModalAdd />}
         </StyledModalTransaction>

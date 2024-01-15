@@ -15,6 +15,10 @@ export const StyledTransactionsModalBackdrop = styled.div`
   align-items: center;
   height: 100%;
   width: 100%;
+
+  @media (min-width: 320px) and (max-width: 767px) {
+    flex-direction: column;
+  }
 `;
 
 export const StyledModalTransaction = styled.div`
@@ -33,6 +37,11 @@ export const StyledModalTransaction = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  @media (min-width: 320px) and (max-width: 767px) {
+    padding-top: 28px;
+    padding-bottom: 28px;
+  }
 
   h2 {
     color: var(--white);
