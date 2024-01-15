@@ -8,6 +8,8 @@
     #9e40ba 61.46%,
     #7000ff 90.54%
   );
+  --button-gradient-hover: linear-gradient(to right, #7000ff 0%, #ffc727 100%);
+
   --text-button: #623f8b;
   --text-forms: rgba(255, 255, 255, 0.6);
 

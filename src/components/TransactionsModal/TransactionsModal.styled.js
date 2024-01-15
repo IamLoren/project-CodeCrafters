@@ -15,6 +15,10 @@ export const StyledTransactionsModalBackdrop = styled.div`
   align-items: center;
   height: 100%;
   width: 100%;
+
+  @media (min-width: 320px) and (max-width: 767px) {
+    flex-direction: column;
+  }
 `;
 
 export const StyledModalTransaction = styled.div`
@@ -33,6 +37,11 @@ export const StyledModalTransaction = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  @media (min-width: 320px) and (max-width: 767px) {
+    padding-top: 28px;
+    padding-bottom: 28px;
+  }
 
   h2 {
     color: var(--white);
@@ -184,9 +193,10 @@ export const AddTransactionButton = styled.button`
   letter-spacing: 1.8px;
   text-transform: uppercase;
   cursor: pointer;
-  transition: all 0.8s ease;
+  transition: all 0.5s ease;
   &:hover {
-    transform: scale(1.05);
+    transform: scale(1.1);
+    background: var(--button-gradient-hover);
   }
 `;
 export const CancelTransactionButton = styled.button`
@@ -203,9 +213,11 @@ export const CancelTransactionButton = styled.button`
   letter-spacing: 1.8px;
   text-transform: uppercase;
   cursor: pointer;
-  transition: all 0.8s ease;
+  transition: all 0.5s ease;
   &:hover {
-    transform: scale(1.05);
+    transform: scale(1.1);
+    background: var(--expenses-color);
+    color: white;
   }
 `;
 
