@@ -14,6 +14,7 @@ import {
   // loadingCurrencySelector,
 } from '../../../redux/selectors.js';
 import { currencyThunk } from '../../../redux/currency/operations.js';
+import ImgCurrencyDiagram from '../../../img/currency-diagr.svg';
 // import Loader from 'components/Loader/Loader';
 
 const Currency = () => {
@@ -50,20 +51,20 @@ const Currency = () => {
       <StyledCurrencyWrapper>
         <CurrencyTable>
           <CurrencyThead>
-            <tr>
-              <th>Currency</th>
-              <th>Purchase</th>
-              <th>Sale</th>
-            </tr>
+            <div>
+              <span>Currency</span>
+              <span>Purchase</span>
+              <span>Sale</span>
+            </div>
           </CurrencyThead>
           <CurrencyTbody>
             {currency.map(item => {
               return (
-                <tr key={crypto.randomUUID()}>
-                  <td>{item.currencyType}</td>
-                  <td>{item.rateBuy}</td>
-                  <td>{item.rateSell.toString().slice(0, -2)}</td>
-                </tr>
+                <div key={crypto.randomUUID()}>
+                  <span>{item.currencyType}</span>
+                  <span>{item.rateBuy}</span>
+                  <span>{item.rateSell.toString().slice(0, -2)}</span>
+                </div>
               );
             })}
           </CurrencyTbody>
@@ -89,6 +90,7 @@ const Currency = () => {
             }
             return [];
           })}
+          <img src={ImgCurrencyDiagram} alt="graphic" />
         </StyledGraphBox>
       </StyledCurrencyWrapper>
     </>
