@@ -53,12 +53,15 @@ const TransactionItem = ({ transaction }) => {
           {transaction?.amount}
         </td>
       )}
-
-      <td>
-
-        <PencilButton onClick={() => dispatch(changeModalEditForm(true))}>
-          <LuPencil />
-        </PencilButton>
+        <td>
+        <LuPencil
+          size={14}
+          onClick={() => {
+            handleClick(transaction);
+          }}
+        />
+      </td>
+        <td>
         <StyledDeleteButton
           onClick={() =>
             delateTransaction(transaction?.id, transaction?.amount)
