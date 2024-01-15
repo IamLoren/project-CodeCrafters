@@ -10,10 +10,10 @@ export const libStyles = {
     width: '182px',
     height: '50px',
     paddingLeft: '12px',
-    '@media only screen and (max-width: 1279px)': {
+    '@media (min-width: 768px) and (max-width: 1279px)': {
       width: '160px',
     },
-    '@media only screen and (max-width: 767px)': {
+    '@media (min-width: 320px) and (max-width: 767px)': {
       width: '280px',
     },
   }),

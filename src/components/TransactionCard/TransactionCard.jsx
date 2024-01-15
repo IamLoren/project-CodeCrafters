@@ -19,23 +19,23 @@ const TransactionCard = ({ transaction }) => {
       <TransactionContent>
         <p>
           <span>Date</span>
-          <span>{transaction.transactionDate}</span>
+          <span className="transaction-value">{transaction.transactionDate}</span>
         </p>
         <p>
           <span>Type</span>
-          <span>{transaction.type}</span>
+          <span className="transaction-value">{transaction.type}</span>
         </p>
         <p>
           <span>Category</span>
-          <span>{categoryName?.name}</span>
+          <span className="transaction-value">{categoryName?.name}</span>
         </p>
         <p>
           <span>Comment</span>
-          <span>{transaction.comment}</span>
+          <span className="transaction-value">{transaction.comment}</span>
         </p>
         <p>
           <span>Sum</span>
-          <span>{transaction.amount}</span>
+          <span className="transaction-sum">{transaction.amount}</span>
         </p>
         <p>
           <StyledDeleteButt onClick={deleteTransaction}>Delete</StyledDeleteButt>

@@ -1,10 +1,16 @@
 import styled from 'styled-components';
 
 export const StyledDeleteButton = styled.button`
-  display: flex;
-  padding: 4px 12px;
-  justify-content: center;
-  align-items: center;
+  position: static;
+  width: 69px;
+  height: 29px;
+  font-family: 'Poppins Regular';
+  font-weight: 400;
+  font-style: normal;
+  font-size: 14px;
+  right: 40px;
+  bottom: 40px;
+  margin-left: 10px;
   color: var(--white);
   background: var(--modal-button-gradient);
   border-radius: 20px;
@@ -12,6 +18,13 @@ export const StyledDeleteButton = styled.button`
   outline: transparent;
 
   &:hover {
-    background-color: #c82333; /* Adjust hover color if desired */
+    background-color: #c82333;
   }
+`;
+
+export const PencilButton = styled.button`
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--text-forms);
 `;

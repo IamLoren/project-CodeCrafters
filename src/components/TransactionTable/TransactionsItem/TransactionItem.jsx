@@ -1,4 +1,7 @@
-import { StyledDeleteButton } from '../TransactionsItem/TransactionItemStyled';
+import {
+  StyledDeleteButton,
+  // PencilButton,
+} from '../TransactionsItem/TransactionItemStyled';
 import { deleteTransactionThunk } from '../../../../src/redux/transactions/operations';
 import React from 'react';
 import { LuPencil } from 'react-icons/lu';
@@ -50,8 +53,7 @@ const TransactionItem = ({ transaction }) => {
           {transaction?.amount}
         </td>
       )}
-
-      <td>
+        <td>
         <LuPencil
           size={14}
           onClick={() => {
@@ -59,7 +61,7 @@ const TransactionItem = ({ transaction }) => {
           }}
         />
       </td>
-      <td>
+        <td>
         <StyledDeleteButton
           onClick={() =>
             delateTransaction(transaction?.id, transaction?.amount)

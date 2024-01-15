@@ -17,7 +17,7 @@ export const SideLeft = styled.div`
     padding-top: 0;
   }
 
-  @media (min-width: 320px) and (max-width: 768px) {
+  @media (min-width: 320px) and (max-width: 767px) {
     border: none;
     padding-top: 0;
   }
@@ -34,7 +34,7 @@ export const SideLeft = styled.div`
       margin-top: 40px;
     }
 
-    @media (min-width: 320px) and (max-width: 768px) {
+    @media (min-width: 320px) and (max-width: 767px) {
       flex-direction: row;
       justify-content: center;
       gap: 32px;
@@ -63,7 +63,7 @@ export const StyledNavLink = styled(NavLink)`
     align-items: center;
     justify-content: center;
 
-    @media (min-width: 320px) and (max-width: 768px) {
+    @media (min-width: 320px) and (max-width: 767px) {
       height: 38px;
       width: 38px;
       border-radius: 5px;
@@ -72,7 +72,7 @@ export const StyledNavLink = styled(NavLink)`
 
   div svg {
     fill: var(--icon-color-link);
-    @media (min-width: 320px) and (max-width: 768px) {
+    @media (min-width: 320px) and (max-width: 767px) {
       height: 26px;
       width: 26px;
     }
