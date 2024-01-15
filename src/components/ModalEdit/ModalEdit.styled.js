@@ -35,6 +35,8 @@ export const StyledAmount = styled.input`
   &:hover {
     color: var(--white);
     font-family: 'Poppins SemiBold';
+    border-bottom: 1px solid var(--text-forms);
+  
   }
 
   @media (min-width: 320px) and (max-width: 768px) {
@@ -54,6 +56,10 @@ export const StyledComment = styled.textarea`
   color: var(--white);
   border-bottom: 1px solid var(--modal-input-underline);
   outline: transparent;
+  resize: none;
+  &:hover {
+    border-bottom: 1px solid var(--text-forms);
+  }
   &::placeholder {
     margin-bottom: 8px;
     color: var(--white);
@@ -72,6 +78,9 @@ export const StyledEditDatePickerWrapper = styled.div`
   font-family: 'Poppins Regular';
   border-bottom: 1px solid var(--modal-input-underline);
 
+  &:hover {
+    border-color: var(--text-forms);
+  }
   input {
     color: var(--white);
     font-size: 18px;

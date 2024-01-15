@@ -141,6 +141,7 @@ export const StyledTransactionAmount = styled.input`
   &:hover {
     color: var(--white);
     font-family: 'Poppins SemiBold';
+    border-bottom: 1px solid var(--text-forms);
   }
   @media (min-width: 320px) and (max-width: 768px) {
     width: 280px;
@@ -161,7 +162,6 @@ export const StyledTransactionComment = styled.textarea`
   border-bottom: 1px solid var(--modal-input-underline);
   outline: transparent;
   resize: none;
-
   &::placeholder {
     margin-bottom: 8px;
     color: var(--text-forms);
@@ -172,6 +172,7 @@ export const StyledTransactionComment = styled.textarea`
   }
   &:hover {
     color: var(--white);
+    border-bottom: 1px solid var(--text-forms);
   }
 
   @media (min-width: 320px) and (max-width: 768px) {
