@@ -38,7 +38,7 @@ export const StatisticsTable = ({ data, expenseSummary, incomeSummary }) => {
             </CategoriesItem>
           ))
         ) : (
-          <NoTrans>You have no transaction yet</NoTrans>
+          <NoTrans>No transaction for this month</NoTrans>
         )}
         <CategoriesItem>
           <CategoryName>Expenses:</CategoryName>
