@@ -23,7 +23,7 @@ export const StatisticsTable = data => {
   // const income = incomeTotal.toFixed(2);
 
   // Math.abs("-1"); // 1
-
+  console.log('StTable-data:', data);
   return (
     <WrapCategories>
       <StatisticHead>

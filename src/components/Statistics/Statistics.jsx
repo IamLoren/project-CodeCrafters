@@ -48,7 +48,7 @@ const Statistics = () => {
     ...item,
     color: coloredCategoriesMap.get(item.name),
   }));
-  console.log(data);
+  console.log('Maindata:', data);
   // const totalExpense = expenseArr.reduce((total, el) => {
   //   return total + Number(el.amount);
   // }, 0);
@@ -62,7 +62,7 @@ const Statistics = () => {
     <Wrap>
       <StatisticsChart>
         <StatisticsTitle>Statistics</StatisticsTitle>
-        <ChartStatistic data={data} />
+        {/* <ChartStatistic data={data} /> */}
       </StatisticsChart>
       <StatisticsInfoWrap>
         <StatisticsDashboard />
