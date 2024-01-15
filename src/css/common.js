@@ -55,8 +55,15 @@ input:-webkit-autofill:active {
     color: var(--text-forms);
 }
 
+@media screen and (min-width: 767px) and (max-width: 1279px) {
+  body {
+    min-height: 1024px;
+  }
+}
+
 @media screen and (max-width: 767px) {
   body {
+    min-height: 100vh;
     height: fit-content;
     background-image: url(${bgMob});
     background-position: bottom;
