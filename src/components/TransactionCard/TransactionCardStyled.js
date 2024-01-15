@@ -16,7 +16,11 @@ export const TransactionCardContainer = styled.li`
   width: 280px;
   height: 293px;
   padding-bottom: 40px;
-  border-left: 5px solid orange;
+  border-left: 5px solid
+    ${props =>
+      props.type === 'INCOME'
+        ? 'var(--income-color)'
+        : 'var(--expenses-color)'};
 `;
 
 export const TransactionContent = styled.div`
@@ -61,7 +65,10 @@ export const TransactionContent = styled.div`
       line-height: 24px;
       letter-spacing: 0em;
       text-align: right;
-      color: var(--expenses-color);
+      color: ${props =>
+        props.type === 'INCOME'
+          ? 'var(--income-color)'
+          : 'var(--expenses-color)'};
     }
   }
 `;
