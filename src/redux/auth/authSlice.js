@@ -78,6 +78,7 @@ export const authSlice = createSlice({
       })
       .addCase(refreshThunk.pending, state => {
         state.isLoading = true;
+        state.isLogged = true;
         state.isRefresh = true;
       })
       .addCase(refreshThunk.rejected, (state, { payload }) => {
