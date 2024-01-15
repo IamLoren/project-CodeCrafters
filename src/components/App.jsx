@@ -5,16 +5,18 @@ import MainLayout from './MainLayout/MainLayout.jsx';
 import RegisterForm from 'pages/RegisterPage.jsx';
 import LoginForm from 'pages/LoginPage.jsx';
 import Home from './Home/Home.jsx';
-// import Loader from './Loader/Loader.jsx';
+import Loader from './Loader/Loader.jsx';
 import CurrencyPage from 'pages/CurrencyPage.jsx';
 import { useMediaQuery } from 'react-responsive';
 import NotFound from 'pages/NotFound.jsx';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import { refreshThunk } from '../redux/auth/operations.js';
 import Statistics from './Statistics/Statistics.jsx';
+import { loadingSelector } from '../redux/selectors.js';
 
 export const App = () => {
+  const loading = useSelector(loadingSelector);
   const isMobile = useMediaQuery({ maxWidth: 767 });
   const dispatch = useDispatch();
 
@@ -24,7 +26,7 @@ export const App = () => {
 
   return (
     <>
-      {/* <Loader /> */}
+      {loading && <Loader />}
       <Routes>
         <Route
           path="/"
