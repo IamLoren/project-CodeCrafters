@@ -16,9 +16,10 @@ export const StyledDeleteButton = styled.button`
   border-radius: 20px;
   border: none;
   outline: transparent;
-
+  transition: all 0.5s ease;
   &:hover {
-    background-color: #c82333;
+    transform: scale(1.05);
+    background: var(--button-gradient-hover);
   }
 `;
 

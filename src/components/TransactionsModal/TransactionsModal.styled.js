@@ -193,9 +193,10 @@ export const AddTransactionButton = styled.button`
   letter-spacing: 1.8px;
   text-transform: uppercase;
   cursor: pointer;
-  transition: all 0.8s ease;
+  transition: all 0.5s ease;
   &:hover {
-    transform: scale(1.05);
+    transform: scale(1.1);
+    background: var(--button-gradient-hover);
   }
 `;
 export const CancelTransactionButton = styled.button`
@@ -212,9 +213,11 @@ export const CancelTransactionButton = styled.button`
   letter-spacing: 1.8px;
   text-transform: uppercase;
   cursor: pointer;
-  transition: all 0.8s ease;
+  transition: all 0.5s ease;
   &:hover {
-    transform: scale(1.05);
+    transform: scale(1.1);
+    background: var(--expenses-color);
+    color: white;
   }
 `;
 
