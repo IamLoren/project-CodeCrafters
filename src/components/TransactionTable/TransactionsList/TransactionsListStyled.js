@@ -6,7 +6,7 @@ export const Container = styled.div`
   margin-top: 32px;
   background: transparent;
   border: none; 
-  margin-right: 10px;
+  margin-right: -40px;
   @media (max-width: 1279px) {
     width: 704px;
     margin-top: 20px;
@@ -39,15 +39,17 @@ position: sticky;
   border-spacing: 0;
   margin: 0;
   height: 56px;
+  border-bottom: none;
+  background-color: #523b7e;
   th {
     border: 0;
-    border: none;
     padding: 15.5px 20px;
     color: #fff;
     font-size: 16px;
     font-style: normal;
     font-weight: 600;
     line-height: normal;
+    border-bottom: none;
   }
   th:first-child {
     border-top-left-radius: 8px;
@@ -69,9 +71,7 @@ export const TransactionTbody = styled.tbody`
 position: relative; 
   overflow-y: auto; 
   text-align: left;
-  z-index: 1;
-  background: transparent;
-  border: none; 
+  z-index: 1; 
   tr {
     max-height: 53px;
     border-bottom: 0.5px solid rgba(255, 255, 255, 0.41);
