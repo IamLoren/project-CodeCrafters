@@ -91,7 +91,7 @@ export const transactionsSlice = createSlice({
         toast.error(`Failed to add transaction: ${action.payload}`);
       })
       .addCase(editTransactionThunk.fulfilled, (state, { payload }) => {
-        state.transactionslist.push(payload);
+        // state.transactionslist.push(payload);
         state.isLoading = false;
         toast.success('Your transaction was edited successfully');
       })
@@ -111,9 +111,9 @@ export const transactionsSlice = createSlice({
       .addCase(fetchTransactionsCategoriesThunk.pending, state => {
         state.isLoading = true;
       })
-      .addCase(fetchTransactionsCategoriesThunk.rejected, (state, action) => {
-        toast.error(`Failed to select this category: ${action.payload}`);
-      })
+      // .addCase(fetchTransactionsCategoriesThunk.rejected, (state, action) => {
+      //   toast.error(`Failed to select this category: ${action.payload}`);
+      // })
       .addCase(fetchTransSumThunk.fulfilled, (state, { payload }) => {
         state.transactionSummary = payload;
         console.log('!!!!!!!', payload);

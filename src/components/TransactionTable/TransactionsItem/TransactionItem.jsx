@@ -52,7 +52,7 @@ const TransactionItem = ({ transaction }) => {
           {transaction?.amount}
         </td>
       )}
-        <td>
+      <td>
         <LuPencil
           size={14}
           onClick={() => {
@@ -60,7 +60,7 @@ const TransactionItem = ({ transaction }) => {
           }}
         />
       </td>
-        <td>
+      <td>
         <StyledDeleteButton
           onClick={() =>
             delateTransaction(transaction?.id, transaction?.amount)
