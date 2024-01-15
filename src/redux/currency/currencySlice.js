@@ -1,6 +1,3 @@
-// [{"currencyCodeA":840,"currencyCodeB":980,"date":1704837673,"rateBuy":38.15,"rateSell":38.5996},
-// {"currencyCodeA":978,"currencyCodeB":980,"date":1704879373,"rateBuy":41.7,"rateSell":42.2994}]
-
 import { createSlice } from '@reduxjs/toolkit';
 import { currencyThunk } from './operations.js';
 
