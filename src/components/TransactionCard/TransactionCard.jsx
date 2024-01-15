@@ -22,6 +22,12 @@ const TransactionCard = ({ transaction }) => {
 
   const typeDisplay = transaction?.type.replace('INCOME', '+').replace('EXPENSE', '-');
 
+  if (!transaction) {
+    // If there are no transactions, display a message
+    return <p>Add your first transaction</p>;
+  }
+
+
   return (
     <TransactionCardContainer type={transaction.type} >
       <TransactionContent>

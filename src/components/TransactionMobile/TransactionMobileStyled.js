@@ -41,3 +41,20 @@ export const TransactionButton = styled.button`
     background-color: #c0392b;
   }
 `;
+export const MobileText = styled.strong`
+position: absolute;
+font-family: "Poppins Bold";
+font-weight: 700;
+font-style: normal;
+  margin-left: 20px;
+  margin-top: 70px;
+  color: #fff;
+`;
+
+export const MobileImage = styled.img`
+  position: relative;
+  top: 30px;
+  left: 100px;
+  width: 80px;
+  height: 100px;
+`;
