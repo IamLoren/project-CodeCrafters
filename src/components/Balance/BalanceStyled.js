@@ -14,7 +14,7 @@ export const BalanceWrapper = styled.div`
     margin: 0;
   }
 
-  @media (min-width: 320px) and (max-width: 768px) {
+  @media (min-width: 320px) and (max-width: 767px) {
     width: 280px;
     height: 80px;
     margin: 0 auto;
