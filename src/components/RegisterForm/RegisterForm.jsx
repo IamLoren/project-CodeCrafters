@@ -19,6 +19,8 @@ import { registerThunk } from '../../redux/auth/operations';
 import { toast } from 'react-toastify';
 import PasswordStrengthBar from 'react-password-strength-bar';
 
+console.dir(PasswordStrengthBar);
+
 const basicSchema = yup.object().shape({
   username: yup.string().required('Name is required!'),
   email: yup
@@ -116,8 +118,6 @@ const RegisterForm = () => {
               className="strengthBar"
               password={password}
               minLength={6}
-              maxLength={12}
-              barColors={['#ddd', '#ef4836', '#f6b44d', '#2b90ef', '#25c281']}
             />
             <ErrMessage>{errors.confirmPassword?.message}</ErrMessage>
           </div>
