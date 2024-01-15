@@ -9,6 +9,7 @@ import {
   SpanIncome,
   IndicateColor,
   NameColor,
+  NoTrans,
 } from './StatisticsStyled';
 import { useSelector } from 'react-redux';
 import {
@@ -139,7 +140,7 @@ const StatisticsTable = () => {
             </CategoriesItem>
           ))
         ) : (
-          <p>You have no transaction yet</p>
+          <NoTrans>You have no transaction yet</NoTrans>
         )}
         <CategoriesItem>
           <CategoryName>Expenses:</CategoryName>

@@ -100,8 +100,8 @@ export const Wrap = styled.section`
   background-repeat: no-repeat; */
   }
   /* @media only screen and (min-width: 768px) and (max-width: 1279px) { */
-    /* background-image: url(${mainbgtab}); */
-    /* padding: 0;
+  /* background-image: url(${mainbgtab}); */
+  /* padding: 0;
   } */
 
   /* @media only screen and (min-width: 320px) and (max-width: 768px) {
@@ -109,31 +109,30 @@ export const Wrap = styled.section`
   } */
   @media (max-width: 1279px) {
     margin-top: 20px;
-    padding:0;
+    padding: 0;
     width: calc(100% - 40px);
     display: flex;
     flex-direction: row;
-    gap:32px;
+    gap: 32px;
   }
-  @media only screen and (max-width: 767px){
+  @media only screen and (max-width: 767px) {
     display: flex;
     flex-direction: column;
-    width:100% ;
+    width: 100%;
     // background: var(--modal-background);
-		background-position: center;
-  background-repeat: no-repeat;
-	background-size: inherit;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: inherit;
   }
-    
 `;
 
 export const WrapCategories = styled.div`
   display: flex;
   flex-direction: column;
-  @media (max-width: 1279px){
+  @media (max-width: 1279px) {
     width: 296px;
-      }
-  @media only screen and (max-width: 767px){
+  }
+  @media only screen and (max-width: 767px) {
     width: 280px;
   }
 `;
@@ -150,17 +149,17 @@ export const StatisticHead = styled.div`
   align-items: center;
   box-shadow: 0px 4px 60px 0px rgba(0, 0, 0, 0.25);
   /* backdrop-filter: blur(50px); */
-  @media only screen and (max-width: 1279px){
+  @media only screen and (max-width: 1279px) {
     width: 296px;
   }
-  @media only screen and (max-width: 767px){
+  @media only screen and (max-width: 767px) {
     width: 280px;
   }
 `;
 export const Text = styled.p`
   color: var(--white);
   display: block;
-  @media only screen and (max-width: 767px){
+  @media only screen and (max-width: 767px) {
     padding: 0 15px;
   }
 `;
@@ -183,9 +182,9 @@ export const CategoriesItem = styled.li`
     color: var(--expenses-color);
     font-size: 14px;
   }
-  @media only screen and (max-width: 1279px){
+  @media only screen and (max-width: 1279px) {
     width: 296px;
-    padding:0 15px;
+    padding: 0 15px;
   }
 `;
 export const SpanIncome = styled.span`
@@ -208,4 +207,10 @@ export const IndicateColor = styled.p`
   border: 1px;
   margin-right: 16px;
   background-color: ${props => props.color};
+`;
+
+export const NoTrans = styled.p`
+  color: var(--white, #fbfbfb);
+  font-family: 'Poppins Regular';
+  font-size: 16px;
 `;
