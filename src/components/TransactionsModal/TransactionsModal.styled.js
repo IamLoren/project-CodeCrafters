@@ -93,6 +93,10 @@ export const StyledModalCloseBtn = styled.button`
   border: none;
   outline: transparent;
   color: var(--white);
+  transition: all 0.5s ease;
+  &:hover {
+    transform: scale(1.05);
+  }
 `;
 export const StyledModalBody = styled.form`
   gap: 40px;
