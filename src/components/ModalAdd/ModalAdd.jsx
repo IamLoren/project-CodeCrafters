@@ -1,4 +1,3 @@
-import { ConfigProvider, DatePicker, Space } from 'antd';
 import {
   StyledDisabled,
   StyledExpenseActive,
@@ -26,9 +25,13 @@ import {
   SpanToggle,
   ToggleSwitch,
 } from 'components/Toggle/Toggle.styled.js';
-import { StyledDatePicker } from './ModalAdd.styled.js';
+import { DatePickerWrapper } from './ModalAdd.styled.js';
+import 'react-datepicker/dist/react-datepicker.css';
+import { FaRegCalendarAlt } from 'react-icons/fa';
+import ReactDatePicker from 'react-datepicker';
 
 const ModalAdd = () => {
+  const [startDate, setStartDate] = useState(new Date());
   const [isDisabled, setIsDisabled] = useState(true);
   const [isChecked, setIsChecked] = useState(true);
 
@@ -38,33 +41,33 @@ const ModalAdd = () => {
     dispatch(changeToggleState(isChecked));
   };
 
-  const [date, setDate] = useState('');
-  const onChange = (date, dateString) => {
-    setDate(dateString);
-  };
+  const onChange = date => setStartDate(date);
 
   const dispatch = useDispatch();
 
   const id = useSelector(IDfromSelect);
   const createTransaction = event => {
     event.preventDefault();
+    const formattedDate = startDate.toISOString().slice(0, 10);
+    setStartDate(formattedDate);
+    
     const formData = new FormData(event.target);
     const amountValue = formData.get('amount');
     const comment = formData.get('comment');
     const transaction = {
-      transactionDate: `${date}`,
+      transactionDate: `${formattedDate}`,
       type: `${!isChecked ? 'INCOME' : 'EXPENSE'}`,
       categoryId: `${!isChecked ? '063f1132-ba5d-42b4-951d-44011ca46262' : id}`,
       comment: `${comment}`,
       amount: `${!isChecked ? amountValue : -amountValue}`,
     };
+    console.log(transaction);
     dispatch(addTransactionThunk(transaction));
     dispatch(changeModalClose(false));
   };
 
   return (
     <StyledModalBody onSubmit={createTransaction}>
-      
       <StyledModalToggle>
         {isDisabled ? (
           <StyledDisabled>Income</StyledDisabled>
@@ -99,30 +102,20 @@ const ModalAdd = () => {
           required
         />
 
-        {/* <TransactionDate type="date" required /> */}
-
-        <ConfigProvider
-          theme={{
-            components: {
-              DatePicker: {
-                activeBg: 'transparent',
-                activeBorderColor: 'var(--modal-input-underline)',
-                // hoverBorderColor: '#906090',
-                hoverBg: 'transparent',
-                cellHoverBg: 'var(--balance-bg)',
-              },
-            },
-          }}
-        >
-          <Space direction="vertical" placeholder="Select date">
-            <StyledDatePicker>
-              <DatePicker onChange={onChange} />
-            </StyledDatePicker>
-          </Space>
-        </ConfigProvider>
+        <DatePickerWrapper>
+          <FaRegCalendarAlt />
+          <ReactDatePicker
+            required
+            name="date"
+            selected={startDate}
+            onChange={onChange}
+            dateFormat="yyyy-MM-dd"
+          />
+        </DatePickerWrapper>
       </StyledTransactionModalSelect>
 
       <StyledTransactionComment
+        required
         name="comment"
         placeholder="Comment"
       ></StyledTransactionComment>

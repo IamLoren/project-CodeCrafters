@@ -5,9 +5,9 @@ import {
   editTransactionThunk,
   fetchAllTransactionsThunk,
   fetchTransactionsCategoriesThunk,
+  fetchTransactionSummaryThunk,
+  fetchTransSumThunk,
 } from './operations';
-
-import { fetchTransactionSummaryThunk } from './operations';
 
 import { deleteTransactionThunk } from './operations';
 
@@ -20,13 +20,13 @@ export const transactionsSlice = createSlice({
       modalAddForm: false,
       toggleState: true,
       select: '',
-      transactionForEdit: '',
+      transactionForEdit: {},
     },
     categories: [],
     transactionslist: [],
     balance: 0, // записати з поля data.balanceAfter останнього обєкта із [transactionslist]
     isLoading: false,
-    transactionSummary: {},
+    transactionSummary: [],
   },
   reducers: {
     changeModalClose: (state, { payload }) => {
@@ -80,7 +80,7 @@ export const transactionsSlice = createSlice({
       })
       //
       .addCase(addTransactionThunk.fulfilled, (state, { payload }) => {
-        state.transactionslist.push(payload);
+        state.transactionslist = payload;
         state.isLoading = false;
         toast.success('Your transaction was added successfully!');
       })
@@ -113,6 +113,17 @@ export const transactionsSlice = createSlice({
       })
       .addCase(fetchTransactionsCategoriesThunk.rejected, (state, action) => {
         toast.error(`Failed to select this category: ${action.payload}`);
+      })
+      .addCase(fetchTransSumThunk.fulfilled, (state, { payload }) => {
+        state.transactionSummary = payload;
+        console.log('!!!!!!!', payload);
+        state.isLoading = false;
+      })
+      .addCase(fetchTransSumThunk.pending, state => {
+        state.isLoading = true;
+      })
+      .addCase(fetchTransSumThunk.rejected, (state, { payload }) => {
+        toast.error(`Failed to get transaction: ${payload}`);
       });
   },
 });

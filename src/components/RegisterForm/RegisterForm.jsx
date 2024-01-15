@@ -5,6 +5,7 @@ import {
   StyledBtn,
   StyledInput,
   StyledNavLink,
+  StyledLogo,
 } from 'components/LoginForm/LoginForm.styled';
 import { IoMdLock } from 'react-icons/io';
 import { MdEmail } from 'react-icons/md';
@@ -70,7 +71,7 @@ const RegisterForm = () => {
   return (
     <StyledSection>
       <StyledForm onSubmit={handleSubmit(submit)}>
-        <img src={logo} alt="logo" loading="lazy" />
+        <StyledLogo src={logo} alt="logo" loading="lazy" />
         <InputBox>
           <div>
             <FaUser className="icon" />

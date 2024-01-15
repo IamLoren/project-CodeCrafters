@@ -13,7 +13,7 @@ export const StyledDeleteButton = styled.button`
   margin-left: 10px;
   color: var(--white);
   background: var(--modal-button-gradient);
-  border-radius: 18px;
+  border-radius: 20px;
   border: none;
   outline: transparent;
 

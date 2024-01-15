@@ -4,6 +4,7 @@ import {
   StyledBtn,
   StyledForm,
   StyledInput,
+  StyledLogo,
   StyledNavLink,
   StyledSection,
 } from './LoginForm.styled';
@@ -52,7 +53,7 @@ const LoginForm = () => {
   return (
     <StyledSection>
       <StyledForm onSubmit={handleSubmit(submit)}>
-        <img src={logo} alt="logo" loading="lazy" />
+        <StyledLogo src={logo} alt="logo" loading="lazy" />
         <InputBox>
           <div>
             <MdEmail className="icon" />

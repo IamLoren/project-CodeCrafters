@@ -7,6 +7,7 @@ import React from 'react';
 import { LuPencil } from 'react-icons/lu';
 import { useDispatch, useSelector } from 'react-redux';
 import {
+  changeEditTransaction,
   // changeEditTransaction,
   changeModalEditForm,
 } from '../../../redux/transactions/transactionsSlice';
@@ -29,20 +30,32 @@ const TransactionItem = ({ transaction }) => {
     category => category.id === transaction?.categoryId
   );
 
-  // const handleClick = tr => {
-  //   dispatch(changeEditTransaction(tr));
-  //   dispatch(changeModalEditForm(true));
-  //   // const type = event.target.closest('tr').querySelector('.type').textContent;
-  // };
+  const handleClick = tr => {
+    dispatch(changeEditTransaction(tr));
+    dispatch(changeModalEditForm(true));
+    // const type = event.target.closest('tr').querySelector('.type').textContent;
+  };
 
   return (
     <tr>
-      <td className="date">{transaction?.transactionDate}</td>
-      <td className="type">{transaction?.type}</td>
+      <td className="date">
+        {transaction?.transactionDate.slice(2).split('-').reverse().join('.')}
+      </td>
+      <td className="type">{transaction?.type === 'INCOME' ? '+' : '-'}</td>
       <td className="name">{categoryName?.name}</td>
       <td className="comment">{transaction?.comment}</td>
-      <td className="amount">{transaction?.amount}</td>
+      {transaction?.type === 'INCOME' ? (
+        <td className="amount" style={{ color: '#FFB627', fontWeight: 600 }}>
+          {transaction?.amount}
+        </td>
+      ) : (
+        <td className="amount" style={{ color: '#FF868D', fontWeight: 600 }}>
+          {transaction?.amount}
+        </td>
+      )}
+
       <td>
+
         <PencilButton onClick={() => dispatch(changeModalEditForm(true))}>
           <LuPencil />
         </PencilButton>
