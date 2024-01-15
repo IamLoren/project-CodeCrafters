@@ -8,11 +8,7 @@ import {
 import ChartStatistic from '../ChartStatistic/ChartStatistic';
 import StatisticsTable from './StatisticsTable';
 import StatisticsDashboard from './StatisticsDashboard';
-import {
-  categories,
-  selectTransactionsList,
-  transactionStatistic,
-} from '../../redux/selectors';
+import { categories, transactionStatistic } from '../../redux/selectors';
 import { useSelector } from 'react-redux';
 
 const Statistics = () => {

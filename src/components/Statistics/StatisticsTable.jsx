@@ -12,12 +12,6 @@ import {
   NoTrans,
   SpanExp,
 } from './StatisticsStyled';
-import { useSelector } from 'react-redux';
-import {
-  categories,
-  selectTransactionsList,
-  transactionStatistic,
-} from '../../redux/selectors.js';
 
 export const StatisticsTable = ({ data, expenseSummary, incomeSummary }) => {
   // const income = incomeTotal.toFixed(2);
