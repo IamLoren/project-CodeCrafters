@@ -4,6 +4,9 @@ export const Container = styled.div`
   align-items: right;
   width: 715px;
   margin-top: 32px;
+  background: transparent;
+  border: none; 
+  margin-right: 10px;
   @media (max-width: 1279px) {
     width: 704px;
     margin-top: 20px;
@@ -14,15 +17,19 @@ export const Container = styled.div`
 `;
 
 export const TransactionTable = styled.table`
+position: relative;
   width: 100%;
-  height: 308px;
-  background: transparent;
   border-collapse: collapse;
+  background: transparent;
+  border: none; 
 `;
 
 export const TransactionThead = styled.thead`
+position: sticky;
+  top: 0;
+  z-index: 2;
   text-align: left;
-  background: rgba(82, 59, 126, 0.6);
+  background: #523b7e; 
   color: var(--expenses-color);
   font-family: 'Poppins Regular';
   font-size: 16px;
@@ -59,10 +66,14 @@ export const TransactionThead = styled.thead`
 `;
 
 export const TransactionTbody = styled.tbody`
+position: relative; 
+  overflow-y: auto; 
   text-align: left;
+  z-index: 1;
+  background: transparent;
+  border: none; 
   tr {
-    background: transparent;
-    height: 53px;
+    max-height: 53px;
     border-bottom: 0.5px solid rgba(255, 255, 255, 0.41);
   }
   tr:last-child {
@@ -72,6 +83,7 @@ export const TransactionTbody = styled.tbody`
     border: 0;
     border: none;
     padding: 0px 20px;
+    height: 53px; 
     color: var(--white);
     font-family: 'Poppins Regular';
     font-size: 14px;
@@ -98,7 +110,6 @@ export const WrapperList = styled.div`
 
   @media screen and (min-width: 480px) {
     height: 320px;
-    backdrop-filter: blur(56px);
   }
 
   overflow-y: scroll;

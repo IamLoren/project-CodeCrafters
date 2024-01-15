@@ -54,7 +54,7 @@ const TransactionItem = ({ transaction }) => {
       )}
       <td>
         <LuPencil
-            style={{ cursor: 'pointer' }}
+            style={{ cursor: 'pointer', color: 'var(--text-forms)' }}
           size={14}
           onClick={() => {
             handleClick(transaction);
