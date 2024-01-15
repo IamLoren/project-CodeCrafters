@@ -132,3 +132,20 @@ export const WrapperList = styled.div`
     overflow-y: scroll;
   }
 `;
+
+export const StyledText = styled.strong`
+position: absolute;
+font-family: "Poppins Bold";
+font-weight: 700;
+font-style: normal;
+  margin-left: 250px;
+  margin-top: 200px;
+`;
+
+export const StyledImage = styled.img`
+  position: absolute;
+  top: 20px;
+  left: 280px;
+  width: 150px;
+  height: 200px;
+`;
