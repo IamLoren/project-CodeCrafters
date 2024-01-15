@@ -25,7 +25,7 @@ import {
 } from './ModalEdit.styled.js';
 
 const ModalEdit = () => {
-  const [date, setDate] = useState('');
+  // const [date, setDate] = useState('');
   const [startDate, setStartDate] = useState(new Date());
 
   const onChange = date => setStartDate(date);
