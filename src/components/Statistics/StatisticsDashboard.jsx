@@ -4,7 +4,6 @@ import { useDispatch } from 'react-redux';
 import Select, { components } from 'react-select';
 import {
   fetchTransSumThunk,
-  fetchTransactionSummaryThunk,
 } from '../../redux/transactions/operations';
 import { IoIosArrowDown, IoIosArrowUp } from 'react-icons/io';
 import { libStyles } from './SelectedLibStyle';
