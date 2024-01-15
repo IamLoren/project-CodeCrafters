@@ -27,7 +27,7 @@ export const StyledModalTransaction = styled.div`
   background-size: 130% 130%;
   background-position: center;
   width: 540px;
-  min-height: 589px;
+  /* max-height: 589px; */
   padding-top: 40px;
   padding-bottom: 40px;
   display: flex;
@@ -46,6 +46,15 @@ export const StyledModalTransaction = styled.div`
     border: none;
     cursor: pointer;
   }
+
+  @media (min-width: 320px) and (max-width: 768px) {
+    width: 100%;
+    min-height: 600px;
+
+    h2 {
+      font-size: 24px;
+    }
+  }
 `;
 export const StyledModalToggle = styled.div`
   display: flex;
@@ -53,7 +62,7 @@ export const StyledModalToggle = styled.div`
   align-items: center;
 
   p {
-    font-family: 'Poppins Regular';
+    font-family: 'Poppins SemiBold';
     font-size: 16px;
     font-weight: 600;
   }
@@ -65,7 +74,7 @@ export const StyledExpenseActive = styled.p`
   color: var(--expenses-color);
 `;
 export const StyledDisabled = styled.p`
-  color: var(--disabled-toggle);
+  color: var(--text-forms);
 `;
 export const StyledModalCloseBtn = styled.button`
   position: absolute;
@@ -93,6 +102,10 @@ export const StyledTransactionModalSelect = styled.div`
   align-items: center;
   justify-content: center;
   gap: 32px;
+  @media (min-width: 320px) and (max-width: 768px) {
+    display: flex;
+    flex-direction: column;
+  }
 `;
 export const StyledTransactionAmount = styled.input`
   /* -webkit-appearance: none; */
@@ -116,9 +129,11 @@ export const StyledTransactionAmount = styled.input`
     color: var(--white);
     font-family: 'Poppins SemiBold';
   }
-  /* input::-webkit-input-placeholder {
-    color: var(--white);
-  } */
+  @media (min-width: 320px) and (max-width: 768px) {
+    width: 280px;
+    padding-left: 20px;
+    text-align: start;
+  }
 `;
 
 export const StyledTransactionComment = styled.textarea`
@@ -136,9 +151,17 @@ export const StyledTransactionComment = styled.textarea`
   &::placeholder {
     margin-bottom: 8px;
     color: var(--text-forms);
+
+    @media (min-width: 320px) and (max-width: 768px) {
+      padding-left: 10px;
+    }
   }
   &:hover {
     color: var(--white);
+  }
+
+  @media (min-width: 320px) and (max-width: 768px) {
+    width: 280px;
   }
 `;
 export const StyledTransactionButtonsWrapper = styled.div`

@@ -1,4 +1,3 @@
-import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { categories } from '../../redux/selectors.js';
 import { changeSelectOption } from '../../redux/transactions/transactionsSlice.js';
@@ -7,12 +6,10 @@ import { selectStyle } from './CustomSelect.styled.js';
 import { IoIosArrowDown, IoIosArrowUp } from 'react-icons/io';
 
 const CustomSelect = () => {
-  const [selectedOption, setSelectedOption] = useState(null);
   const categoriesTransaction = useSelector(categories);
   const dispatch = useDispatch();
   const getSelectValue = selectedOp => {
-    setSelectedOption(selectedOp);
-    dispatch(changeSelectOption(selectedOption?.value));
+    dispatch(changeSelectOption(selectedOp?.value));
   };
   const arrOfOptions = categoriesTransaction.map(category => {
     return {

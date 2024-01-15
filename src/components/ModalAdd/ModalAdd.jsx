@@ -34,7 +34,6 @@ const ModalAdd = () => {
   const [startDate, setStartDate] = useState(new Date());
   const [isDisabled, setIsDisabled] = useState(true);
   const [isChecked, setIsChecked] = useState(true);
-  const [date, setDate] = useState('');
 
   const onChangeToggle = () => {
     setIsDisabled(!isDisabled);
@@ -49,16 +48,20 @@ const ModalAdd = () => {
   const id = useSelector(IDfromSelect);
   const createTransaction = event => {
     event.preventDefault();
+    const formattedDate = startDate.toISOString().slice(0, 10);
+    setStartDate(formattedDate);
+    
     const formData = new FormData(event.target);
     const amountValue = formData.get('amount');
     const comment = formData.get('comment');
     const transaction = {
-      transactionDate: `${date}`,
+      transactionDate: `${formattedDate}`,
       type: `${!isChecked ? 'INCOME' : 'EXPENSE'}`,
       categoryId: `${!isChecked ? '063f1132-ba5d-42b4-951d-44011ca46262' : id}`,
       comment: `${comment}`,
       amount: `${!isChecked ? amountValue : -amountValue}`,
     };
+    console.log(transaction);
     dispatch(addTransactionThunk(transaction));
     dispatch(changeModalClose(false));
   };
@@ -102,15 +105,17 @@ const ModalAdd = () => {
         <DatePickerWrapper>
           <FaRegCalendarAlt />
           <ReactDatePicker
+            required
             name="date"
             selected={startDate}
             onChange={onChange}
-            dateFormat="dd.MM.yyyy"
+            dateFormat="yyyy-MM-dd"
           />
         </DatePickerWrapper>
       </StyledTransactionModalSelect>
 
       <StyledTransactionComment
+        required
         name="comment"
         placeholder="Comment"
       ></StyledTransactionComment>

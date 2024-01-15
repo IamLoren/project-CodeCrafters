@@ -8,6 +8,11 @@ export const selectStyle = {
     outline: 'none',
     borderRadius: '0',
     boxShadow: 'none',
+
+    '@media (min-width: 320px) and (max-width: 768px)': {
+      width: '280px',
+      paddingLeft: '8px',
+    },
   }),
   singleValue: styles => ({
     ...styles,
@@ -27,7 +32,7 @@ export const selectStyle = {
     backdropFilter: 'blur(50px)',
     overflow: 'hidden',
     color: 'var(--white)',
-    fontFamily: "Poppins Regular",
+    fontFamily: 'Poppins Regular',
     fontSize: '16px',
 
     '&::before': {

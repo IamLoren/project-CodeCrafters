@@ -35,17 +35,31 @@ const TransactionItem = ({ transaction }) => {
 
   return (
     <tr>
-      <td className="date">{transaction?.transactionDate}</td>
-      <td className="type">{transaction?.type}</td>
+      <td className="date">
+        {transaction?.transactionDate.slice(2).split('-').reverse().join('.')}
+      </td>
+      <td className="type">{transaction?.type === 'INCOME' ? '+' : '-'}</td>
       <td className="name">{categoryName?.name}</td>
       <td className="comment">{transaction?.comment}</td>
-      <td className="amount">{transaction?.amount}</td>
+      {transaction?.type === 'INCOME' ? (
+        <td className="amount" style={{ color: '#FFB627', fontWeight: 600 }}>
+          {transaction?.amount}
+        </td>
+      ) : (
+        <td className="amount" style={{ color: '#FF868D', fontWeight: 600 }}>
+          {transaction?.amount}
+        </td>
+      )}
+
       <td>
         <LuPencil
+          size={14}
           onClick={() => {
-            handleClick(transaction)
+            handleClick(transaction);
           }}
         />
+      </td>
+      <td>
         <StyledDeleteButton
           onClick={() =>
             delateTransaction(transaction?.id, transaction?.amount)
