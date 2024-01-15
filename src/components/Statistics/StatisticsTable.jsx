@@ -12,12 +12,6 @@ import {
   NoTrans,
   SpanExp,
 } from './StatisticsStyled';
-import { useSelector } from 'react-redux';
-import {
-  categories,
-  selectTransactionsList,
-  transactionStatistic,
-} from '../../redux/selectors.js';
 
 export const StatisticsTable = ({ data, expenseSummary, incomeSummary }) => {
   // const income = incomeTotal.toFixed(2);
@@ -44,7 +38,7 @@ export const StatisticsTable = ({ data, expenseSummary, incomeSummary }) => {
             </CategoriesItem>
           ))
         ) : (
-          <NoTrans>You have no transaction yet</NoTrans>
+          <NoTrans>No transaction for this month</NoTrans>
         )}
         <CategoriesItem>
           <CategoryName>Expenses:</CategoryName>
