@@ -23,7 +23,7 @@ export const TransactionCardContainer = styled.li`
         : 'var(--expenses-color)'};
 
         &:hover {
-          box-shadow: 0px 8px 80px 0px
+          box-shadow: 0px 8px 40px 0px
             ${props =>
               props.type === 'INCOME'
                 ? 'var(--income-color)'
