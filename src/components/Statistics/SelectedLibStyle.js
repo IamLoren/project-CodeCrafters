@@ -10,6 +10,7 @@ export const libStyles = {
     width: '182px',
     height: '50px',
     paddingLeft: '12px',
+    // marginBottom: '20px',
     '@media (min-width: 768px) and (max-width: 1279px)': {
       width: '160px',
     },

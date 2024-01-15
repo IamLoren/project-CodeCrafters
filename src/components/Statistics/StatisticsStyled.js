@@ -150,7 +150,7 @@ export const StatisticHead = styled.div`
   box-shadow: 0px 4px 60px 0px rgba(0, 0, 0, 0.25);
   /* backdrop-filter: blur(50px); */
   @media only screen and (max-width: 1279px) {
-    width: 296px;
+    width: 336px;
   }
   @media only screen and (max-width: 767px) {
     width: 280px;
