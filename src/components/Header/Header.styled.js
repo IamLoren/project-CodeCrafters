@@ -2,17 +2,19 @@ import styled from "styled-components";
 
 export const StyledHeader = styled.div`
 background: linear-gradient(270deg, #2E1746 3.2%, #2E225F 99.98%);
-padding:16px;
+padding:1px;
+`
+export const StyledInnerHeader = styled.div`
 display:flex;
 flex-direction: row;
 justify-content: space-between;
 align-items: center;
 margin: 0 auto;
 @media (max-width: 1279px) {
-    padding: 16px 32px;
+    padding: 16px 2px;
   }
   @media (max-width: 767px) {
-    padding: 12px 20px;
+    padding: 12px 1px;
   }
 div{
     display: flex;
