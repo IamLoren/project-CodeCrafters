@@ -106,7 +106,7 @@ export const WrapperList = styled.div`
   scroll-behavior: smooth;
 
   &::-webkit-scrollbar {
-    width: 10px;
+    width: 6px;
   }
 
   &::-webkit-scrollbar-track {
@@ -114,8 +114,8 @@ export const WrapperList = styled.div`
     border-radius: 10px;
   }
   &::-webkit-scrollbar-thumb {
-    background: rgb(0, 0, 0);
-    border-radius: 10px;
+    background: #BFB4DD;
+    border-radius: 12px;
   }
   &.scrollable {
     overflow-y: scroll;

@@ -20,6 +20,8 @@ const TransactionCard = ({ transaction }) => {
     category => category.id === transaction.categoryId
   );
 
+  const typeDisplay = transaction?.type.replace('INCOME', '+').replace('EXPENSE', '-');
+
   return (
     <TransactionCardContainer type={transaction.type} >
       <TransactionContent>
@@ -31,7 +33,9 @@ const TransactionCard = ({ transaction }) => {
         </p>
         <p>
           <span>Type</span>
-          <span className="transaction-value">{transaction.type}</span>
+          <span className="transaction-value">
+            {typeDisplay}
+          </span>
         </p>
         <p>
           <span>Category</span>
@@ -50,7 +54,7 @@ const TransactionCard = ({ transaction }) => {
               fontWeight: 600,
             }}
           >
-            {Math.abs(transaction.amount)}
+            {Math.abs(transaction?.amount)}
           </span>
         </p>
         <p>
