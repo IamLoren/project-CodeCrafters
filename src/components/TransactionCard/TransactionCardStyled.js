@@ -21,6 +21,16 @@ export const TransactionCardContainer = styled.li`
       props.type === 'INCOME'
         ? 'var(--income-color)'
         : 'var(--expenses-color)'};
+
+        &:hover {
+          box-shadow: 0px 8px 80px 0px
+            ${props =>
+              props.type === 'INCOME'
+                ? 'var(--income-color)'
+                : 'var(--expenses-color)'};
+          transform: scale(1.05);
+          transition: border-left 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+        }
 `;
 
 export const TransactionContent = styled.div`
