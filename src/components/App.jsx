@@ -13,10 +13,14 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import { refreshThunk } from '../redux/auth/operations.js';
 import Statistics from './Statistics/Statistics.jsx';
-import { loadingSelector } from '../redux/selectors.js';
+import {
+  loadingAuthSelector,
+  loadingTransactionsSelector,
+} from '../redux/selectors.js';
 
 export const App = () => {
-  const loading = useSelector(loadingSelector);
+  const loadingTransaction = useSelector(loadingTransactionsSelector);
+  const loadingAuth = useSelector(loadingAuthSelector);
   const isMobile = useMediaQuery({ maxWidth: 767 });
   const dispatch = useDispatch();
 
@@ -26,7 +30,7 @@ export const App = () => {
 
   return (
     <>
-      {loading && <Loader />}
+      {(loadingTransaction || loadingAuth) && <Loader />}
       <Routes>
         <Route
           path="/"

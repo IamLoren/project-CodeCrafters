@@ -37,14 +37,17 @@ export const authSlice = createSlice({
         state.user = payload.user;
         state.token = payload.token;
         state.isLogged = true;
+        state.isLoading = false;
       })
       .addCase(registerThunk.rejected, (state, { payload }) => {
         toast.error('Error! User exist!');
         state.isLogged = false;
+        state.isLoading = false;
       })
       .addCase(loginThunk.rejected, (state, { payload }) => {
         toast.error('Error! Something went wrong!');
         state.isLogged = false;
+        state.isLoading = false;
       })
       .addCase(loginThunk.fulfilled, (state, { payload }) => {
         state.user = payload.user;
@@ -80,6 +83,7 @@ export const authSlice = createSlice({
       .addCase(refreshThunk.rejected, (state, { payload }) => {
         toast.error('You need to logIn!');
         state.isLogged = false;
+        state.isLoading = false;
       })
       .addCase(addTransactionThunk.fulfilled, (state, { payload }) => {
         state.user.balance = payload.balanceAfter;
