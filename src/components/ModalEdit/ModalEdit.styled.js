@@ -36,7 +36,6 @@ export const StyledAmount = styled.input`
     color: var(--white);
     font-family: 'Poppins SemiBold';
     border-bottom: 1px solid var(--text-forms);
-  
   }
 
   @media (min-width: 320px) and (max-width: 768px) {
