@@ -10,6 +10,7 @@ import {
   IndicateColor,
   NameColor,
   NoTrans,
+  SpanExp,
 } from './StatisticsStyled';
 import { useSelector } from 'react-redux';
 import {
@@ -144,7 +145,7 @@ const StatisticsTable = () => {
         )}
         <CategoriesItem>
           <CategoryName>Expenses:</CategoryName>
-          <span>{expense}</span>
+          <SpanExp>{expense}</SpanExp>
         </CategoriesItem>
         <CategoriesItem>
           <CategoryName>Income:</CategoryName>
