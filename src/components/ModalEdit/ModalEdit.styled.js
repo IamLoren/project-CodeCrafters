@@ -77,7 +77,7 @@ export const StyledEditDatePickerWrapper = styled.div`
     font-size: 18px;
     font-weight: 400;
 
-    text-align: center;
+    padding-left: 20px;
     background: none;
     background-color: transparent;
     border: none;
