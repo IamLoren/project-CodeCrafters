@@ -11,23 +11,26 @@ import {
   NameColor,
 } from './StatisticsStyled';
 import { useSelector } from 'react-redux';
-import { categories, selectTransactionsList } from '../../redux/selectors.js';
+import {
+  categories,
+  selectTransactionsList,
+  transactionStatistic,
+} from '../../redux/selectors.js';
 
 const StatisticsTable = () => {
-  // const categories = [
-  //   'Main expenses',
-  //   'Products',
-  //   'Car',
-  //   'Self care',
-  //   'Child care',
-  //   'Household products',
-  //   'Education',
-  //   'Leisure',
-  //   'Other expenses',
-  //   'Entertainment',
-  // ];
+  const coloredCategoriesMap = new Map([
+    ['Main expenses', 'var(--main-expenses)'],
+    ['Products', 'var(--products)'],
+    ['Car', 'var(--car)'],
+    ['Self care', 'var(--self-care)'],
+    ['Child care', 'var(--child-care)'],
+    ['Household products', 'var(--household)'],
+    ['Education', 'var(--education)'],
+    ['Leisure', 'var(--leisure)'],
+    ['Other expenses', 'var(--other-expenses)'],
+  ]);
 
-  const data = [
+  let data = [
     {
       i: 1,
       category: 'Main expenses',
@@ -93,18 +96,19 @@ const StatisticsTable = () => {
   // const expenseArr = data?.filter(item => item.type === 'EXPENSE');
   // const incomeArr = data?.filter(item => item.type === 'INCOME');
   const categoriesList = useSelector(categories);
+  const statistics = useSelector(transactionStatistic);
+  const statisticExp = statistics.categoriesSummary
+    ? statistics.categoriesSummar.filter(item => item.type === 'EXPENSE')
+    : [];
 
-  console.log(
-    'transactionsList',
-    transactionsList,
-    'expenseArr',
-    expenseArr,
-    'incomeArr',
-    incomeArr,
-    'categoriesList',
-    categoriesList
-  );
+  console.log('transactionsList', transactionsList);
+  console.log('categoriesList', categoriesList);
+  console.log('statistic', statistics);
 
+  data = statisticExp.map(item => ({
+    ...item,
+    color: coloredCategoriesMap.get(item.name),
+  }));
   const totalExpense = expenseArr.reduce((total, el) => {
     return total + Number(el.amount);
   }, 0);
@@ -124,16 +128,19 @@ const StatisticsTable = () => {
         <Text>Sum</Text>
       </StatisticHead>
       <CategoriesList>
-        {data.map(item => (
-          <CategoriesItem key={item.i}>
-            <NameColor>
-              <IndicateColor color={item.color}></IndicateColor>
-              <CategoryName>{item.category}</CategoryName>
-            </NameColor>
-
-            <CategoryName>{item.sum.toFixed(2)}</CategoryName>
-          </CategoriesItem>
-        ))}
+        {data.length ? (
+          data.map((category, i) => (
+            <CategoriesItem key={i}>
+              <NameColor>
+                <IndicateColor color={category.color}></IndicateColor>
+                <CategoryName>{category.name}</CategoryName>
+              </NameColor>
+              <CategoryName>{category.total.toFixed(2)}</CategoryName>
+            </CategoriesItem>
+          ))
+        ) : (
+          <p>You have no transaction yet</p>
+        )}
         <CategoriesItem>
           <CategoryName>Expenses:</CategoryName>
           <span>{expense}</span>
@@ -146,15 +153,5 @@ const StatisticsTable = () => {
     </WrapCategories>
   );
 };
-// const coloredCategoriesMap = new Map([
-//   ['Main expenses', 'rgba(254, 208, 87, 1)'],
-//   ['Products', 'rgba(255, 216, 208, 1)'],
-//   ['Car', 'rgba(253, 148, 152, 1)'],
-//   ['Self care', 'rgba(197, 186, 255, 1)'],
-//   ['Child care', 'rgba(110, 120, 232, 1)'],
-//   ['Household products', 'rgba(74, 86, 226, 1)'],
-//   ['Education', 'rgba(129, 225, 255, 1)'],
-//   ['Leisure', 'rgba(36, 204, 167, 1)'],
-//   ['Other expenses', 'rgba(0, 173, 132, 1)'],
-// ]);
+
 export default StatisticsTable;

@@ -161,3 +161,20 @@ export const fetchTransactionSummaryThunk = createAsyncThunk(
     }
   }
 );
+
+export const fetchTransSumThunk = createAsyncThunk(
+  'fetchTransSummary',
+  async (params, thunkApi) => {
+    try {
+      const { data } = await api.get('/api/transactions-summary', {
+        params: {
+          ...(params?.month !== undefined && { month: params.month }),
+          ...(params?.year !== undefined && { year: params.year }),
+        },
+      });
+      return data;
+    } catch (error) {
+      return thunkApi.rejectWithValue(error.message);
+    }
+  }
+);
