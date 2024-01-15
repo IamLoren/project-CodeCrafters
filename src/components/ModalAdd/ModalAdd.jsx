@@ -48,11 +48,14 @@ const ModalAdd = () => {
   const id = useSelector(IDfromSelect);
   const createTransaction = event => {
     event.preventDefault();
+    const formattedDate = startDate.toISOString().slice(0, 10);
+    setStartDate(formattedDate);
+    
     const formData = new FormData(event.target);
     const amountValue = formData.get('amount');
     const comment = formData.get('comment');
     const transaction = {
-      transactionDate: `${startDate.toISOString().slice(0, 10)}`, 
+      transactionDate: `${formattedDate}`,
       type: `${!isChecked ? 'INCOME' : 'EXPENSE'}`,
       categoryId: `${!isChecked ? '063f1132-ba5d-42b4-951d-44011ca46262' : id}`,
       comment: `${comment}`,
