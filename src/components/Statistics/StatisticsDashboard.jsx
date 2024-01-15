@@ -45,7 +45,7 @@ const StatisticsDashboard = () => {
   };
   console.log('!!!', chosenMonth, chosenYear);
   useEffect(() => {
-    fetchTransSumThunk({ month: chosenMonth, year: chosenYear });
+    dispatch(fetchTransSumThunk({ month: chosenMonth, year: chosenYear }));
   }, [dispatch, chosenMonth, chosenYear]);
 
   const DropdownIndicator = props => {

@@ -99,6 +99,7 @@ export const StatisticsTable = () => {
   const categoriesList = useSelector(categories);
 
   const statistics = useSelector(transactionStatistic);
+
   const statisticExp = statistics.categoriesSummary
     ? statistics.categoriesSummar.filter(item => item.type === 'EXPENSE')
     : [];
