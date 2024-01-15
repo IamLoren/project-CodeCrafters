@@ -35,7 +35,7 @@ export const logoutThunk = createAsyncThunk(
   async (_, thunkApi) => {
     try {
       await api.delete('/api/auth/sign-out');
-      localStorage.removeItem("auth");
+      localStorage.removeItem('auth');
       clearToken();
     } catch (error) {
       toast.error(error.message);
@@ -48,7 +48,6 @@ export const refreshThunk = createAsyncThunk(
   'auth/refresh',
   async (_, thunkApi) => {
     const savedToken = thunkApi.getState().authSlice.token;
-    console.log(savedToken);
     if (savedToken) {
       setToken(savedToken);
     } else {

@@ -7,7 +7,7 @@ import {
   StyledTransactionButtonsWrapper,
   StyledTransactionModalSelect,
 } from 'components/TransactionsModal/TransactionsModal.styled';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Button from '../Button/Button.jsx';
 import AccentButton from '../../components/AccentButton/AccentButton.jsx';
 import { useDispatch, useSelector } from 'react-redux';
@@ -25,8 +25,8 @@ import {
 } from './ModalEdit.styled.js';
 
 const ModalEdit = () => {
-  const [date, setDate] = useState('');
   const [startDate, setStartDate] = useState(new Date());
+  const today = new Date();
 
   const onChange = date => setStartDate(date);
 
@@ -34,6 +34,12 @@ const ModalEdit = () => {
 
   const transactionEdit = useSelector(transactionForEdit);
   const categoriesTransaction = useSelector(categories);
+
+  useEffect(() => {
+    if (transactionEdit) {
+      setStartDate(new Date(transactionEdit.transactionDate));
+    }
+  }, [transactionEdit]);
 
   const categoryName = categoriesTransaction?.find(
     category => category.id === transactionEdit?.categoryId
@@ -52,11 +58,12 @@ const ModalEdit = () => {
       type: `${transactionEdit?.type}`,
       categoryId: `${transactionEdit?.categoryId}`,
       comment: `${comment}`,
-      amount: 
-        transactionEdit?.type === 'INCOME' ? Number(amountValue) : Number(-amountValue)
-      ,
+      amount:
+        transactionEdit?.type === 'INCOME'
+          ? Number(amountValue)
+          : Number(-amountValue),
     };
-    dispatch(editTransactionThunk({id, transaction}));
+    dispatch(editTransactionThunk({ id, transaction }));
     dispatch(changeModalClose(false));
     console.log(transactionEdit);
   };
@@ -99,6 +106,7 @@ const ModalEdit = () => {
             selected={startDate}
             onChange={onChange}
             dateFormat="dd.MM.yyyy"
+            maxDate={today}
           />
         </StyledEditDatePickerWrapper>
       </StyledTransactionModalSelect>

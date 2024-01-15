@@ -13,7 +13,7 @@ export const StyledSection = styled.section`
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background-size:cover;
+  background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   background-image: url(${mobileBg});
