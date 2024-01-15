@@ -147,7 +147,8 @@ export const StyledTransactionComment = styled.textarea`
   color: var(--white);
   border-bottom: 1px solid var(--modal-input-underline);
   outline: transparent;
-  /* resize: vertical; */
+  resize: none;
+
   &::placeholder {
     margin-bottom: 8px;
     color: var(--text-forms);
