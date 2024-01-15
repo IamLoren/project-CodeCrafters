@@ -50,7 +50,7 @@ const ModalAdd = () => {
     event.preventDefault();
     const formattedDate = startDate.toISOString().slice(0, 10);
     setStartDate(formattedDate);
-    
+
     const formData = new FormData(event.target);
     const amountValue = formData.get('amount');
     const comment = formData.get('comment');
