@@ -22,11 +22,3 @@ export const StyledDeleteButton = styled.button`
     background: var(--button-gradient-hover);
   }
 `;
-
-// export const PencilButton = styled.button`
-//   background: none;
-//   border: none;
-//   cursor: pointer;
-//   color: var(--text-forms);
-//   margin-right: 5px;
-// `;

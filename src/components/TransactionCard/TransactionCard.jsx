@@ -22,6 +22,7 @@ const TransactionCard = ({ transaction }) => {
 
   const typeDisplay = transaction?.type.replace('INCOME', '+').replace('EXPENSE', '-');
 
+
   return (
     <TransactionCardContainer type={transaction.type} >
       <TransactionContent>
