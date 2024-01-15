@@ -9,19 +9,14 @@ import {
   StyledGraphBox,
 } from './CurrencyStyled';
 import { useDispatch, useSelector } from 'react-redux';
-import {
-  currencySelector,
-  // loadingCurrencySelector,
-} from '../../../redux/selectors.js';
+import { currencySelector } from '../../../redux/selectors.js';
 import { currencyThunk } from '../../../redux/currency/operations.js';
 import ImgCurrencyDiagram from '../../../img/currency-diagr.svg';
-// import Loader from 'components/Loader/Loader';
 
 const Currency = () => {
   const [currency, setCurrency] = useState([]);
   const dispatch = useDispatch();
   const todayCurrency = useSelector(currencySelector);
-  // const loading = useSelector(loadingCurrencySelector);
 
   const lastUpdateTime = () => {
     const newTime = Date.now();
@@ -32,7 +27,7 @@ const Currency = () => {
     const updateLastTime = localStorage.getItem('updateLastTime');
 
     const timeHourPassed = () => {
-      const HOUR_IN_MS = 60 * 60 * 1000; // 60 seconds * 60 minutes * 1000 milliseconds = 3,600,000 milliseconds
+      const HOUR_IN_MS = 60 * 60 * 1000;
       return Date.now() - Number(updateLastTime) >= HOUR_IN_MS;
     };
 
@@ -47,7 +42,6 @@ const Currency = () => {
 
   return (
     <>
-      {/* {loading && <Loader />} */}
       <StyledCurrencyWrapper>
         <CurrencyTable>
           <CurrencyThead>

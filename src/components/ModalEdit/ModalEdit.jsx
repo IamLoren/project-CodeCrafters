@@ -65,7 +65,6 @@ const ModalEdit = () => {
     };
     dispatch(editTransactionThunk({ id, transaction }));
     dispatch(changeModalClose(false));
-    console.log(transactionEdit);
   };
 
   const amountPlaceholder = Math.abs(transactionEdit?.amount);
@@ -115,6 +114,7 @@ const ModalEdit = () => {
         required
         name="comment"
         placeholder={transactionEdit?.comment}
+        maxLength={12}
       ></StyledComment>
 
       <StyledTransactionButtonsWrapper>

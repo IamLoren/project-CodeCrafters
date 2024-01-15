@@ -1,4 +1,4 @@
-import { combineReducers, configureStore } from '@reduxjs/toolkit';
+import { configureStore } from '@reduxjs/toolkit';
 import { transactionsReducer } from './transactions/transactionsSlice.js';
 import { authReducer } from './auth/authSlice.js';
 import { currencyReducer } from './currency/currencySlice.js';
@@ -34,26 +34,16 @@ const transactionsPersistConfig = {
   whitelist: ['modal', 'categories', 'transactionslist', 'balance'],
 };
 
-const rootReducer = combineReducers({
-  transactionsSlice: persistReducer(
-    transactionsPersistConfig,
-    transactionsReducer
-  ),
-  authSlice: persistReducer(authPersistConfig, authReducer),
-  currencySlice: persistReducer(currencyPersistConfig, currencyReducer),
-});
-
-const persistedReducer = persistReducer(
-  {
-    key: 'root',
-    version: 1,
-    storage,
-  },
-  rootReducer
-);
+const persistedAuthReducer = persistReducer(authPersistConfig, authReducer);
+const persistedCurrencyReducer = persistReducer(currencyPersistConfig, currencyReducer);
+const persistedTransactionsReducer = persistReducer(transactionsPersistConfig, transactionsReducer);
 
 export const store = configureStore({
-  reducer: persistedReducer,
+  reducer: {
+    authSlice: persistedAuthReducer,
+    currencySlice: persistedCurrencyReducer,
+    transactionsSlice: persistedTransactionsReducer,
+  },
   middleware: getDefaultMiddleware =>
     getDefaultMiddleware({
       serializableCheck: {
@@ -62,4 +52,5 @@ export const store = configureStore({
     }),
   devTools: process.env.NODE_ENV !== 'production',
 });
+
 export let persistor = persistStore(store);

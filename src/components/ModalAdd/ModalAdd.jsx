@@ -62,7 +62,6 @@ const ModalAdd = () => {
       comment: `${comment}`,
       amount: `${!isChecked ? amountValue : -amountValue}`,
     };
-    // console.log(transaction);
     dispatch(addTransactionThunk(transaction));
     dispatch(changeModalClose(false));
   };
@@ -121,6 +120,7 @@ const ModalAdd = () => {
         required
         name="comment"
         placeholder="Comment"
+        maxLength={12}
       ></StyledTransactionComment>
 
       <StyledTransactionButtonsWrapper>

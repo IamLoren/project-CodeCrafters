@@ -15,12 +15,15 @@ import {
   fetchAllTransactionsThunk,
   fetchTransactionsCategoriesThunk,
 } from '../../../redux/transactions/operations';
-import { selectIsLogged, selectTransactionsList } from '../../../redux/selectors';
-import TransacImg from '../../../img/nottransaction.webp'; 
+import {
+  selectIsLogged,
+  selectTransactionsList,
+} from '../../../redux/selectors';
+import TransacImg from '../../../img/nottransaction.webp';
 
 const TransactionsList = () => {
   const [overflowY, setOverflowY] = useState('hidden');
-  const isLogged = useSelector(selectIsLogged)
+  const isLogged = useSelector(selectIsLogged);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -58,13 +61,11 @@ const TransactionsList = () => {
           <TransactionTbody>
             {transactions?.length === 0 ? (
               <tr>
-              <td colSpan="6" style={{ position: 'relative' }}>
-              <StyledImage src={TransacImg} alt="Image Description" />
-                <StyledText>
-                  Add your first transaction
-                </StyledText>
-              </td>
-            </tr>
+                <td colSpan="6" style={{ position: 'relative' }}>
+                  <StyledImage src={TransacImg} alt="Image Description" />
+                  <StyledText>Add your first transaction</StyledText>
+                </td>
+              </tr>
             ) : (
               transactions?.map(transaction => (
                 <TransactionItem

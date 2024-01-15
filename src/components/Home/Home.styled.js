@@ -16,7 +16,16 @@ export const StyledHomeModalOpenBtn = styled.button`
   align-items: center;
   justify-content: center;
   &:hover {
-    transform: scale(1.5);
-    background: var(--button-gradient-hover);
+    transform: scale(1.05);
+    background-image: linear-gradient(
+      to right,
+      #7000ff 0%,
+      #9e40ba 31%,
+      #ffc727 100%
+    );
+    /* display: block; */
+    transition: 1s;
+    background-size: 200% auto;
+    background-position: right center;
   }
 `;

@@ -5,7 +5,7 @@ export const Container = styled.div`
   width: 715px;
   margin-top: 32px;
   background: transparent;
-  border: none; 
+  border: none;
   margin-right: -40px;
   @media (max-width: 1279px) {
     width: 704px;
@@ -17,19 +17,19 @@ export const Container = styled.div`
 `;
 
 export const TransactionTable = styled.table`
-position: relative;
+  position: relative;
   width: 100%;
   border-collapse: collapse;
   background: transparent;
-  border: none; 
+  border: none;
 `;
 
 export const TransactionThead = styled.thead`
-position: sticky;
+  position: sticky;
   top: 0;
   z-index: 2;
   text-align: left;
-  background: #523b7e; 
+  background: #523b7e;
   color: var(--expenses-color);
   font-family: 'Poppins Regular';
   font-size: 16px;
@@ -68,10 +68,10 @@ position: sticky;
 `;
 
 export const TransactionTbody = styled.tbody`
-position: relative; 
-  overflow-y: auto; 
+  position: relative;
+  overflow-y: auto;
   text-align: left;
-  z-index: 1; 
+  z-index: 1;
   tr {
     max-height: 53px;
     border-bottom: 0.5px solid rgba(255, 255, 255, 0.41);
@@ -83,7 +83,7 @@ position: relative;
     border: 0;
     border: none;
     padding: 0px 20px;
-    height: 53px; 
+    height: 53px;
     color: var(--white);
     font-family: 'Poppins Regular';
     font-size: 14px;
@@ -125,7 +125,7 @@ export const WrapperList = styled.div`
     border-radius: 10px;
   }
   &::-webkit-scrollbar-thumb {
-    background: #BFB4DD;
+    background: #bfb4dd;
     border-radius: 12px;
   }
   &.scrollable {
@@ -134,10 +134,10 @@ export const WrapperList = styled.div`
 `;
 
 export const StyledText = styled.strong`
-position: absolute;
-font-family: "Poppins Bold";
-font-weight: 700;
-font-style: normal;
+  position: absolute;
+  font-family: 'Poppins Bold';
+  font-weight: 700;
+  font-style: normal;
   margin-left: 250px;
   margin-top: 200px;
 `;
