@@ -10,6 +10,7 @@ import {
   IndicateColor,
   NameColor,
   NoTrans,
+  SpanExp,
 } from './StatisticsStyled';
 import { useSelector } from 'react-redux';
 import {
