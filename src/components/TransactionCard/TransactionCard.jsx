@@ -2,7 +2,10 @@ import React from 'react';
 import { LuPencil } from 'react-icons/lu';
 import { useDispatch, useSelector } from 'react-redux';
 import { deleteTransactionThunk } from '../../redux/transactions/operations';
-import { changeModalEditForm } from '../../redux/transactions/transactionsSlice';
+import {
+  changeEditTransaction,
+  changeModalEditForm,
+} from '../../redux/transactions/transactionsSlice';
 import { categories } from '../../redux/selectors';
 import {
   TransactionCardContainer,
@@ -29,6 +32,12 @@ const TransactionCard = ({ transaction }) => {
   const typeDisplay = transaction?.type
     .replace('INCOME', '+')
     .replace('EXPENSE', '-');
+
+  const handleClick = li => {
+    dispatch(changeEditTransaction(li));
+    dispatch(changeModalEditForm(true));
+  };
+
 
   return (
     <TransactionCardContainer type={transaction.type}>
@@ -71,7 +80,11 @@ const TransactionCard = ({ transaction }) => {
           >
             Delete
           </StyledDeleteButt>
-          <EditButton onClick={() => dispatch(changeModalEditForm(true))}>
+          <EditButton
+            onClick={() => {
+              handleClick(transaction);
+            }}
+          >
             <LuPencil /> Edit
           </EditButton>
         </p>
