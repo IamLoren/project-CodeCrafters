@@ -33,8 +33,11 @@ const StatisticsDashboard = () => {
   const isLogged = useSelector(selectIsLogged);
   const dispatch = useDispatch();
 
-  const [chosenMonth, setChosenMonth] = useState(1);
-  const [chosenYear, setChosenYear] = useState(2024);
+  const currentMonth = new Date().getMonth() + 1;
+  const currentYear = new Date().getFullYear();
+
+  const [chosenMonth, setChosenMonth] = useState(currentMonth);
+  const [chosenYear, setChosenYear] = useState(currentYear);
 
   const handleOnMonth = date => {
     setChosenMonth(date.value);
@@ -45,16 +48,7 @@ const StatisticsDashboard = () => {
     setChosenYear(date.value);
     dispatch(fetchTransSumThunk({ month: chosenMonth, year: date.value }));
   };
-  const currentMonth = new Date().getMonth() + 1;
-  const currentYear = new Date().getFullYear();
-  console.log(currentMonth, currentYear);
 
-  //   const currentDate = new Date();
-  //   const currentYear = currentDate.getFullYear();
-  //   const currentDate = new Date();
-  // const currentMonth = currentDate.getMonth() + 1;
-
-  console.log('!!!', chosenMonth, chosenYear);
   useEffect(() => {
     // if (isLogged) {
     dispatch(fetchTransSumThunk({ month: chosenMonth, year: chosenYear }));
@@ -83,19 +77,12 @@ const StatisticsDashboard = () => {
         onChange={handleOnMonth}
         styles={libStyles}
         isSearchable={false}
-        default={'1'}
+        // default={months[chosenMonth - 1]}
         components={{
           DropdownIndicator,
           IndicatorSeparator: () => null,
         }}
-      >
-        {/* {' '}
-          {months.map(month => (
-            <DropdownContent key={month.indexOf(month)} value={month}>
-              {month}
-            </DropdownContent>
-          ))} */}
-      </Select>
+      ></Select>
       <Select
         id="year"
         name="year"
@@ -105,19 +92,12 @@ const StatisticsDashboard = () => {
         onChange={handleOnYear}
         styles={libStyles}
         isSearchable={false}
-        default={'2024'}
+        // default={years.find(year => year.value === chosenYear)}
         components={{
           DropdownIndicator,
           IndicatorSeparator: () => null,
         }}
-      >
-        {/* {' '}
-          {years.map(year => (
-            <DropdownContent key={years.indexOf(year)} value={year}>
-              {year}
-            </DropdownContent>
-          ))} */}
-      </Select>
+      ></Select>
     </DropsWrap>
   );
 };
