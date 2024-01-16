@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react';
-// import { createPortal } from 'react-dom';
 import {
   StyledTransactionsModalBackdrop,
   StyledModalTransaction,
@@ -46,13 +45,11 @@ const TransactionsModal = () => {
         open={isModalOpen}
         onClick={clickBackdrop}
       >
-        {/* header */}
         {isMobile && <Header />}
         <StyledModalTransaction>
           {isModalAdd && <h2>Add transaction</h2>}
           {isModalEdit && <h2>Edit transaction</h2>}
 
-          {/* button close */}
           {isDesktop && (
             <StyledModalCloseBtn
               onClick={() => {
@@ -62,8 +59,6 @@ const TransactionsModal = () => {
               <AiOutlineClose size="24" />
             </StyledModalCloseBtn>
           )}
-
-          {/* render form */}
 
           {isModalEdit && <ModalEdit />}
           {isModalAdd && <ModalAdd />}

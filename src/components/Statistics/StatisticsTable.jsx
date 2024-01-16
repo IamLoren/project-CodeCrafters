@@ -14,12 +14,6 @@ import {
 } from './StatisticsStyled';
 
 export const StatisticsTable = ({ data, expenseSummary, incomeSummary }) => {
-  // const income = incomeTotal.toFixed(2);
-
-  // Math.abs("-1"); // 1
-  console.log('StTable-data:', data);
-  // const statistics = useSelector(transactionStatistic);
-
   return (
     <WrapCategories>
       <StatisticHead>

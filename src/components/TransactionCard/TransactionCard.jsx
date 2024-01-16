@@ -2,7 +2,10 @@ import React from 'react';
 import { LuPencil } from 'react-icons/lu';
 import { useDispatch, useSelector } from 'react-redux';
 import { deleteTransactionThunk } from '../../redux/transactions/operations';
-import { changeModalEditForm } from '../../redux/transactions/transactionsSlice';
+import {
+  changeEditTransaction,
+  changeModalEditForm,
+} from '../../redux/transactions/transactionsSlice';
 import { categories } from '../../redux/selectors';
 import {
   TransactionCardContainer,
@@ -10,21 +13,34 @@ import {
   EditButton,
   StyledDeleteButt,
 } from './TransactionCardStyled';
+import { changeBalanceValue } from '../../redux/auth/authSlice';
 
 const TransactionCard = ({ transaction }) => {
   const dispatch = useDispatch();
-  const deleteTransaction = () =>
-    dispatch(deleteTransactionThunk(transaction.id));
+  const delateTransaction = (id, amount) => {
+    dispatch(deleteTransactionThunk(id))
+      .unwrap()
+      .then(() => {
+        dispatch(changeBalanceValue(amount));
+      });
+  };
   const categoriesTransaction = useSelector(categories);
   const categoryName = categoriesTransaction?.find(
     category => category.id === transaction.categoryId
   );
 
-  const typeDisplay = transaction?.type.replace('INCOME', '+').replace('EXPENSE', '-');
+  const typeDisplay = transaction?.type
+    .replace('INCOME', '+')
+    .replace('EXPENSE', '-');
+
+  const handleClick = li => {
+    dispatch(changeEditTransaction(li));
+    dispatch(changeModalEditForm(true));
+  };
 
 
   return (
-    <TransactionCardContainer type={transaction.type} >
+    <TransactionCardContainer type={transaction.type}>
       <TransactionContent>
         <p>
           <span>Date</span>
@@ -34,9 +50,7 @@ const TransactionCard = ({ transaction }) => {
         </p>
         <p>
           <span>Type</span>
-          <span className="transaction-value">
-            {typeDisplay}
-          </span>
+          <span className="transaction-value">{typeDisplay}</span>
         </p>
         <p>
           <span>Category</span>
@@ -59,10 +73,18 @@ const TransactionCard = ({ transaction }) => {
           </span>
         </p>
         <p>
-          <StyledDeleteButt onClick={deleteTransaction}>
+          <StyledDeleteButt
+            onClick={() =>
+              delateTransaction(transaction?.id, transaction?.amount)
+            }
+          >
             Delete
           </StyledDeleteButt>
-          <EditButton onClick={() => dispatch(changeModalEditForm(true))}>
+          <EditButton
+            onClick={() => {
+              handleClick(transaction);
+            }}
+          >
             <LuPencil /> Edit
           </EditButton>
         </p>
