@@ -23,7 +23,6 @@ const coloredCategoriesMap = new Map([
   ['Other expenses', 'rgba(0, 173, 132, 1)'],
 ]);
 const Statistics = () => {
-
   const categoriesList = useSelector(categories);
 
   const statistics = useSelector(transactionStatistic);
@@ -33,8 +32,6 @@ const Statistics = () => {
     : [];
 
   console.log('categoriesList', categoriesList);
-  console.log('statistics', statistics);
-  console.log('statisticExp', statisticExp);
   const expenseSummary = statistics.expenseSummary;
   const incomeSummary = statistics.incomeSummary;
 

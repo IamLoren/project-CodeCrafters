@@ -6,6 +6,5 @@ const variables = axios.create({
 
 export const getCurrencyBank = async () => {
   const { data } = await variables.get('/bank/currency');
-  console.log(data);
   return data;
 };
