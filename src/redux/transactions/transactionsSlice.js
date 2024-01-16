@@ -24,7 +24,7 @@ export const transactionsSlice = createSlice({
     },
     categories: [],
     transactionslist: [],
-    balance: 0, // записати з поля data.balanceAfter останнього обєкта із [transactionslist]
+    balance: 0, 
     isLoading: false,
     transactionSummary: [],
   },
@@ -96,6 +96,7 @@ export const transactionsSlice = createSlice({
         state.isLoading = false;
       })
       .addCase(editTransactionThunk.fulfilled, (state, { payload }) => {
+        console.log(payload)
         const index = state.transactionslist.findIndex(
           transaction => transaction.id === payload.id
         );
