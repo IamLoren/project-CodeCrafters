@@ -8,7 +8,7 @@ import {
 import ChartStatistic from '../ChartStatistic/ChartStatistic';
 import StatisticsTable from './StatisticsTable';
 import StatisticsDashboard from './StatisticsDashboard';
-import { categories, transactionStatistic } from '../../redux/selectors';
+import { transactionStatistic } from '../../redux/selectors';
 import { useSelector } from 'react-redux';
 
 const coloredCategoriesMap = new Map([
@@ -24,17 +24,12 @@ const coloredCategoriesMap = new Map([
 ]);
 const Statistics = () => {
 
-  const categoriesList = useSelector(categories);
-
   const statistics = useSelector(transactionStatistic);
 
   const statisticExp = statistics.categoriesSummary
     ? statistics.categoriesSummary.filter(item => item.type === 'EXPENSE')
     : [];
 
-  console.log('categoriesList', categoriesList);
-  console.log('statistics', statistics);
-  console.log('statisticExp', statisticExp);
   const expenseSummary = statistics.expenseSummary;
   const incomeSummary = statistics.incomeSummary;
 

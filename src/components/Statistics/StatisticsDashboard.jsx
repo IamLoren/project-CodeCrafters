@@ -75,7 +75,6 @@ const StatisticsDashboard = () => {
         onChange={handleOnMonth}
         styles={libStyles}
         isSearchable={false}
-        // default={months[chosenMonth - 1]}
         components={{
           DropdownIndicator,
           IndicatorSeparator: () => null,
@@ -90,7 +89,6 @@ const StatisticsDashboard = () => {
         onChange={handleOnYear}
         styles={libStyles}
         isSearchable={false}
-        // default={years.find(year => year.value === chosenYear)}
         components={{
           DropdownIndicator,
           IndicatorSeparator: () => null,
