@@ -10,6 +10,7 @@ export const StyledInnerHeader = styled.div`
   justify-content: space-between;
   align-items: center;
   margin: 0 auto;
+  padding: 16px 0;
   @media (max-width: 1279px) {
     padding: 16px 2px;
   }
