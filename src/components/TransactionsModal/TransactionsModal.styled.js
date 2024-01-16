@@ -18,6 +18,7 @@ export const StyledTransactionsModalBackdrop = styled.div`
 
   @media (min-width: 320px) and (max-width: 767px) {
     flex-direction: column;
+    justify-content: start;
   }
 `;
 
@@ -58,7 +59,7 @@ export const StyledModalTransaction = styled.div`
 
   @media (min-width: 320px) and (max-width: 768px) {
     width: 100%;
-    min-height: 600px;
+    min-height: 95vh;
 
     h2 {
       font-size: 24px;
