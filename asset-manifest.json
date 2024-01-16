@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/project-CodeCrafters/static/css/main.f59ae08f.css",
-    "main.js": "/project-CodeCrafters/static/js/main.85beaaec.js",
+    "main.js": "/project-CodeCrafters/static/js/main.7a9d2eab.js",
     "static/media/LoginForm-bg-desc@retina.webp": "/project-CodeCrafters/static/media/LoginForm-bg-desc@retina.a4bda1711893578c4c07.webp",
     "static/media/RegisterForm-bg@retina.webp": "/project-CodeCrafters/static/media/RegisterForm-bg@retina.484279e3d8928496491c.webp",
     "static/media/Circe-Regular.ttf": "/project-CodeCrafters/static/media/Circe-Regular.f80cf2f1a50fc5107f4c.ttf",
@@ -33,10 +33,10 @@
     "static/media/home-bg-mob.webp": "/project-CodeCrafters/static/media/home-bg-mob.1fd8eaa806ba7e0dd460.webp",
     "index.html": "/project-CodeCrafters/index.html",
     "main.f59ae08f.css.map": "/project-CodeCrafters/static/css/main.f59ae08f.css.map",
-    "main.85beaaec.js.map": "/project-CodeCrafters/static/js/main.85beaaec.js.map"
+    "main.7a9d2eab.js.map": "/project-CodeCrafters/static/js/main.7a9d2eab.js.map"
   },
   "entrypoints": [
     "static/css/main.f59ae08f.css",
-    "static/js/main.85beaaec.js"
+    "static/js/main.7a9d2eab.js"
   ]
 }
