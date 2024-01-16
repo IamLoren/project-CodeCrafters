@@ -50,7 +50,10 @@ export const authSlice = createSlice({
         state.isLoading = false;
       })
       .addCase(loginThunk.fulfilled, (state, { payload }) => {
-        state.user = payload.user;
+        console.log('payload-login', payload)
+        state.user.email = payload.user.email;
+        state.user.name = payload.user.username;
+        state.user.balance = payload.user.balance;
         state.token = payload.token;
         state.isLogged = true;
         state.isLoading = false;
