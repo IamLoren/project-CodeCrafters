@@ -50,9 +50,7 @@ const StatisticsDashboard = () => {
   };
 
   useEffect(() => {
-    // if (isLogged) {
     dispatch(fetchTransSumThunk({ month: chosenMonth, year: chosenYear }));
-    // }
   }, [dispatch, chosenMonth, chosenYear, isLogged]);
 
   const DropdownIndicator = props => {

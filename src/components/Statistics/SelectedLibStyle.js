@@ -2,15 +2,16 @@ export const libStyles = {
   control: (provided, state) => ({
     ...provided,
     fontSize: '16px',
-    // fontFamily: 'Poppins-Regular',
     borderRadius: '8px',
     border: `1px solid (--white-60, rgba(255, 255, 255, 0.60))`,
     background: 'rgba(74, 86, 226, 0.10)',
 
     width: '182px',
     height: '50px',
-    paddingLeft: '12px',
-    // marginBottom: '20px',
+    paddingLeft: '5px',
+    '@media (min-width: 1280px)': {
+      width: '182px',
+    },
     '@media (min-width: 768px) and (max-width: 1279px)': {
       width: '160px',
     },

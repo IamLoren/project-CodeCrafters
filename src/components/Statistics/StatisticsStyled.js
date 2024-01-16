@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import mainbgtab from '../../img/Tablet/main-bg-tab.webp';
 
 export const StatisticsTitle = styled.h3`
   color: var(--white);
@@ -85,30 +84,16 @@ export const DropdownContent = styled.option`
 export const Wrap = styled.section`
   @media only screen and (min-width: 1280px) {
     width: 800px;
-    /* width: 100%; */
-
     margin: 0 auto;
-    /* height: 100vh; */
     display: flex;
     flex-direction: row;
     gap: 32px;
-    /* padding-top: 32px; */
     padding: 32px 16px 46px 46px;
     justify-content: flex-end;
-    /* background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat; */
   }
-  /* @media only screen and (min-width: 768px) and (max-width: 1279px) { */
-  /* background-image: url(${mainbgtab}); */
-  /* padding: 0;
-  } */
 
-  /* @media only screen and (min-width: 320px) and (max-width: 768px) {
-    max-width: 320px;
-  } */
   @media (max-width: 1279px) {
-    margin-top: 20px;
+    margin-top: 30px;
     padding: 0;
     width: calc(100% - 40px);
     display: flex;
@@ -148,7 +133,7 @@ export const StatisticHead = styled.div`
   padding: 16px;
   align-items: center;
   box-shadow: 0px 4px 60px 0px rgba(0, 0, 0, 0.25);
-  /* backdrop-filter: blur(50px); */
+
   @media only screen and (max-width: 1279px) {
     width: 336px;
   }
@@ -178,15 +163,38 @@ export const CategoriesItem = styled.li`
   justify-content: space-between;
   align-items: center;
   border-bottom: 1px solid rgba(255, 255, 255, 0.41);
-  span {
-    color: var(--expenses-color);
-    font-size: 14px;
+
+  @media only screen and (min-width: 1280px) {
+    padding: 0 16px;
   }
+
   @media only screen and (max-width: 1279px) {
-    width: 296px;
+    width: 328px;
     padding: 0 15px;
   }
+  @media only screen and (max-width: 767px) {
+    width: 280px;
+  }
 `;
+export const CategoriesItemSum = styled.li`
+  height: 45px;
+  max-width: 395px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  @media only screen and (min-width: 1280px) {
+    padding: 0 16px;
+  }
+
+  @media only screen and (max-width: 1279px) {
+    width: 328px;
+    padding: 0 15px;
+  }
+  @media only screen and (max-width: 767px) {
+    width: 280px;
+  }
+`;
+
 export const SpanIncome = styled.span`
   color: var(--income-color);
   font-size: 14px;

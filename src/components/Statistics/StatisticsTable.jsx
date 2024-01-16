@@ -11,6 +11,7 @@ import {
   NameColor,
   NoTrans,
   SpanExp,
+  CategoriesItemSum,
 } from './StatisticsStyled';
 
 export const StatisticsTable = ({ data, expenseSummary, incomeSummary }) => {
@@ -34,14 +35,14 @@ export const StatisticsTable = ({ data, expenseSummary, incomeSummary }) => {
         ) : (
           <NoTrans>No transaction for this month</NoTrans>
         )}
-        <CategoriesItem>
+        <CategoriesItemSum>
           <CategoryName>Expenses:</CategoryName>
           <SpanExp>{Math.abs(expenseSummary)}</SpanExp>
-        </CategoriesItem>
-        <CategoriesItem>
+        </CategoriesItemSum>
+        <CategoriesItemSum>
           <CategoryName>Income:</CategoryName>
           <SpanIncome>{incomeSummary}</SpanIncome>
-        </CategoriesItem>
+        </CategoriesItemSum>
       </CategoriesList>
     </WrapCategories>
   );
