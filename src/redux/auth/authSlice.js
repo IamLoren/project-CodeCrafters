@@ -34,7 +34,8 @@ export const authSlice = createSlice({
   extraReducers: builder => {
     builder
       .addCase(registerThunk.fulfilled, (state, { payload }) => {
-        state.user = payload.user;
+        state.user.email = payload.user.email;
+        state.user.name = payload.user.username;
         state.token = payload.token;
         state.isLogged = true;
         state.isLoading = false;
@@ -50,7 +51,6 @@ export const authSlice = createSlice({
         state.isLoading = false;
       })
       .addCase(loginThunk.fulfilled, (state, { payload }) => {
-        console.log('payload-login', payload)
         state.user.email = payload.user.email;
         state.user.name = payload.user.username;
         state.user.balance = payload.user.balance;
@@ -72,7 +72,6 @@ export const authSlice = createSlice({
         state.isLoading = true;
       })
       .addCase(refreshThunk.fulfilled, (state, { payload }) => {
-        console.log('payload', { payload });
         state.user.name = payload.username;
         state.user.email = payload.email;
         state.user.balance = payload.balance;
