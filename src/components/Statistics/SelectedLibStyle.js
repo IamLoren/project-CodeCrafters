@@ -1,5 +1,5 @@
 export const libStyles = {
-  control: (provided, state) => ({
+  control: provided => ({
     ...provided,
     fontSize: '16px',
     borderRadius: '8px',
@@ -20,13 +20,13 @@ export const libStyles = {
     },
   }),
 
-  singleValue: (provided, state) => ({
+  singleValue: provided => ({
     ...provided,
     color: 'var(--white)',
     fontSize: '18px',
   }),
 
-  menu: (provided, state) => ({
+  menu: provided => ({
     ...provided,
     color: 'var(--white)',
     borderRadius: '8px',
