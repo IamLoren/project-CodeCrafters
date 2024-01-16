@@ -2,7 +2,10 @@ import React from 'react';
 import { LuPencil } from 'react-icons/lu';
 import { useDispatch, useSelector } from 'react-redux';
 import { deleteTransactionThunk } from '../../redux/transactions/operations';
-import { changeModalEditForm } from '../../redux/transactions/transactionsSlice';
+import {
+  changeEditTransaction,
+  changeModalEditForm,
+} from '../../redux/transactions/transactionsSlice';
 import { categories } from '../../redux/selectors';
 import {
   TransactionCardContainer,
@@ -20,11 +23,17 @@ const TransactionCard = ({ transaction }) => {
     category => category.id === transaction.categoryId
   );
 
-  const typeDisplay = transaction?.type.replace('INCOME', '+').replace('EXPENSE', '-');
+  const typeDisplay = transaction?.type
+    .replace('INCOME', '+')
+    .replace('EXPENSE', '-');
 
+  const handleClick = li => {
+    dispatch(changeEditTransaction(li));
+    dispatch(changeModalEditForm(true));
+  };
 
   return (
-    <TransactionCardContainer type={transaction.type} >
+    <TransactionCardContainer type={transaction.type}>
       <TransactionContent>
         <p>
           <span>Date</span>
@@ -34,9 +43,7 @@ const TransactionCard = ({ transaction }) => {
         </p>
         <p>
           <span>Type</span>
-          <span className="transaction-value">
-            {typeDisplay}
-          </span>
+          <span className="transaction-value">{typeDisplay}</span>
         </p>
         <p>
           <span>Category</span>
@@ -62,7 +69,11 @@ const TransactionCard = ({ transaction }) => {
           <StyledDeleteButt onClick={deleteTransaction}>
             Delete
           </StyledDeleteButt>
-          <EditButton onClick={() => dispatch(changeModalEditForm(true))}>
+          <EditButton
+            onClick={() => {
+              handleClick(transaction);
+            }}
+          >
             <LuPencil /> Edit
           </EditButton>
         </p>
