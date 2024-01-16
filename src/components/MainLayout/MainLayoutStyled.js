@@ -32,6 +32,7 @@ export const SideLeft = styled.div`
 
     @media (min-width: 768px) and (max-width: 1279px) {
       margin-top: 40px;
+      margin-left: 0px;
     }
 
     @media (min-width: 320px) and (max-width: 767px) {
