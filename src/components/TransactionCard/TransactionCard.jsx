@@ -38,14 +38,17 @@ const TransactionCard = ({ transaction }) => {
     dispatch(changeModalEditForm(true));
   };
 
-
   return (
     <TransactionCardContainer type={transaction.type}>
       <TransactionContent>
         <p>
           <span>Date</span>
           <span className="transaction-value">
-            {transaction.transactionDate}
+            {transaction?.transactionDate
+              .slice(2)
+              .split('-')
+              .reverse()
+              .join('.')}
           </span>
         </p>
         <p>
