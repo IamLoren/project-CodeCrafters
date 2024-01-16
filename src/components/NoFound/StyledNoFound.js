@@ -22,6 +22,7 @@ export const StyledSection = styled.section`
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    height: 100vh;
     gap: 20px;
     @media (min-width: 768px) and (max-width: 1279px) {
       gap: 15px;
