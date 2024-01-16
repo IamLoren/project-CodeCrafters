@@ -1,7 +1,4 @@
-import {
-  StyledDeleteButton,
-  // PencilButton,
-} from '../TransactionsItem/TransactionItemStyled';
+import { StyledDeleteButton } from '../TransactionsItem/TransactionItemStyled';
 import { deleteTransactionThunk } from '../../../../src/redux/transactions/operations';
 import React from 'react';
 import { LuPencil } from 'react-icons/lu';
@@ -32,7 +29,6 @@ const TransactionItem = ({ transaction }) => {
   const handleClick = tr => {
     dispatch(changeEditTransaction(tr));
     dispatch(changeModalEditForm(true));
-    // const type = event.target.closest('tr').querySelector('.type').textContent;
   };
 
   return (
