@@ -10,21 +10,28 @@ import {
   EditButton,
   StyledDeleteButt,
 } from './TransactionCardStyled';
+import { changeBalanceValue } from '../../redux/auth/authSlice';
 
 const TransactionCard = ({ transaction }) => {
   const dispatch = useDispatch();
-  const deleteTransaction = () =>
-    dispatch(deleteTransactionThunk(transaction.id));
+  const delateTransaction = (id, amount) => {
+    dispatch(deleteTransactionThunk(id))
+      .unwrap()
+      .then(() => {
+        dispatch(changeBalanceValue(amount));
+      });
+  };
   const categoriesTransaction = useSelector(categories);
   const categoryName = categoriesTransaction?.find(
     category => category.id === transaction.categoryId
   );
 
-  const typeDisplay = transaction?.type.replace('INCOME', '+').replace('EXPENSE', '-');
-
+  const typeDisplay = transaction?.type
+    .replace('INCOME', '+')
+    .replace('EXPENSE', '-');
 
   return (
-    <TransactionCardContainer type={transaction.type} >
+    <TransactionCardContainer type={transaction.type}>
       <TransactionContent>
         <p>
           <span>Date</span>
@@ -34,9 +41,7 @@ const TransactionCard = ({ transaction }) => {
         </p>
         <p>
           <span>Type</span>
-          <span className="transaction-value">
-            {typeDisplay}
-          </span>
+          <span className="transaction-value">{typeDisplay}</span>
         </p>
         <p>
           <span>Category</span>
@@ -59,7 +64,11 @@ const TransactionCard = ({ transaction }) => {
           </span>
         </p>
         <p>
-          <StyledDeleteButt onClick={deleteTransaction}>
+          <StyledDeleteButt
+            onClick={() =>
+              delateTransaction(transaction?.id, transaction?.amount)
+            }
+          >
             Delete
           </StyledDeleteButt>
           <EditButton onClick={() => dispatch(changeModalEditForm(true))}>

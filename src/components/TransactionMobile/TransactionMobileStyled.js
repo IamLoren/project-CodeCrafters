@@ -10,6 +10,11 @@ export const TransactionList = styled.ul`
   list-style-type: none;
   padding: 0;
   margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 40px;
 `;
 
 export const TransactionItem = styled.li`
@@ -42,19 +47,12 @@ export const TransactionButton = styled.button`
   }
 `;
 export const MobileText = styled.strong`
-position: absolute;
-font-family: "Poppins Bold";
-font-weight: 700;
-font-style: normal;
-  margin-left: 80px;
-  margin-top: 70px;
+  font-family: 'Poppins Bold';
+  font-weight: 700;
   color: #fff;
 `;
 
 export const MobileImage = styled.img`
-  position: relative;
-  top: 30px;
-  left: 100px;
   width: 80px;
   height: 100px;
 `;
