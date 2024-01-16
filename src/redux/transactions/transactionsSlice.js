@@ -24,7 +24,7 @@ export const transactionsSlice = createSlice({
     },
     categories: [],
     transactionslist: [],
-    balance: 0, 
+    balance: 0,
     isLoading: false,
     transactionSummary: [],
   },
@@ -67,7 +67,6 @@ export const transactionsSlice = createSlice({
         state.transactionslist = payload;
         state.isLoading = false;
       })
-      //deleteTransactionThunk
       .addCase(deleteTransactionThunk.pending, state => {
         state.isLoading = true;
       })
@@ -96,7 +95,7 @@ export const transactionsSlice = createSlice({
         state.isLoading = false;
       })
       .addCase(editTransactionThunk.fulfilled, (state, { payload }) => {
-        console.log(payload)
+        console.log(payload);
         const index = state.transactionslist.findIndex(
           transaction => transaction.id === payload.id
         );
@@ -127,11 +126,9 @@ export const transactionsSlice = createSlice({
       })
       .addCase(fetchTransactionsCategoriesThunk.rejected, (state, action) => {
         state.isLoading = false;
-        // toast.error(`Failed to select this category: ${action.payload}`);
       })
       .addCase(fetchTransSumThunk.fulfilled, (state, { payload }) => {
         state.transactionSummary = payload;
-        console.log('transactionSummary:', payload);
         state.isLoading = false;
       })
       .addCase(fetchTransSumThunk.pending, state => {
