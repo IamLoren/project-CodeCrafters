@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/project-CodeCrafters/static/css/main.f59ae08f.css",
-    "main.js": "/project-CodeCrafters/static/js/main.6b0a3a67.js",
+    "main.js": "/project-CodeCrafters/static/js/main.0e5d6569.js",
     "static/media/LoginForm-bg-desc@retina.webp": "/project-CodeCrafters/static/media/LoginForm-bg-desc@retina.a4bda1711893578c4c07.webp",
     "static/media/RegisterForm-bg@retina.webp": "/project-CodeCrafters/static/media/RegisterForm-bg@retina.484279e3d8928496491c.webp",
     "static/media/Circe-Regular.ttf": "/project-CodeCrafters/static/media/Circe-Regular.f80cf2f1a50fc5107f4c.ttf",
@@ -25,7 +25,6 @@
     "static/media/login-bg-tab.webp": "/project-CodeCrafters/static/media/login-bg-tab.e3cd1e03d2fe6551c85b.webp",
     "static/media/statistics-bg-mob@retina.webp": "/project-CodeCrafters/static/media/statistics-bg-mob@retina.3abd32e7771b6af74f2a.webp",
     "static/media/Home-bg-desc.webp": "/project-CodeCrafters/static/media/Home-bg-desc.e4f05da1a3a194cec162.webp",
-    "static/media/main-bg-tab.webp": "/project-CodeCrafters/static/media/main-bg-tab.d45d4629e819a34a3fae.webp",
     "static/media/home-bg-mob@retina.webp": "/project-CodeCrafters/static/media/home-bg-mob@retina.5c3e014c177cba0b2d81.webp",
     "static/media/currency-diagr.svg": "/project-CodeCrafters/static/media/currency-diagr.e4ddfc011ea2bd0d0ce4b635fb12fac7.svg",
     "static/media/statistics-bg-mob.webp": "/project-CodeCrafters/static/media/statistics-bg-mob.9b642dcd1d0c03c4badb.webp",
@@ -33,10 +32,10 @@
     "static/media/home-bg-mob.webp": "/project-CodeCrafters/static/media/home-bg-mob.1fd8eaa806ba7e0dd460.webp",
     "index.html": "/project-CodeCrafters/index.html",
     "main.f59ae08f.css.map": "/project-CodeCrafters/static/css/main.f59ae08f.css.map",
-    "main.6b0a3a67.js.map": "/project-CodeCrafters/static/js/main.6b0a3a67.js.map"
+    "main.0e5d6569.js.map": "/project-CodeCrafters/static/js/main.0e5d6569.js.map"
   },
   "entrypoints": [
     "static/css/main.f59ae08f.css",
-    "static/js/main.6b0a3a67.js"
+    "static/js/main.0e5d6569.js"
   ]
 }
