@@ -30,6 +30,7 @@ const Statistics = () => {
     ? statistics.categoriesSummary.filter(item => item.type === 'EXPENSE')
     : [];
 
+
   const expenseSummary = statistics.expenseSummary;
   const incomeSummary = statistics.incomeSummary;
 

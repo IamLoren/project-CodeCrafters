@@ -12,12 +12,10 @@ import {
   MobileImage,
   MobileText,
 } from '../TransactionMobile/TransactionMobileStyled';
-import MobileImg from '../../img/Mobile/notransaction-mobile.webp'; 
-
+import MobileImg from '../../img/Mobile/notransaction-mobile.webp';
 
 const TransactionMobile = () => {
   const isLogged = useSelector(selectIsLogged);
-  console.log('isLogged', isLogged);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -39,9 +37,7 @@ const TransactionMobile = () => {
         ) : (
           <>
             <MobileImage src={MobileImg} alt="Image Description" />
-            <MobileText>
-              Add your first transaction
-            </MobileText>
+            <MobileText>Add your first transaction</MobileText>
           </>
         )}
       </TransactionList>

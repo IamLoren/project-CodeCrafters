@@ -67,7 +67,6 @@ export const transactionsSlice = createSlice({
         state.transactionslist = payload;
         state.isLoading = false;
       })
-      //deleteTransactionThunk
       .addCase(deleteTransactionThunk.pending, state => {
         state.isLoading = true;
       })
@@ -127,7 +126,6 @@ export const transactionsSlice = createSlice({
       })
       .addCase(fetchTransactionsCategoriesThunk.rejected, (state, action) => {
         state.isLoading = false;
-        // toast.error(`Failed to select this category: ${action.payload}`);
       })
       .addCase(fetchTransSumThunk.fulfilled, (state, { payload }) => {
         state.transactionSummary = payload;
