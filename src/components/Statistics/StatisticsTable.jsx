@@ -35,7 +35,7 @@ export const StatisticsTable = ({ data, expenseSummary, incomeSummary }) => {
           : [] && <NoTrans>No transaction for this month</NoTrans>}
         <CategoriesItemSum>
           <CategoryName>Expenses:</CategoryName>
-          <SpanExp>{Math.abs(expenseSummary)}</SpanExp>
+          <SpanExp>{expenseSummary}</SpanExp>
         </CategoriesItemSum>
         <CategoriesItemSum>
           <CategoryName>Income:</CategoryName>

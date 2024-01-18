@@ -19,18 +19,16 @@ const coloredCategoriesMap = new Map([
   ['Other expenses', 'rgb(0, 173, 95)'],
   ['Education', 'rgb(115, 222, 255)'],
   ['Self care', 'rgb(170, 154, 255)'],
-  ['Child care', 'rgb(250, 224, 92)'],
+  ['Child care', 'rgb(242, 250, 92)'],
   ['Household products', 'rgb(114, 61, 239)'],
   ['Entertainment', 'rgb(201, 79, 130)'],
 ]);
 const Statistics = () => {
-
   const statistics = useSelector(transactionStatistic);
 
   const statisticExp = statistics.categoriesSummary
     ? statistics.categoriesSummary.filter(item => item.type === 'EXPENSE')
     : [];
-
 
   const expenseSummary = statistics.expenseSummary;
   const incomeSummary = statistics.incomeSummary;
