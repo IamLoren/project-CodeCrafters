@@ -95,7 +95,6 @@ export const transactionsSlice = createSlice({
         state.isLoading = false;
       })
       .addCase(editTransactionThunk.fulfilled, (state, { payload }) => {
-        console.log(payload);
         const index = state.transactionslist.findIndex(
           transaction => transaction.id === payload.id
         );
