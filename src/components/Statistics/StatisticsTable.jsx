@@ -22,19 +22,17 @@ export const StatisticsTable = ({ data, expenseSummary, incomeSummary }) => {
         <Text>Sum</Text>
       </StatisticHead>
       <CategoriesList>
-        {data.length ? (
-          data.map((category, i) => (
-            <CategoriesItem key={i}>
-              <NameColor>
-                <IndicateColor color={category.color}></IndicateColor>
-                <CategoryName>{category.name}</CategoryName>
-              </NameColor>
-              <CategoryName>{Math.abs(category.total)}</CategoryName>
-            </CategoriesItem>
-          ))
-        ) : (
-          <NoTrans>No transaction for this month</NoTrans>
-        )}
+        {data.length
+          ? data.map((category, i) => (
+              <CategoriesItem key={i}>
+                <NameColor>
+                  <IndicateColor color={category.color}></IndicateColor>
+                  <CategoryName>{category.name}</CategoryName>
+                </NameColor>
+                <CategoryName>{Math.abs(category.total)}</CategoryName>
+              </CategoriesItem>
+            ))
+          : [] && <NoTrans>No transaction for this month</NoTrans>}
         <CategoriesItemSum>
           <CategoryName>Expenses:</CategoryName>
           <SpanExp>{Math.abs(expenseSummary)}</SpanExp>

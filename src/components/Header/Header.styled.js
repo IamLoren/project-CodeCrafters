@@ -10,12 +10,13 @@ export const StyledInnerHeader = styled.div`
   justify-content: space-between;
   align-items: center;
   margin: 0 auto;
-
+  height: 80px;
   @media (max-width: 1279px) {
     padding: 16px 2px;
   }
   @media (max-width: 767px) {
     padding: 12px 1px;
+    height: 60px;
   }
   div {
     display: flex;
