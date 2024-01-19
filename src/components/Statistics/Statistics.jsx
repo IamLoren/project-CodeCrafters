@@ -12,24 +12,23 @@ import { transactionStatistic } from '../../redux/selectors';
 import { useSelector } from 'react-redux';
 
 const coloredCategoriesMap = new Map([
-  ['Main expenses', 'rgba(0, 173, 132, 1)'],
-  ['Products', 'rgba(255, 216, 208, 1)'],
-  ['Car', 'rgba(253, 148, 152, 1)'],
-  ['Self care', 'rgba(197, 186, 255, 1)'],
-  ['Child care', 'rgba(74, 86, 226, 1)'],
-  ['Household products', 'rgba(74, 86, 226, 1)'],
-  ['Education', 'rgba(129, 225, 255, 1)'],
-  ['Leisure', 'rgba(36, 204, 167, 1)'],
-  ['Other expenses', 'rgba(0, 173, 132, 1)'],
+  ['Car', 'rgb(255, 104, 109)'],
+  ['Products', 'rgb(255, 157, 137)'],
+  ['Main expenses', 'rgb(254, 208, 87)'],
+  ['Leisure', 'rgb(91, 255, 167)'],
+  ['Other expenses', 'rgb(0, 173, 95)'],
+  ['Education', 'rgb(115, 222, 255)'],
+  ['Self care', 'rgb(170, 154, 255)'],
+  ['Child care', 'rgb(242, 250, 92)'],
+  ['Household products', 'rgb(114, 61, 239)'],
+  ['Entertainment', 'rgb(201, 79, 130)'],
 ]);
 const Statistics = () => {
-
   const statistics = useSelector(transactionStatistic);
 
   const statisticExp = statistics.categoriesSummary
     ? statistics.categoriesSummary.filter(item => item.type === 'EXPENSE')
     : [];
-
 
   const expenseSummary = statistics.expenseSummary;
   const incomeSummary = statistics.incomeSummary;

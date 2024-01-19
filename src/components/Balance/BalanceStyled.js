@@ -5,7 +5,7 @@ export const BalanceWrapper = styled.div`
   box-shadow: 1px 9px 15px 0px var(--modal-button-shadow);
   width: 480px;
   padding: 8px 0 11px 56px;
-  margin-bottom: 42px;
+  margin-bottom: 12px;
 
   @media (min-width: 768px) and (max-width: 1279px) {
     width: 336px;

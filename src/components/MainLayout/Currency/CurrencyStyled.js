@@ -38,6 +38,7 @@ export const CurrencyThead = styled.div`
     display: flex;
     padding-left: 20px;
     margin-bottom: 8px;
+    background: var(--balance-bg);
   }
 
   @media (min-width: 320px) and (max-width: 767px) {
